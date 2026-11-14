@@ -1,0 +1,71 @@
+{
+  "slug": "argentina",
+  "country": "Argentina",
+  "continent": "América",
+  "flag": "🇦🇷",
+  "updated_at": "2026-11-14T05:41:57.585Z",
+  "edition_week": "2026-W46",
+  "intro": "Entre la memoria disidente y la descentralización federal, la cultura argentina debate esta semana el valor material del oficio, las heridas históricas y los límites del canon porteño.",
+  "cover_image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/193_-_Buenos_Aires_-_Puerto_Madero_-_Janvier_2010.jpg/1280px-193_-_Buenos_Aires_-_Puerto_Madero_-_Janvier_2010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Puerto Madero en Buenos Aires, sede de la Colección Amalita, donde dialogan la vanguardia disidente y el presente.",
+    "credit": "Foto: Martin St-Amant ( S23678 ) · CC BY-SA 3.0"
+  },
+  "cultural_pulse": "La conversación cultural argentina oscila esta semana entre dos fuerzas de signo opuesto: la gravitación magnética de Buenos Aires y la urgencia por desarmar su monopolio simbólico. Mientras la capital despliega sus rituales anuales de consagración —desde la expectativa por el veredicto del Premio Clarín Novela, deliberado por Ariana Harwicz, Betina González y Héctor Abad Faciolince, hasta la apertura nocturna de La Noche de los Museos—, diversas iniciativas empujan los límites geográficos del campo. En literatura, el Festival de Literatura Salvaje reúne en suelo porteño a Selva Almada con autores y editoriales independientes de seis provincias para disputar el centro desde el interior. En las artes visuales, la cámara de galerías Meridiano traslada la conversación hacia la Patagonia con NODO Circuito Neuquén, replicando impulsos descentralizadores como Pinamar Contemporáneo y dialogando con agendas activas en Córdoba, Tandil y Mar del Plata.\n\nAl mismo tiempo, los museos y los escenarios miran hacia atrás para interrogar las fracturas del presente. En Puerto Madero, la Colección Amalita dedica una gran retrospectiva a Jorge Gumier Maier (1953-2021), figura indispensable del circuito alternativo porteño de los años noventa. Lejos de la solemnidad institucional y del arte estrictamente panfletario, su obra y su labor curatorial —revisitadas hoy por investigadores como Francisco Lemus y Paola Vega— reivindican la disidencia sexual, lo íntimo y lo ornamental como trincheras estéticas. Esa misma voluntad de desactivar discursos rígidos atraviesa el regreso a escena de Campo minado, la emblemática pieza de teatro documental en la que Lola Arias reúne a excombatientes argentinos y británicos de la Guerra de Malvinas de 1982, sustituyendo la épica nacionalista por el archivo vivo de unas cicatrices compartidas, en una cartelera que también recibe a la veterana compañía española La Zaranda.\n\nEl debate se vuelve más áspero cuando aborda la economía cotidiana de quienes producen cultura y las sombras del poder político. Con El libro del dinero. Entre el don y la materialidad, la psicoanalista Alexandra Kohan cruza a Freud y a Marx para desarmar la romantización de la precariedad intelectual, recordando que el trabajo simbólico exige retribución material y no se salda con visibilidad digital ni clics. En paralelo, el periodista y escritor Jorge Fernández Díaz retoma a su agente Remil en El hombre que quería matar a Pérez-Reverte y otras historias de Remil para explorar, desde el género negro y de espionaje, lo que describe como un sottogoverno subterráneo e inmutable en la política argentina.\n\nEstas tensiones locales conversan con una inquietud global sobre la captura afectiva de la política. En diálogo con Revista Ñ desde París, el filósofo francés Georges Didi-Huberman —referencia habitual en la academia y el arte argentinos— advierte sobre la vigencia del fascismo, la paradoja de una libertad reducida a obedecer y la necesidad de diferenciar el uso ético del uso manipulador de las emociones. Esa fricción cívica también resonó fuera del país, cuando Martín Caparrós increpó en el Congreso español a una diputada de Vox durante un acto por la Ley de ELA, confirmando que la escena intelectual argentina sigue leyendo el presente como un terreno de disputa ética.",
+  "topics": [
+    {
+      "category": "Artes visuales",
+      "title": "De la disidencia de los noventa al circuito federal",
+      "summary": "La retrospectiva de Jorge Gumier Maier en la Colección Amalita y el Premio Ñ a la Trayectoria para el galerista Jorge Mara revisitan la memoria artística porteña. En contrapunto, NODO Circuito Neuquén, Pinamar Contemporáneo y las agendas de Córdoba, Tandil y Mar del Plata buscan descentralizar el mercado y el público."
+    },
+    {
+      "category": "Literatura y ensayo",
+      "title": "Canon porteño, voces provinciales y valor del oficio",
+      "summary": "Mientras se aguarda el fallo del Premio Clarín Novela y Francia condecora a Alina Diaconú, el Festival de Literatura Salvaje reúne a Selva Almada con sellos de seis provincias. A su vez, Alexandra Kohan cuestiona la precariedad digital desde el psicoanálisis y Jorge Fernández Díaz disecciona el poder subterráneo en clave policial."
+    },
+    {
+      "category": "Teatro",
+      "title": "La escena como archivo vivo de la guerra y el margen",
+      "summary": "Vuelve a Buenos Aires Campo minado, la pieza de teatro documental en la que Lola Arias reúne a veteranos argentinos y británicos de Malvinas para narrar sus heridas compartidas. La cartelera se completa con el regreso de la histórica compañía española La Zaranda y su mirada poética sobre el desamparo."
+    },
+    {
+      "category": "Ideas y debate",
+      "title": "Emociones manipuladas y fricción cívica",
+      "summary": "En entrevista con Revista Ñ, el filósofo Georges Didi-Huberman alerta sobre el uso político e inmundo de los afectos ante los nuevos autoritarismos. Esa tensión traspasó fronteras cuando Martín Caparrós confrontó en Madrid a una diputada de Vox durante un acto por la Ley de ELA, reabriendo el debate sobre el rol público del escritor."
+    }
+  ],
+  "recommendation": {
+    "type": "Exposición",
+    "title": "Retrospectiva de Jorge Gumier Maier",
+    "creator": "Jorge Gumier Maier (Colección Amalita)",
+    "context": "Reúne obra y archivo del artista y curador clave de los años noventa en Buenos Aires. Para el lector internacional, explica cómo la disidencia sexual, lo íntimo y lo ornamental desafiaron tanto la solemnidad académica como el arte panfletario, trazando el origen de la libertad formal del arte argentino actual.",
+    "url": "https://www.clarin.com/revista-n/gumier-maier-caminos-reanimador-disidente_0_hOYgMQ4Ab7.html"
+  },
+  "sources": [
+    {
+      "name": "Revista Ñ (Clarín)",
+      "url": "https://www.clarin.com/revista-n/gumier-maier-caminos-reanimador-disidente_0_hOYgMQ4Ab7.html",
+      "paywalled": true
+    },
+    {
+      "name": "Revista Ñ (Clarín)",
+      "url": "https://www.clarin.com/revista-n/georges-didi-huberman-uso-etico-uso-inmundo-emociones_0_N8D40V8L08.html",
+      "paywalled": true
+    },
+    {
+      "name": "Clarín Cultura",
+      "url": "https://www.clarin.com/cultura/alexandra-kohan-trabajo-pagarlo-dinero-clics_0_mUgmTSHxM6.html",
+      "paywalled": true
+    },
+    {
+      "name": "Infobae",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPLW9FV0ZCb01UdDYtX0VtWW5JZE5SbTM4VFktQnM0ZjJlVGx5MjV4Q0tTLWswZUV6Z1ZDWS1Bak1neVhGSk03LXJ4anVRamlqN3BjWnkwM1Z5WXp4ZFpMUzZKSmh6YXlOVDRPaEpjVTVERUVwSFo5OGQ3OWtybWt0dGJOVm5mem5pamtkWW9ucV9PLUJsQXMwRGR3dEdRNXRzLW91UjM4Ni1sRUs3ZUZNR3hGWGluT0hOVGc00gHWAUFVX3lxTE12RDJNc2tfWWdZQTloMUFIZjJoWWxYcjZtRTdJd0M5aFI3QlVWcHpkM3hsLWN2X2MyaXNFX3A1RnlpWU91UFVKTm1XVndkZjBNZldRejNtelRteDZNamZVRnNTd2Nqb2M0c24tcXljMURMdFZfOGxxYmstRVpsR1dzck5FZTVGbDVYblNEcjN5WGJhbW5mNHVZNFluYWlDVHl1bUpYaGFrcEpWZk1JMWFQNlJoQWNaSFQxWGpZSkxkQU1QaG1RRnFkX3M3OWZ0NUdxdnp4aXc?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "paywalled": false
+    },
+    {
+      "name": "Cba24n",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOUUhmYkxoZGJEc2s4RE1xNVdTZEtMVkpaWFdmS3ZNWlU2dTBXQVZPNTdqS3l6eHBFUGQtc1lOcHZ4SlJkR08wR3dOWGRnZ3pJWFhoNE9rUVk0OFVHTE5PVFhyUzBZRlJMQUtHdmJBdFMwcjZOY29FWnJMRU41bC1DcjktMmxzYjZCSldFbG5kUkdHdXR2RU5ReUdDS05IR1pRS2hVcTh1T2o3d0xhamgySTllazVxOV9rbEVjS1ZtQ2I?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "paywalled": false
+    }
+  ]
+}
