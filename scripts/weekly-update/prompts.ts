@@ -11,35 +11,27 @@ El centro de gravedad de cada edición son los hechos, obras y conversaciones ac
 4. LIBROS (novelas, crónicas, ensayos recientes, autores y premios literarios).
 5. DEBATES CULTURALES ACTUALES concretos (polémicas artísticas, cultura digital, salas y circuitos vistos desde los creadores y el público, nunca política partidaria pura ni cifras frías de dinero/taquilla).
 
-REGLA ANTI-HUMO (OBLIGATORIA):
-- Cero relleno filosófico o sociológico. Cada párrafo debe hablar de obras, artistas, bandas, películas, series o libros concretos con nombre propio sacados de las fuentes.
-- Si un tema no tiene títulos reales o nombres propios concretos en el dossier, DESCÁRTALO.
-- PROHIBIDO hablar en vaguedades como "producciones recientes", "autores locales", "nuevas investigaciones" o "bandas emergentes" sin dar el título o nombre real.
-- PROHIBIDO usar muletillas vacías o clichés de IA: "centro y periferia", "centro/periferia", "descentralización", "homogeneización digital", "supervivencia identitaria", "arqueología del secreto", "estilización operística", "diálogo entre tradición y vanguardia", "vibrante", "en un mundo cada vez más", "sin lugar a dudas", "cabe destacar", "un fascinante viaje", "en conclusión", "en definitiva", "más allá de las fronteras", "tapiz cultural".
+ESTILO HUMANO (OBLIGATORIO):
+- Escribe como un periodista cultural humano, con ritmo fluido y transición natural de una idea a otra.
+- PROHIBIDO usar conectores robóticos repetitivos al inicio de los párrafos ("Por un lado", "Por otro lado", "Paralelamente", "En paralelo", "Asimismo", "Finalmente", "En conclusión", "En definitiva", "En suma").
+- PROHIBIDO cerrar el texto con una moraleja o reflexión grandilocuente que resuma todo ("Así, el país demuestra...", "Recordándonos que el arte...", "Una muestra de cómo la cultura..."). El último párrafo debe cerrar con otro hecho, obra o escena concreta.
+- Cero relleno sociológico ni muletillas ("centro y periferia", "descentralización", "homogeneización digital", "supervivencia identitaria", "arqueología del secreto", "estilización operística", "diálogo entre tradición y vanguardia", "vibrante", "en un mundo cada vez más", "sin lugar a dudas", "cabe destacar", "un fascinante viaje", "más allá de las fronteras", "tapiz cultural").
 
-DIVERSIDAD DE FUENTES:
+DIVERSIDAD Y VERACIDAD:
 - Combina al menos 3 medios distintos presentes en las señales.
-
-POLÍTICA DE PAYWALLS Y DERECHOS DE AUTOR:
-- Nunca copies párrafos ni reproduzcas textos protegidos.
-- Nunca inventes datos, obras, personas ni enlaces.
+- Nunca inventes obras, personas ni enlaces, ni copies párrafos protegidos.
 `.trim();
 
 export function buildResearchPrompt(
   country: CountrySourceConfig,
   rssContext: string,
   previousTopics: string[],
-  weekLabel: string,
-  useSearchTool: boolean
+  weekLabel: string
 ): string {
   const antiRepeat =
     previousTopics.length > 0
       ? `\nTEMAS CUBIERTOS LA SEMANA ANTERIOR (evita repetirlos salvo que haya un giro nuevo relevante):\n- ${previousTopics.join("\n- ")}\n`
       : "";
-
-  const searchInstruction = useSearchTool
-    ? "TU TAREA DE INVESTIGACIÓN (usa Google Search):"
-    : "TU TAREA DE ANÁLISIS (básate exclusivamente en las señales reales capturadas arriba sin inventar obras ni personas):";
 
   return `
 Investiga qué está moviendo esta semana la cultura de **${country.country}** (${country.continent}) para la edición **${weekLabel}**, poniendo el foco en **música, series, cine, libros y debates culturales actuales**.
@@ -50,24 +42,26 @@ ${country.reference_media.join(", ")}
 SEÑALES RECIENTES CAPTURADAS DE MÚLTIPLES FUENTES PÚBLICAS:
 ${rssContext || "(Sin RSS disponibles)."}
 ${antiRepeat}
-${searchInstruction}
-1. Extrae los nombres propios concretos de esta semana en ${country.country}: títulos exactos de discos, canciones, bandas, series, películas, libros, autores, directores, festivales o polémicas puntuales, junto con los argumentos o datos reales que explican por qué importan.
-2. Combina señales de DISTINTOS medios (revistas musicales/rock, diarios, radios públicas, podcasts, portales de cine/series) para armar 3 a 5 conversaciones culturales vivas y específicas.
-3. Selecciona una recomendación concreta y actual ("Para descubrir": disco, libro, película o serie comentada hoy) con su creador y por qué merece atención esta semana.
+TU TAREA DE INVESTIGACIÓN (usa Google Search):
+1. Extrae nombres propios concretos: títulos exactos de discos, canciones, bandas, series, películas, libros, autores, directores, festivales o polémicas puntuales, junto con los datos reales que explican por qué importan esta semana.
+2. Combina señales de DISTINTOS medios para armar 3 a 5 conversaciones culturales vivas.
+3. Selecciona una recomendación concreta ("Para descubrir") con su creador y 1 frase breve de por qué vale la pena hoy.
 
-Devuelve un dossier compacto y rico en hechos, nombres propios y opiniones críticas reales, sin generalidades abstractas ni enfoques financieros.
+Devuelve un dossier compacto en español rico en hechos y nombres propios reales.
 `.trim();
 }
 
-export function buildSynthesisPrompt(
+function buildSharedJsonRules(
   country: CountrySourceConfig,
-  researchDossier: string,
-  verifiedUrls: { title: string; url: string }[],
+  verifiedUrls: { title: string; url: string; isExternal?: boolean }[],
   youtubeCandidates: string[],
   weekLabel: string
 ): string {
   const numberedSources = verifiedUrls
-    .map((u, idx) => `[${idx + 1}] ${u.title}`)
+    .map(
+      (u, idx) =>
+        `[${idx + 1}] ${u.isExternal ? "[SITIO EXTERNO: obra/evento/banda] " : ""}${u.title}`
+    )
     .join("\n");
 
   const ytBlock =
@@ -78,29 +72,70 @@ export function buildSynthesisPrompt(
       : "";
 
   return `
+FUENTES Y ENLACES NUMERADOS DISPONIBLES (ID entero entre 1 y ${verifiedUrls.length}):
+${numberedSources}
+${ytBlock}
+
+REGLAS ESTRICTAS DE REDACCIÓN Y FORMATO PARA ${country.country.toUpperCase()} (${weekLabel}):
+1. "intro": 1 o 2 frases cortas (entre 60 y 190 caracteres) nombrando obras, artistas o debates concretos de esta semana.
+2. "visual_query": Nombre concreto en inglés o español (2 a 4 palabras) para la foto de portada en Wikimedia (ej: "Teatro Colon Buenos Aires", "Dublin Abbey Theatre").
+3. "visual_caption": Pie de foto breve en español (máximo 130 caracteres, sin usar "vibrante").
+4. "cultural_pulse": Crónica ágil, entretenida y concreta centrada en **música, series, cine, libros y debates actuales**.
+   - **LONGITUD:** entre **380 y 500 palabras** (obligatorio superar las 320 palabras y no pasar de 650), en 3 o 4 párrafos fluidos separados por doble salto de línea (\\n\\n). Cero conectores mecánicos al inicio ("Por un lado...", "Paralelamente...", "Finalmente...") y cero moraleja final.
+   - **ENLACES OBLIGATORIOS EN EL TEXTO (2 o 3):** Debes incluir exactamente **2 o 3 enlaces** sobre nombres propios de obras, bandas, artistas, festivales o librerías usando una de estas dos formas:
+     a) **[Nombre exacto](WIKI:Nombre exacto)** para enlazar a la página real de Wikipedia de esa persona, banda, película, serie o libro (ej: [Fontaines D.C.](WIKI:Fontaines D.C.), [Sally Rooney](WIKI:Sally Rooney)).
+     b) **[Nombre exacto](ID)** apuntando a un número entero de la lista de arriba (priorizando los marcados como [SITIO EXTERNO]).
+     Obligatorio incluir al menos 2 enlaces y máximo 3.
+5. "topics": Entre 3 y 5 bloques concretos (Música, Series/TV, Cine, Libros, Debates actuales). Cada título y resumen debe nombrar explícitamente la obra, artista o evento específico.
+6. "recommendation": Recomendación destacada ("Libro", "Película", "Exposición", "Autor", "Artista", "Movimiento", "Álbum" u "Obra teatral") con "title", "creator", "source_id" (entero entre 1 y ${verifiedUrls.length}) y **"context"**: **1 sola frase bien breve y directa (entre 45 y 180 caracteres)** explicando por qué descubrirla ahora.
+7. "closing_media": Pieza visual o audiovisual DESPUÉS de todos los textos para ilustrar a una persona, banda, película, serie o lugar específico mencionado en la nota (distinto de la portada):
+   - "mode": usa "video" si hay un video pertinente en VIDEOS DE YOUTUBE VERIFICADOS arriba; si no, usa "image" indicando en "image_query" el **nombre propio exacto del artista, banda, escritor, director o lugar mencionado** (ej: "Paul Mescal", "Fito Paez", "Guggenheim Bilbao") para buscar su retrato o foto en Wikipedia/Wikimedia; usa "none" solo si nada aplica.
+   - "youtube_url": URL exacta de VIDEOS DE YOUTUBE VERIFICADOS (solo si mode="video").
+   - "image_query": nombre propio exacto (solo si mode="image").
+   - "caption": pie explicativo breve en español que conecte esa imagen/video con lo contado en la nota.
+8. "sources": Entre 3 y 6 medios periodísticos consultados elegidos de la lista numerada (si existen menos de 3 medios distintos, mínimo 2), con "id" (entero entre 1 y ${verifiedUrls.length}), "name" y "paywalled" (true/false).
+`.trim();
+}
+
+export function buildSynthesisPrompt(
+  country: CountrySourceConfig,
+  researchDossier: string,
+  verifiedUrls: { title: string; url: string; isExternal?: boolean }[],
+  youtubeCandidates: string[],
+  weekLabel: string
+): string {
+  return `
 Con base EXCLUSIVAMENTE en el dossier de investigación siguiente, redacta la edición final en español de **${country.country}** para la semana **${weekLabel}**.
 
 DOSSIER DE INVESTIGACIÓN:
 ${researchDossier}
 
-FUENTES NUMERADAS DISPONIBLES (usa su número entero ID entre 1 y ${verifiedUrls.length}):
-${numberedSources}
-${ytBlock}
+${buildSharedJsonRules(country, verifiedUrls, youtubeCandidates, weekLabel)}
+`.trim();
+}
 
-REGLAS ESTRICTAS DE REDACCIÓN Y FORMATO:
-1. "intro": 1 o 2 frases cortas (entre 60 y 190 caracteres) nombrando obras, artistas o debates concretos de esta semana en ${country.country}.
-2. "visual_query": Nombre concreto en inglés o español (2 a 4 palabras) para buscar en Wikipedia/Wikimedia la foto de portada (ej: "Teatro Colon Buenos Aires", "Dublin Abbey Theatre").
-3. "visual_caption": Pie de foto breve en español (máximo 130 caracteres, sin usar la palabra "vibrante").
-4. "cultural_pulse": Crónica ágil, concreta y entretenida de revista cultural centrada en **música, series, cine, libros y debates actuales**.
-   - **LONGITUD EXACTA:** entre **320 y 430 palabras** (NO escribas más de 460 palabras ni menos de 310), dividida en 3 o 4 párrafos concisos separados por doble salto de línea (\\n\\n). Cero relleno abstracto: cada párrafo debe contar hechos, obras, nombres propios y crítica concreta.
-   - **ENLACES OBLIGATORIOS EN EL TEXTO:** Debes incluir exactamente **2 o 3 enlaces** integrados sobre el nombre propio de una obra, disco, serie, película, libro o artista relevante usando este formato exacto: **[Nombre propio](ID)** (donde ID es el número entero de la fuente correspondiente de la lista de arriba, por ejemplo [Fontaines D.C.](3)). Es un error no incluir al menos 2 enlaces o incluir más de 3.
-5. "topics": Entre 3 y 5 bloques concretos (priorizando Música, Series/TV, Cine, Libros y Debates culturales actuales). Cada título y resumen debe nombrar explícitamente la obra, artista, festival o debate específico.
-6. "recommendation": Recomendación cultural destacada ("Libro", "Película", "Exposición", "Autor", "Artista", "Movimiento", "Álbum" u "Obra teatral") con "title", "creator", "context" y "source_id" (entero entre 1 y ${verifiedUrls.length}).
-7. "closing_media": Pieza visual o audiovisual DESPUÉS de todos los textos para ilustrar a una persona, banda, película, serie o lugar específico mencionado en la nota (distinto de la portada):
-   - "mode": usa "video" si hay un video pertinente en VIDEOS DE YOUTUBE VERIFICADOS arriba; si no, usa "image" indicando en "image_query" el **nombre exacto del artista, banda, escritor, director o lugar cultural mencionado en el texto** (ej: "David Kitt", "Paul Mescal", "Fito Paez", "Sally Rooney") para buscar su retrato o foto en Wikipedia/Wikimedia; usa "none" solo si ningún tema se presta a ilustración.
-   - "youtube_url": URL exacta de VIDEOS DE YOUTUBE VERIFICADOS (solo si mode="video").
-   - "image_query": nombre propio exacto (solo si mode="image").
-   - "caption": pie explicativo breve en español que conecte esa imagen/video con lo contado en el artículo.
-8. "sources": Entre 3 y 6 fuentes consultadas reales de **medios distintos** elegidos de la lista numerada (si existen menos de 3 medios disponibles, mínimo 2), cada una con "id" (entero entre 1 y ${verifiedUrls.length}), "name" y "paywalled" (true/false).
+export function buildDirectEditionPrompt(
+  country: CountrySourceConfig,
+  rssContext: string,
+  previousTopics: string[],
+  verifiedUrls: { title: string; url: string; isExternal?: boolean }[],
+  youtubeCandidates: string[],
+  weekLabel: string
+): string {
+  const antiRepeat =
+    previousTopics.length > 0
+      ? `\nTEMAS CUBIERTOS LA SEMANA ANTERIOR (evita repetirlos salvo que haya un giro nuevo):\n- ${previousTopics.join("\n- ")}\n`
+      : "";
+
+  return `
+Redacta directamente la edición cultural semanal en español de **${country.country}** (${country.continent}) para la semana **${weekLabel}**, basándote EXCLUSIVAMENTE en las señales reales capturadas abajo (sin inventar obras, personas ni datos).
+
+MEDIOS DE REFERENCIA EN ${country.country.toUpperCase()}:
+${country.reference_media.join(", ")}
+
+SEÑALES REALES CAPTURADAS ESTA SEMANA (múltiples fuentes):
+${rssContext}
+${antiRepeat}
+${buildSharedJsonRules(country, verifiedUrls, youtubeCandidates, weekLabel)}
 `.trim();
 }

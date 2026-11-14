@@ -12,6 +12,11 @@ const parser = new Parser({
   },
 });
 
+export interface ExternalRefLink {
+  label: string;
+  url: string;
+}
+
 export interface RssSignal {
   sourceTitle: string;
   title: string;
@@ -19,6 +24,7 @@ export interface RssSignal {
   url: string;
   pubDate?: string;
   youtubeUrl?: string;
+  externalLinks?: ExternalRefLink[];
 }
 
 const GOOGLE_NEWS_LOCALE: Record<
@@ -50,6 +56,38 @@ const GOOGLE_NEWS_LOCALE: Record<
   "nueva-zelanda": { hl: "en-NZ", gl: "NZ", ceid: "NZ:en", queryTerm: "New Zealand music culture film television books" },
 };
 
+const BLOCKED_EXTERNAL_DOMAINS = [
+  "facebook.com",
+  "twitter.com",
+  "x.com",
+  "instagram.com",
+  "tiktok.com",
+  "whatsapp.com",
+  "t.me",
+  "linkedin.com",
+  "pinterest.com",
+  "doubleclick.net",
+  "googlesyndication.com",
+  "googletagmanager.com",
+  "apple.com/podcast",
+  "podcasts.apple.com",
+  "gravatar.com",
+];
+
+const GENERIC_LINK_LABELS = [
+  "leer más",
+  "ver más",
+  "aquí",
+  "acá",
+  "click",
+  "link",
+  "enlace",
+  "read more",
+  "here",
+  "source",
+  "fuente",
+];
+
 function findYouTubeInHtml(rawHtml: string): string | undefined {
   const regex = new RegExp(
     "https?:\\/\\/(?:www\\.)?(?:youtube\\.com\\/watch\\?v=|youtu\\.be\\/|youtube\\.com\\/embed\\/)([a-zA-Z0-9_-]{11})"
@@ -69,7 +107,48 @@ function extractMediaDescription(item: unknown): string {
   return "";
 }
 
-async function fetchOpenArticleContext(url: string): Promise<string> {
+function extractExternalLinksFromParagraphs(
+  paragraphHtml: string,
+  articleHost: string
+): ExternalRefLink[] {
+  const found: ExternalRefLink[] = [];
+  const seen = new Set<string>();
+  const aRegex = /<a[^>]+href=["'](https?:\/\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+
+  for (const m of paragraphHtml.matchAll(aRegex)) {
+    const href = m[1].trim();
+    const label = m[2]
+      .replace(/<[^>]*>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    if (label.length < 3 || label.length > 60) continue;
+    if (GENERIC_LINK_LABELS.includes(label.toLowerCase())) continue;
+
+    try {
+      const u = new URL(href);
+      const host = u.hostname.replace(/^www\./, "").toLowerCase();
+      const ownHost = articleHost.replace(/^www\./, "").toLowerCase();
+      if (host === ownHost) continue;
+      if (BLOCKED_EXTERNAL_DOMAINS.some((b) => host.includes(b))) continue;
+      if (/\.(jpg|jpeg|png|gif|webp|svg|pdf)$/i.test(u.pathname)) continue;
+      if (seen.has(href)) continue;
+
+      seen.add(href);
+      found.push({ label, url: href });
+      if (found.length >= 3) break;
+    } catch {
+      continue;
+    }
+  }
+
+  return found;
+}
+
+async function fetchOpenArticleContext(url: string): Promise<{
+  text: string;
+  externalLinks: ExternalRefLink[];
+}> {
   try {
     const parsed = new URL(url);
     if (
@@ -77,7 +156,7 @@ async function fetchOpenArticleContext(url: string): Promise<string> {
       parsed.hostname.includes("youtube.com") ||
       parsed.hostname.includes("youtu.be")
     ) {
-      return "";
+      return { text: "", externalLinks: [] };
     }
 
     const controller = new AbortController();
@@ -91,34 +170,57 @@ async function fetchOpenArticleContext(url: string): Promise<string> {
     });
     clearTimeout(timer);
 
-    if (!res.ok) return "";
+    if (!res.ok) return { text: "", externalLinks: [] };
     const contentType = res.headers.get("content-type") || "";
-    if (!contentType.includes("text/html")) return "";
+    if (!contentType.includes("text/html")) {
+      return { text: "", externalLinks: [] };
+    }
 
-    const html = (await res.text()).slice(0, 45000);
+    const html = (await res.text()).slice(0, 48000);
     const cleaned = html
       .replace(/<script[\s\S]*?<\/script>/gi, " ")
       .replace(/<style[\s\S]*?<\/style>/gi, " ");
 
     const paragraphs: string[] = [];
+    const collectedLinks: ExternalRefLink[] = [];
     const pMatches = cleaned.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi);
+
     for (const m of pMatches) {
-      const txt = m[1]
+      const innerHtml = m[1];
+      const txt = innerHtml
         .replace(/<[^>]*>/g, " ")
         .replace(/&nbsp;/g, " ")
         .replace(/&amp;/g, "&")
         .replace(/&quot;/g, '"')
         .replace(/\s+/g, " ")
         .trim();
+
       if (txt.length >= 60) {
         paragraphs.push(txt);
+        if (collectedLinks.length < 3) {
+          const ext = extractExternalLinksFromParagraphs(
+            innerHtml,
+            parsed.hostname
+          );
+          for (const item of ext) {
+            if (
+              collectedLinks.length < 3 &&
+              !collectedLinks.some((c) => c.url === item.url)
+            ) {
+              collectedLinks.push(item);
+            }
+          }
+        }
       }
       if (paragraphs.length >= 3) break;
     }
 
-    return paragraphs.join(" ").slice(0, 700);
+    return {
+      text: paragraphs.join(" ").slice(0, 720),
+      externalLinks: collectedLinks,
+    };
   } catch {
-    return "";
+    return { text: "", externalLinks: [] };
   }
 }
 
@@ -150,6 +252,19 @@ async function parseSingleFeed(feedUrl: string, limit = 8): Promise<RssSignal[]>
       ].join(" ");
       const youtubeUrl = findYouTubeInHtml(rawHtml);
 
+      let host = "";
+      try {
+        host = new URL(link).hostname;
+      } catch {
+        host = "";
+      }
+      const rssExtLinks = host
+        ? extractExternalLinksFromParagraphs(
+            `${item.content || ""} ${item.summary || ""}`,
+            host
+          )
+        : [];
+
       const rawSnippet =
         item.contentSnippet || item.summary || item.content || mediaDesc || "";
       const cleanSnippet = rawSnippet
@@ -165,6 +280,7 @@ async function parseSingleFeed(feedUrl: string, limit = 8): Promise<RssSignal[]>
         url: link,
         pubDate: item.pubDate,
         youtubeUrl,
+        externalLinks: rssExtLinks,
       });
     }
   } catch (error) {
@@ -215,13 +331,20 @@ export async function enrichSignalsWithArticleContext(
   const enriched: RssSignal[] = [];
 
   for (const sig of signals) {
-    if (sig.snippet.length < 220 && fetched < 8) {
-      const extra = await fetchOpenArticleContext(sig.url);
+    const needsText = sig.snippet.length < 240;
+    const needsLinks = !sig.externalLinks || sig.externalLinks.length === 0;
+    if ((needsText || needsLinks) && fetched < 7) {
+      const res = await fetchOpenArticleContext(sig.url);
       fetched++;
-      if (extra.length > sig.snippet.length) {
-        enriched.push({ ...sig, snippet: extra });
-        continue;
-      }
+      enriched.push({
+        ...sig,
+        snippet: res.text.length > sig.snippet.length ? res.text : sig.snippet,
+        externalLinks:
+          sig.externalLinks && sig.externalLinks.length > 0
+            ? sig.externalLinks
+            : res.externalLinks,
+      });
+      continue;
     }
     enriched.push(sig);
   }

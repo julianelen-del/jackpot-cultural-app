@@ -6,6 +6,7 @@ const AI_CLICHE_PATTERNS = [
   /un fascinante viaje/i,
   /en conclusión,/i,
   /en definitiva,/i,
+  /en suma,/i,
   /más allá de las fronteras/i,
   /testimonio vibrante/i,
   /tapiz cultural/i,
@@ -16,6 +17,8 @@ const AI_CLICHE_PATTERNS = [
   /supervivencia identitaria/i,
   /arqueología del secreto/i,
   /estilización operística/i,
+  /recordándonos que el arte/i,
+  /^(?:por un lado|por otro lado|paralelamente|en paralelo|finalmente|asimismo),?\s/im,
 ];
 
 export function validateEditionQuality(
@@ -36,7 +39,7 @@ export function validateEditionQuality(
     if (pattern.test(edition.cultural_pulse)) {
       return {
         ok: false,
-        reason: `Detectada frase cliché/abstracta prohibida (${pattern.source}). Reescribe con nombres propios y hechos concretos.`,
+        reason: `Detectado tono robótico o frase cliché prohibida (${pattern.source}). Reescribe de forma natural con obras y nombres propios concretos.`,
       };
     }
   }
@@ -47,7 +50,7 @@ export function validateEditionQuality(
   if (inlineLinks.length < 2) {
     return {
       ok: false,
-      reason: `Faltan enlaces dentro de cultural_pulse (incluyó ${inlineLinks.length}; obligatorio incluir 2 o 3 usando el formato [Nombre propio](ID)).`,
+      reason: `Faltan enlaces dentro de cultural_pulse (incluyó ${inlineLinks.length}; obligatorio incluir 2 o 3 usando [Nombre](WIKI:Nombre) o [Nombre](ID)).`,
     };
   }
   if (inlineLinks.length > 3) {

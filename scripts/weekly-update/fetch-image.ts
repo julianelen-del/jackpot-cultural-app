@@ -184,14 +184,16 @@ export async function fetchWikipediaLeadImage(
       if (!imageUrl || imageUrl === excludeUrl) continue;
 
       const lower = imageUrl.toLowerCase();
-      if (lower.endsWith(".svg") || EXCLUDED_IMAGE_TERMS.some((t) => lower.includes(t))) {
+      if (
+        lower.endsWith(".svg") ||
+        EXCLUDED_IMAGE_TERMS.some((t) => lower.includes(t))
+      ) {
         continue;
       }
 
       const width = img?.width || 0;
       if (width > 0 && width < 400) continue;
 
-      // Pedir miniatura nítida de hasta 960px si es thumbnail de Wikimedia
       const cleanUrl = imageUrl.replace(/\/\d+px-/, "/960px-");
 
       return {
@@ -205,6 +207,71 @@ export async function fetchWikipediaLeadImage(
   }
 
   return undefined;
+}
+
+export async function findWikipediaPageUrl(
+  query: string
+): Promise<string | null> {
+  if (!query || query.trim().length < 2) return null;
+
+  for (const lang of ["es", "en"] as const) {
+    try {
+      const searchUrl =
+        `https://${lang}.wikipedia.org/w/api.php?` +
+        new URLSearchParams({
+          action: "query",
+          list: "search",
+          srsearch: query.trim(),
+          srlimit: "1",
+          format: "json",
+          origin: "*",
+        }).toString();
+
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 4500);
+      const searchRes = await fetch(searchUrl, {
+        signal: controller.signal,
+        headers: {
+          "User-Agent": "JackpotCulturalBot/1.0 (https://github.com)",
+        },
+      });
+      clearTimeout(timer);
+
+      if (!searchRes.ok) continue;
+      const searchData = (await searchRes.json()) as {
+        query?: { search?: Array<{ title?: string }> };
+      };
+      const pageTitle = searchData.query?.search?.[0]?.title;
+      if (!pageTitle) continue;
+
+      const summaryUrl = `https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(
+        pageTitle.replace(/ /g, "_")
+      )}`;
+      const sumController = new AbortController();
+      const sumTimer = setTimeout(() => sumController.abort(), 4500);
+      const sumRes = await fetch(summaryUrl, {
+        signal: sumController.signal,
+        headers: {
+          "User-Agent": "JackpotCulturalBot/1.0 (https://github.com)",
+        },
+      });
+      clearTimeout(sumTimer);
+
+      if (!sumRes.ok) continue;
+      const summary = (await sumRes.json()) as {
+        type?: string;
+        content_urls?: { desktop?: { page?: string } };
+      };
+
+      if (summary.type === "disambiguation") continue;
+      const desktopUrl = summary.content_urls?.desktop?.page;
+      if (desktopUrl) return desktopUrl;
+    } catch {
+      continue;
+    }
+  }
+
+  return null;
 }
 
 export function extractYouTubeEmbedUrl(rawUrl: string): string | null {
@@ -229,7 +296,9 @@ export function extractYouTubeEmbedUrl(rawUrl: string): string | null {
   }
 }
 
-export async function verifyYouTubeOEmbed(rawUrl: string): Promise<string | null> {
+export async function verifyYouTubeOEmbed(
+  rawUrl: string
+): Promise<string | null> {
   const embedUrl = extractYouTubeEmbedUrl(rawUrl);
   if (!embedUrl) return null;
 

@@ -7,6 +7,7 @@ import type {
 import {
   fetchWikimediaCoverImage,
   fetchWikipediaLeadImage,
+  findWikipediaPageUrl,
   verifyYouTubeOEmbed,
 } from "./fetch-image";
 import {
@@ -16,6 +17,7 @@ import {
   fetchGoogleNewsCulturalSignals,
 } from "./fetch-rss";
 import {
+  buildDirectEditionPrompt,
   buildResearchPrompt,
   buildSynthesisPrompt,
   EDITORIAL_SYSTEM_INSTRUCTION,
@@ -27,6 +29,7 @@ const PRIMARY_MODEL = process.env.GEMINI_MODEL || "gemini-4-hydrogen";
 const FALLBACK_MODEL = "gemini-3.5-flash-lite";
 
 let disableSearchForSession = false;
+let disablePrimaryModelForSession = false;
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -45,7 +48,7 @@ export function getCurrentIsoWeek(date = new Date()): string {
   return `${temp.getUTCFullYear()}-W${String(weekNo).padStart(2, "0")}`;
 }
 
-function isTransientError(msg: string): boolean {
+function isTransientOrQuotaError(msg: string): boolean {
   return (
     msg.includes("429") ||
     msg.includes("503") ||
@@ -62,9 +65,13 @@ async function generateWithModelFallback(
   contents: string,
   config: Record<string, unknown>
 ) {
+  const activeModel = disablePrimaryModelForSession
+    ? FALLBACK_MODEL
+    : PRIMARY_MODEL;
+
   try {
     return await ai.models.generateContent({
-      model: PRIMARY_MODEL,
+      model: activeModel,
       contents,
       config,
     });
@@ -73,11 +80,23 @@ async function generateWithModelFallback(
     if (config.tools) {
       throw err;
     }
-    if (isTransientError(msg)) {
-      console.warn(
-        `  [Modelo] Reintentando con ${FALLBACK_MODEL} tras aviso temporal en ${PRIMARY_MODEL}...`
-      );
-      await sleep(3500);
+
+    if (isTransientOrQuotaError(msg)) {
+      if (
+        !disablePrimaryModelForSession &&
+        (msg.includes("free_tier_requests") || msg.includes("limit: 20"))
+      ) {
+        disablePrimaryModelForSession = true;
+        console.warn(
+          `  [Cuota] ${PRIMARY_MODEL} alcanzó su tope diario gratuito. Cambiando a ${FALLBACK_MODEL} para el resto de la sesión.`
+        );
+      } else {
+        console.warn(
+          `  [Modelo] Reintentando con ${FALLBACK_MODEL} tras aviso temporal en ${activeModel}...`
+        );
+      }
+
+      await sleep(3000);
       try {
         return await ai.models.generateContent({
           model: FALLBACK_MODEL,
@@ -86,10 +105,10 @@ async function generateWithModelFallback(
         });
       } catch (err2) {
         const msg2 = err2 instanceof Error ? err2.message : String(err2);
-        if (isTransientError(msg2)) {
+        if (isTransientOrQuotaError(msg2)) {
           await sleep(5000);
           return await ai.models.generateContent({
-            model: PRIMARY_MODEL,
+            model: FALLBACK_MODEL,
             contents,
             config,
           });
@@ -101,28 +120,144 @@ async function generateWithModelFallback(
   }
 }
 
-function resolveInlineLinks(
+async function resolveInlineLinks(
   rawPulse: string,
   verifiedUrls: CandidateUrl[],
   allowedUrlSet: Set<string>
-): string {
-  let count = 0;
-  return rawPulse.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, target) => {
-    const cleanTarget = String(target).trim();
-    const id = Number(cleanTarget);
-    const matched = Number.isInteger(id) ? verifiedUrls[id - 1] : undefined;
+): Promise<string> {
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const matches = Array.from(rawPulse.matchAll(regex));
+  if (matches.length === 0) return rawPulse;
 
-    if (matched && count < 3) {
-      count++;
-      return `[${label}](${matched.url})`;
+  let result = "";
+  let lastIndex = 0;
+  let linkCount = 0;
+
+  for (const m of matches) {
+    const fullMatch = m[0];
+    const label = m[1];
+    const target = String(m[2]).trim();
+    const start = m.index ?? 0;
+
+    result += rawPulse.slice(lastIndex, start);
+    lastIndex = start + fullMatch.length;
+
+    if (linkCount >= 3) {
+      result += label;
+      continue;
     }
-    if (allowedUrlSet.has(cleanTarget) && count < 3) {
-      count++;
-      return `[${label}](${cleanTarget})`;
+
+    // 1) Soporte WIKI:Nombre -> busca URL real verificada en Wikipedia
+    if (/^wiki:/i.test(target)) {
+      const query = target.replace(/^wiki:/i, "").trim();
+      const wikiUrl = await findWikipediaPageUrl(query);
+      if (wikiUrl) {
+        allowedUrlSet.add(wikiUrl);
+        linkCount++;
+        result += `[${label}](${wikiUrl})`;
+        continue;
+      }
     }
-    return label;
-  });
+
+    // 2) Soporte ID numérico -> busca en lista cerrada de URLs verificadas
+    const id = Number(target);
+    const matched = Number.isInteger(id) ? verifiedUrls[id - 1] : undefined;
+    if (matched) {
+      linkCount++;
+      result += `[${label}](${matched.url})`;
+      continue;
+    }
+
+    // 3) Si el modelo puso directamente una URL verificada válida
+    if (allowedUrlSet.has(target)) {
+      linkCount++;
+      result += `[${label}](${target})`;
+      continue;
+    }
+
+    result += label;
+  }
+
+  result += rawPulse.slice(lastIndex);
+  return result;
 }
+
+const EDITION_RESPONSE_SCHEMA = {
+  type: Type.OBJECT,
+  required: [
+    "intro",
+    "visual_query",
+    "visual_caption",
+    "cultural_pulse",
+    "topics",
+    "recommendation",
+    "closing_media",
+    "sources",
+  ],
+  properties: {
+    intro: { type: Type.STRING },
+    visual_query: { type: Type.STRING },
+    visual_caption: { type: Type.STRING },
+    cultural_pulse: { type: Type.STRING },
+    topics: {
+      type: Type.ARRAY,
+      items: {
+        type: Type.OBJECT,
+        required: ["category", "title", "summary"],
+        properties: {
+          category: { type: Type.STRING },
+          title: { type: Type.STRING },
+          summary: { type: Type.STRING },
+        },
+      },
+    },
+    recommendation: {
+      type: Type.OBJECT,
+      required: ["type", "title", "creator", "context", "source_id"],
+      properties: {
+        type: {
+          type: Type.STRING,
+          enum: [
+            "Libro",
+            "Película",
+            "Exposición",
+            "Autor",
+            "Artista",
+            "Movimiento",
+            "Álbum",
+            "Obra teatral",
+          ],
+        },
+        title: { type: Type.STRING },
+        creator: { type: Type.STRING },
+        context: { type: Type.STRING },
+        source_id: { type: Type.INTEGER },
+      },
+    },
+    closing_media: {
+      type: Type.OBJECT,
+      required: ["mode", "caption"],
+      properties: {
+        mode: { type: Type.STRING, enum: ["video", "image", "none"] },
+        youtube_url: { type: Type.STRING },
+        image_query: { type: Type.STRING },
+        caption: { type: Type.STRING },
+      },
+    },
+    sources: {
+      type: Type.ARRAY,
+      items: {
+        type: Type.OBJECT,
+        required: ["id", "name", "paywalled"],
+        properties: {
+          id: { type: Type.INTEGER },
+          name: { type: Type.STRING },
+          paywalled: { type: Type.BOOLEAN },
+        },
+      },
+    },
+  },
+};
 
 export async function generateCountryEdition(
   ai: GoogleGenAI,
@@ -131,7 +266,7 @@ export async function generateCountryEdition(
 ): Promise<CountryEdition> {
   const weekLabel = getCurrentIsoWeek();
 
-  // Combinar RSS curados + Google News balanceados y enriquecer con párrafos reales abiertos
+  // Combinar RSS curados + Google News balanceados y leer párrafos + links externos de notas abiertas
   const directRss = await fetchCountryRssSignals(country.rss_feeds);
   const newsRss = await fetchGoogleNewsCulturalSignals(
     country.slug,
@@ -146,14 +281,20 @@ export async function generateCountryEdition(
 
   const formatSignals = (signals: typeof rssSignals) =>
     signals
-      .map(
-        (s) =>
-          `- [${s.sourceTitle}] ${s.title}${s.snippet ? `: ${s.snippet}` : ""} (${s.url})`
-      )
+      .map((s) => {
+        const extNote =
+          s.externalLinks && s.externalLinks.length > 0
+            ? ` | Enlaces internos citados: ${s.externalLinks
+                .map((e) => `${e.label} (${e.url})`)
+                .join(", ")}`
+            : "";
+        return `- [${s.sourceTitle}] ${s.title}${s.snippet ? `: ${s.snippet}` : ""} (${s.url})${extNote}`;
+      })
       .join("\n");
 
   let researchDossier = "";
   const candidateUrls: CandidateUrl[] = [];
+  const externalTitles = new Set<string>();
 
   let searchSucceeded = false;
   if (!disableSearchForSession) {
@@ -162,8 +303,7 @@ export async function generateCountryEdition(
         country,
         formatSignals(rssSignals),
         previousTopics,
-        weekLabel,
-        true
+        weekLabel
       );
 
       const researchResponse = await generateWithModelFallback(
@@ -195,39 +335,15 @@ export async function generateCountryEdition(
     } catch {
       disableSearchForSession = true;
       console.warn(
-        "  [Plan B gratuito] Google Search no disponible en Nivel Gratuito. Activando feeds múltiples + lectura abierta + Google News RSS."
+        "  [Plan B gratuito] Google Search no disponible en Nivel Gratuito. Usando modo directo en 1 llamada con feeds + lectura abierta."
       );
     }
   }
 
-  if (!searchSucceeded) {
-    if (rssSignals.length < 2) {
-      throw new Error(
-        "No se obtuvieron suficientes señales culturales públicas para el Plan B."
-      );
-    }
-
-    const fallbackPrompt = buildResearchPrompt(
-      country,
-      formatSignals(rssSignals),
-      previousTopics,
-      weekLabel,
-      false
+  if (!searchSucceeded && rssSignals.length < 2) {
+    throw new Error(
+      "No se obtuvieron suficientes señales culturales públicas para el Plan B."
     );
-
-    const fallbackResponse = await generateWithModelFallback(
-      ai,
-      fallbackPrompt,
-      {
-        systemInstruction: EDITORIAL_SYSTEM_INSTRUCTION,
-      }
-    );
-
-    researchDossier = fallbackResponse.text?.trim() || "";
-  }
-
-  if (researchDossier.length < 200) {
-    throw new Error("El dossier de investigación devolvió contenido insuficiente.");
   }
 
   const youtubeCandidates = Array.from(
@@ -238,6 +354,7 @@ export async function generateCountryEdition(
     )
   ).slice(0, 4);
 
+  // Primero agregamos fuentes periodísticas y luego enlaces externos de obras/bandas/eventos
   for (const sig of rssSignals) {
     candidateUrls.push({
       title: `${sig.sourceTitle} - ${sig.title}`,
@@ -245,108 +362,61 @@ export async function generateCountryEdition(
     });
   }
 
-  const verifiedUrls = await verifyCandidateUrls(candidateUrls);
-  if (verifiedUrls.length < 2) {
+  for (const sig of rssSignals) {
+    for (const ext of sig.externalLinks || []) {
+      const taggedTitle = `${ext.label} (vía ${sig.sourceTitle})`;
+      externalTitles.add(taggedTitle);
+      candidateUrls.push({
+        title: taggedTitle,
+        url: ext.url,
+      });
+    }
+  }
+
+  const verifiedRaw = await verifyCandidateUrls(candidateUrls);
+  if (verifiedRaw.length < 2) {
     throw new Error(
-      `Solo se verificaron ${verifiedUrls.length} URLs reales; mínimo requerido: 2.`
+      `Solo se verificaron ${verifiedRaw.length} URLs reales; mínimo requerido: 2.`
     );
   }
 
+  const verifiedUrls = verifiedRaw.map((u) => ({
+    ...u,
+    isExternal: externalTitles.has(u.title),
+  }));
   const allowedUrlSet = new Set(verifiedUrls.map((u) => u.url));
+
+  const rssContextText = formatSignals(rssSignals);
 
   let lastError = "";
   for (let attempt = 1; attempt <= 3; attempt++) {
-    const synthesisPrompt =
-      buildSynthesisPrompt(
-        country,
-        researchDossier,
-        verifiedUrls,
-        youtubeCandidates,
-        weekLabel
-      ) +
+    const basePrompt = searchSucceeded
+      ? buildSynthesisPrompt(
+          country,
+          researchDossier,
+          verifiedUrls,
+          youtubeCandidates,
+          weekLabel
+        )
+      : buildDirectEditionPrompt(
+          country,
+          rssContextText,
+          previousTopics,
+          verifiedUrls,
+          youtubeCandidates,
+          weekLabel
+        );
+
+    const finalPrompt =
+      basePrompt +
       (lastError
         ? `\n\nCORRECCIÓN OBLIGATORIA RESPECTO AL INTENTO ANTERIOR: ${lastError}`
         : "");
 
-    const jsonResponse = await generateWithModelFallback(ai, synthesisPrompt, {
+    const jsonResponse = await generateWithModelFallback(ai, finalPrompt, {
       systemInstruction: EDITORIAL_SYSTEM_INSTRUCTION,
       responseMimeType: "application/json",
-      responseSchema: {
-        type: Type.OBJECT,
-        required: [
-          "intro",
-          "visual_query",
-          "visual_caption",
-          "cultural_pulse",
-          "topics",
-          "recommendation",
-          "closing_media",
-          "sources",
-        ],
-        properties: {
-          intro: { type: Type.STRING },
-          visual_query: { type: Type.STRING },
-          visual_caption: { type: Type.STRING },
-          cultural_pulse: { type: Type.STRING },
-          topics: {
-            type: Type.ARRAY,
-            items: {
-              type: Type.OBJECT,
-              required: ["category", "title", "summary"],
-              properties: {
-                category: { type: Type.STRING },
-                title: { type: Type.STRING },
-                summary: { type: Type.STRING },
-              },
-            },
-          },
-          recommendation: {
-            type: Type.OBJECT,
-            required: ["type", "title", "creator", "context", "source_id"],
-            properties: {
-              type: {
-                type: Type.STRING,
-                enum: [
-                  "Libro",
-                  "Película",
-                  "Exposición",
-                  "Autor",
-                  "Artista",
-                  "Movimiento",
-                  "Álbum",
-                  "Obra teatral",
-                ],
-              },
-              title: { type: Type.STRING },
-              creator: { type: Type.STRING },
-              context: { type: Type.STRING },
-              source_id: { type: Type.INTEGER },
-            },
-          },
-          closing_media: {
-            type: Type.OBJECT,
-            required: ["mode", "caption"],
-            properties: {
-              mode: { type: Type.STRING, enum: ["video", "image", "none"] },
-              youtube_url: { type: Type.STRING },
-              image_query: { type: Type.STRING },
-              caption: { type: Type.STRING },
-            },
-          },
-          sources: {
-            type: Type.ARRAY,
-            items: {
-              type: Type.OBJECT,
-              required: ["id", "name", "paywalled"],
-              properties: {
-                id: { type: Type.INTEGER },
-                name: { type: Type.STRING },
-                paywalled: { type: Type.BOOLEAN },
-              },
-            },
-          },
-        },
-      },
+      responseSchema: EDITION_RESPONSE_SCHEMA,
     });
 
     const rawText = jsonResponse.text;
@@ -394,6 +464,7 @@ export async function generateCountryEdition(
 
     for (const fallbackUrl of verifiedUrls) {
       if (sources.length >= 3) break;
+      if (fallbackUrl.isExternal) continue;
       if (seenUrls.has(fallbackUrl.url)) continue;
       seenUrls.add(fallbackUrl.url);
       sources.push({
@@ -417,7 +488,7 @@ export async function generateCountryEdition(
       typeof parsedJson.cultural_pulse === "string"
         ? parsedJson.cultural_pulse
         : "";
-    const resolvedPulse = resolveInlineLinks(
+    const resolvedPulse = await resolveInlineLinks(
       rawPulse,
       verifiedUrls,
       allowedUrlSet
@@ -459,7 +530,6 @@ export async function generateCountryEdition(
       typeof closingRaw.image_query === "string" &&
       closingCaption.length >= 5
     ) {
-      // Primero busca retrato/foto exacta en Wikipedia; si no hay, intenta en Wikimedia Commons permitiendo retratos
       const wikiImg = await fetchWikipediaLeadImage(
         closingRaw.image_query,
         closingCaption,
@@ -504,12 +574,19 @@ export async function generateCountryEdition(
       return verdict.data;
     }
 
+    const recCtxLen =
+      typeof recommendation.context === "string"
+        ? recommendation.context.length
+        : 0;
+
     lastError =
       plainWordCount < 300
-        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${plainWordCount} palabras y el mínimo obligatorio es 300. Desarróllalo con hechos y obras concretas hasta alcanzar 350-420 palabras.`
+        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${plainWordCount} palabras y el mínimo obligatorio es 300. Desarróllalo hasta alcanzar 380-480 palabras con hechos y obras concretas.`
         : plainWordCount > 800
-          ? `Tu 'cultural_pulse' anterior tuvo ${plainWordCount} palabras (máximo 800). Resúmelo a unas 400 palabras.`
-          : verdict.reason;
+          ? `Tu 'cultural_pulse' anterior tuvo ${plainWordCount} palabras (máximo 800). Resúmelo a unas 450 palabras.`
+          : recCtxLen > 220
+            ? `Tu 'recommendation.context' tuvo ${recCtxLen} caracteres y el máximo es 220. Escríbelo en 1 sola frase bien breve (120-180 caracteres).`
+            : verdict.reason;
 
     console.warn(`  [Reintento ${attempt}] ${country.country}: ${lastError}`);
   }

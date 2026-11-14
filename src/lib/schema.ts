@@ -27,7 +27,7 @@ export const RecommendationSchema = z.object({
   ]),
   title: z.string().min(2).max(140),
   creator: z.string().min(2).max(120),
-  context: z.string().min(50).max(550),
+  context: z.string().min(35).max(220),
   url: z.string().url(),
 });
 
