@@ -57,40 +57,69 @@ function formatEditorialDate(isoDate: string): string {
 }
 
 function estimateReadingMinutes(text: string): number {
-  const plain = text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+  const plain = text
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/\*/g, "");
   const words = plain.trim().split(/\s+/).filter(Boolean).length;
   return Math.max(2, Math.round(words / 200));
 }
 
-function renderInlineLinks(paragraph: string) {
+function renderEditorialText(text: string) {
+  const normalized = text
+    .replace(/\*\*(\[[^\]]+\]\([^)]+\))\*\*/g, "$1")
+    .replace(/\*(\[[^\]]+\]\([^)]+\))\*/g, "$1");
+
+  const tokenRegex =
+    /(\[[^\]]+\]\(https?:\/\/[^)]+\)|\*\*[^*\n]+\*\*|\*[^*\n]+\*)/g;
   const parts: React.ReactNode[] = [];
-  const regex = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g;
   let lastIndex = 0;
   let match: RegExpExecArray | null;
 
-  while ((match = regex.exec(paragraph)) !== null) {
+  while ((match = tokenRegex.exec(normalized)) !== null) {
     if (match.index > lastIndex) {
-      parts.push(paragraph.slice(lastIndex, match.index));
+      parts.push(normalized.slice(lastIndex, match.index).replace(/\*/g, ""));
     }
-    parts.push(
-      <a
-        key={`${match.index}-${match[2]}`}
-        href={match[2]}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline decoration-accent/45 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-      >
-        {match[1]}
-      </a>
-    );
-    lastIndex = match.index + match[0].length;
+
+    const token = match[0];
+    if (token.startsWith("[")) {
+      const linkMatch = token.match(/^\[([^\]]+)\]\((https?:\/\/[^)]+)\)$/);
+      if (linkMatch) {
+        parts.push(
+          <a
+            key={`${match.index}-${linkMatch[2]}`}
+            href={linkMatch[2]}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium underline decoration-accent/50 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+          >
+            {linkMatch[1].replace(/\*/g, "")}
+          </a>
+        );
+      } else {
+        parts.push(token.replace(/\*/g, ""));
+      }
+    } else if (token.startsWith("**") && token.endsWith("**")) {
+      parts.push(
+        <strong key={`b-${match.index}`} className="font-semibold text-ink">
+          {token.slice(2, -2)}
+        </strong>
+      );
+    } else if (token.startsWith("*") && token.endsWith("*")) {
+      parts.push(
+        <em key={`em-${match.index}`} className="italic">
+          {token.slice(1, -1)}
+        </em>
+      );
+    }
+
+    lastIndex = match.index + token.length;
   }
 
-  if (lastIndex < paragraph.length) {
-    parts.push(paragraph.slice(lastIndex));
+  if (lastIndex < normalized.length) {
+    parts.push(normalized.slice(lastIndex).replace(/\*/g, ""));
   }
 
-  return parts.length > 0 ? parts : paragraph;
+  return parts.length > 0 ? parts : normalized.replace(/\*/g, "");
 }
 
 export default async function CountryPage({ params }: PageProps) {
@@ -166,7 +195,7 @@ export default async function CountryPage({ params }: PageProps) {
           </div>
 
           <p className="mx-auto mt-5 max-w-2xl font-serif text-xl leading-relaxed italic text-ink/85 sm:text-2xl">
-            {edition.intro}
+            {renderEditorialText(edition.intro)}
           </p>
         </header>
 
@@ -207,7 +236,7 @@ export default async function CountryPage({ params }: PageProps) {
                 key={idx}
                 className={idx === 0 ? "editorial-dropcap" : undefined}
               >
-                {renderInlineLinks(paragraph)}
+                {renderEditorialText(paragraph)}
               </p>
             ))}
           </div>
@@ -236,10 +265,10 @@ export default async function CountryPage({ params }: PageProps) {
                   {topic.category}
                 </p>
                 <h3 className="mt-2 font-serif text-2xl leading-snug font-medium text-ink">
-                  {topic.title}
+                  {renderEditorialText(topic.title)}
                 </h3>
                 <p className="mt-2.5 text-[15px] leading-relaxed text-ink-muted">
-                  {topic.summary}
+                  {renderEditorialText(topic.summary)}
                 </p>
               </div>
             ))}
@@ -270,7 +299,7 @@ export default async function CountryPage({ params }: PageProps) {
           </p>
 
           <p className="mt-4 text-base leading-relaxed text-ink/90">
-            {edition.recommendation.context}
+            {renderEditorialText(edition.recommendation.context)}
           </p>
 
           <div className="mt-6">
@@ -286,7 +315,6 @@ export default async function CountryPage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* PIEZA VISUAL O AUDIOVISUAL OPCIONAL DESPUÉS DE TODOS LOS TEXTOS */}
         {edition.closing_media && (
           <figure className="mx-auto mt-14 max-w-3xl">
             {edition.closing_media.type === "video" ? (
