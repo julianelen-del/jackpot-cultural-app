@@ -3,49 +3,64 @@
   "country": "Canadá",
   "continent": "América",
   "flag": "🇨🇦",
-  "updated_at": "2026-11-14T06:07:25.658Z",
+  "updated_at": "2026-11-14T06:36:00.867Z",
   "edition_week": "2026-W46",
-  "intro": "La conversación cultural en Canadá examina la materialidad del archivo y la soberanía de la mirada institucional.",
-  "cultural_pulse": "La conversación cultural en Canadá durante esta semana abandona la coyuntura efímera para instalarse en una pregunta incómoda y urgente: ¿cómo se están reescribiendo los relatos históricos y estéticos desde los márgenes de las instituciones? Observada a través de las brújulas críticas de publicaciones especializadas, la escena intelectual canadiense rechaza la aceleración digital acrítica para exigir una revisión profunda de la memoria visual y urbana del país. Ya no basta con diversificar catálogos o cumplir con cuotas de inclusión superficiales; el pulso intelectual exige desmontar los marcos coloniales y nacionalistas que tradicionalmente han estructurado el cine, las artes visuales y la cartografía pública de las principales metrópolis.\n\nEsta semana exhibe una tensión palpable entre la necesidad de preservar los espacios físicos de resistencia cultural —como el cine independiente, las salas de repertorio y los centros comunitarios de exhibición— y la urgencia teórica de repensar las herramientas con las que se analiza la cultura contemporánea. En ciudades como Vancouver, Montreal y Toronto, la presión inmobiliaria y la gentrificación ponen en jaque a los cines de barrio, entendidos no como meros negocios comerciales, sino como los últimos reductos de una cinefilia libre de algoritmos. La crítica cultural advierte que la desaparición de estos espacios equivale a una forma de amnesia colectiva, erosionando el tejido social que permite el encuentro y el debate presencial en torno a las imágenes.\n\nParalelamente, el pensamiento crítico y el ensayo visual emergen como las herramientas idóneas para diagnosticar el malestar político del presente. A través de reflexiones sobre la tecnología de vigilancia y la geopolítica de la imagen, los creadores y ensayistas cuestionan la neutralidad de los dispositivos visuales contemporáneos. Este diagnóstico se cruza con un debate mayor sobre la descentralización de los circuitos de producción: las instituciones y festivales canadienses son instados a abandonar el paternalismo cultural y a entablar diálogos simétricos con las cinematografías emergentes del Sur Global, reconfigurando sus alianzas geopolíticas más allá de los ejes tradicionales norteamericanos y europeos.",
+  "intro": "Canadá transita hacia una profunda introspección material, debatiendo la preservación de su infraestructura analógica y el rescate de sus cánones.",
+  "cover_image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/AnnapolisRoyal_KingsTheater.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "caption": "Fachada clásica de un teatro patrimonial en el circuito cultural urbano canadiense.",
+    "credit": "Foto: Magicpiano · CC BY-SA 4.0"
+  },
+  "cultural_pulse": "La conversación cultural en Canadá durante esta vigésimo sexta semana de 2026 transita por un territorio de profunda introspección material. Mientras los espacios de exhibición cinematográfica independiente en Norteamérica —desde los históricos cines de las Grandes Llanuras hasta las salas autogestionadas de la costa atlántica— lidian con urgencias de mantenimiento y con la precariedad de sus infraestructuras físicas, el ecosistema intelectual canadiense observa con atención los debates globales sobre la curaduría crítica y el rescate de cánones artísticos desde ópticas periféricas. Lejos del optimismo tecnológico superficial, la agenda cultural en publicaciones como The Walrus y Le Devoir pone el foco en cómo se archiva el pasado reciente y qué narrativas visuales y literarias dominan los espacios públicos e institucionales.\n\nLa tensión entre la preservación del patrimonio analógico —la sala oscura, el celuloide, el libro impreso— y las demandas de descolonización de los repertorios artísticos marca el compás de una semana donde el arte busca anclarse en comunidades locales tangibles. En paralelo a las discusiones sobre la restauración de cines de diseño patrimonial, medios culturales examinan el impacto emocional y social de perder estos santuarios comunitarios frente a la gentrificación y la digitalización del consumo fílmico. La conversación no gira únicamente en torno al ladrillo y el mortero, sino al colapso de una sociabilidad cinéfila construida a lo largo de décadas de esfuerzo colectivo.\n\nFrente al modelo de consumo algorítmico en solitario, el debate subraya la urgencia de dotar de fondos públicos estables a los cines de barrio que sostienen la memoria audiovisual local. A este pulso material se suma la publicación de análisis críticos de largo aliento sobre la saturación visual y la mercantilización de la imagen digital, los cuales resuenan fuertemente en las facultades de bellas artes y en los foros de pensamiento crítico de Montreal y Toronto, cuestionando la eficacia de las herramientas tradicionales de la historia del arte contemporáneo.\n\nAsimismo, los escenarios canadienses debaten la resignificación de los textos canónicos desde perspectivas históricamente silenciadas, preguntándose cómo desmontar las estructuras eurocéntricas sin caer en la imposición de cuotas. El foco se sitúa en otorgar a creadores de comunidades minoritarias herramientas de producción que inventen nuevas mitologías escénicas desde los márgenes hacia el centro, consolidando una infraestructura de la memoria que es, ante todo, un ejercicio político y estricta resistencia cultural.",
   "topics": [
     {
-      "category": "Ensayo Crítico y Teoría Visual",
-      "title": "La cartografía política de la imagen en movimiento",
-      "summary": "El debate intelectual reaviva la discusión sobre cómo el cine experimental y documental debe operar como un dispositivo táctico frente a las derivas autoritarias y la vigilancia digital global."
+      "category": "Cine y Patrimonio",
+      "title": "La persistencia de las salas independientes",
+      "summary": "La vulnerabilidad estructural de los cines independientes y de repertorio vuelve a ocupar el centro de la crítica cultural norteamericana, examinando el impacto social de perder estos santuarios comunitarios frente al consumo algorítmico."
     },
     {
-      "category": "Cine y Arquitectura",
-      "title": "La vulnerabilidad del patrimonio cinematográfico independiente",
-      "summary": "La gentrificación y los altos costos amenazan los cines de repertorio en los centros metropolitanos, exigiendo políticas públicas de protección frente al consumo algorítmico."
+      "category": "Ensayo",
+      "title": "Geopolítica de la mirada y crítica de las imágenes",
+      "summary": "Nuevos ensayos sobre la saturación visual y el cinismo institucional resuenan en las facultades de bellas artes, cuestionando cómo el documental puede recuperar una autonomía estética lejos del didactismo político."
     },
     {
-      "category": "Geopolítica Cultural",
-      "title": "El Sur Global y las ambiciones descentralizadas del cine",
-      "summary": "La crítica cultural canadiense cuestiona la dependencia de los fondos tradicionales e impulsa coproducciones simétricas con las cinematografías emergentes de África y América Latina."
+      "category": "Teatro y Literatura",
+      "title": "La reescritura de los clásicos desde los márgenes",
+      "summary": "Los circuitos escénicos debaten cómo desmontar las estructuras eurocéntricas de las dramaturgias nacionales mediante la invención de nuevas mitologías que trascienden la simple corrección histórica."
     }
   ],
   "recommendation": {
-    "type": "Autor",
-    "title": "On Target — Sidecar",
-    "creator": "Erika Balsom",
-    "context": "Un ensayo analítico fundamental publicado en New Left Review que disecciona las intersecciones entre la tecnología de vigilancia, la representación visual y las políticas de la mirada en el arte contemporáneo.",
-    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9ldDlQbGRqY2dMVEpSVXlpaE12ZmtPdVNYbnpaQkpVT2t5OE5vckc5dHB1b3hFc0dzQUdmRmhqU2hTNjlJdnBpam5sY2Jxd1QzSEx0NGUxVTRfeC0tUWc?oc=5&hl=en-US&gl=US&ceid=US:en"
+    "type": "Libro",
+    "title": "New book explores cultural roots of calligraphy",
+    "creator": "China Daily",
+    "context": "Una exploración profunda sobre los sistemas gráficos alternativos y la arqueología de la escritura manual, invitando a repensar el cuerpo humano como el primer soporte tecnológico del arte frente a la estandarización digital.",
+    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1Od0lNSW1oNnFnSUFvZ0xPVUhzQVZ6dkdtcDRkMENxcmxheERvQWtFSkZ4Qm1oZ3RaeGgzSmpWdlczVVZQSE9lUy1VMTVaUlQyeFR2b3RXTWlUalBZLUVDTS1RNlljT3d0bHE3YTNPSzhMRVUxOW55RlV5RDBEdw?oc=5"
   },
   "sources": [
     {
       "name": "New Left Review",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9ldDlQbGRqY2dMVEpSVXlpaE12ZmtPdVNYbnpaQkpVT2t5OE5vckc5dHB1b3hFc0dzQUdmRmhqU2hTNjlJdnBpam5sY2Jxd1QzSEx0NGUxVTRfeC0tUWc?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9ldDlQbGRqY2dMVEpSVXlpaE12ZmtPdVNYbnpaQkpVT2t5OE5vckc5dHB1b3hFc0dzQUdmRmhqU2hTNjlJdnBpam5sY2Jxd1QzSEx0NGUxVTRfeC0tUWc?oc=5",
       "paywalled": true
     },
     {
-      "name": "African Business",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQaDRhTld4ZVBqemFKMGN6LS0tZEVtcHIzNTh4SjVWVG80RmZUbDdadnV6dlZzbDlqdFNoM2V3OGNVd0dteEo4bDRjRDdJeDRnSnd3YS1SM2Rnc0ZBVlN0d2twczdlbzQ3WVFvamVOT3pfdUliUHhWTG9MaFRvbzlvbDRKVDl4bkJ1ZHBzSC0xNVppcUNqb1dB?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "name": "Iowa Public Radio",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNUDNJTnNyOS00NEpRRFZHal9zRDBNVEk4aUU3VW5SQ2FkWFNaRVMwS0FhakllSkxSVTY1NThWX01PN19MS1J1WG1lRW9wM3RWNmlkQzBmWGhGVUNrREgxVHpIS2lZT0VDUVVsZXk2ZUhCXzB1X1dZb3JEX3RZYmNGS0IyMHNOV24zd0hPRlV0Z3ZxTmtkM3FBQVdlVDZ5VjNDVFJYYVdLSk9DamJHeWh5U0JIalpnTkstS01aNkJtbk02dw?oc=5",
       "paywalled": false
     },
     {
-      "name": "Hyperallergic",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBMcFpXNkpocXZNb0RpTHFDMHdkV1NRaUplWmgxWEJHM293SXhOcDQ4TGcyVm9mWl9ZQy1tdmVvdXlWaDNCSXdmZEhWN25LdEQ5TDY2bXIwS01rSkFFQ2dLcE9QQUM3X1J2TlIwS1FPaw?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "name": "The Boston Globe",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNbjZnTUNGNG9xNDRfNzFNWmJwLVQ0UTNMTDkzTGU2Tk8taVh2YzdwYkJyQmF1d1FXTzVnOFJ0di15YmtiR1Nfa3ctR0h6ZVktSjRxRmF3MEVaclFtY1RNZnJZb0d3TjFrMHpIR1hlR1gyejhublRON25yWl9kUl9aQkQxTQ?oc=5",
+      "paywalled": true
+    },
+    {
+      "name": "China Daily",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1Od0lNSW1oNnFnSUFvZ0xPVUhzQVZ6dkdtcDRkMENxcmxheERvQWtFSkZ4Qm1oZ3RaeGgzSmpWdlczVVZQSE9lUy1VMTVaUlQyeFR2b3RXTWlUalBZLUVDTS1RNlljT3d0bHE3YTNPSzhMRVUxOW55RlV5RDBEdw?oc=5",
       "paywalled": false
+    },
+    {
+      "name": "Harper's BAZAAR",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOdzRsbDMwZFMwQVJTMmhIaVBwNmM3NC1IMS05dVpWdVVpYUlsWDkxUnRoOVluQzcxNmpUeElPMUpCYjVOSTZXaHVOc3lCTTFnOHFOYzNBMmdCelp5S19PVm9IMlhXNUpWeEVuQU5YZGtwRGNSZmF2N3l4b1A1b1pvbjVlbDVMT1NHT3c?oc=5",
+      "paywalled": true
     }
   ]
 }

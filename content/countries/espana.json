@@ -3,59 +3,64 @@
   "country": "España",
   "continent": "Europa",
   "flag": "🇪🇸",
-  "updated_at": "2026-11-14T06:09:14.571Z",
+  "updated_at": "2026-11-14T06:37:26.650Z",
   "edition_week": "2026-W46",
-  "intro": "La cultura española oscila entre la hipervisibilidad global y la asfixia cotidiana de sus espacios de mediación.",
+  "intro": "España debate esta semana la frágil supervivencia de su infraestructura cultural frente a la consagración global de sus creadores.",
   "cover_image": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Madrid_-_Edificio_Grassy_%28Gran_V%C3%ADa_1%29_-_north_facade_-_relief_over_entrance.jpg/1280px-Madrid_-_Edificio_Grassy_%28Gran_V%C3%ADa_1%29_-_north_facade_-_relief_over_entrance.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "El pulso arquitectónico y urbano de Madrid frente a la presión de la turistificación y los alquileres.",
+    "caption": "La transformación urbana y la presión inmobiliaria desafían el paisaje cultural histórico de las grandes ciudades españolas.",
     "credit": "Foto: Tomascastelazo · CC BY-SA 4.0"
   },
-  "cultural_pulse": "La vida cultural española de mediados de noviembre de 2026 transcurre en una doble vía que revela una profunda ansiedad contemporánea. Por un lado, las grandes instituciones y la industria del entretenimiento celebran la hipervisibilidad y el éxito internacional —coronado esta semana por el triunfo incontestable de Rosalía en los Latin Grammy con sus álbumes y sencillos—; por el otro, el tejido cotidiano de la cultura, abarcando desde el patrimonio arquitectónico hasta las librerías de barrio y la memoria de los márgenes, emite una señal de alarma ante la voracidad inmobiliaria y el turismo de masas que amenaza con vaciar de contenido vivible los centros urbanos.\n\nEl debate intelectual en España ya no discute únicamente sobre la modernización estética, sino sobre la mera supervivencia material de sus espacios de mediación. Mientras los palacios históricos se reconvierten en alojamientos exprés y las librerías independientes hacen cuentas mes a mes ante el incremento salvaje de los alquileres, la creación cultural se refugia en la revisión histórica y el homenaje a los grandes iconoclastas. Desde el centenario de Rafael Azcona y la recuperación literaria de la Generación del 27 hasta la memoria poliédrica de figuras políticas complejas como Julio Anguita, el país experimenta una urgencia generacional por revisitar a aquellos intelectuales que mantuvieron posturas éticas inflexibles frente a las turbulencias de sus respectivas épocas.\n\nEste contraste pone de manifiesto que la cultura española contemporánea se despliega en una tensión permanente entre la aldea global del macro-estadio y la trinchera del pequeño comercio o el patrimonio en peligro. En una época marcada por la polarización líquida y la aceleración algorítmica, los creadores y pensadores buscan refugio en la trastienda de la memoria, el ensayo crítico y la hondura artesanal, recordando que la verdadera vitalidad de una sociedad no reside solo en sus grandes hitos exportables, sino en la salud de sus instituciones de proximidad.",
+  "cultural_pulse": "La conversación cultural en España durante esta semana transita por una paradoja muy perceptible: mientras el ecosistema institucional y comercial del país celebra la consagración internacional de sus creadores y redescubre a figuras de insobornable rigor intelectual, las bases materiales que sostienen la cultura sufren una presión asfixiante. El debate ya no gira únicamente en torno a la creación artística, sino en torno a la supervivencia de los espacios físicos que la hacen posible. La presión inmobiliaria y la transformación urbana continúan amenazando el tejido cultural cotidiano, situando a librerías independientes y edificios históricos al borde de la asfixia debido al monocultivo turístico.\n\nFrente a esta vulnerabilidad material, la sociedad española busca refugio en la memoria de figuras éticas complejas y en una sólida tradición de artesanía narrativa, tanto literaria como musical. Esta semana, el análisis de la ciudad histórica no se limita a su valor económico, sino que la reivindica como un archivo vivo. La reconversión de conventos y palacios en hoteles boutique contrasta dramáticamente con la resistencia de los libreros de barrio, donde una abrumadora mayoría opera bajo regímenes de alquiler precarios. Los expertos patrimoniales exigen repensar las normativas de protección urbana antes de que los centros urbanos pierdan por completo a sus vecinos y a su memoria comercial.\n\nEn paralelo, el ámbito de la memoria política y cinematográfica ha cobrado un protagonismo inusitado con la confluencia de dos figuras clave: el legado del histórico líder Julio Anguita y el centenario del guionista Rafael Azcona. La recuperación de estas trayectorias evidencia una necesidad generacional de rigor moral, escepticismo lúcido y capacidad de autocrítica. Frente a la polarización algorítmica del presente, la figura de Azcona disecciona con maestría tragicómica las contradicciones de una sociedad perpetuamente oscilante entre la alegría y el desencanto, ofreciendo herramientas analíticas indispensables para descifrar la intemperie política actual.\n\nFinalmente, el triunfo global de artistas como Rosalía en los Latin Grammy con su obra confirma que la vanguardia pop peninsular dialoga sin complejos con la alta cultura y la tradición. Este reconocimiento internacional coexiste con la urgencia biográfica de creadores veteranos que deciden fijar su propio relato a través de memorias literarias. En su conjunto, la cultura española equilibra el aplauso unánime a sus talentos globales con una trinchera local volcada en defender los espacios y los testimonios que garantizan su pervivencia intelectual.",
   "topics": [
     {
-      "category": "Urbanismo y Patrimonio",
-      "title": "La turistificación del patrimonio histórico",
-      "summary": "Expertos y colectivos alertan sobre la conversión silenciosa de palacios y conventos en alojamientos turísticos de lujo, amenazando la memoria urbana."
+      "category": "Urbanismo",
+      "title": "La asfixia inmobiliaria del tejido librero",
+      "summary": "Informes sectoriales alertan sobre la precaria situación de las librerías independientes, donde gran parte del sector opera bajo alquileres vulnerables frente al avance del turismo masivo."
     },
     {
-      "category": "Cine y Literatura",
-      "title": "La vigencia moral del centenario de Rafael Azcona",
-      "summary": "La crítica cultural reivindica el trazo agrio y tragicómico de los guiones de Azcona como espejo de las contradicciones morales de la sociedad."
-    },
-    {
-      "category": "Política y Ensayo",
-      "title": "El rigor intelectual de Julio Anguita en la era de la polarización",
-      "summary": "El estreno de un documental sobre el histórico líder político rescata su discurso ético y su rechazo a los dogmas tradicionales."
+      "category": "Memoria Histórica",
+      "title": "El centenario de Rafael Azcona y el legado de Julio Anguita",
+      "summary": "El debate público rescata la agudeza moral y el escepticismo lúcido de dos figuras clave para comprender las costuras éticas y políticas de la España contemporánea."
     },
     {
       "category": "Música",
-      "title": "El triunfo global y la trinchera local",
-      "summary": "La consagración internacional de Rosalía contrasta con la vulnerabilidad económica de las librerías independientes y el tejido musical de base."
+      "title": "La consagración global de la vanguardia pop",
+      "summary": "El triunfo de Rosalía en los Latin Grammy refuerza la capacidad de la música española para hibridar la tradición folclórica con la experimentación internacional de masas."
     }
   ],
   "recommendation": {
     "type": "Libro",
     "title": "Diez obras maestras escritas por Rafael Azcona",
     "creator": "Rafael Azcona",
-    "context": "Un recorrido crítico por el legado literario y cinematográfico de uno de los mejores guionistas de la historia del cine español.",
+    "context": "Una inmersión fundamental en el universo narrativo y cinematográfico del guionista, cuya mirada implacable y exenta de cinismo disecciona el alma española.",
     "url": "https://elpais.com/babelia/2026-11-14/diez-obras-maestras-escritas-por-rafael-azcona-de-el-pisito-placido-y-el-verdugo-a-el-bosque-animado-y-belle-epoque.html"
   },
   "sources": [
     {
-      "name": "EL PAÍS - Cultura",
+      "name": "El País",
       "url": "https://elpais.com/cultura/2026-11-14/el-patrimonio-la-otra-victima-de-los-pisos-turisticos-el-precio-de-una-segunda-oportunidad-para-edificios-historicos.html",
       "paywalled": true
     },
     {
-      "name": "Babelia en EL PAÍS",
+      "name": "El País",
+      "url": "https://elpais.com/cultura/2026-11-13/las-librerias-piden-proteccion-ante-la-presion-inmobiliaria-no-hacemos-planes-mas-alla-de-cada-renovacion-de-alquiler-es-dramatico.html",
+      "paywalled": true
+    },
+    {
+      "name": "El País",
+      "url": "https://elpais.com/us/entretenimiento/2026-11-13/rosalia-reina-de-los-latin-grammy-gana-el-premio-a-disco-del-ano-por-lux-y-a-cancion-del-ano-por-la-perla.html",
+      "paywalled": true
+    },
+    {
+      "name": "Babelia (El País)",
       "url": "https://elpais.com/babelia/2026-11-14/azcona-inolvidable.html",
       "paywalled": true
     },
     {
-      "name": "EL PAÍS - US",
-      "url": "https://elpais.com/us/entretenimiento/2026-11-13/rosalia-reina-de-los-latin-grammy-gana-el-premio-a-disco-del-ano-por-lux-y-a-cancion-del-ano-por-la-perla.html",
-      "paywalled": false
+      "name": "Babelia (El País)",
+      "url": "https://elpais.com/babelia/2026-11-14/diez-obras-maestras-escritas-por-rafael-azcona-de-el-pisito-placido-y-el-verdugo-a-el-bosque-animado-y-belle-epoque.html",
+      "paywalled": true
     }
   ]
 }

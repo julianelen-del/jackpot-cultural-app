@@ -1,0 +1,66 @@
+{
+  "slug": "alemania",
+  "country": "Alemania",
+  "continent": "Europa",
+  "flag": "🇩🇪",
+  "updated_at": "2026-11-14T06:38:06.024Z",
+  "edition_week": "2026-W46",
+  "intro": "La cultura alemana transita esta semana entre el rescate histórico de sus márgenes literarios y la atenta mirada a los dilemas geopolíticos del presente.",
+  "cover_image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Berlin%2C_Mitte%2C_Hannoversche_Strasse_9%2C_Akzisemauer.jpg/1280px-Berlin%2C_Mitte%2C_Hannoversche_Strasse_9%2C_Akzisemauer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Una perspectiva contemporánea de los espacios artísticos y el bullicio intelectual en la capital alemana.",
+    "credit": "Foto: Jörg Zägel · CC BY-SA 3.0"
+  },
+  "cultural_pulse": "La agenda cultural alemana de mediados de noviembre de 2026 transita por una dualidad muy característica del otoño europeo: por un lado, el repliegue hacia la memoria institucional, la recuperación histórica y el examen de conciencia en torno al patrimonio literario y sonoro; por el otro, una mirada geopolítica y social marcadamente inquieta que se filtra desde las ondas radiofónicas públicas hasta las páginas de los rotativos de referencia.\n\nEsta semana convergen dos tensiones aparentemente inconexas pero profundamente sintomáticas del momento intelectual europeo. En el plano doméstico, la cultura alemana debate sobre los márgenes de su canon literario y sonoro, rescatando voces femeninas del siglo XVIII y celebrando fenómenos populares intergeneracionales como la intemporalidad del radioteatro de misterio. Paralelamente, la programación pública y los foros de debate asumen una responsabilidad crítica frente a las crisis globales, desde la precariedad habitacional transnacional hasta la memoria de las minorías culturales en tiempos convulsos. Lejos del ruido político inmediato, la conversación cultural germana busca anclajes estéticos que expliquen con lucidez la fragilidad del presente.\n\nEn el centro de este tejido se encuentra la necesidad imperiosa de reescribir las genealogías del pensamiento. La visibilización de autorías silenciadas durante la Ilustración demuestra que la historiografía alemana no es un monolito inalterable, sino un campo en constante disputa donde las editoriales independientes y la investigación filológica juegan un papel subversivo. Al mismo tiempo, la persistencia de mitos sonoros populares en Düsseldorf evidencia que la memoria colectiva del país se alimenta tanto de los grandes fastos institucionales como de las bandas sonoras juveniles que marcaron a generaciones enteras bajo una aparente banalidad comercial.\n\nFinalmente, el pulso de la creación se ve atravesado por las urgencias del exterior y del interior. Las jornadas dedicadas a la cultura judía contemporánea en Berlín abren un espacio de reflexión sobrio y exigente ante la polarización política, mientras que los reportajes internacionales de la radiofonía pública recuerdan que la sociedad germana no vive aislada de los desequilibrios ecológicos y habitacionales del planeta. Es un ejercicio de síntesis donde la estética y la política se entrelazan para definir el horizonte intelectual del espacio de habla alemana.",
+  "topics": [
+    {
+      "category": "Literatura",
+      "title": "La arqueología literaria del siglo XVIII",
+      "summary": "El rescate historiográfico impulsado desde Frankfurt redescubre ensayos y narrativas de mujeres silenciadas en las bibliotecas de préstamo de la Ilustración."
+    },
+    {
+      "category": "Cultura popular",
+      "title": "El culto sonoro de Los tres investigadores",
+      "summary": "Una gran exposición en Düsseldorf rinde homenaje a la intemporalidad del radioteatro juvenil que ha marcado a varias generaciones en el país."
+    },
+    {
+      "category": "Artes escénicas",
+      "title": "La sobriedad y resistencia de la cultura judía",
+      "summary": "Las tradicionales jornadas berlinesas arrancan bajo un clima de profunda reflexión sobre la identidad y los retos de la creación en tiempos polarizados."
+    },
+    {
+      "category": "Ensayo",
+      "title": "La antena geopolítica de la radiofonía pública",
+      "summary": "Los espacios de análisis global exploran las costuras de la crisis habitacional y la explotación de recursos desde una perspectiva profundamente crítica."
+    }
+  ],
+  "recommendation": {
+    "type": "Exposición",
+    "title": "Seelendämmerung",
+    "creator": "Robert Krause",
+    "context": "Una inmersión en los paisajes liminales y la introspección pictórica que dialoga directamente con la tradición del romanticismo oscuro en Baviera.",
+    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNY2F1ZmJvZXlfNUV6a1ktNnNzRkF5R1FoWUt3TDJLeFBhUGZxSTBaU3NfT19udmlBUkdnbFNXS21OaS1QNWtRQnNRQVdPbEpzX3FVYkRYLXQxR3VXOThDeVBPSXowTUYwdmFtT0I4ek9lTElabEtYMnlrUFlzZ2pRczlqWERSQ0xNLVNlQ2FDVVFlNXkzQ1ZTdXV6aGMxY05QS1A4NVY3UHA?oc=5"
+  },
+  "sources": [
+    {
+      "name": "Berliner Zeitung",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPajhSSGh0Ymhfc2RKY0VtLXpsTEt3cHNneXBpMkowcDZJVHJPdl9jVl9UNTRwYWJPTlhaZkphVndGSHd5SzBuUWhlSEdLYUZyWklZZW1aNFZyeU9sQktOQ1EyVzFpdk1kTm9TLXpMdzJLVElDaktMWlZ5MDRab2RWbExXMzBvR1JnRXpYZkhQcDFJSW1BYnBfeTBmZXBTRGxpNDNlRU1sNDBhaWQyeWFzTnpXM0J3cDNvWHJFNmpTeHcxSmRYWHRZ?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "KulturVision e.V.",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNY2F1ZmJvZXlfNUV6a1ktNnNzRkF5R1FoWUt3TDJLeFBhUGZxSTBaU3NfT19udmlBUkdnbFNXS21OaS1QNWtRQnNRQVdPbEpzX3FVYkRYLXQxR3VXOThDeVBPSXowTUYwdmFtT0I4ek9lTElabEtYMnlrUFlzZ2pRczlqWERSQ0xNLVNlQ2FDVVFlNXkzQ1ZTdXV6aGMxY05QS1A4NVY3UHA?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "Frankfurter Rundschau",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQQ0I1OXM2cG5YMGZpdTJpdzZxU2U5ZnhYdVZodnJIcVVfUlBLSWdNZ1ZST1ZseHRBTkxYSDN1TWtfR05ZUnYwdHJKMTFIMXJkcEJxbjZENkFueTU2aWV3R055RS1QVzYydFFrTl9xTHRKM3FabnlJZ0NZTmJpaEg2ampfNlJIcDRuaDc1M3VVWFdLUXFDZDZlS3dXVDNIa1cwSWJicGtqdjVLT21wOUpjZ0dKTXB6N0dscnc?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "WAZ",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPYmtlZWNfa2JUb2ZIUDVQbGUwaHBQbWMwTVhqN05ZWGtUQThULXBFTnB5cDA4WkdiMWtYQ0I4bnpGa01EeDFGckxJcThrWEV3d25lMko1MmNUazMycnB5dk92ckdIZExnUWo5S1FzSE5UbGgtMTltNVJ0Qktac05wRmF6dzdnNS1YM3RzVmlNM3VWLTVkN0x2X3F6SHBLR0NTZUJHeVNJWlktbDlhV0E1Q2hINjlJcDV5Mzhj?oc=5",
+      "paywalled": false
+    }
+  ]
+}

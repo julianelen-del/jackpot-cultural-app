@@ -1,0 +1,51 @@
+{
+  "slug": "paises-bajos",
+  "country": "Países Bajos",
+  "continent": "Europa",
+  "flag": "🇳🇱",
+  "updated_at": "2026-11-14T06:39:08.735Z",
+  "edition_week": "2026-W46",
+  "intro": "El pulso cultural de los Países Bajos se desplaza hacia las provincias, revalorizando la creación local y el patrimonio territorial frente a la saturación metropolitana.",
+  "cultural_pulse": "Esta semana, el mapa intelectual de los Países Bajos experimenta un desplazamiento significativo que aleja el foco de los habituales centros de gravedad del Randstad. Mientras Ámsterdam absorbe las tensiones del turismo masivo y el debate inmobiliario, las provincias y ciudades medias reclaman un protagonismo renovado a través de una densa red de actividades locales. Este fenómeno no responde a un costumbrismo pasivo, sino a una revisión profunda de cómo el patrimonio histórico y la creación contemporánea habitan el territorio fuera de la metrópoli. Las agendas de instituciones públicas y plataformas de proximidad revelan un tejido cultural vibrante que busca redefinir la cohesión social mediante el arte en tiempos de incertidumbre económica.\n\nEn la región de Gelderland, la tradición hanseática de Zutphen concentra un debate esencial sobre la gestión de su legado arquitectónico y su integración en las rutas culturales contemporáneas. La discusión gira en torno a cómo preservar el perfil medieval de la ciudad sin convertirla en un parque temático estéril para visitantes de fin de semana. Los críticos culturales apuntan a la necesidad urgente de que la historia dialogue con el diseño actual y las intervenciones artísticas efímeras. Se trata de evitar la petrificación museística de los centros históricos, permitiendo que los monumentos funcionen como espacios vivos y no meras postales turísticas destinadas al consumo rápido.\n\nParalelamente, la modernidad planificada de Almere, construida sobre tierras ganadas al mar en Flevoland, actúa como un laboratorio idóneo para pensar la experimentación urbana y arquitectónica. Mientras las grandes capitales europeas expulsan a sus creadores debido al encarecimiento del suelo, Almere se consolida como un refugio singular para artistas visuales y colectivos escénicos que exigen metros cuadrados asequibles. Su traza urbana radical, heredera de las utopías de los años setenta y ochenta, desafía las convenciones tradicionales de la ciudad histórica, ofreciendo un lienzo en blanco donde la arquitectura y la performance dialogan sin las ataduras del pasado clásico.\n\nPor último, en la provincia de Overijssel, la atención se centra en superar la persistente brecha de acceso cultural entre las grandes urbes y las zonas orientales del país. A través de residencias artísticas y festivales de formato medio en localidades como Deventer, Zwolle o Enschede, se constata una demanda creciente por contenidos arriesgados que logren emanciparse del beneplácito de los grandes curadores capitalinos. Este dinamismo territorial actualiza la venerable tradición neerlandesa del centro cultural de barrio, reinterpretándolo hoy como un nodo fundamental de innovación comunitaria y resistencia descentralizada frente a la homogeneización cultural global.",
+  "topics": [
+    {
+      "category": "Patrimonio",
+      "title": "La encrucijada hanseática de Zutphen",
+      "summary": "Zutphen debate cómo proteger su legado medieval en Gelderland sin convertir el tejido urbano en un parque temático para el turismo de fin de semana."
+    },
+    {
+      "category": "Urbanismo",
+      "title": "Almere como refugio de la creación emergente",
+      "summary": "La ciudad planificada en Flevoland ofrece metros asequibles y una arquitectura radical que atrae a artistas visuales y colectivos escénicos alejados del saturado mercado de Ámsterdam."
+    },
+    {
+      "category": "Artes Escénicas",
+      "title": "Descentralización y brecha cultural en Overijssel",
+      "summary": "Festivales y centros cívicos en localidades como Deventer y Zwolle impulsan una programación propia que desafía el monopolio cultural del Randstad."
+    }
+  ],
+  "recommendation": {
+    "type": "Exposición",
+    "title": "De canon van Nederland",
+    "creator": "Museos históricos regionales de Países Bajos",
+    "context": "Una lectura descentralizada de los hitos históricos, científicos y artísticos del país que permite comprender la identidad neerlandesa como un mosaico dinámico de autonomías locales y tensiones con el territorio.",
+    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTVlqMWlqZlY1YVl6SVhwNFdUaHV5OTFQc0x6VzNwVVBkczRnb1pfaVhMbHNXOGlyVjJMUnM2bHBKVFVJWDRuZno5T1JEWnBnNk1aSEpuQThzZlFuVnRRVk5fcENSRWVTUURoVFZlcllDa21mV3UyT2xic01yS3E5S1BQMA?oc=5"
+  },
+  "sources": [
+    {
+      "name": "DagjeWeg.NL",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTVlqMWlqZlY1YVl6SVhwNFdUaHV5OTFQc0x6VzNwVVBkczRnb1pfaVhMbHNXOGlyVjJMUnM2bHBKVFVJWDRuZno5T1JEWnBnNk1aSEpuQThzZlFuVnRRVk5fcENSRWVTUURoVFZlcllDa21mV3UyT2xic01yS3E5S1BQMA?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "DagjeWeg.NL",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9MYXNTZUhMTVBFeVUtR2RMNmEwQ2d2cjNZMWhyQU9GOEQtSmhYTFJaVEVSVnlUMGVfd0x4ME0tcXRaNWZhanRzdmlUZktSemRSTkRLZ1Z2Q203VTRpMER5aVEyZVNmamdVUk9obV9MWmQ?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "DagjeWeg.NL",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1mWV9yT2lnRlg1ekMxSS1zZjRKMGhEV0NPWjZoMzlOY09wQnhGMEptS1VqcThwVGlHdUhNQURiNUFGZUs1T0NtYWlqNVZtOU1Oa0NPRHU4ZkljSWd2cHY2eTJ1WGx0cmVy?oc=5",
+      "paywalled": false
+    }
+  ]
+}

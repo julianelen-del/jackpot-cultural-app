@@ -1,0 +1,61 @@
+{
+  "slug": "india",
+  "country": "India",
+  "continent": "Asia",
+  "flag": "🇮🇳",
+  "updated_at": "2026-11-14T06:39:56.912Z",
+  "edition_week": "2026-W46",
+  "intro": "La cultura india transita entre la monumentalidad tecnológica del mito y la revisión de archivos de la Guerra Fría.",
+  "cover_image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Gateway_Of_India.jpg/1280px-Gateway_Of_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "La arquitectura monumental y portuaria de Bombay encapsula las tensiones de la modernidad india.",
+    "credit": "Foto: Joe Ravi · CC BY-SA 3.0"
+  },
+  "cultural_pulse": "La conversación cultural en la India contemporánea atraviesa una coyuntura fascinante donde conviven la monumentalización hipertecnológica del mito clásico y la arqueología intelectual del siglo XX. Por un lado, la industria cinematográfica y los centros tecnológicos nacionales discuten las fronteras de la producción a gran escala, con proyectos faraónicos que intentan fundir la ingeniería de vanguardia con presupuestos sin precedentes que redefinen por completo la economía del entretenimiento. Este gigantismo no responde meramente al afán comercial de competir con los grandes estudios occidentales, sino a una necesidad urgente de proyectar identidades complejas a través de efectos visuales de última generación y de una nueva estética industrial visual profundamente arraigada en las escuelas técnicas del país.\n\nEn paralelo a este impulso tecnológico, los círculos intelectuales y académicos indios indagan en los sótanos de la historia cultural de la pasada centuria, redescubriendo cómo el sustrato ideológico y estético de la Unión Soviética moldeó la literatura, el teatro y el diseño gráfico en el subcontinente. Durante décadas de no alineación oficial, el ecosistema cultural indio absorbió de manera masiva la producción soviética traducida a precios subsidiados, lo que permitió que varias generaciones de lectores de clase media se formaran a través de clásicos eslavos y manuales científicos que competían directamente con la hegemonía editorial anglosajona. Revisar este archivo no constituye un ejercicio de nostalgia política, sino una herramienta para comprender las vías alternativas mediante las cuales se democratizó el acceso a la lectura en las provincias.\n\nEste panorama se completa con la proyección internacional de las artes escénicas de la diáspora y de los creadores locales en los circuitos globales. Festivales internacionales clave sitúan en el centro del debate cómo se articulan el monólogo de comedia cáustica, el teatro político y la experimentación contemporánea cuando se presentan fuera de las fronteras nacionales. Los programadores extranjeros ya no buscan el folclore codificado o la postal exótica, sino propuestas incisivas que dialogan directamente con las problemáticas urbanas y globales, demostrando que la escena contemporánea india posee una voz propia, urgente y profundamente conectada con las transformaciones estéticas del presente siglo.\n\nPara el lector internacional, este momento indio se aleja de los tópicos turísticos para revelar un ecosistema obsesionado con reescribir sus propios mitos fundacionales utilizando herramientas del presente. Ya sea a través de adaptaciones cinematográficas colosales respaldadas por ingenieros reconvertidos en cineastas, o mediante la recuperación de la memoria editorial de la Guerra Fría, la cultura de la India demuestra una vitalidad intelectual desbordante. Al examinar estas múltiples capas, el observador extranjero descubre que las grandes discusiones del subcontinente son, en realidad, debates universales sobre la memoria, la tecnología, la soberanía de los relatos y los modos en que las sociedades contemporáneas deciden narrarse a sí mismas frente al espejo de la globalización.",
+  "topics": [
+    {
+      "category": "Cine",
+      "title": "La apuesta hipermonumental del Ramayana y el puente tecnológico de IIT Bombay",
+      "summary": "La trayectoria del director Nitesh Tiwari vuelve a situar en el centro del debate el coste y la ambición técnica del cine indio contemporáneo con una superproducción mil millonaria que fusiona ingeniería de vanguardia y mitología."
+    },
+    {
+      "category": "Historia cultural",
+      "title": "El rastro y la memoria editorial de la Unión Soviética en el subcontinente",
+      "summary": "Un ciclo de debates impulsado por el Gateway House indaga en cómo la circulación masiva de literatura rusa traducida moldeó el pensamiento de generaciones de lectores frente a la hegemonía anglosajona."
+    },
+    {
+      "category": "Artes escénicas",
+      "title": "Teatro de exportación y la consagración global de la diáspora",
+      "summary": "Festivales internacionales como el Kalaa Utsavam proyectan el stand-up y la dramaturgia contemporánea india, alejándose del folclore tradicional para dialogar con los problemas urbanos actuales."
+    }
+  ],
+  "recommendation": {
+    "type": "Movimiento",
+    "title": "El archivo impreso de la utopía (Traducciones indo-soviéticas)",
+    "creator": "Proyectos independientes de archivística digital en India",
+    "context": "Una inmersión fascinante en cómo millones de ejemplares de literatura rusa y soviética democratizaron la lectura en las provincias indias a través de ediciones populares y diseño gráfico icónico.",
+    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBlMHVHa3dZXzdrQWZYYmZZQVhQVmJ3LV9uaHdzcm5fSWFKdGtxNl80WlplQzEtSDhZZ0gwMGdfeFpLRXBDdzg1WVNpcjBvS001X0JTSDRMLXpRUWFoalN3Vk82NWpNbnhyV09vVUJzSkhUaUp3WmJjYUxlOUdiS0E?oc=5"
+  },
+  "sources": [
+    {
+      "name": "Britannica",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5KblZieDM4RjlySjRZTHVkcG5lQURybVNmMVBuT0FCQktGZy1UYkpLc0xmdjlIRmt3UkJ1QWFzRGM4M0RGdzA0Rll5RFR4eG1oeUphMk82ZVFPLVphTFYxc002VHVXU0xoY1RzWUJGNnp4ekZCTjd3?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "Gateway House",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBlMHVHa3dZXzdrQWZYYmZZQVhQVmJ3LV9uaHdzcm5fSWFKdGtxNl80WlplQzEtSDhZZ0gwMGdfeFpLRXBDdzg1WVNpcjBvS001X0JTSDRMLXpRUWFoalN3Vk82NWpNbnhyV09vVUJzSkhUaUp3WmJjYUxlOUdiS0E?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "India Today",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNd2ZQa1FiU3kzbG5TSnE1amNlRHhpaTJDLVBpMHdaX3p5V2JsMkJfdmFsa0dKQVhIWWtWSnlSWnd4VmhydWs2ZVV2aEtxVTRaYVFveTlMUDlSejQ1c1RxUFZya19vNFl2eVFsWnFjVzFxQ1RuVUNkQmx2OXF5RjlHRVFpemphWDNmT052ZEVCZ0kxRXpTbGxGVGxQZTFocnRZVkNhc2VZaGNWZ2ZVSXBuTkpaTzZabDdHQl9oREFyS1llNDlxRXJhX1dHWEJSTTTSAc8BQVVfeXFMTXdmUGtRYlN5M2xuU0pxNWpjZUR4aWkyQy1QaTB3Wl96eVdibDJCX3ZhbGtHSkFYSFlrVkp5Ulp3eFZocnVrNmVVdmhLcVU0WmFRb3k5TFA5Uno0NXNUcVBWcmtfbzRZdnlRbFpxY1cxcUNUblVDZEJsdjlxeUY5R0VRaXpqYVgzZk9OdmRFQmdJMUV6U2xsRlRsUGUxaHJ0WVZDYXNlWWhjVmdmVUlwbk5KWk82Wmw3R0JfaERBcktZZTQ5cUVyYV9XR1hCUk00?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "The Straits Times",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTnNBdmdNWVM0LVVqWUFYUDdrZGpnRkVBNDFVNUpFenp4eWVneTJVOFA0dTRYNWg3cjRreGtWei1qTXJjVXExMlBXaTVpYk5kejRDRGRSSGxIVndlOWlnQVV1NG1KZ2ljUmhLVTBrTEd4c19tamUzTkVIQlJ2VjNQZXk1ckNZLVBoZ2ZxM09hM2d3SGp1Rk8yTHE1cjJIVWtDQ3Z1NGU2YTBxc3VlUVZ5ay1FYi1CXzJZNDFkTDlWVFZJTHphNkVwYVRoa2xpNXJJV2ItRA?oc=5",
+      "paywalled": false
+    }
+  ]
+}
