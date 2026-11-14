@@ -52,10 +52,11 @@ const GOOGLE_NEWS_LOCALE: Record<
 };
 
 function findYouTubeInHtml(rawHtml: string): string | undefined {
-  const match = rawHtml.match(
-    /https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/
+  const regex = new RegExp(
+    "https?:\\/\\/(?:www\\.)?(?:youtube\\.com\\/watch\\?v=|youtu\\.be\\/|youtube\\.com\\/embed\\/)([a-zA-Z0-9_-]{11})"
   );
-  return match ? `https://www.youtube.com/watch?v=${match[1]}` : undefined;
+  const match = rawHtml.match(regex);
+  return match ? "https://www.youtube.com/watch?v=" + match[1] : undefined;
 }
 
 function extractMediaDescription(item: unknown): string {
@@ -88,7 +89,13 @@ async function parseSingleFeed(feedUrl: string, limit = 8): Promise<RssSignal[]>
       }
 
       const mediaDesc = extractMediaDescription(item);
-      const rawHtml = `${link} ${item.content || ""} ${item.summary || ""} ${item.contentSnippet || ""} ${mediaDesc}`;
+      const rawHtml = [
+        link,
+        item.content || "",
+        item.summary || "",
+        item.contentSnippet || "",
+        mediaDesc,
+      ].join(" ");
       const youtubeUrl = findYouTubeInHtml(rawHtml);
 
       const rawSnippet =
@@ -110,7 +117,7 @@ async function parseSingleFeed(feedUrl: string, limit = 8): Promise<RssSignal[]>
     }
   } catch (error) {
     const msg = error instanceof Error ? error.message : String(error);
-    console.warn(`  [RSS aviso] No se pudo leer ${feedUrl}: ${msg}`);
+    console.warn("  [RSS aviso] No se pudo leer " + feedUrl + ": " + msg);
   }
 
   return signals;
@@ -168,12 +175,19 @@ export async function fetchGoogleNewsCulturalSignals(
     hl: "en",
     gl: "US",
     ceid: "US:en",
-    queryTerm: `${countryName} culture music film books`,
+    queryTerm: countryName + " culture music film books",
   };
 
-  const url = `https://news.google.com/rss/search?q=${encodeURIComponent(
-    `${cfg.queryTerm} when:7d`
-  )}&hl=${cfg.hl}&gl=${cfg.gl}&ceid=${cfg.ceid}`;
+  const query = encodeURIComponent(cfg.queryTerm + " when:7d");
+  const url =
+    "https://news.google.com/rss/search?q=" +
+    query +
+    "&hl=" +
+    cfg.hl +
+    "&gl=" +
+    cfg.gl +
+    "&ceid=" +
+    cfg.ceid;
 
   const rawSignals = await parseSingleFeed(url, 16);
   const cleaned = rawSignals.map((sig) => {
