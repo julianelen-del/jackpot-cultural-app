@@ -1,0 +1,61 @@
+{
+  "slug": "egipto",
+  "country": "Egipto",
+  "continent": "África",
+  "flag": "🇪🇬",
+  "updated_at": "2026-11-14T06:13:25.386Z",
+  "edition_week": "2026-W46",
+  "intro": "El pulso cultural de Egipto examina la persistencia del archivo, la memoria material y la proyección transnacional de sus creadores.",
+  "cover_image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Cairo_opera_house.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "caption": "Una vista de la arquitectura contemporánea de El Cairo, epicentro de los debates artísticos y escénicos de la temporada.",
+    "credit": "Foto: The original uploader was ThutmoseIII at English Wikipe · CC BY-SA 3.0"
+  },
+  "cultural_pulse": "La conversación cultural en Egipto durante esta semana no gira en torno a la mera novedad, sino a la persistencia del archivo y la revisión crítica del tiempo. Dos vectores dominan el pulso intelectual y artístico del país: por un lado, la conmemoración y la arqueología de las formas cotidianas, observando cómo el cine y el teatro han documentado la modernidad material y la memoria institucional; por otro, la proyección de la literatura y las artes escénicas egipcias y africanas hacia circuitos transnacionales, desde Canadá hasta Nigeria. El Cairo se posiciona simultáneamente como un foco de resistencia independiente —ejemplificado en la trastienda de sus teatros más antiguos— y como una plaza de cine global que celebra medio siglo de gramáticas visuales. Lejos de la nostalgia inerte, los creadores egipcios examinan cómo los espacios domésticos, el mobiliario cinematográfico y las cartografías editoriales explican las transformaciones políticas de las últimas décadas.\n\nUna de las reflexiones más lúcidas aparecidas en la crítica cultural cairota examina cómo el cine egipcio ha funcionado históricamente como un catálogo antropológico del interior burgués y popular. A través de un análisis del mobiliario y la decoración en la gran pantalla, los críticos y ensayistas debaten cómo el diseño de interiores no era un mero telón de fondo, sino el síntoma visual de cómo los egipcios imaginaron la modernidad, la movilidad social y el confort doméstico. Este ejercicio entronca con la celebración del cuadragésimo séptimo Festival Internacional de Cine de El Cairo, que en su edición conmemorativa ha volcado sus esfuerzos en revisar las capas de su propia memoria fílmica con más de ciento cuarenta títulos en cartel, consolidando un puente entre la tradición visual y los nuevos creadores.\n\nEn paralelo, la subsistencia en los márgenes de la institucionalidad cultural requiere una arquitectura de resistencia invisible pero tenaz. Los debates sobre la supervivencia de los espacios independientes han vuelto a primer plano a raíz de reportajes centrados en Rawabet, el espacio de artes escénicas más longevo de la ciudad. En un momento en que el tejido cultural se enfrenta a presiones económicas y logísticas globales, la conversación gira en torno a cómo estos espacios logran mantener una programación vanguardista. Asimismo, la diplomacia cultural busca diversificar sus alianzas más allá de los ejes tradicionales, con movimientos para estrechar lazos con la industria cinematográfica de Bielorrusia mediante festivales conjuntos, mientras que las letras egipcias amplían su presencia en el Atlántico Norte a través de iniciativas editoriales orientadas a la diáspora.",
+  "topics": [
+    {
+      "category": "Cine",
+      "title": "La arqueología del interior burgués en la gran pantalla",
+      "summary": "La crítica cultural analiza cómo el mobiliario y la decoración en el cine clásico egipcio funcionaron como síntomas visuales de la modernidad y la movilidad social."
+    },
+    {
+      "category": "Artes Escénicas",
+      "title": "La resistencia de los espacios independientes en El Cairo",
+      "summary": "El debate sobre la supervivencia de Rawabet pone de relieve los desafíos y la vitalidad de la gestión cultural independiente frente a las presiones del entorno."
+    },
+    {
+      "category": "Literatura",
+      "title": "Expansión editorial hacia el mercado norteamericano",
+      "summary": "Iniciativas como las de la editorial Diwan traen la literatura árabe contemporánea más cerca de los lectores de la diáspora y del mercado canadiense."
+    },
+    {
+      "category": "Artes Visuales",
+      "title": "Cartografía plástica contemporánea en las galerías cairotas",
+      "summary": "Las exposiciones individuales de Rania Gad y Rania Khalaf exploran la abstracción, la geometría y la deconstrucción del espacio urbano desde una mirada matérica."
+    }
+  ],
+  "recommendation": {
+    "type": "Exposición",
+    "title": "Exposiciones individuales de Rania Gad y Rania Khalaf",
+    "creator": "Rania Gad y Rania Khalaf",
+    "context": "Muestras simultáneas en la galería Demi y en Moulk Art Space que configuran un mapa de la abstracción y la memoria pictórica actual en El Cairo.",
+    "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE96QjFIUEpWYTAtX054T2k5Y2RXbXNJMTNsUkZQcUdITEVwdHd4THJ5eW5zU21zSGZBVXdQT2tMeVNpRjRXbm9yMWcwWXpXb0d6WmpRMlhQdDk?oc=5&hl=en-US&gl=US&ceid=US:en"
+  },
+  "sources": [
+    {
+      "name": "Ahram Online",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE96QjFIUEpWYTAtX054T2k5Y2RXbXNJMTNsUkZQcUdITEVwdHd4THJ5eW5zU21zSGZBVXdQT2tMeVNpRjRXbm9yMWcwWXpXb0d6WmpRMlhQdDk?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "paywalled": false
+    },
+    {
+      "name": "CairoScene",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPUUVyVzZYYm1jUUhHWGUyYUlSbmhsVjNUUXYydkc1dlVSenp1c3lHZndwZXM3VEdNS3JsYnkzS2Q0NE93cnQ4TFFJeC1SaVljTGhKTDBMZEJWbG5ha0tLVkhDT1hhempPVm1UeHdLRkVMUFYwT3hVaFNFd2JrYXZPeHQtN0J4RVIwMUQtN2tyRkJ2cXVPZll2dDdDWGs4UWd2WTJz?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "paywalled": false
+    },
+    {
+      "name": "Egyptian Streets",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOTXVfSHZPY0lKdmdGSzBTaDZ6Z3VKQml4SnRGNWNGYmNhLU12YmZxaWFCQ2t4cDNHYnZOMWNwNWxIaHdCTnMzN2plXzRiVnlCQk1ic0RJTDZTbmwxd2FDRHJHaEUtOVJEOEJ0UGNnOUV1V0ZVbEpSY0lmcDFua3FuZUQ5cGUyRkNaRnF1bDA2ZW9HQUM5R05nU1RQVXJHLXV2NllqdA?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "paywalled": false
+    }
+  ]
+}

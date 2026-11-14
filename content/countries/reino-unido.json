@@ -1,0 +1,61 @@
+{
+  "slug": "reino-unido",
+  "country": "Reino Unido",
+  "continent": "Europa",
+  "flag": "🇬🇧",
+  "updated_at": "2026-11-14T06:08:33.744Z",
+  "edition_week": "2026-W46",
+  "intro": "El Reino Unido debate esta semana sobre las estructuras de poder institucional y la necesidad de evasión a través de la cultura pop.",
+  "cover_image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Exterior_of_Tate_Modern_%28January_2024%29_03.jpg/1280px-Exterior_of_Tate_Modern_%28January_2024%29_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "La Tate Modern de Londres, epicentro del debate sobre las instituciones culturales y el arte contemporáneo británico.",
+    "credit": "Foto: DiscoA340 · CC BY-SA 4.0"
+  },
+  "cultural_pulse": "La conversación cultural en el Reino Unido durante esta semana gira en torno a una tensión evidente: la revisión implacable de las estructuras de poder —tanto en las instituciones mediáticas como en la gran pantalla y la política global— frente a la necesidad de escape a través del artificio pop, el entretenimiento de alto voltaje y la sátira.\n\nPor un lado, el sector del entretenimiento británico atraviesa un momento de profunda introspección con las recientes consecuencias legales y sociales que afectan a figuras públicas de peso, obligando a la industria a examinar sus puntos ciegos históricos. Los medios británicos debaten con cautela pero firmeza las investigaciones que implican a rostros históricos de la televisión y la comedia, planteando si nos encontramos ante el punto de inflexión definitivo de un proceso de rendición de cuentas que cuestiona la cultura de impunidad y el trato de favor que durante décadas protegió a los intocables del medio.\n\nPor otro lado, la imaginación colectiva británica se debate entre la anticipación de los rituales culturales más arraigados del país y la forma en que los creadores contemporáneos utilizan la ficción, el documental y los videojuegos para subvertir las narrativas políticas globales. La sombra de James Bond vuelve a dominar las páginas culturales de la prensa británica, convirtiendo la inminente sucesión en la franquicia en un estudio de caso sobre cómo la industria maneja las expectativas globales en la era digital.\n\nAsimismo, los artistas y diseñadores independientes responden a la retórica política contemporánea mediante la subversión de formatos digitales, adoptando la gamificación como herramienta crítica frente a la propaganda. Esta agitación creativa convive con la publicación de obras de no ficción firmadas por corresponsales extranjeros que sufrieron el cautiverio estatal, recordando que el peso de la geopolítica y el testimonio siguen marcando el pulso intelectual de la sociedad británica.",
+  "topics": [
+    {
+      "category": "Medios y Sociedad",
+      "title": "El examen estructural de la industria del entretenimiento",
+      "summary": "Las investigaciones judiciales a figuras históricas de la televisión abren un debate sobre la cultura de impunidad y la rendición de cuentas en los medios británicos."
+    },
+    {
+      "category": "Cine y Cultura pop",
+      "title": "La cuenta atrás para el nuevo rostro de 007",
+      "summary": "Los reportes sobre los favoritos para enfundarse el esmoquin de James Bond convierten el protocolo de relaciones públicas de Amazon en un caso de estudio mediático."
+    },
+    {
+      "category": "Cultura digital",
+      "title": "La gamificación de la geopolítica y la sátira",
+      "summary": "Creadores independientes subvierten los formatos de videojuegos para desafiar la propaganda y la retórica de los mandatarios globales."
+    },
+    {
+      "category": "Literatura y Memoria",
+      "title": "El peso de la geopolítica en la literatura carcelaria",
+      "summary": "Testimonios de corresponsales atrapados en crisis internacionales profundizan en la vulnerabilidad del individuo frente al aparato estatal."
+    }
+  ],
+  "recommendation": {
+    "type": "Álbum",
+    "title": "Legendary Love",
+    "creator": "Snoh Aalegra",
+    "context": "En un momento dominado por la inmediatez algorítmica, la artista sueco-iraní consolida su R&B dialogando con la tradición de los ochenta y la herencia de Sade, equilibrando suntuosidad instrumental y vulnerabilidad lírica.",
+    "url": "https://www.theguardian.com/music/2026/nov/13/snoh-aalegra-legendary-love-review"
+  },
+  "sources": [
+    {
+      "name": "The Guardian Culture",
+      "url": "https://www.theguardian.com/film/2026/nov/13/new-james-bond-announced-007",
+      "paywalled": false
+    },
+    {
+      "name": "BBC News",
+      "url": "https://www.bbc.co.uk/news/articles/cqn70lz71lg8o?at_medium=RSS&at_campaign=rss",
+      "paywalled": false
+    },
+    {
+      "name": "The Times",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQemlfOFd2eW5qQzZoVXh0SjgwcU56cFhWM2FlcEZjcmVGcUJqVzIwX2RxQVg0bUZBRXQzUWN5ZjM2Y1c0MGJYeHM1ZGZvbVdPZm5hM0VKY2luUmcwSDNId1NnTWZVUGZOdGxCRHZiY0tDWnlaMFNYOWFmVWwza0lDUlVqenhrZTYyeURPUU1aRm5JVjZDX3NIVQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "paywalled": true
+    }
+  ]
+}

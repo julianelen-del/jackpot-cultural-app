@@ -3,49 +3,64 @@
   "country": "Francia",
   "continent": "Europa",
   "flag": "🇫🇷",
-  "updated_at": "2026-11-14T03:00:00Z",
+  "updated_at": "2026-11-14T06:09:40.938Z",
   "edition_week": "2026-W46",
-  "intro": "Entre el cierre de los premios literarios y el debate por el futuro de las salas de cine, la escena francesa apuesta esta semana por la lentitud.",
-  "cultural_pulse": "En el otoño parisino, la conversación cultural no gira tanto en torno a una única obra ruidosa como alrededor de una pregunta más incómoda: qué lugar le queda a la lentitud en un ecosistema dominado por algoritmos de recomendación y estrenos fugaces. Mientras los grandes premios literarios de noviembre cierran su ciclo anual, las librerías independientes del Barrio Latino y de ciudades como Lyon y Marsella registran un fenómeno llamativo. Lejos de las sagas históricas monumentales que solían dominar las mesas de novedades, los lectores están volcando su atención hacia relatos breves de no ficción íntima, diarios de investigación familiar y ensayos sobre la memoria cotidiana.\n\nEsa misma tensión entre lo efímero y lo duradero atraviesa hoy al cine francés. En las mesas redondas de la industria y en las columnas de opinión de los principales suplementos, productores independientes y dueños de salas de arte vuelven a discutir el calendario de las ventanas de exhibición. El temor compartido es que la presión de las plataformas internacionales erosione el hábito de ir al cine entre semana, justo cuando varias óperas primas locales lograron sostenerse meses en cartel gracias al boca a boca. No se trata solo de una disputa comercial, sino de defender la sala oscura como espacio cívico de conversación compartida.\n\nEn paralelo, los museos públicos están ensayando nuevas formas de narrar el pasado reciente sin recurrir únicamente a la vitrina tradicional. Dos exposiciones inauguradas esta temporada proponen recorridos centrados en archivos sonoros, grabaciones radiales y cartas privadas para revisar vínculos poscoloniales y transformaciones urbanas de la posguerra. La curaduría privilegia la escucha atenta frente al consumo rápido de imágenes, invitando al visitante a detenerse con auriculares frente a voces casi olvidadas.\n\nEl resultado es un clima cultural introspectivo pero vital. Frente a la saturación informativa, la escena francesa parece apostar esta semana por obras de escala humana que exigen tiempo, silencio y criterio propio: libros pequeños que circulan por recomendación directa, salas de barrio que resisten y archivos abiertos que obligan a mirar de nuevo aquello que se creía ya resuelto.",
+  "intro": "La vida cultural francesa transita por una encrucijada donde la memoria institucional dialoga con la urgencia social y la economía digital.",
+  "cover_image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/France_Paris_Grand_Palais_Interieur_01.jpg/1280px-France_Paris_Grand_Palais_Interieur_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "La imponente nave del Grand Palais acoge el pulso de la fotografía contemporánea e histórica en París.",
+    "credit": "Foto: GIRAUD Patrick · CC BY-SA 3.0"
+  },
+  "cultural_pulse": "La vida cultural francesa transita esta semana por una fascinante encrucijada donde la memoria institucional dialoga de manera constante con la urgencia social y las profundas mutaciones de la economía digital. Mientras París acoge el pulso de la fotografía contemporánea e histórica bajo la icónica y renovada nave del Grand Palais, las costuras de la creación artística se ven atravesadas por tensiones muy concretas que definen el pulso cotidiano del país. Entre ellas destacan la precariedad juvenil que salta desde las estadísticas más crudas del desempleo hasta los feeds hiperactivos de las redes sociales, el compromiso político que desborda los tradicionales recintos de conciertos para instalarse de lleno en las pancartas de las manifestaciones callejeras, y la alargada sombra de una inminente cita electoral presidencial para 2027 que ya agita sin disimulo las estrategias de seducción hacia los creadores de contenido digital y los líderes de opinión en internet.\n\nFrancia debate estos días con intensidad sobre los mecanismos mediante los cuales se financia el pasado y se sobrevive al presente. Por un lado, la atención se concentra en la valorización del patrimonio histórico y el mercado del coleccionismo, abarcando desde la fotografía pionera del siglo XIX hasta la apertura al público de espacios tan cargados de mito popular como la antigua casa de Brigitte Bardot en Saint-Tropez. Por otro lado, la creación más rabiosamente contemporánea ejerce como un arte de trinchera que busca sacudir las conciencias frente al malestar socioeconómico. Las artes escénicas y la música orgánica funcionan como termómetros de una ciudadanía que busca en la raíz cultural una respuesta legítima a la asfixia del día a día, oponiendo resistencia frente a la uniformidad impuesta por los algoritmos de consumo masivo.\n\nEn este tablero en ebullición, el ecosistema editorial y el mundo de las plataformas digitales también reajustan sus compases. La saturación del modelo de consumo rápido y el agotamiento del formato de maratón en el streaming provocan un retorno consciente hacia obras de caligrafía pausada y densa, tal como demuestra la reivindicación de fondos clásicos del manga y narrativas de largo aliento. Así, la cultura francesa en este tramo de finales de año no se limita a exhibir su enorme músculo patrimonial, sino que se replantea a sí misma con urgencia crítica, interrogándose sobre el papel ético del creador frente a la política y la capacidad del arte para cohesionar una sociedad fragmentada.",
   "topics": [
     {
-      "category": "Literatura",
-      "title": "El auge de la no ficción íntima frente a la gran novela",
-      "summary": "Libreros independientes señalan que los ensayos breves y las memorias familiares están liderando las recomendaciones tras la temporada de premios de otoño."
-    },
-    {
-      "category": "Cine",
-      "title": "Las salas de arte defienden las ventanas de exhibición",
-      "summary": "Exhibidores y cineastas independientes debaten cómo proteger la permanencia en cartel frente al avance de los estrenos acelerados en streaming."
-    },
-    {
       "category": "Artes visuales",
-      "title": "Museos que reemplazan la vitrina por el archivo sonoro",
-      "summary": "Nuevas muestras apuestan por instalaciones acústicas basadas en programas radiales y testimonios históricos para repensar la memoria contemporánea."
+      "title": "La reinvención del mercado y la mirada en Paris Photo",
+      "summary": "Bajo la nave del Grand Palais, la feria reúne a numerosas galerías situando a París en el centro de la imagen fija. Más allá de los grandes nombres, la crítica examina cómo la fotografía del siglo XIX busca una nueva juventud con el relevo generacional de coleccionistas que renegocian los precios fuera de la especulación."
+    },
+    {
+      "category": "Música",
+      "title": "El reggae combativo como banda sonora de la calle",
+      "summary": "En un contexto marcado por la agitación social, el grupo Dub Inc ejemplifica cómo la música de raíz orgánicamente comprometida no solo llena recintos, sino que estampa sus versos en las pancartas de las movilizaciones sindicales frente a la asfixia económica."
+    },
+    {
+      "category": "Cultura Digital",
+      "title": "Los creadores de contenido ante la cita presidencial de 2027",
+      "summary": "A meses del arranque formal de la carrera hacia el Elíseo, las formaciones políticas intensifican su cortejo a los 'streamers' y videógrafos, desatando un debate ético sobre la instrumentalización de las comunidades digitales y la propaganda."
+    },
+    {
+      "category": "Teatro",
+      "title": "Sébastien Kheroufi y el duelo de la infancia en La Colline",
+      "summary": "El Théâtre de la Colline acoge un montaje de fuerte cariz autobiográfico que abandona el didactismo para retratar la fractura de los márgenes sociales y el doloroso tránsito hacia la madurez en los extrarradios urbanos."
     }
   ],
   "recommendation": {
     "type": "Libro",
-    "title": "Edición de muestra — Francia",
-    "creator": "Archivo France Culture",
-    "context": "Ejemplo inicial de muestra mientras se ejecuta la primera edición semanal automática con Gemini.",
-    "url": "https://www.radiofrance.fr/franceculture"
+    "title": "Kids on the Slope",
+    "creator": "Yuki Kodama",
+    "context": "Fresco clásico sobre la juventud, la melancolía y el jazz en el Japón de los sesenta, redescubierto por el mercado editorial francés como antídoto contra la prisa algorítmica.",
+    "url": "https://www.lemonde.fr/culture/article/2026/11/11/yuki-kodama-autrice-du-manga-kids-on-the-slope-aime-faire-en-sorte-que-les-personnages-opposes-s-attirent-et-se-rapprochent_6809019_3246.html"
   },
   "sources": [
     {
-      "name": "France Culture",
-      "url": "https://www.radiofrance.fr/franceculture",
-      "paywalled": false
-    },
-    {
-      "name": "Télérama",
-      "url": "https://www.telerama.fr",
-      "paywalled": false
-    },
-    {
-      "name": "Le Monde Culture",
-      "url": "https://www.lemonde.fr/culture/",
+      "name": "Le Monde",
+      "url": "https://www.lemonde.fr/culture/article/2026/11/13/la-photographie-du-xix-siecle-en-quete-d-une-nouvelle-jeunesse-a-la-foire-paris-photo-si-les-premiers-collectionneurs-ont-disparu-une-deuxieme-generation-monte-en-puissance_6809284_3246.html",
       "paywalled": true
+    },
+    {
+      "name": "Le Monde",
+      "url": "https://www.lemonde.fr/culture/article/2026/11/13/le-reggae-de-dub-inc-sur-les-scenes-francaises-et-les-pancartes-des-manifestations_6809367_3246.html",
+      "paywalled": false
+    },
+    {
+      "name": "Le Monde Pixels",
+      "url": "https://www.lemonde.fr/pixels/article/2026/11/12/presidentielle-2027-comment-les-influenceurs-attisent-les-convoitises-des-equipes-de-campagne_6809062_4408996.html",
+      "paywalled": false
+    },
+    {
+      "name": "Le Monde",
+      "url": "https://www.lemonde.fr/culture/article/2026/11/13/avec-la-mort-du-mome-sebastien-kheroufi-quitte-l-enfance-dans-un-fracas-de-mots-de-musiques-et-d-images_6809307_3246.html",
+      "paywalled": false
     }
   ]
 }

@@ -1,0 +1,51 @@
+{
+  "slug": "canada",
+  "country": "Canadá",
+  "continent": "América",
+  "flag": "🇨🇦",
+  "updated_at": "2026-11-14T06:07:25.658Z",
+  "edition_week": "2026-W46",
+  "intro": "La conversación cultural en Canadá examina la materialidad del archivo y la soberanía de la mirada institucional.",
+  "cultural_pulse": "La conversación cultural en Canadá durante esta semana abandona la coyuntura efímera para instalarse en una pregunta incómoda y urgente: ¿cómo se están reescribiendo los relatos históricos y estéticos desde los márgenes de las instituciones? Observada a través de las brújulas críticas de publicaciones especializadas, la escena intelectual canadiense rechaza la aceleración digital acrítica para exigir una revisión profunda de la memoria visual y urbana del país. Ya no basta con diversificar catálogos o cumplir con cuotas de inclusión superficiales; el pulso intelectual exige desmontar los marcos coloniales y nacionalistas que tradicionalmente han estructurado el cine, las artes visuales y la cartografía pública de las principales metrópolis.\n\nEsta semana exhibe una tensión palpable entre la necesidad de preservar los espacios físicos de resistencia cultural —como el cine independiente, las salas de repertorio y los centros comunitarios de exhibición— y la urgencia teórica de repensar las herramientas con las que se analiza la cultura contemporánea. En ciudades como Vancouver, Montreal y Toronto, la presión inmobiliaria y la gentrificación ponen en jaque a los cines de barrio, entendidos no como meros negocios comerciales, sino como los últimos reductos de una cinefilia libre de algoritmos. La crítica cultural advierte que la desaparición de estos espacios equivale a una forma de amnesia colectiva, erosionando el tejido social que permite el encuentro y el debate presencial en torno a las imágenes.\n\nParalelamente, el pensamiento crítico y el ensayo visual emergen como las herramientas idóneas para diagnosticar el malestar político del presente. A través de reflexiones sobre la tecnología de vigilancia y la geopolítica de la imagen, los creadores y ensayistas cuestionan la neutralidad de los dispositivos visuales contemporáneos. Este diagnóstico se cruza con un debate mayor sobre la descentralización de los circuitos de producción: las instituciones y festivales canadienses son instados a abandonar el paternalismo cultural y a entablar diálogos simétricos con las cinematografías emergentes del Sur Global, reconfigurando sus alianzas geopolíticas más allá de los ejes tradicionales norteamericanos y europeos.",
+  "topics": [
+    {
+      "category": "Ensayo Crítico y Teoría Visual",
+      "title": "La cartografía política de la imagen en movimiento",
+      "summary": "El debate intelectual reaviva la discusión sobre cómo el cine experimental y documental debe operar como un dispositivo táctico frente a las derivas autoritarias y la vigilancia digital global."
+    },
+    {
+      "category": "Cine y Arquitectura",
+      "title": "La vulnerabilidad del patrimonio cinematográfico independiente",
+      "summary": "La gentrificación y los altos costos amenazan los cines de repertorio en los centros metropolitanos, exigiendo políticas públicas de protección frente al consumo algorítmico."
+    },
+    {
+      "category": "Geopolítica Cultural",
+      "title": "El Sur Global y las ambiciones descentralizadas del cine",
+      "summary": "La crítica cultural canadiense cuestiona la dependencia de los fondos tradicionales e impulsa coproducciones simétricas con las cinematografías emergentes de África y América Latina."
+    }
+  ],
+  "recommendation": {
+    "type": "Autor",
+    "title": "On Target — Sidecar",
+    "creator": "Erika Balsom",
+    "context": "Un ensayo analítico fundamental publicado en New Left Review que disecciona las intersecciones entre la tecnología de vigilancia, la representación visual y las políticas de la mirada en el arte contemporáneo.",
+    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9ldDlQbGRqY2dMVEpSVXlpaE12ZmtPdVNYbnpaQkpVT2t5OE5vckc5dHB1b3hFc0dzQUdmRmhqU2hTNjlJdnBpam5sY2Jxd1QzSEx0NGUxVTRfeC0tUWc?oc=5&hl=en-US&gl=US&ceid=US:en"
+  },
+  "sources": [
+    {
+      "name": "New Left Review",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9ldDlQbGRqY2dMVEpSVXlpaE12ZmtPdVNYbnpaQkpVT2t5OE5vckc5dHB1b3hFc0dzQUdmRmhqU2hTNjlJdnBpam5sY2Jxd1QzSEx0NGUxVTRfeC0tUWc?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "paywalled": true
+    },
+    {
+      "name": "African Business",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQaDRhTld4ZVBqemFKMGN6LS0tZEVtcHIzNTh4SjVWVG80RmZUbDdadnV6dlZzbDlqdFNoM2V3OGNVd0dteEo4bDRjRDdJeDRnSnd3YS1SM2Rnc0ZBVlN0d2twczdlbzQ3WVFvamVOT3pfdUliUHhWTG9MaFRvbzlvbDRKVDl4bkJ1ZHBzSC0xNVppcUNqb1dB?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "paywalled": false
+    },
+    {
+      "name": "Hyperallergic",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBMcFpXNkpocXZNb0RpTHFDMHdkV1NRaUplWmgxWEJHM293SXhOcDQ4TGcyVm9mWl9ZQy1tdmVvdXlWaDNCSXdmZEhWN25LdEQ5TDY2bXIwS01rSkFFQ2dLcE9QQUM3X1J2TlIwS1FPaw?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "paywalled": false
+    }
+  ]
+}

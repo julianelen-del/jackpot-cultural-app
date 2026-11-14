@@ -1,0 +1,61 @@
+{
+  "slug": "espana",
+  "country": "España",
+  "continent": "Europa",
+  "flag": "🇪🇸",
+  "updated_at": "2026-11-14T06:09:14.571Z",
+  "edition_week": "2026-W46",
+  "intro": "La cultura española oscila entre la hipervisibilidad global y la asfixia cotidiana de sus espacios de mediación.",
+  "cover_image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Madrid_-_Edificio_Grassy_%28Gran_V%C3%ADa_1%29_-_north_facade_-_relief_over_entrance.jpg/1280px-Madrid_-_Edificio_Grassy_%28Gran_V%C3%ADa_1%29_-_north_facade_-_relief_over_entrance.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "El pulso arquitectónico y urbano de Madrid frente a la presión de la turistificación y los alquileres.",
+    "credit": "Foto: Tomascastelazo · CC BY-SA 4.0"
+  },
+  "cultural_pulse": "La vida cultural española de mediados de noviembre de 2026 transcurre en una doble vía que revela una profunda ansiedad contemporánea. Por un lado, las grandes instituciones y la industria del entretenimiento celebran la hipervisibilidad y el éxito internacional —coronado esta semana por el triunfo incontestable de Rosalía en los Latin Grammy con sus álbumes y sencillos—; por el otro, el tejido cotidiano de la cultura, abarcando desde el patrimonio arquitectónico hasta las librerías de barrio y la memoria de los márgenes, emite una señal de alarma ante la voracidad inmobiliaria y el turismo de masas que amenaza con vaciar de contenido vivible los centros urbanos.\n\nEl debate intelectual en España ya no discute únicamente sobre la modernización estética, sino sobre la mera supervivencia material de sus espacios de mediación. Mientras los palacios históricos se reconvierten en alojamientos exprés y las librerías independientes hacen cuentas mes a mes ante el incremento salvaje de los alquileres, la creación cultural se refugia en la revisión histórica y el homenaje a los grandes iconoclastas. Desde el centenario de Rafael Azcona y la recuperación literaria de la Generación del 27 hasta la memoria poliédrica de figuras políticas complejas como Julio Anguita, el país experimenta una urgencia generacional por revisitar a aquellos intelectuales que mantuvieron posturas éticas inflexibles frente a las turbulencias de sus respectivas épocas.\n\nEste contraste pone de manifiesto que la cultura española contemporánea se despliega en una tensión permanente entre la aldea global del macro-estadio y la trinchera del pequeño comercio o el patrimonio en peligro. En una época marcada por la polarización líquida y la aceleración algorítmica, los creadores y pensadores buscan refugio en la trastienda de la memoria, el ensayo crítico y la hondura artesanal, recordando que la verdadera vitalidad de una sociedad no reside solo en sus grandes hitos exportables, sino en la salud de sus instituciones de proximidad.",
+  "topics": [
+    {
+      "category": "Urbanismo y Patrimonio",
+      "title": "La turistificación del patrimonio histórico",
+      "summary": "Expertos y colectivos alertan sobre la conversión silenciosa de palacios y conventos en alojamientos turísticos de lujo, amenazando la memoria urbana."
+    },
+    {
+      "category": "Cine y Literatura",
+      "title": "La vigencia moral del centenario de Rafael Azcona",
+      "summary": "La crítica cultural reivindica el trazo agrio y tragicómico de los guiones de Azcona como espejo de las contradicciones morales de la sociedad."
+    },
+    {
+      "category": "Política y Ensayo",
+      "title": "El rigor intelectual de Julio Anguita en la era de la polarización",
+      "summary": "El estreno de un documental sobre el histórico líder político rescata su discurso ético y su rechazo a los dogmas tradicionales."
+    },
+    {
+      "category": "Música",
+      "title": "El triunfo global y la trinchera local",
+      "summary": "La consagración internacional de Rosalía contrasta con la vulnerabilidad económica de las librerías independientes y el tejido musical de base."
+    }
+  ],
+  "recommendation": {
+    "type": "Libro",
+    "title": "Diez obras maestras escritas por Rafael Azcona",
+    "creator": "Rafael Azcona",
+    "context": "Un recorrido crítico por el legado literario y cinematográfico de uno de los mejores guionistas de la historia del cine español.",
+    "url": "https://elpais.com/babelia/2026-11-14/diez-obras-maestras-escritas-por-rafael-azcona-de-el-pisito-placido-y-el-verdugo-a-el-bosque-animado-y-belle-epoque.html"
+  },
+  "sources": [
+    {
+      "name": "EL PAÍS - Cultura",
+      "url": "https://elpais.com/cultura/2026-11-14/el-patrimonio-la-otra-victima-de-los-pisos-turisticos-el-precio-de-una-segunda-oportunidad-para-edificios-historicos.html",
+      "paywalled": true
+    },
+    {
+      "name": "Babelia en EL PAÍS",
+      "url": "https://elpais.com/babelia/2026-11-14/azcona-inolvidable.html",
+      "paywalled": true
+    },
+    {
+      "name": "EL PAÍS - US",
+      "url": "https://elpais.com/us/entretenimiento/2026-11-13/rosalia-reina-de-los-latin-grammy-gana-el-premio-a-disco-del-ano-por-lux-y-a-cancion-del-ano-por-la-perla.html",
+      "paywalled": false
+    }
+  ]
+}

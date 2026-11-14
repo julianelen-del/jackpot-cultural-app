@@ -1,0 +1,56 @@
+{
+  "slug": "estados-unidos",
+  "country": "Estados Unidos",
+  "continent": "América",
+  "flag": "🇺🇸",
+  "updated_at": "2026-11-14T06:07:00.786Z",
+  "edition_week": "2026-W46",
+  "intro": "La vida cultural estadounidense atraviesa una profunda autoindagación centrada en la autoría, el archivo y la frontera digital.",
+  "cover_image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Carnegie_Hall%2C_New_York_City%2C_NY.jpg/1280px-Carnegie_Hall%2C_New_York_City%2C_NY.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "El Carnegie Hall de Nueva York, epicentro de la reinvención del espacio público y el espectáculo histórico en la escena norteamericana.",
+    "credit": "Foto: TROMDOC · CC BY-SA 4.0"
+  },
+  "cultural_pulse": "La vida cultural estadounidense atraviesa un momento de profunda autoindagación institucional y creativa. Durante esta semana, los grandes debates no giran en torno al escapismo, sino al examen minucioso de la autoría, la memoria histórica y la fragilidad de los soportes que estructuran la vida pública en el país. Por un lado, el cine y la literatura se repliegan sobre sus propios mecanismos: el proceso creativo, la trastienda de la industria cinematográfica y la política de los reconocimientos culturales chocan frontalmente con barreras burocráticas y geopolíticas evidentes. Por otro, la conversación intelectual en torno a la tecnología y la memoria colectiva —desde el colapso del buscador digital tradicional hasta la revisión de grandes mitos fundacionales— refleja una urgencia por redefinir cómo el país archiva su pasado y proyecta su imaginario contemporáneo. Estados Unidos asiste así a una semana donde los creadores discuten tanto las formas del arte como las condiciones materiales y políticas que permiten o impiden su libre circulación.\n\nEn el terreno cinematográfico y literario, la tensión entre la vocación cosmopolita de las instituciones y las restricciones prácticas se ha vuelto insostenible. La colisión entre el reconocimiento internacional y la rigidez migratoria ha sacudido al mundo de las letras con motivo de la exclusión de autores finalistas a premios de peso debido a trabas burocráticas para ingresar al país. Paralelamente, la gran pantalla reflexiona sobre su propio pulso artesanal: mientras la cartelera debate aproximaciones al oficio cinematográfico y a la trastienda de la creación, figuras de larga trayectoria consolidan carreras independientes al margen de los grandes estudios. Este repliegue sobre el oficio coincide con una reevaluación de los mitos fundacionales y los soportes de la memoria colectiva, donde la cultura popular funciona como un vasto ejercicio de arqueología estética que va desde la revisión de la carrera espacial hasta el análisis de las autopistas míticas del siglo XX.\n\nEste clima de revisión permanente también alcanza a las infraestructuras de la información y la legalidad. Críticos y ensayistas advierten sobre un cambio tectónico en la relación de los ciudadanos con el conocimiento ante el declive de los sistemas tradicionales de búsqueda web, amenazando la pervivencia de la web abierta y el periodismo de profundidad. La convergencia de estos fenómenos revela un paisaje intelectual donde el arte y la memoria ya no solo buscan conmover, sino interrogar con urgencia los cimientos materiales sobre los cuales se sostiene la conversación pública en los Estados Unidos de hoy.",
+  "topics": [
+    {
+      "category": "Cine",
+      "title": "El oficio cinematográfico bajo la lente",
+      "summary": "La cartelera estadounidense debate la trastienda de la creación artística a través de nuevas aproximaciones al cine dentro del cine y la valorización de trayectorias independientes frente al desgaste comercial de los grandes estudios."
+    },
+    {
+      "category": "Literatura",
+      "title": "La paradoja de los premios globales",
+      "summary": "Las grandes instituciones literarias se sacuden ante la colisión entre el reconocimiento a obras extranjeras de peso y la rigidez migratoria que impide a los propios finalistas ingresar al país para asistir a las ceremonias."
+    },
+    {
+      "category": "Cultura Digital",
+      "title": "El fin de la era de la búsqueda y la crisis del archivo",
+      "summary": "El ecosistema cultural reflexiona sobre el impacto del colapso del buscador digital tradicional y la irrupción de respuestas automatizadas, cuestionando el futuro de la web abierta y la preservación de la memoria."
+    }
+  ],
+  "recommendation": {
+    "type": "Película",
+    "title": "How Takashi Yamazaki Brought Godzilla Back to Life",
+    "creator": "Takashi Yamazaki",
+    "context": "Una inmersión en la trastienda de cómo una franquicia centenaria puede reinventarse utilizando los efectos visuales como vehículo para explorar traumas colectivos y renovar el blockbuster de autor.",
+    "url": "https://www.newyorker.com/culture/persons-of-interest/how-takashi-yamazaki-brought-godzilla-back-to-life"
+  },
+  "sources": [
+    {
+      "name": "NPR Arts & Life",
+      "url": "https://www.npr.org/2026/11/13/nx-s1-6034398/in-different-ways-these-2-new-films-take-on-the-craft-and-the-business-of-filmmaking",
+      "paywalled": false
+    },
+    {
+      "name": "The New Yorker",
+      "url": "https://www.newyorker.com/books/page-turner/i-am-a-2026-national-book-award-finalist-the-us-denied-my-visa",
+      "paywalled": true
+    },
+    {
+      "name": "The New Yorker",
+      "url": "https://www.newyorker.com/culture/infinite-scroll/the-death-knell-of-digital-search",
+      "paywalled": true
+    }
+  ]
+}

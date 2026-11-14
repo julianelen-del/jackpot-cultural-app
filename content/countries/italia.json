@@ -1,0 +1,66 @@
+{
+  "slug": "italia",
+  "country": "Italia",
+  "continent": "Europa",
+  "flag": "🇮🇹",
+  "updated_at": "2026-11-14T06:10:31.842Z",
+  "edition_week": "2026-W46",
+  "intro": "Italia debate los límites entre la memoria institucional, la ética de la industria cultural y la geopolítica del mercado del arte.",
+  "cover_image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Canaletto_%28II%29_022.jpg/1280px-Canaletto_%28II%29_022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Roma acoge esta semana los grandes homenajes nacionales a la literatura y el archivo íntimo.",
+    "credit": "Foto: Giovanni Antonio Canal · Public domain"
+  },
+  "cultural_pulse": "La conversación cultural en Italia durante esta semana navega entre la celebración solemne de las grandes instituciones de la memoria y las sacudidas profundas de un ecosistema global que redefine incansablemente los límites entre la industria, la ética y el mercado del arte. Por un lado, el país rinde tributo a sus pilares literarios y cinematográficos —con el monumental nonagésimo cumpleaños de Dacia Maraini en Roma y el centenario del nacimiento de Florestano Vancini en Ferrara—, reafirmando de este modo una identidad cívica construida tenazmente sobre la pasión civil y el compromiso inquebrantable con la palabra escrita y filmada.\n\nPor otro lado, la península entera se encuentra profundamente atravesada por los debates cruciales que sacuden al occidente contemporáneo: desde la delicada revisión ética de figuras públicas caídas en desgracia hasta la reincorporación de rostros polémicos al consumo masivo del entretenimiento, como el caso de Johnny Depp bajo la estricta lupa de los grandes estudios cinematográficos. Italia observa todos estos desconcertantes movimientos con la peculiar mezcla de escepticismo, agudeza crítica y erudición que caracteriza tradicionalmente a su periodismo cultural, donde la gran narrativa histórica y el ingente patrimonio monumental conviven de forma natural con las paradojas y contradicciones del entretenimiento global y digital.\n\nEn paralelo a estas tensiones internacionales, el territorio italiano canaliza sus propias discusiones locales sobre la autenticidad, la descentralización y la preservación de los bienes más preciados. Desde la sutil controversia periodística sobre la verdadera procedencia geográfica del codiciado tartufo blanco de Alba hasta la llegada de fragmentos del célebre Codice Atlántico de Leonardo da Vinci a la región de Friuli, el país demuestra que la custodia de su vasto legado no es un ejercicio estático, sino un frente vivo de debate político, económico y estético. La cultura italiana se confirma así como un territorio de resistencia donde el pasado no se archiva pasivamente, sino que se discute en cada esquina del presente.",
+  "topics": [
+    {
+      "category": "Literatura",
+      "title": "El hito de Dacia Maraini y la conservación del archivo íntimo",
+      "summary": "Roma celebra los 90 años de una de las voces más incisivas de la narrativa contemporánea, mientras exposiciones como la de Casa Testori abordan la urgencia de preservar la memoria material de los intelectuales frente a la vertiginosa era digital."
+    },
+    {
+      "category": "Cine",
+      "title": "El siglo de Florestano Vancini y la advertencia de Antonietta De Lillo",
+      "summary": "Ferrara conmemora la contundencia de la pasión civil en el cine, en sintonía con las advertencias de la directora Antonietta De Lillo sobre la necesidad de proteger la cultura cinematográfica frente a las lógicas puramente comerciales de la industria."
+    },
+    {
+      "category": "Patrimonio",
+      "title": "La geopolítica del sabor y la descentralización del legado leonardesco",
+      "summary": "El debate sobre la denominación de origen del tartufo blanco de Alba y la llegada de folios del Codice Atlántico al Friuli reabren la discusión sobre la protección del patrimonio gastronómico y artístico en los territorios."
+    },
+    {
+      "category": "Cultura Digital",
+      "title": "Ética, borrado digital y las nuevas tensiones del mercado del arte",
+      "summary": "Las decisiones de las grandes tecnológicas sobre figuras públicas polémicas y el creciente peso de París en el mercado europeo del arte configuran un escenario de profunda reconfiguración estética y ética."
+    }
+  ],
+  "recommendation": {
+    "type": "Exposición",
+    "title": "La mia biblioteca è appesa ai muri",
+    "creator": "Casa Testori",
+    "context": "Una inmersión en los archivos íntimos y las paredes de los intelectuales que repensa la memoria material en tiempos hiperdigitalizados.",
+    "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxPNVFFUHdkMlVvOE02NHBwYUhUa0xOSU5EaURFVTlqOF9yazZuYXFZWDhwdmRFRk4tSVNQdHBSNS1CT1dMUVY4QU9HQTlTOTgwUW82Mk8wd253R3I0bWY3eGFQWFVfWHhEYXlzVTFrcjZIRWZZcWtuajFNWE9yZTJNUy1zVVhXSU9rUWZPQTUxTVBaZDBVZ1lCMVg1T2daejNTV0lLOFE5YjBsMzJ5ZDZvdEEwZ19qTnVtWXdvUXMzVG9YQWZVNUphSElDa3hwb0lUR2poUkJWcFlSenkxT2gxSTNKYkUwbFJkQmVPLXRweHRHX3VuOGtKYmJWNFNneFVXOWZYbGJPMERqTVXSAZACQVVfeXFMTTdvNGVpSzBUTkZneWM3Y0JDQ1Q2N3piaDZaLXE5MUgxQzlvNnhZb19ZYzZyeFE2b3dac3dUbGpicENfVV9zSFdjU3QtaGRKR2VJa3BzLTUyS0o2bkl3TlpPTFRCTW1XS0FCSWZfOFBaLUR4V2E3T0MxbThtTkxsVlNzS1NLa0VpYUV5dUJXWVRoQnZfVXU3Wjk0UHlYNHYzS1VQdzZUZ3lTMWs1Tm1EbDlyMXF5OXRRMERFUk13ZmtTNml0dnd4Tk13Vk9saG0za0w4Wk9odHZyMmpWaGd4ZzNJOEM2bVMxSnlxVHpPeXg2Z0ZoUjYtbjJOY0s0VVIwOHAwQlNGTWF4WElNUnBnOV8?oc=5&hl=en-US&gl=US&ceid=US:en"
+  },
+  "sources": [
+    {
+      "name": "ANSA",
+      "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxPNVFFUHdkMlVvOE02NHBwYUhUa0xOSU5EaURFVTlqOF9yazZuYXFZWDhwdmRFRk4tSVNQdHBSNS1CT1dMUVY4QU9HQTlTOTgwUW82Mk8wd253R3I0bWY3eGFQWFVfWHhEYXlzVTFrcjZIRWZZcWtuajFNWE9yZTJNUy1zVVhXSU9rUWZPQTUxTVBaZDBVZ1lCMVg1T2daejNTV0lLOFE5YjBsMzJ5ZDZvdEEwZ19qTnVtWXdvUXMzVG9YQWZVNUphSElDa3hwb0lUR2poUkJWcFlSenkxT2gxSTNKYkUwbFJkQmVPLXRweHRHX3VuOGtKYmJWNFNneFVXOWZYbGJPMERqTVXSAZACQVVfeXFMTTdvNGVpSzBUTkZneWM3Y0JDQ1Q2N3piaDZaLXE5MUgxQzlvNnhZb19ZYzZyeFE2b3dac3dUbGpicENfVV9zSFdjU3QtaGRKR2VJa3BzLTUyS0o2bkl3TlpPTFRCTW1XS0FCSWZfOFBaLUR4V2E3T0MxbThtTkxsVlNzS1NLa0VpYUV5dUJXWVRoQnZfVXU3Wjk0UHlYNHYzS1VQdzZUZ3lTMWs1Tm1EbDlyMXF5OXRRMERFUk13ZmtTNml0dnd4Tk13Vk9saG0za0w4Wk9odHZyMmpWaGd4ZzNJOEM2bVMxSnlxVHpPeXg2Z0ZoUjYtbjJOY0s0VVIwOHAwQlNGTWF4WElNUnBnOV8?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "paywalled": false
+    },
+    {
+      "name": "Il Post",
+      "url": "https://www.ilpost.it/2026/11/13/tartufo-bianco-alba/",
+      "paywalled": false
+    },
+    {
+      "name": "Il Resto del Carlino",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNN09Zd1J1VnRmekM1THphWF9HelRZUC00NDhORVZGbENnLWNJOWNDNVltNVNaVDRlX1NLMC1naDNHUG5hUXNVM1pfWTFPdktFV1RfZjY4TnpYSnViS0FiYmJUVjV1ZFBITWdoLXdsYng5ZlIxaURRSDM5SWw5OThpUTBBV3VHU2JvTGpN?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "paywalled": false
+    },
+    {
+      "name": "Uozzart",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQeEdaWWp3SERqZlNKUlQtczF0ZUdySUZuZnBPUUVjaWE1alBpeHNTQ1puV2VNX04tajRreEJuSk9LeUdkUGNnRmJrdFVGV2NjRUpzR18yWkYtWnNlNWc2VmtfdzZ0M0VYZkluRmhJNnBtdkFMLUxvY1p0MEZpQzBXd1BR?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "paywalled": false
+    }
+  ]
+}

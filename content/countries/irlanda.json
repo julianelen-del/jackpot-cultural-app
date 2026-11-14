@@ -1,0 +1,51 @@
+{
+  "slug": "irlanda",
+  "country": "Irlanda",
+  "continent": "Europa",
+  "flag": "🇮🇪",
+  "updated_at": "2026-11-14T06:08:51.136Z",
+  "edition_week": "2026-W46",
+  "intro": "Irlanda transita entre la memoria incómoda de su pasado de censura y la efervescencia de nuevas formas sonoras y narrativas.",
+  "cover_image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Dublin_City_Library_%26_Archive.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "caption": "Espacios de la memoria literaria y la archivística contemporánea en Dublín.",
+    "credit": "Foto: Author: Dublin City Public Libraries · CC BY-SA 2.0"
+  },
+  "cultural_pulse": "La conversación cultural en Irlanda durante esta semana gravita en torno a una tensión fascinante: el ajuste de cuentas con un pasado riguroso y la efervescencia de nuevas formas de expresión contemporánea. Tras décadas marcadas por una suerte de deporte nacional de la autoflagelación moral y la censura oficial, el país transita hoy hacia una revisión rigurosa de sus archivos más oscuros. La exposición pública de miles de libros que en su día fueron prohibidos por el Estado no constituye un mero ejercicio nostálgico, sino una confrontación directa con el puritanismo institucional que moldeó y truncó el imaginario literario de varias generaciones, obligando a los creadores a operar en los márgenes o en el exilio.\n\nEn paralelo a esta arqueología de la moralidad católica, la sociedad irlandesa experimenta una vibrante renovación en sus canales de expresión oral y sonora. Lejos de la complacencia turística y del folclore de postal, la agenda cultural demuestra una urgencia por desenterrar los fantasmas del pasado mediante la palabra hablada. La radio pública y los nuevos formatos de audio se han consolidado como el gran confesionario nacional, un diván donde la ciudadanía ventila traumas colectivos y transforma las ondas hertzianas en un espacio seguro para la vulnerabilidad, muy en sintonía con la rica tradición literaria del monólogo interior.\n\nEsta necesidad de redefinir la identidad insular también sacude con fuerza el panorama musical y escénico. La escena urbana de la isla deja atrás los tópicos tradicionales para abrazar una heterogénea ola de hip-hop local que relata las realidades de la clase trabajadora suburbana y la inmigración, dialogando estrechamente con el renacimiento de la lengua gaélica en los medios y el entretenimiento. Al mismo tiempo, la literatura deportiva y la dramaturgia de las principales salas de Dublín configuran un espejo de la psique colectiva donde la derrota, la épica cotidiana y la toponimia recuperada actúan como coordenadas de un país que se examina sin concesiones en el umbral del presente.",
+  "topics": [
+    {
+      "category": "Historia y Literatura",
+      "title": "El archivo prohibido sale a la luz",
+      "summary": "La apertura al público de miles de volúmenes censurados por el Estado irlandés obliga a la sociedad a confrontar el puritanismo institucional del siglo XX."
+    },
+    {
+      "category": "Medios de Comunicación",
+      "title": "La radio como el gran confesionario nacional",
+      "summary": "Un análisis profundo sobre cómo los formatos radiofónicos y la narrativa oral actúan en Irlanda como un espacio seguro para la memoria y la vulnerabilidad colectiva."
+    },
+    {
+      "category": "Música",
+      "title": "Vanguardia sonora en las calles",
+      "summary": "Una nueva ola de hip-hop local y propuestas lúdico-lingüísticas redefinen la identidad urbana y revitalizan el uso de la lengua gaélica."
+    }
+  ],
+  "recommendation": {
+    "type": "Álbum",
+    "title": "Song From Hope St.",
+    "creator": "David Kitt",
+    "context": "Una inmersión en los procesos creativos detrás de la construcción de un disco clásico irlandés, explorando las texturas y la intimidad de la composición contemporánea en la isla.",
+    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOM2xWWXhOREhPT2tvRjlLbXkzVlBHa01jZ21ENVJJMDJmN1I0LUYtZ0I1NHlUS2R2QmlBM0JiZzV4UURITl9mT1hjM1hPZ2VlX2Z2aHR6QXpYMER0dVdmQlR3eTd4YW1kTGlUN3ktYWVobEJXSTFGeFpVQWFrTHctc1ZpdkNFbENnMFF1VkZ0TXFFOGJiTWJGcGF2Qy1JZS1fMEZ5WkNTbTY2MW1U?oc=5&hl=en-US&gl=US&ceid=US:en"
+  },
+  "sources": [
+    {
+      "name": "RTÉ Culture",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPYms1ZC1lS1d0QkFNMlIzZkI1U2szeG1uMHhyNTc3R1NlbGxzTHNMaFpQRUdWOV9UVEpPX0RNb1NkVmU1elk4bVBsMVFlWHMzYUVlb3RiMS1BcmtJRmZ1LWI4OTdHM2tKXzQ4d1A2dHVHTDRmMGJJQkZJQjY5WERvNjE4MVRIdThJdWlvb2RqTzdHM1pKdEJPcFZxY0lKYjJFXzBPUEFRNkN1N19zUDRj?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "paywalled": false
+    },
+    {
+      "name": "The Irish Times",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNT0lSak9ERVNROVppaHZnVHdnUDcwaFhGWDByN0xvUldsMVplWWhUYW9id2NXUGpIWGdtdHpoWTVZR1hKM2pwYlF5WXZJeEFsNlYxZGRFT210bnFkZjJveWFBOURqLVNhZGJOTFF4cmpzMDU0aUpSUkJIWmFjUjktQm5qYmpJeVM1WFpKZkNad0tkMkcxbGFZZGIwNHdodkk0YmtBOXRaSHpZWTBHTE9zVzM2WWtKSjBRN2pqaVQxeERMSE1NM2xRTTIzYkxZYTlpQzkyalZfdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "paywalled": true
+    }
+  ]
+}

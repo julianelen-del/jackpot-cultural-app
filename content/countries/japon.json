@@ -1,0 +1,71 @@
+{
+  "slug": "japon",
+  "country": "Japón",
+  "continent": "Asia",
+  "flag": "🇯🇵",
+  "updated_at": "2026-11-14T06:11:57.402Z",
+  "edition_week": "2026-W46",
+  "intro": "El pulso cultural de Japón oscila esta semana entre la profunda autoevaluación histórica y la expansión de sus narrativas transnacionales.",
+  "cover_image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/New_National_Theatre%2C_Tokyo_2010.jpg/1280px-New_National_Theatre%2C_Tokyo_2010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Fachada del Nuevo Teatro Nacional de Tokio, epicentro de las vanguardias escénicas contemporáneas en Japón.",
+    "credit": "Foto: Wiiii · CC BY-SA 3.0"
+  },
+  "cultural_pulse": "La conversación cultural en Japón durante esta semana traza un arco fascinante y complejo entre la autoevaluación histórica de sus grandes fantasmas colectivos y la vertiginosa expansión internacional de sus formatos narrativos contemporáneos. Por un lado, el fenómeno cinematográfico y mediático en torno a la figura de Godzilla —impulsado de manera rotunda por los récords de taquilla de Godzilla Minus Zero y la honda reflexión de su director, Takashi Yamazaki— demuestra sin ambages que el archipiélago sigue utilizando su monstruo fundacional como una radiografía urgente de sus ansiedades más íntimas y colectivas, ahora reinterpretadas bajo los exigentes estándares técnicos del IMAX y una hiper-vistosidad formal que no traiciona su sustrato existencial.\n\nParalelamente, el ecosistema cultural japonés experimenta una tensión de gran calado intelectual entre la tradición más inamovible, reflejada en los rituales de fin de año y las carteleras teatrales que desafían la convención, y una audaz apertura hacia coproducciones y geografías de vocación transnacional. El resonante éxito del drama de espionaje Vivant, que ha arrastrado a legiones de seguidores nipones a un insólito fenómeno de peregrinaje turístico en Azerbaiyán, o la consolidación del cine chino en el Festival Internacional de Cine de Tokio, evidencian de forma palmaria que tanto el público como los creadores locales están negociando nuevos mapas e influencias en un momento de profundas metamorfosis industriales y creativas.\n\nEsta necesidad de redefinir las fronteras expresivas también sacude al mercado editorial y a las artes escénicas tradicionales. La apuesta de un gigante como Kodansha por el periodismo gráfico a través de su nuevo sello Kaqreal demuestra que la codificada gramática del manga puede trascender el entretenimiento evasivo para convertirse en una herramienta puntera de crónica y rigor informativo. Al mismo tiempo, propuestas teatrales osadas como la llevada a cabo en el Nuevo Teatro Nacional con la obra de Mijaíl Bulgakov demuestran que las instituciones culturales buscan sacudir al espectador, rompiendo la cuarta pared y situándolo bajo los focos de un escrutinio moral que resuena con inusitada fuerza en el Japón actual.",
+  "topics": [
+    {
+      "category": "Cine",
+      "title": "El espejo incombustible de Godzilla",
+      "summary": "Godzilla Minus Zero pulveriza récords de taquilla en formato IMAX mientras la crítica debate cómo el kaiju continúa encarnando los traumas colectivos de la sociedad contemporánea."
+    },
+    {
+      "category": "Televisión",
+      "title": "Geopolítica y turismo de masas con Vivant",
+      "summary": "El drama de espionaje trasciende la pequeña pantalla, generando debates diplomáticos sobre inteligencia y desatando un inusual fenómeno de turismo masivo hacia Azerbaiyán."
+    },
+    {
+      "category": "Teatro",
+      "title": "Rompiendo la cuarta pared en Tokio",
+      "summary": "El Nuevo Teatro Nacional adapta a Mijaíl Bulgakov en una arriesgada puesta en escena metateatral que convierte al público tokiota en parte activa del juicio moral."
+    },
+    {
+      "category": "Literatura",
+      "title": "El periodismo se viste de viñeta",
+      "summary": "Kodansha lanza Kaqreal, un sello editorial innovador enfocado en el manga periodístico y de no ficción para revitalizar el rigor informativo a través de la narrativa gráfica."
+    }
+  ],
+  "recommendation": {
+    "type": "Película",
+    "title": "Godzilla Minus Zero",
+    "creator": "Takashi Yamazaki",
+    "context": "Una inmersión técnica y existencial en el mito fundacional del cine de monstruos japonés, concebida para la experiencia inmersiva del formato IMAX y firmemente anclada en los temores contemporáneos.",
+    "url": "https://www.japantimes.co.jp/culture/2026/11/11/film/godzilla-minus-zero/"
+  },
+  "sources": [
+    {
+      "name": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/culture/2026/11/11/film/godzilla-minus-zero/",
+      "paywalled": true
+    },
+    {
+      "name": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/culture/2026/11/10/film/godzilla-minus-zero-takashi-yamazaki-interview/",
+      "paywalled": true
+    },
+    {
+      "name": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/culture/2026/11/12/stage/japanese-theater-master-and-margarita/",
+      "paywalled": true
+    },
+    {
+      "name": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/culture/2026/11/08/tv-streaming/azerbaijan-vivant/",
+      "paywalled": true
+    },
+    {
+      "name": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/culture/2026/11/11/books/kodansha-manga-kaqreal/",
+      "paywalled": true
+    }
+  ]
+}
