@@ -1,0 +1,51 @@
+{
+  "slug": "francia",
+  "country": "Francia",
+  "continent": "Europa",
+  "flag": "🇫🇷",
+  "updated_at": "2026-11-14T03:00:00Z",
+  "edition_week": "2026-W46",
+  "intro": "Entre el cierre de los premios literarios y el debate por el futuro de las salas de cine, la escena francesa apuesta esta semana por la lentitud.",
+  "cultural_pulse": "En el otoño parisino, la conversación cultural no gira tanto en torno a una única obra ruidosa como alrededor de una pregunta más incómoda: qué lugar le queda a la lentitud en un ecosistema dominado por algoritmos de recomendación y estrenos fugaces. Mientras los grandes premios literarios de noviembre cierran su ciclo anual, las librerías independientes del Barrio Latino y de ciudades como Lyon y Marsella registran un fenómeno llamativo. Lejos de las sagas históricas monumentales que solían dominar las mesas de novedades, los lectores están volcando su atención hacia relatos breves de no ficción íntima, diarios de investigación familiar y ensayos sobre la memoria cotidiana.\n\nEsa misma tensión entre lo efímero y lo duradero atraviesa hoy al cine francés. En las mesas redondas de la industria y en las columnas de opinión de los principales suplementos, productores independientes y dueños de salas de arte vuelven a discutir el calendario de las ventanas de exhibición. El temor compartido es que la presión de las plataformas internacionales erosione el hábito de ir al cine entre semana, justo cuando varias óperas primas locales lograron sostenerse meses en cartel gracias al boca a boca. No se trata solo de una disputa comercial, sino de defender la sala oscura como espacio cívico de conversación compartida.\n\nEn paralelo, los museos públicos están ensayando nuevas formas de narrar el pasado reciente sin recurrir únicamente a la vitrina tradicional. Dos exposiciones inauguradas esta temporada proponen recorridos centrados en archivos sonoros, grabaciones radiales y cartas privadas para revisar vínculos poscoloniales y transformaciones urbanas de la posguerra. La curaduría privilegia la escucha atenta frente al consumo rápido de imágenes, invitando al visitante a detenerse con auriculares frente a voces casi olvidadas.\n\nEl resultado es un clima cultural introspectivo pero vital. Frente a la saturación informativa, la escena francesa parece apostar esta semana por obras de escala humana que exigen tiempo, silencio y criterio propio: libros pequeños que circulan por recomendación directa, salas de barrio que resisten y archivos abiertos que obligan a mirar de nuevo aquello que se creía ya resuelto.",
+  "topics": [
+    {
+      "category": "Literatura",
+      "title": "El auge de la no ficción íntima frente a la gran novela",
+      "summary": "Libreros independientes señalan que los ensayos breves y las memorias familiares están liderando las recomendaciones tras la temporada de premios de otoño."
+    },
+    {
+      "category": "Cine",
+      "title": "Las salas de arte defienden las ventanas de exhibición",
+      "summary": "Exhibidores y cineastas independientes debaten cómo proteger la permanencia en cartel frente al avance de los estrenos acelerados en streaming."
+    },
+    {
+      "category": "Artes visuales",
+      "title": "Museos que reemplazan la vitrina por el archivo sonoro",
+      "summary": "Nuevas muestras apuestan por instalaciones acústicas basadas en programas radiales y testimonios históricos para repensar la memoria contemporánea."
+    }
+  ],
+  "recommendation": {
+    "type": "Libro",
+    "title": "Edición de muestra — Francia",
+    "creator": "Archivo France Culture",
+    "context": "Ejemplo inicial de muestra mientras se ejecuta la primera edición semanal automática con Gemini.",
+    "url": "https://www.radiofrance.fr/franceculture"
+  },
+  "sources": [
+    {
+      "name": "France Culture",
+      "url": "https://www.radiofrance.fr/franceculture",
+      "paywalled": false
+    },
+    {
+      "name": "Télérama",
+      "url": "https://www.telerama.fr",
+      "paywalled": false
+    },
+    {
+      "name": "Le Monde Culture",
+      "url": "https://www.lemonde.fr/culture/",
+      "paywalled": true
+    }
+  ]
+}
