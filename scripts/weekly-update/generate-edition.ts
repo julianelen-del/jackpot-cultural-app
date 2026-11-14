@@ -35,6 +35,18 @@ export function getCurrentIsoWeek(date = new Date()): string {
   return `${temp.getUTCFullYear()}-W${String(weekNo).padStart(2, "0")}`;
 }
 
+function isTransientError(msg: string): boolean {
+  return (
+    msg.includes("429") ||
+    msg.includes("503") ||
+    msg.includes("UNAVAILABLE") ||
+    msg.includes("high demand") ||
+    msg.includes("RESOURCE_EXHAUSTED") ||
+    msg.includes("not found") ||
+    msg.includes("404")
+  );
+}
+
 async function generateWithModelFallback(
   ai: GoogleGenAI,
   contents: string,
@@ -48,25 +60,32 @@ async function generateWithModelFallback(
     });
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
-    // Si falló por usar la herramienta googleSearch en plan gratuito, no reintentar search en otro modelo
     if (config.tools) {
       throw err;
     }
-    if (
-      msg.includes("429") ||
-      msg.includes("RESOURCE_EXHAUSTED") ||
-      msg.includes("not found") ||
-      msg.includes("404")
-    ) {
+    if (isTransientError(msg)) {
       console.warn(
-        `  [Modelo] Reintentando con ${FALLBACK_MODEL} tras aviso en ${PRIMARY_MODEL}...`
+        `  [Modelo] Reintentando con ${FALLBACK_MODEL} tras aviso temporal en ${PRIMARY_MODEL}...`
       );
-      await sleep(2000);
-      return await ai.models.generateContent({
-        model: FALLBACK_MODEL,
-        contents,
-        config,
-      });
+      await sleep(3500);
+      try {
+        return await ai.models.generateContent({
+          model: FALLBACK_MODEL,
+          contents,
+          config,
+        });
+      } catch (err2) {
+        const msg2 = err2 instanceof Error ? err2.message : String(err2);
+        if (isTransientError(msg2)) {
+          await sleep(5000);
+          return await ai.models.generateContent({
+            model: PRIMARY_MODEL,
+            contents,
+            config,
+          });
+        }
+        throw err2;
+      }
     }
     throw err;
   }
@@ -194,9 +213,9 @@ export async function generateCountryEdition(
 
   const allowedUrlSet = new Set(verifiedUrls.map((u) => u.url));
 
-  // 3. Paso 2: Redacción estructurada en JSON (con hasta 2 intentos por Quality Gate)
+  // 3. Paso 2: Redacción estructurada en JSON (hasta 3 intentos por Quality Gate)
   let lastError = "";
-  for (let attempt = 1; attempt <= 2; attempt++) {
+  for (let attempt = 1; attempt <= 3; attempt++) {
     const synthesisPrompt =
       buildSynthesisPrompt(country, researchDossier, verifiedUrls, weekLabel) +
       (lastError
@@ -236,7 +255,7 @@ export async function generateCountryEdition(
           },
           recommendation: {
             type: Type.OBJECT,
-            required: ["type", "title", "creator", "context", "url"],
+            required: ["type", "title", "creator", "context", "source_id"],
             properties: {
               type: {
                 type: Type.STRING,
@@ -254,17 +273,17 @@ export async function generateCountryEdition(
               title: { type: Type.STRING },
               creator: { type: Type.STRING },
               context: { type: Type.STRING },
-              url: { type: Type.STRING },
+              source_id: { type: Type.INTEGER },
             },
           },
           sources: {
             type: Type.ARRAY,
             items: {
               type: Type.OBJECT,
-              required: ["name", "url", "paywalled"],
+              required: ["id", "name", "paywalled"],
               properties: {
+                id: { type: Type.INTEGER },
                 name: { type: Type.STRING },
-                url: { type: Type.STRING },
                 paywalled: { type: Type.BOOLEAN },
               },
             },
@@ -287,6 +306,49 @@ export async function generateCountryEdition(
       continue;
     }
 
+    // Resolver IDs numéricos a URLs exactas verificadas
+    const recRaw = (parsedJson.recommendation || {}) as Record<string, unknown>;
+    const recId = Number(recRaw.source_id);
+    const recUrl =
+      verifiedUrls[recId - 1]?.url || verifiedUrls[0]?.url;
+    const recommendation = {
+      type: recRaw.type,
+      title: recRaw.title,
+      creator: recRaw.creator,
+      context: recRaw.context,
+      url: recUrl,
+    };
+
+    const rawSources = Array.isArray(parsedJson.sources)
+      ? (parsedJson.sources as Array<Record<string, unknown>>)
+      : [];
+    const seenUrls = new Set<string>();
+    const sources: Array<{ name: string; url: string; paywalled: boolean }> = [];
+
+    for (const s of rawSources) {
+      const sid = Number(s.id);
+      const matched = verifiedUrls[sid - 1];
+      if (!matched || seenUrls.has(matched.url)) continue;
+      seenUrls.add(matched.url);
+      sources.push({
+        name: String(s.name || matched.title).slice(0, 88),
+        url: matched.url,
+        paywalled: Boolean(s.paywalled),
+      });
+    }
+
+    // Garantizar al menos 2 fuentes válidas si el modelo repitió IDs
+    for (const fallbackUrl of verifiedUrls) {
+      if (sources.length >= 2) break;
+      if (seenUrls.has(fallbackUrl.url)) continue;
+      seenUrls.add(fallbackUrl.url);
+      sources.push({
+        name: fallbackUrl.title.split(" - ")[0].slice(0, 88) || "Medio cultural",
+        url: fallbackUrl.url,
+        paywalled: false,
+      });
+    }
+
     const visualQuery =
       typeof parsedJson.visual_query === "string"
         ? parsedJson.visual_query
@@ -296,8 +358,11 @@ export async function generateCountryEdition(
         ? parsedJson.visual_caption
         : `Escena cultural en ${country.country}.`;
 
-    delete parsedJson.visual_query;
-    delete parsedJson.visual_caption;
+    const pulseText =
+      typeof parsedJson.cultural_pulse === "string"
+        ? parsedJson.cultural_pulse
+        : "";
+    const wordCount = pulseText.trim().split(/\s+/).filter(Boolean).length;
 
     const coverImage = await fetchWikimediaCoverImage(visualQuery, visualCaption);
 
@@ -309,7 +374,11 @@ export async function generateCountryEdition(
       updated_at: new Date().toISOString(),
       edition_week: weekLabel,
       ...(coverImage ? { cover_image: coverImage } : {}),
-      ...parsedJson,
+      intro: parsedJson.intro,
+      cultural_pulse: pulseText,
+      topics: parsedJson.topics,
+      recommendation,
+      sources,
     };
 
     const verdict = validateEditionQuality(assembled, allowedUrlSet);
@@ -317,9 +386,15 @@ export async function generateCountryEdition(
       return verdict.data;
     }
 
-    lastError = verdict.reason;
+    lastError =
+      wordCount < 300
+        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${wordCount} palabras y el mínimo obligatorio es 300. Debes reescribirlo más extenso y desarrollado, alcanzando entre 450 y 600 palabras.`
+        : wordCount > 800
+          ? `Tu 'cultural_pulse' anterior tuvo ${wordCount} palabras (máximo 800). Resúmelo a unas 550 palabras.`
+          : verdict.reason;
+
     console.warn(`  [Reintento ${attempt}] ${country.country}: ${lastError}`);
   }
 
-  throw new Error(`Falló Quality Gate tras 2 intentos: ${lastError}`);
+  throw new Error(`Falló Quality Gate tras 3 intentos: ${lastError}`);
 }

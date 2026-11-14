@@ -8,6 +8,12 @@ async function resolveAndCheckUrl(rawUrl: string): Promise<string | null> {
     const parsed = new URL(rawUrl);
     if (!["http:", "https:"].includes(parsed.protocol)) return null;
 
+    // Las URLs que acaban de venir del feed oficial de Google News RSS ya son válidas;
+    // evitar consultarlas cientos de veces seguidas previene bloqueos y cambios en la URL.
+    if (parsed.hostname === "news.google.com") {
+      return rawUrl;
+    }
+
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 7000);
 
@@ -21,7 +27,6 @@ async function resolveAndCheckUrl(rawUrl: string): Promise<string | null> {
       },
     }).catch(() => null);
 
-    // Algunos medios bloquean HEAD pero responden bien a GET
     if (!response || response.status === 405 || response.status === 403) {
       response = await fetch(rawUrl, {
         method: "GET",
@@ -37,13 +42,15 @@ async function resolveAndCheckUrl(rawUrl: string): Promise<string | null> {
     clearTimeout(timer);
 
     if (!response) return null;
-    // Aceptamos 200-399 y 401/403 (muchos medios con paywall devuelven 403 a bots aunque la URL es real)
-    if (response.status >= 400 && response.status !== 403 && response.status !== 401) {
+    if (
+      response.status >= 400 &&
+      response.status !== 403 &&
+      response.status !== 401
+    ) {
       return null;
     }
 
     const finalUrl = response.url || rawUrl;
-    // Descartamos redirecciones opacas sin resolver
     if (finalUrl.includes("vertexaisearch.cloud.google.com")) {
       return null;
     }
