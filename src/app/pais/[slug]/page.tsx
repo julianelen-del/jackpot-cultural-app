@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowUpRight, Lock } from "lucide-react";
+import { ArrowUpRight, Lock, RotateCw } from "lucide-react";
 import {
   getAllCountrySummaries,
   getCountriesGroupedByContinent,
@@ -42,6 +42,11 @@ function formatEditorialDate(isoDate: string): string {
   } catch {
     return isoDate.slice(0, 10);
   }
+}
+
+function estimateReadingMinutes(text: string): number {
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(2, Math.round(words / 200));
 }
 
 export default async function CountryPage({ params }: PageProps) {
@@ -90,6 +95,8 @@ export default async function CountryPage({ params }: PageProps) {
     .map((p) => p.trim())
     .filter(Boolean);
 
+  const readingMinutes = estimateReadingMinutes(edition.cultural_pulse);
+
   return (
     <div className="min-h-dvh bg-paper pb-24">
       <EditorialNav groupedCountries={groupedCountries} currentSlug={slug} />
@@ -105,6 +112,8 @@ export default async function CountryPage({ params }: PageProps) {
             <time dateTime={edition.updated_at}>
               Actualizado el {formatEditorialDate(edition.updated_at)}
             </time>
+            <span aria-hidden="true">·</span>
+            <span>{readingMinutes} min de lectura</span>
           </div>
 
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8">
@@ -120,6 +129,27 @@ export default async function CountryPage({ params }: PageProps) {
             {edition.intro}
           </p>
         </header>
+
+        {/* FOTO DESTACADA (cuando Wikimedia Commons devuelve una imagen libre verificada) */}
+        {edition.cover_image && (
+          <figure className="mx-auto mt-10 max-w-4xl">
+            <div className="overflow-hidden border border-ink/15 bg-paper-warm">
+              <img
+                src={edition.cover_image.url}
+                alt={edition.cover_image.caption}
+                className="aspect-[16/9] w-full object-cover"
+              />
+            </div>
+            <figcaption className="mt-2.5 flex flex-wrap items-baseline justify-between gap-2 border-b border-hairline pb-2.5 text-xs text-ink-muted">
+              <span className="font-serif italic">
+                {edition.cover_image.caption}
+              </span>
+              <span className="text-[11px] tracking-wide">
+                {edition.cover_image.credit}
+              </span>
+            </figcaption>
+          </figure>
+        )}
 
         {/* 2. EL PULSO CULTURAL DE LA SEMANA */}
         <section
@@ -164,10 +194,7 @@ export default async function CountryPage({ params }: PageProps) {
 
           <div className="grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
             {edition.topics.map((topic, idx) => (
-              <div
-                key={idx}
-                className="border-t border-hairline pt-4"
-              >
+              <div key={idx} className="border-t border-hairline pt-4">
                 <p className="text-[10px] font-semibold tracking-[0.18em] text-accent uppercase">
                   {topic.category}
                 </p>
@@ -260,6 +287,28 @@ export default async function CountryPage({ params }: PageProps) {
               </li>
             ))}
           </ul>
+
+          {/* Cierre natural al terminar de leer */}
+          <div className="mt-14 border-t border-ink/20 pt-10 text-center">
+            <p className="font-serif text-lg italic text-ink-muted">
+              ¿Seguimos viajando?
+            </p>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/?spin=1"
+                className="inline-flex items-center gap-2 border border-ink bg-accent px-6 py-3 text-xs font-semibold tracking-[0.18em] text-paper uppercase transition-colors hover:bg-[#9E2E20]"
+              >
+                <RotateCw className="h-3.5 w-3.5" />
+                <span>Volver a tirar</span>
+              </Link>
+              <Link
+                href="/"
+                className="border border-ink/30 px-6 py-3 text-xs font-medium tracking-[0.16em] text-ink uppercase transition-colors hover:border-ink"
+              >
+                Ir a la portada
+              </Link>
+            </div>
+          </div>
         </footer>
       </article>
     </div>

@@ -1,6 +1,10 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import type { CountryEdition, CountrySourceConfig } from "../../src/lib/schema";
-import { fetchCountryRssSignals } from "./fetch-rss";
+import { fetchWikimediaCoverImage } from "./fetch-image";
+import {
+  fetchCountryRssSignals,
+  fetchGoogleNewsCulturalSignals,
+} from "./fetch-rss";
 import {
   buildResearchPrompt,
   buildSynthesisPrompt,
@@ -9,7 +13,12 @@ import {
 import { validateEditionQuality } from "./quality-gate";
 import { verifyCandidateUrls, type CandidateUrl } from "./verify-links";
 
-const MODEL_ID = process.env.GEMINI_MODEL || "gemini-3.8-flash";
+const PRIMARY_MODEL = process.env.GEMINI_MODEL || "gemini-4-hydrogen";
+const FALLBACK_MODEL = "gemini-3.5-flash-lite";
+
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 export function getCurrentIsoWeek(date = new Date()): string {
   const temp = new Date(
@@ -24,6 +33,39 @@ export function getCurrentIsoWeek(date = new Date()): string {
   return `${temp.getUTCFullYear()}-W${String(weekNo).padStart(2, "0")}`;
 }
 
+async function generateWithModelFallback(
+  ai: GoogleGenAI,
+  contents: string,
+  config: Record<string, unknown>
+) {
+  try {
+    return await ai.models.generateContent({
+      model: PRIMARY_MODEL,
+      contents,
+      config,
+    });
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    if (
+      msg.includes("429") ||
+      msg.includes("RESOURCE_EXHAUSTED") ||
+      msg.includes("not found") ||
+      msg.includes("404")
+    ) {
+      console.warn(
+        `  [Modelo] Reintentando con ${FALLBACK_MODEL} tras aviso en ${PRIMARY_MODEL}...`
+      );
+      await sleep(2000);
+      return await ai.models.generateContent({
+        model: FALLBACK_MODEL,
+        contents,
+        config,
+      });
+    }
+    throw err;
+  }
+}
+
 export async function generateCountryEdition(
   ai: GoogleGenAI,
   country: CountrySourceConfig,
@@ -31,50 +73,101 @@ export async function generateCountryEdition(
 ): Promise<CountryEdition> {
   const weekLabel = getCurrentIsoWeek();
 
-  // 1. Capturar RSS públicos recientes (si existen)
-  const rssSignals = await fetchCountryRssSignals(country.rss_feeds);
-  const rssContext = rssSignals
-    .map(
-      (s) =>
-        `- [${s.sourceTitle}] ${s.title}${s.snippet ? `: ${s.snippet}` : ""} (${s.url})`
-    )
-    .join("\n");
+  // 1. Capturar RSS públicos curados
+  let rssSignals = await fetchCountryRssSignals(country.rss_feeds);
 
-  // 2. Paso 1: Investigación con Google Search Grounding
-  const researchPrompt = buildResearchPrompt(
-    country,
-    rssContext,
-    previousTopics,
-    weekLabel
-  );
+  const formatSignals = (signals: typeof rssSignals) =>
+    signals
+      .map(
+        (s) =>
+          `- [${s.sourceTitle}] ${s.title}${s.snippet ? `: ${s.snippet}` : ""} (${s.url})`
+      )
+      .join("\n");
 
-  const researchResponse = await ai.models.generateContent({
-    model: MODEL_ID,
-    contents: researchPrompt,
-    config: {
-      systemInstruction: EDITORIAL_SYSTEM_INSTRUCTION,
-      temperature: 0.4,
-      tools: [{ googleSearch: {} }],
-    },
-  });
+  let researchDossier = "";
+  const candidateUrls: CandidateUrl[] = [];
 
-  const researchDossier = researchResponse.text?.trim();
-  if (!researchDossier || researchDossier.length < 200) {
-    throw new Error("El dossier de investigación devolvió contenido insuficiente.");
+  // 2. Paso 1: Intentar Google Search Grounding; si Nivel Gratuito bloquea, activar Plan B (Google News RSS)
+  let searchSucceeded = false;
+  try {
+    const researchPromptWithSearch = buildResearchPrompt(
+      country,
+      formatSignals(rssSignals),
+      previousTopics,
+      weekLabel,
+      true
+    );
+
+    const researchResponse = await generateWithModelFallback(
+      ai,
+      researchPromptWithSearch,
+      {
+        systemInstruction: EDITORIAL_SYSTEM_INSTRUCTION,
+        tools: [{ googleSearch: {} }],
+      }
+    );
+
+    const text = researchResponse.text?.trim() || "";
+    const groundingChunks =
+      researchResponse.candidates?.[0]?.groundingMetadata?.groundingChunks ||
+      [];
+
+    if (text.length >= 200) {
+      researchDossier = text;
+      for (const chunk of groundingChunks) {
+        if (chunk.web?.uri) {
+          candidateUrls.push({
+            title: chunk.web.title || "Fuente cultural",
+            url: chunk.web.uri,
+          });
+        }
+      }
+      searchSucceeded = true;
+    }
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.warn(
+      `  [Plan B gratuito] Google Search no disponible (${msg.slice(0, 80)}...). Usando Google News RSS + feeds abiertos.`
+    );
   }
 
-  // Extraer URLs reales descubiertas por Google Search Grounding + RSS
-  const candidateUrls: CandidateUrl[] = [];
-  const groundingChunks =
-    researchResponse.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
+  // Si Google Search no estuvo disponible o trajo pocos enlaces, enriquecemos con Google News RSS del país
+  if (!searchSucceeded || candidateUrls.length < 2) {
+    const newsSignals = await fetchGoogleNewsCulturalSignals(
+      country.slug,
+      country.country
+    );
+    rssSignals = [...rssSignals, ...newsSignals].slice(0, 22);
 
-  for (const chunk of groundingChunks) {
-    if (chunk.web?.uri) {
-      candidateUrls.push({
-        title: chunk.web.title || "Fuente cultural",
-        url: chunk.web.uri,
-      });
+    if (!searchSucceeded) {
+      if (rssSignals.length < 2) {
+        throw new Error(
+          "No se obtuvieron suficientes señales culturales públicas para el Plan B."
+        );
+      }
+
+      const fallbackPrompt = buildResearchPrompt(
+        country,
+        formatSignals(rssSignals),
+        previousTopics,
+        weekLabel,
+        false
+      );
+
+      const fallbackResponse = await generateWithModelFallback(
+        ai,
+        fallbackPrompt,
+        {
+          systemInstruction: EDITORIAL_SYSTEM_INSTRUCTION,
+        }
+      );
+
+      researchDossier = fallbackResponse.text?.trim() || "";
     }
+  }
+
+  if (researchDossier.length < 200) {
+    throw new Error("El dossier de investigación devolvió contenido insuficiente.");
   }
 
   for (const sig of rssSignals) {
@@ -102,70 +195,69 @@ export async function generateCountryEdition(
         ? `\n\nCORRECCIÓN OBLIGATORIA RESPECTO AL INTENTO ANTERIOR: ${lastError}`
         : "");
 
-    const jsonResponse = await ai.models.generateContent({
-      model: MODEL_ID,
-      contents: synthesisPrompt,
-      config: {
-        systemInstruction: EDITORIAL_SYSTEM_INSTRUCTION,
-        temperature: 0.65,
-        responseMimeType: "application/json",
-        responseSchema: {
-          type: Type.OBJECT,
-          required: [
-            "intro",
-            "cultural_pulse",
-            "topics",
-            "recommendation",
-            "sources",
-          ],
-          properties: {
-            intro: { type: Type.STRING },
-            cultural_pulse: { type: Type.STRING },
-            topics: {
-              type: Type.ARRAY,
-              items: {
-                type: Type.OBJECT,
-                required: ["category", "title", "summary"],
-                properties: {
-                  category: { type: Type.STRING },
-                  title: { type: Type.STRING },
-                  summary: { type: Type.STRING },
-                },
-              },
-            },
-            recommendation: {
+    const jsonResponse = await generateWithModelFallback(ai, synthesisPrompt, {
+      systemInstruction: EDITORIAL_SYSTEM_INSTRUCTION,
+      responseMimeType: "application/json",
+      responseSchema: {
+        type: Type.OBJECT,
+        required: [
+          "intro",
+          "visual_query",
+          "visual_caption",
+          "cultural_pulse",
+          "topics",
+          "recommendation",
+          "sources",
+        ],
+        properties: {
+          intro: { type: Type.STRING },
+          visual_query: { type: Type.STRING },
+          visual_caption: { type: Type.STRING },
+          cultural_pulse: { type: Type.STRING },
+          topics: {
+            type: Type.ARRAY,
+            items: {
               type: Type.OBJECT,
-              required: ["type", "title", "creator", "context", "url"],
+              required: ["category", "title", "summary"],
               properties: {
-                type: {
-                  type: Type.STRING,
-                  enum: [
-                    "Libro",
-                    "Película",
-                    "Exposición",
-                    "Autor",
-                    "Artista",
-                    "Movimiento",
-                    "Álbum",
-                    "Obra teatral",
-                  ],
-                },
+                category: { type: Type.STRING },
                 title: { type: Type.STRING },
-                creator: { type: Type.STRING },
-                context: { type: Type.STRING },
-                url: { type: Type.STRING },
+                summary: { type: Type.STRING },
               },
             },
-            sources: {
-              type: Type.ARRAY,
-              items: {
-                type: Type.OBJECT,
-                required: ["name", "url", "paywalled"],
-                properties: {
-                  name: { type: Type.STRING },
-                  url: { type: Type.STRING },
-                  paywalled: { type: Type.BOOLEAN },
-                },
+          },
+          recommendation: {
+            type: Type.OBJECT,
+            required: ["type", "title", "creator", "context", "url"],
+            properties: {
+              type: {
+                type: Type.STRING,
+                enum: [
+                  "Libro",
+                  "Película",
+                  "Exposición",
+                  "Autor",
+                  "Artista",
+                  "Movimiento",
+                  "Álbum",
+                  "Obra teatral",
+                ],
+              },
+              title: { type: Type.STRING },
+              creator: { type: Type.STRING },
+              context: { type: Type.STRING },
+              url: { type: Type.STRING },
+            },
+          },
+          sources: {
+            type: Type.ARRAY,
+            items: {
+              type: Type.OBJECT,
+              required: ["name", "url", "paywalled"],
+              properties: {
+                name: { type: Type.STRING },
+                url: { type: Type.STRING },
+                paywalled: { type: Type.BOOLEAN },
               },
             },
           },
@@ -187,6 +279,21 @@ export async function generateCountryEdition(
       continue;
     }
 
+    const visualQuery =
+      typeof parsedJson.visual_query === "string"
+        ? parsedJson.visual_query
+        : country.country;
+    const visualCaption =
+      typeof parsedJson.visual_caption === "string"
+        ? parsedJson.visual_caption
+        : `Escena cultural en ${country.country}.`;
+
+    delete parsedJson.visual_query;
+    delete parsedJson.visual_caption;
+
+    // Buscar foto libre verificada en Wikimedia Commons (si no halla, queda undefined sin romper)
+    const coverImage = await fetchWikimediaCoverImage(visualQuery, visualCaption);
+
     const assembled = {
       slug: country.slug,
       country: country.country,
@@ -194,6 +301,7 @@ export async function generateCountryEdition(
       flag: country.flag,
       updated_at: new Date().toISOString(),
       edition_week: weekLabel,
+      ...(coverImage ? { cover_image: coverImage } : {}),
       ...parsedJson,
     };
 

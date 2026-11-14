@@ -37,6 +37,12 @@ export const SourceSchema = z.object({
   paywalled: z.boolean(),
 });
 
+export const CoverImageSchema = z.object({
+  url: z.string().url(),
+  caption: z.string().min(5).max(200),
+  credit: z.string().min(3).max(140),
+});
+
 export const CountryEditionSchema = z.object({
   slug: z.string().min(2),
   country: z.string().min(2),
@@ -45,6 +51,7 @@ export const CountryEditionSchema = z.object({
   updated_at: z.string().datetime(),
   edition_week: z.string().min(4),
   intro: z.string().min(30).max(240),
+  cover_image: CoverImageSchema.optional(),
   cultural_pulse: z.string().refine(
     (text) => {
       const words = text.trim().split(/\s+/).filter(Boolean).length;
@@ -61,6 +68,7 @@ export type Continent = (typeof CONTINENTS)[number];
 export type Topic = z.infer<typeof TopicSchema>;
 export type Recommendation = z.infer<typeof RecommendationSchema>;
 export type Source = z.infer<typeof SourceSchema>;
+export type CoverImage = z.infer<typeof CoverImageSchema>;
 export type CountryEdition = z.infer<typeof CountryEditionSchema>;
 
 export interface CountrySourceConfig {
