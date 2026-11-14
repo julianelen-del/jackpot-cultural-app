@@ -44,6 +44,12 @@ export function validateEditionQuality(
   const inlineLinks = Array.from(
     edition.cultural_pulse.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g)
   );
+  if (inlineLinks.length < 2) {
+    return {
+      ok: false,
+      reason: `Faltan enlaces dentro de cultural_pulse (incluyó ${inlineLinks.length}; obligatorio incluir 2 o 3 usando el formato [Nombre propio](ID)).`,
+    };
+  }
   if (inlineLinks.length > 3) {
     return {
       ok: false,

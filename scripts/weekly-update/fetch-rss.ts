@@ -69,6 +69,59 @@ function extractMediaDescription(item: unknown): string {
   return "";
 }
 
+async function fetchOpenArticleContext(url: string): Promise<string> {
+  try {
+    const parsed = new URL(url);
+    if (
+      parsed.hostname.includes("news.google.com") ||
+      parsed.hostname.includes("youtube.com") ||
+      parsed.hostname.includes("youtu.be")
+    ) {
+      return "";
+    }
+
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 4000);
+    const res = await fetch(url, {
+      signal: controller.signal,
+      redirect: "follow",
+      headers: {
+        "User-Agent": "Mozilla/5.0 (compatible; JackpotCulturalBot/1.0)",
+      },
+    });
+    clearTimeout(timer);
+
+    if (!res.ok) return "";
+    const contentType = res.headers.get("content-type") || "";
+    if (!contentType.includes("text/html")) return "";
+
+    const html = (await res.text()).slice(0, 45000);
+    const cleaned = html
+      .replace(/<script[\s\S]*?<\/script>/gi, " ")
+      .replace(/<style[\s\S]*?<\/style>/gi, " ");
+
+    const paragraphs: string[] = [];
+    const pMatches = cleaned.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi);
+    for (const m of pMatches) {
+      const txt = m[1]
+        .replace(/<[^>]*>/g, " ")
+        .replace(/&nbsp;/g, " ")
+        .replace(/&amp;/g, "&")
+        .replace(/&quot;/g, '"')
+        .replace(/\s+/g, " ")
+        .trim();
+      if (txt.length >= 60) {
+        paragraphs.push(txt);
+      }
+      if (paragraphs.length >= 3) break;
+    }
+
+    return paragraphs.join(" ").slice(0, 700);
+  } catch {
+    return "";
+  }
+}
+
 async function parseSingleFeed(feedUrl: string, limit = 8): Promise<RssSignal[]> {
   const tenDaysAgo = Date.now() - 10 * 24 * 60 * 60 * 1000;
   const signals: RssSignal[] = [];
@@ -103,7 +156,7 @@ async function parseSingleFeed(feedUrl: string, limit = 8): Promise<RssSignal[]>
         .replace(/<[^>]*>/g, " ")
         .replace(/\s+/g, " ")
         .trim()
-        .slice(0, 480);
+        .slice(0, 750);
 
       signals.push({
         sourceTitle,
@@ -125,7 +178,7 @@ async function parseSingleFeed(feedUrl: string, limit = 8): Promise<RssSignal[]>
 export function balanceSignalsBySource(
   signals: RssSignal[],
   maxPerSource = 3,
-  maxTotal = 26
+  maxTotal = 24
 ): RssSignal[] {
   const buckets = new Map<string, RssSignal[]>();
   for (const sig of signals) {
@@ -153,6 +206,27 @@ export function balanceSignalsBySource(
   }
 
   return balanced;
+}
+
+export async function enrichSignalsWithArticleContext(
+  signals: RssSignal[]
+): Promise<RssSignal[]> {
+  let fetched = 0;
+  const enriched: RssSignal[] = [];
+
+  for (const sig of signals) {
+    if (sig.snippet.length < 220 && fetched < 8) {
+      const extra = await fetchOpenArticleContext(sig.url);
+      fetched++;
+      if (extra.length > sig.snippet.length) {
+        enriched.push({ ...sig, snippet: extra });
+        continue;
+      }
+    }
+    enriched.push(sig);
+  }
+
+  return enriched;
 }
 
 export async function fetchCountryRssSignals(

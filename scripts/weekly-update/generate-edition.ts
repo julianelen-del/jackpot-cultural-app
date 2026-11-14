@@ -6,10 +6,12 @@ import type {
 } from "../../src/lib/schema";
 import {
   fetchWikimediaCoverImage,
+  fetchWikipediaLeadImage,
   verifyYouTubeOEmbed,
 } from "./fetch-image";
 import {
   balanceSignalsBySource,
+  enrichSignalsWithArticleContext,
   fetchCountryRssSignals,
   fetchGoogleNewsCulturalSignals,
 } from "./fetch-rss";
@@ -101,15 +103,22 @@ async function generateWithModelFallback(
 
 function resolveInlineLinks(
   rawPulse: string,
-  verifiedUrls: CandidateUrl[]
+  verifiedUrls: CandidateUrl[],
+  allowedUrlSet: Set<string>
 ): string {
   let count = 0;
   return rawPulse.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, target) => {
-    const id = Number(String(target).trim());
+    const cleanTarget = String(target).trim();
+    const id = Number(cleanTarget);
     const matched = Number.isInteger(id) ? verifiedUrls[id - 1] : undefined;
+
     if (matched && count < 3) {
       count++;
       return `[${label}](${matched.url})`;
+    }
+    if (allowedUrlSet.has(cleanTarget) && count < 3) {
+      count++;
+      return `[${label}](${cleanTarget})`;
     }
     return label;
   });
@@ -122,13 +131,18 @@ export async function generateCountryEdition(
 ): Promise<CountryEdition> {
   const weekLabel = getCurrentIsoWeek();
 
-  // Siempre combinamos RSS curados + Google News balanceados para garantizar múltiples medios
+  // Combinar RSS curados + Google News balanceados y enriquecer con párrafos reales abiertos
   const directRss = await fetchCountryRssSignals(country.rss_feeds);
   const newsRss = await fetchGoogleNewsCulturalSignals(
     country.slug,
     country.country
   );
-  const rssSignals = balanceSignalsBySource([...directRss, ...newsRss], 3, 26);
+  const balancedSignals = balanceSignalsBySource(
+    [...directRss, ...newsRss],
+    3,
+    24
+  );
+  const rssSignals = await enrichSignalsWithArticleContext(balancedSignals);
 
   const formatSignals = (signals: typeof rssSignals) =>
     signals
@@ -181,7 +195,7 @@ export async function generateCountryEdition(
     } catch {
       disableSearchForSession = true;
       console.warn(
-        "  [Plan B gratuito] Google Search no disponible en Nivel Gratuito. Activando feeds múltiples + Google News RSS para la sesión."
+        "  [Plan B gratuito] Google Search no disponible en Nivel Gratuito. Activando feeds múltiples + lectura abierta + Google News RSS."
       );
     }
   }
@@ -403,21 +417,33 @@ export async function generateCountryEdition(
       typeof parsedJson.cultural_pulse === "string"
         ? parsedJson.cultural_pulse
         : "";
-    const resolvedPulse = resolveInlineLinks(rawPulse, verifiedUrls);
+    const resolvedPulse = resolveInlineLinks(
+      rawPulse,
+      verifiedUrls,
+      allowedUrlSet
+    );
     const plainWordCount = resolvedPulse
       .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
       .trim()
       .split(/\s+/)
       .filter(Boolean).length;
 
-    const coverImage = await fetchWikimediaCoverImage(visualQuery, visualCaption);
+    const coverImage = await fetchWikimediaCoverImage(
+      visualQuery,
+      visualCaption,
+      undefined,
+      false
+    );
 
     let closingMedia: ClosingMedia | undefined;
     const closingRaw = (parsedJson.closing_media || {}) as Record<string, unknown>;
     const closingCaption =
       typeof closingRaw.caption === "string" ? closingRaw.caption.trim() : "";
 
-    if (closingRaw.mode === "video" && typeof closingRaw.youtube_url === "string") {
+    if (
+      closingRaw.mode === "video" &&
+      typeof closingRaw.youtube_url === "string"
+    ) {
       if (youtubeCandidates.includes(closingRaw.youtube_url)) {
         const embedUrl = await verifyYouTubeOEmbed(closingRaw.youtube_url);
         if (embedUrl && closingCaption.length >= 5) {
@@ -433,11 +459,20 @@ export async function generateCountryEdition(
       typeof closingRaw.image_query === "string" &&
       closingCaption.length >= 5
     ) {
-      const secondary = await fetchWikimediaCoverImage(
+      // Primero busca retrato/foto exacta en Wikipedia; si no hay, intenta en Wikimedia Commons permitiendo retratos
+      const wikiImg = await fetchWikipediaLeadImage(
         closingRaw.image_query,
         closingCaption,
         coverImage?.url
       );
+      const secondary =
+        wikiImg ||
+        (await fetchWikimediaCoverImage(
+          closingRaw.image_query,
+          closingCaption,
+          coverImage?.url,
+          true
+        ));
       if (secondary) {
         closingMedia = {
           type: "image",
@@ -471,9 +506,9 @@ export async function generateCountryEdition(
 
     lastError =
       plainWordCount < 300
-        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${plainWordCount} palabras y el mínimo obligatorio es 300. Desarróllalo con más obras y nombres propios reales hasta alcanzar 420-580 palabras.`
+        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${plainWordCount} palabras y el mínimo obligatorio es 300. Desarróllalo con hechos y obras concretas hasta alcanzar 350-420 palabras.`
         : plainWordCount > 800
-          ? `Tu 'cultural_pulse' anterior tuvo ${plainWordCount} palabras (máximo 800). Resúmelo a unas 550 palabras.`
+          ? `Tu 'cultural_pulse' anterior tuvo ${plainWordCount} palabras (máximo 800). Resúmelo a unas 400 palabras.`
           : verdict.reason;
 
     console.warn(`  [Reintento ${attempt}] ${country.country}: ${lastError}`);

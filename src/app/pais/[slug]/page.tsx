@@ -286,6 +286,7 @@ export default async function CountryPage({ params }: PageProps) {
           </div>
         </section>
 
+        {/* PIEZA VISUAL O AUDIOVISUAL OPCIONAL DESPUÉS DE TODOS LOS TEXTOS */}
         {edition.closing_media && (
           <figure className="mx-auto mt-14 max-w-3xl">
             {edition.closing_media.type === "video" ? (
@@ -299,11 +300,11 @@ export default async function CountryPage({ params }: PageProps) {
                 />
               </div>
             ) : (
-              <div className="overflow-hidden border border-ink/15 bg-paper-warm">
+              <div className="flex justify-center overflow-hidden border border-ink/15 bg-paper-warm/60 p-3 sm:p-5">
                 <img
                   src={edition.closing_media.url}
                   alt={edition.closing_media.caption}
-                  className="aspect-[16/9] w-full object-cover"
+                  className="max-h-[460px] w-auto max-w-full object-contain"
                 />
               </div>
             )}
