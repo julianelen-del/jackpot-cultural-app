@@ -1,0 +1,55 @@
+name: Edición Semanal Automática
+
+on:
+  schedule:
+    # Todos los lunes a las 03:00 UTC (00:00 hora Argentina)
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+    inputs:
+      country_slug:
+        description: "Opcional: actualizar solo un país (ej: francia). Dejar vacío para los 23."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  update-cultural-editions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Generar ediciones culturales con Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -n "${{ inputs.country_slug }}" ]; then
+            npm run update-editions -- --country=${{ inputs.country_slug }}
+          else
+            npm run update-editions
+          fi
+
+      - name: Guardar cambios en el repositorio
+        run: |
+          git config user.name "Jackpot Cultural Bot"
+          git config user.email "bot@jackpot-cultural.local"
+          git add content/countries/
+          if git diff --staged --quiet; then
+            echo "Sin cambios nuevos esta semana."
+          else
+            git commit -m "chore: edición cultural semanal $(date -u +'%Y-%m-%d')"
+            git push
+          fi
