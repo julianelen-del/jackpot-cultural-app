@@ -1,7 +1,15 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import type { CountryEdition, CountrySourceConfig } from "../../src/lib/schema";
-import { fetchWikimediaCoverImage } from "./fetch-image";
+import type {
+  ClosingMedia,
+  CountryEdition,
+  CountrySourceConfig,
+} from "../../src/lib/schema";
 import {
+  fetchWikimediaCoverImage,
+  verifyYouTubeOEmbed,
+} from "./fetch-image";
+import {
+  balanceSignalsBySource,
   fetchCountryRssSignals,
   fetchGoogleNewsCulturalSignals,
 } from "./fetch-rss";
@@ -13,8 +21,8 @@ import {
 import { validateEditionQuality } from "./quality-gate";
 import { verifyCandidateUrls, type CandidateUrl } from "./verify-links";
 
-const PRIMARY_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
-const FALLBACK_MODEL = "gemini-4-hydrogen";
+const PRIMARY_MODEL = process.env.GEMINI_MODEL || "gemini-4-hydrogen";
+const FALLBACK_MODEL = "gemini-3.5-flash-lite";
 
 let disableSearchForSession = false;
 
@@ -91,6 +99,22 @@ async function generateWithModelFallback(
   }
 }
 
+function resolveInlineLinks(
+  rawPulse: string,
+  verifiedUrls: CandidateUrl[]
+): string {
+  let count = 0;
+  return rawPulse.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, target) => {
+    const id = Number(String(target).trim());
+    const matched = Number.isInteger(id) ? verifiedUrls[id - 1] : undefined;
+    if (matched && count < 3) {
+      count++;
+      return `[${label}](${matched.url})`;
+    }
+    return label;
+  });
+}
+
 export async function generateCountryEdition(
   ai: GoogleGenAI,
   country: CountrySourceConfig,
@@ -98,8 +122,13 @@ export async function generateCountryEdition(
 ): Promise<CountryEdition> {
   const weekLabel = getCurrentIsoWeek();
 
-  // 1. Capturar RSS públicos curados
-  let rssSignals = await fetchCountryRssSignals(country.rss_feeds);
+  // Siempre combinamos RSS curados + Google News balanceados para garantizar múltiples medios
+  const directRss = await fetchCountryRssSignals(country.rss_feeds);
+  const newsRss = await fetchGoogleNewsCulturalSignals(
+    country.slug,
+    country.country
+  );
+  const rssSignals = balanceSignalsBySource([...directRss, ...newsRss], 3, 26);
 
   const formatSignals = (signals: typeof rssSignals) =>
     signals
@@ -112,7 +141,6 @@ export async function generateCountryEdition(
   let researchDossier = "";
   const candidateUrls: CandidateUrl[] = [];
 
-  // 2. Paso 1: Intentar Google Search Grounding (salvo que ya sepamos que está bloqueado en esta sesión)
   let searchSucceeded = false;
   if (!disableSearchForSession) {
     try {
@@ -153,49 +181,48 @@ export async function generateCountryEdition(
     } catch {
       disableSearchForSession = true;
       console.warn(
-        "  [Plan B gratuito] Google Search no disponible en Nivel Gratuito. Activando Google News RSS + feeds abiertos para la sesión."
+        "  [Plan B gratuito] Google Search no disponible en Nivel Gratuito. Activando feeds múltiples + Google News RSS para la sesión."
       );
     }
   }
 
-  // Si Google Search no estuvo disponible o trajo pocos enlaces, usamos Google News RSS del país
-  if (!searchSucceeded || candidateUrls.length < 2) {
-    const newsSignals = await fetchGoogleNewsCulturalSignals(
-      country.slug,
-      country.country
-    );
-    rssSignals = [...rssSignals, ...newsSignals].slice(0, 22);
-
-    if (!searchSucceeded) {
-      if (rssSignals.length < 2) {
-        throw new Error(
-          "No se obtuvieron suficientes señales culturales públicas para el Plan B."
-        );
-      }
-
-      const fallbackPrompt = buildResearchPrompt(
-        country,
-        formatSignals(rssSignals),
-        previousTopics,
-        weekLabel,
-        false
+  if (!searchSucceeded) {
+    if (rssSignals.length < 2) {
+      throw new Error(
+        "No se obtuvieron suficientes señales culturales públicas para el Plan B."
       );
-
-      const fallbackResponse = await generateWithModelFallback(
-        ai,
-        fallbackPrompt,
-        {
-          systemInstruction: EDITORIAL_SYSTEM_INSTRUCTION,
-        }
-      );
-
-      researchDossier = fallbackResponse.text?.trim() || "";
     }
+
+    const fallbackPrompt = buildResearchPrompt(
+      country,
+      formatSignals(rssSignals),
+      previousTopics,
+      weekLabel,
+      false
+    );
+
+    const fallbackResponse = await generateWithModelFallback(
+      ai,
+      fallbackPrompt,
+      {
+        systemInstruction: EDITORIAL_SYSTEM_INSTRUCTION,
+      }
+    );
+
+    researchDossier = fallbackResponse.text?.trim() || "";
   }
 
   if (researchDossier.length < 200) {
     throw new Error("El dossier de investigación devolvió contenido insuficiente.");
   }
+
+  const youtubeCandidates = Array.from(
+    new Set(
+      rssSignals
+        .map((s) => s.youtubeUrl)
+        .filter((u): u is string => Boolean(u))
+    )
+  ).slice(0, 4);
 
   for (const sig of rssSignals) {
     candidateUrls.push({
@@ -213,11 +240,16 @@ export async function generateCountryEdition(
 
   const allowedUrlSet = new Set(verifiedUrls.map((u) => u.url));
 
-  // 3. Paso 2: Redacción estructurada en JSON (hasta 3 intentos por Quality Gate)
   let lastError = "";
   for (let attempt = 1; attempt <= 3; attempt++) {
     const synthesisPrompt =
-      buildSynthesisPrompt(country, researchDossier, verifiedUrls, weekLabel) +
+      buildSynthesisPrompt(
+        country,
+        researchDossier,
+        verifiedUrls,
+        youtubeCandidates,
+        weekLabel
+      ) +
       (lastError
         ? `\n\nCORRECCIÓN OBLIGATORIA RESPECTO AL INTENTO ANTERIOR: ${lastError}`
         : "");
@@ -234,6 +266,7 @@ export async function generateCountryEdition(
           "cultural_pulse",
           "topics",
           "recommendation",
+          "closing_media",
           "sources",
         ],
         properties: {
@@ -276,6 +309,16 @@ export async function generateCountryEdition(
               source_id: { type: Type.INTEGER },
             },
           },
+          closing_media: {
+            type: Type.OBJECT,
+            required: ["mode", "caption"],
+            properties: {
+              mode: { type: Type.STRING, enum: ["video", "image", "none"] },
+              youtube_url: { type: Type.STRING },
+              image_query: { type: Type.STRING },
+              caption: { type: Type.STRING },
+            },
+          },
           sources: {
             type: Type.ARRAY,
             items: {
@@ -306,11 +349,9 @@ export async function generateCountryEdition(
       continue;
     }
 
-    // Resolver IDs numéricos a URLs exactas verificadas
     const recRaw = (parsedJson.recommendation || {}) as Record<string, unknown>;
     const recId = Number(recRaw.source_id);
-    const recUrl =
-      verifiedUrls[recId - 1]?.url || verifiedUrls[0]?.url;
+    const recUrl = verifiedUrls[recId - 1]?.url || verifiedUrls[0]?.url;
     const recommendation = {
       type: recRaw.type,
       title: recRaw.title,
@@ -337,13 +378,13 @@ export async function generateCountryEdition(
       });
     }
 
-    // Garantizar al menos 2 fuentes válidas si el modelo repitió IDs
     for (const fallbackUrl of verifiedUrls) {
-      if (sources.length >= 2) break;
+      if (sources.length >= 3) break;
       if (seenUrls.has(fallbackUrl.url)) continue;
       seenUrls.add(fallbackUrl.url);
       sources.push({
-        name: fallbackUrl.title.split(" - ")[0].slice(0, 88) || "Medio cultural",
+        name:
+          fallbackUrl.title.split(" - ")[0].slice(0, 88) || "Medio cultural",
         url: fallbackUrl.url,
         paywalled: false,
       });
@@ -358,13 +399,54 @@ export async function generateCountryEdition(
         ? parsedJson.visual_caption
         : `Escena cultural en ${country.country}.`;
 
-    const pulseText =
+    const rawPulse =
       typeof parsedJson.cultural_pulse === "string"
         ? parsedJson.cultural_pulse
         : "";
-    const wordCount = pulseText.trim().split(/\s+/).filter(Boolean).length;
+    const resolvedPulse = resolveInlineLinks(rawPulse, verifiedUrls);
+    const plainWordCount = resolvedPulse
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean).length;
 
     const coverImage = await fetchWikimediaCoverImage(visualQuery, visualCaption);
+
+    let closingMedia: ClosingMedia | undefined;
+    const closingRaw = (parsedJson.closing_media || {}) as Record<string, unknown>;
+    const closingCaption =
+      typeof closingRaw.caption === "string" ? closingRaw.caption.trim() : "";
+
+    if (closingRaw.mode === "video" && typeof closingRaw.youtube_url === "string") {
+      if (youtubeCandidates.includes(closingRaw.youtube_url)) {
+        const embedUrl = await verifyYouTubeOEmbed(closingRaw.youtube_url);
+        if (embedUrl && closingCaption.length >= 5) {
+          closingMedia = {
+            type: "video",
+            url: embedUrl,
+            caption: closingCaption.slice(0, 195),
+          };
+        }
+      }
+    } else if (
+      closingRaw.mode === "image" &&
+      typeof closingRaw.image_query === "string" &&
+      closingCaption.length >= 5
+    ) {
+      const secondary = await fetchWikimediaCoverImage(
+        closingRaw.image_query,
+        closingCaption,
+        coverImage?.url
+      );
+      if (secondary) {
+        closingMedia = {
+          type: "image",
+          url: secondary.url,
+          caption: secondary.caption,
+          credit: secondary.credit,
+        };
+      }
+    }
 
     const assembled = {
       slug: country.slug,
@@ -375,9 +457,10 @@ export async function generateCountryEdition(
       edition_week: weekLabel,
       ...(coverImage ? { cover_image: coverImage } : {}),
       intro: parsedJson.intro,
-      cultural_pulse: pulseText,
+      cultural_pulse: resolvedPulse,
       topics: parsedJson.topics,
       recommendation,
+      ...(closingMedia ? { closing_media: closingMedia } : {}),
       sources,
     };
 
@@ -387,10 +470,10 @@ export async function generateCountryEdition(
     }
 
     lastError =
-      wordCount < 300
-        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${wordCount} palabras y el mínimo obligatorio es 300. Debes reescribirlo más extenso y desarrollado, alcanzando entre 450 y 600 palabras.`
-        : wordCount > 800
-          ? `Tu 'cultural_pulse' anterior tuvo ${wordCount} palabras (máximo 800). Resúmelo a unas 550 palabras.`
+      plainWordCount < 300
+        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${plainWordCount} palabras y el mínimo obligatorio es 300. Desarróllalo con más obras y nombres propios reales hasta alcanzar 420-580 palabras.`
+        : plainWordCount > 800
+          ? `Tu 'cultural_pulse' anterior tuvo ${plainWordCount} palabras (máximo 800). Resúmelo a unas 550 palabras.`
           : verdict.reason;
 
     console.warn(`  [Reintento ${attempt}] ${country.country}: ${lastError}`);

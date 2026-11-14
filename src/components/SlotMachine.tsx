@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
+import { Volume2, VolumeX } from "lucide-react";
 import type { Continent } from "@/lib/schema";
 import type { CountrySummary } from "@/lib/countries";
 import { CountrySelectorModal } from "./CountrySelectorModal";
@@ -16,6 +17,54 @@ interface SlotMachineProps {
 }
 
 const LAST_COUNTRY_KEY = "jackpot_cultural_last_slug";
+const SOUND_PREF_KEY = "jackpot_cultural_sound_enabled";
+
+function playMechanicalTick(ctx: AudioContext) {
+  try {
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "triangle";
+    osc.frequency.setValueAtTime(210, now);
+    osc.frequency.exponentialRampToValueAtTime(75, now + 0.032);
+
+    gain.gain.setValueAtTime(0.055, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.035);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(now);
+    osc.stop(now + 0.04);
+  } catch {
+    // Ignorar si el navegador restringe audio
+  }
+}
+
+function playRevealChime(ctx: AudioContext) {
+  try {
+    const now = ctx.currentTime;
+    const freqs = [523.25, 659.25];
+    freqs.forEach((freq, idx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      const start = now + idx * 0.06;
+
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(freq, start);
+
+      gain.gain.setValueAtTime(0.001, start);
+      gain.gain.linearRampToValueAtTime(0.075, start + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.85);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(start);
+      osc.stop(start + 0.9);
+    });
+  } catch {
+    // Ignorar si el navegador restringe audio
+  }
+}
 
 export function SlotMachine({
   countries,
@@ -28,8 +77,8 @@ export function SlotMachine({
   const [isSpinning, setIsSpinning] = useState(false);
   const [selectorOpen, setSelectorOpen] = useState(false);
   const [leverPulled, setLeverPulled] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(true);
 
-  // Rodillos visibles
   const [displayContinent, setDisplayContinent] = useState("AZAR");
   const [displayFlag, setDisplayFlag] = useState("🌐");
   const [displayCountry, setDisplayCountry] = useState("DESCUBRIR");
@@ -37,7 +86,49 @@ export function SlotMachine({
   const [winner, setWinner] = useState<CountrySummary | null>(null);
 
   const timersRef = useRef<number[]>([]);
+  const audioCtxRef = useRef<AudioContext | null>(null);
   const hasAutoSpunRef = useRef(false);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(SOUND_PREF_KEY);
+      if (saved === "0") setSoundEnabled(false);
+    } catch {
+      // Ignorar
+    }
+  }, []);
+
+  const toggleSound = () => {
+    setSoundEnabled((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem(SOUND_PREF_KEY, next ? "1" : "0");
+      } catch {
+        // Ignorar
+      }
+      return next;
+    });
+  };
+
+  const getAudioContext = useCallback((): AudioContext | null => {
+    if (!soundEnabled || typeof window === "undefined") return null;
+    try {
+      const Ctx =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext: typeof AudioContext })
+          .webkitAudioContext;
+      if (!Ctx) return null;
+      if (!audioCtxRef.current) {
+        audioCtxRef.current = new Ctx();
+      }
+      if (audioCtxRef.current.state === "suspended") {
+        void audioCtxRef.current.resume();
+      }
+      return audioCtxRef.current;
+    } catch {
+      return null;
+    }
+  }, [soundEnabled]);
 
   const clearAllTimers = useCallback(() => {
     timersRef.current.forEach((id) => window.clearTimeout(id));
@@ -56,13 +147,14 @@ export function SlotMachine({
   const pullLever = useCallback(() => {
     if (isSpinning || countries.length === 0) return;
 
+    const audioCtx = getAudioContext();
+
     clearAllTimers();
     setIsSpinning(true);
     setLeverPulled(true);
     setWinner(null);
     setLockedCount(0);
 
-    // Evitar repetir exactamente el último país visitado en esta sesión
     let lastSlug: string | null = null;
     try {
       lastSlug = sessionStorage.getItem(LAST_COUNTRY_KEY);
@@ -79,10 +171,9 @@ export function SlotMachine({
     try {
       sessionStorage.setItem(LAST_COUNTRY_KEY, chosen.slug);
     } catch {
-      // Ignorar si el navegador bloquea sessionStorage
+      // Ignorar
     }
 
-    // Prefetch inmediato para transición instantánea al terminar el giro
     router.prefetch(`/pais/${chosen.slug}`);
 
     const leverTimer = window.setTimeout(() => setLeverPulled(false), 450);
@@ -94,17 +185,20 @@ export function SlotMachine({
       setDisplayCountry(chosen.country.toUpperCase());
       setLockedCount(3);
       setWinner(chosen);
+      if (audioCtx) playRevealChime(audioCtx);
       const navTimer = window.setTimeout(() => {
         router.push(`/pais/${chosen.slug}`);
-      }, 450);
+      }, 1200);
       timersRef.current.push(navTimer);
       return;
     }
 
-    // Ciclos de giro mecánico independiente por rodillo
     let step = 0;
     const intervalId = window.setInterval(() => {
       step++;
+      if (audioCtx && step % 2 === 1) {
+        playMechanicalTick(audioCtx);
+      }
       if (step < 11) {
         setDisplayContinent(
           continentsList[step % continentsList.length].toUpperCase()
@@ -121,15 +215,16 @@ export function SlotMachine({
     }, 75);
     timersRef.current.push(intervalId);
 
-    // Freno escalonado: Rodillo 1 -> Rodillo 2 -> Rodillo 3
     const t1 = window.setTimeout(() => {
       setDisplayContinent(chosen.continent.toUpperCase());
       setLockedCount(1);
+      if (audioCtx) playMechanicalTick(audioCtx);
     }, 850);
 
     const t2 = window.setTimeout(() => {
       setDisplayFlag(chosen.flag);
       setLockedCount(2);
+      if (audioCtx) playMechanicalTick(audioCtx);
     }, 1380);
 
     const t3 = window.setTimeout(() => {
@@ -137,23 +232,25 @@ export function SlotMachine({
       setDisplayCountry(chosen.country.toUpperCase());
       setLockedCount(3);
       setWinner(chosen);
+      if (audioCtx) playRevealChime(audioCtx);
     }, 1980);
 
+    // Pausa generosa de ~1.9 segundos para saborear el país ganador
     const tNav = window.setTimeout(() => {
       router.push(`/pais/${chosen.slug}`);
-    }, 2650);
+    }, 3850);
 
     timersRef.current.push(t1, t2, t3, tNav);
   }, [
     clearAllTimers,
     continentsList,
     countries,
+    getAudioContext,
     isSpinning,
     prefersReducedMotion,
     router,
   ]);
 
-  // Si viene desde "Volver a tirar" (/?spin=1), gira automáticamente
   useEffect(() => {
     if (searchParams.get("spin") === "1" && !hasAutoSpunRef.current) {
       hasAutoSpunRef.current = true;
@@ -166,7 +263,6 @@ export function SlotMachine({
 
   return (
     <main className="flex min-h-dvh flex-col items-center justify-center px-4 py-8 sm:px-6">
-      {/* Encabezado mínimo */}
       <header className="mb-10 text-center sm:mb-14">
         <p className="mb-2 text-[10px] font-medium tracking-[0.26em] text-ink-muted uppercase sm:text-[11px]">
           Edición semanal internacional
@@ -179,23 +275,18 @@ export function SlotMachine({
         </p>
       </header>
 
-      {/* Máquina tragamonedas editorial + Palanca lateral */}
       <section
         aria-label="Selector aleatorio de país"
         className="flex w-full max-w-3xl flex-col items-center gap-7 md:flex-row md:justify-center md:gap-6"
       >
-        {/* Caja tipográfica estilo tablero mecánico */}
         <div className="w-full max-w-xl border border-ink/85 bg-paper-warm p-3 shadow-[0_14px_38px_-18px_rgba(22,22,21,0.22)] sm:p-5">
           <div className="border border-ink/25 bg-paper p-3 sm:p-5">
-            {/* Línea superior de placa */}
             <div className="mb-3 flex items-center justify-between border-b border-hairline pb-2 text-[10px] font-medium tracking-[0.18em] text-ink-muted uppercase">
               <span>Destino editorial</span>
               <span>{countries.length} países</span>
             </div>
 
-            {/* 3 Rodillos */}
             <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-[1fr_0.65fr_1.35fr] sm:gap-3">
-              {/* Rodillo 1: Continente */}
               <div className="flex h-20 flex-col items-center justify-center overflow-hidden border border-ink/20 bg-[#FAF9F5] px-3 sm:h-28">
                 <span className="mb-1 text-[9px] font-medium tracking-[0.18em] text-ink-muted uppercase">
                   Región
@@ -213,7 +304,6 @@ export function SlotMachine({
                 </motion.span>
               </div>
 
-              {/* Rodillo 2: Bandera */}
               <div className="flex h-20 flex-col items-center justify-center overflow-hidden border border-ink/20 bg-[#FAF9F5] px-2 sm:h-28">
                 <span className="mb-0.5 text-[9px] font-medium tracking-[0.18em] text-ink-muted uppercase">
                   Emblema
@@ -230,7 +320,6 @@ export function SlotMachine({
                 </motion.span>
               </div>
 
-              {/* Rodillo 3: País */}
               <div className="flex h-20 flex-col items-center justify-center overflow-hidden border border-ink/20 bg-[#FAF9F5] px-3 sm:h-28">
                 <span className="mb-1 text-[9px] font-medium tracking-[0.18em] text-ink-muted uppercase">
                   País
@@ -253,11 +342,10 @@ export function SlotMachine({
               </div>
             </div>
 
-            {/* Estado inferior del visor */}
             <div className="mt-3 flex min-h-6 items-center justify-center text-center">
               {winner ? (
                 <p className="text-xs font-medium tracking-[0.14em] text-accent uppercase">
-                  Abriendo edición: {winner.flag} {winner.country}...
+                  Destino seleccionado: {winner.flag} {winner.country}
                 </p>
               ) : isSpinning ? (
                 <p className="text-xs tracking-[0.14em] text-ink-muted uppercase">
@@ -272,12 +360,9 @@ export function SlotMachine({
           </div>
         </div>
 
-        {/* Palanca Desktop (clic o arrastre hacia abajo) */}
         <div className="hidden md:flex md:flex-col md:items-center">
           <div className="relative flex h-44 w-16 items-center justify-center">
-            {/* Base fija en el lateral */}
             <div className="h-14 w-3 border border-ink/30 bg-paper-warm" />
-            {/* Barra de palanca */}
             <motion.button
               type="button"
               onClick={pullLever}
@@ -299,9 +384,7 @@ export function SlotMachine({
               whileTap={{ scale: 0.96 }}
               className="absolute top-3 flex cursor-pointer flex-col items-center focus:outline-none disabled:cursor-wait"
             >
-              {/* Perilla bermellón */}
               <span className="h-9 w-9 rounded-full border-2 border-ink bg-accent shadow-md transition-colors hover:bg-[#9E2E20]" />
-              {/* Vástago metálico */}
               <span className="h-16 w-1.5 bg-ink/80" />
             </motion.button>
           </div>
@@ -310,7 +393,6 @@ export function SlotMachine({
           </span>
         </div>
 
-        {/* Botón Palanca Mobile / Tablet */}
         <div className="w-full max-w-xl md:hidden">
           <button
             type="button"
@@ -323,8 +405,7 @@ export function SlotMachine({
         </div>
       </section>
 
-      {/* Botón alternativo discreto */}
-      <div className="mt-10 sm:mt-12">
+      <div className="mt-10 flex items-center gap-6 sm:mt-12">
         <button
           type="button"
           onClick={() => setSelectorOpen(true)}
@@ -332,6 +413,23 @@ export function SlotMachine({
           className="cursor-pointer border-b border-ink/40 pb-0.5 text-xs font-medium tracking-[0.16em] text-ink-muted uppercase transition-colors hover:border-accent hover:text-accent disabled:opacity-40"
         >
           Elegir país
+        </button>
+
+        <button
+          type="button"
+          onClick={toggleSound}
+          aria-label={soundEnabled ? "Silenciar sonido" : "Activar sonido"}
+          title={soundEnabled ? "Sonido activado" : "Sonido silenciado"}
+          className="inline-flex cursor-pointer items-center gap-1.5 text-[11px] tracking-[0.12em] text-ink-muted uppercase transition-colors hover:text-ink"
+        >
+          {soundEnabled ? (
+            <Volume2 className="h-3.5 w-3.5" />
+          ) : (
+            <VolumeX className="h-3.5 w-3.5" />
+          )}
+          <span className="hidden sm:inline">
+            {soundEnabled ? "Sonido" : "Sin sonido"}
+          </span>
         </button>
       </div>
 

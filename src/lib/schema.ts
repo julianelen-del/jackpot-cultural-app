@@ -43,6 +43,13 @@ export const CoverImageSchema = z.object({
   credit: z.string().min(3).max(140),
 });
 
+export const ClosingMediaSchema = z.object({
+  type: z.enum(["image", "video"]),
+  url: z.string().url(),
+  caption: z.string().min(5).max(200),
+  credit: z.string().max(140).optional(),
+});
+
 export const CountryEditionSchema = z.object({
   slug: z.string().min(2),
   country: z.string().min(2),
@@ -54,13 +61,15 @@ export const CountryEditionSchema = z.object({
   cover_image: CoverImageSchema.optional(),
   cultural_pulse: z.string().refine(
     (text) => {
-      const words = text.trim().split(/\s+/).filter(Boolean).length;
+      const plain = text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+      const words = plain.trim().split(/\s+/).filter(Boolean).length;
       return words >= 300 && words <= 800;
     },
     { message: "El pulso cultural debe tener entre 300 y 800 palabras." }
   ),
   topics: z.array(TopicSchema).min(3).max(5),
   recommendation: RecommendationSchema,
+  closing_media: ClosingMediaSchema.optional(),
   sources: z.array(SourceSchema).min(2).max(8),
 });
 
@@ -69,6 +78,7 @@ export type Topic = z.infer<typeof TopicSchema>;
 export type Recommendation = z.infer<typeof RecommendationSchema>;
 export type Source = z.infer<typeof SourceSchema>;
 export type CoverImage = z.infer<typeof CoverImageSchema>;
+export type ClosingMedia = z.infer<typeof ClosingMediaSchema>;
 export type CountryEdition = z.infer<typeof CountryEditionSchema>;
 
 export interface CountrySourceConfig {

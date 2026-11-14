@@ -1,35 +1,55 @@
 [
-{
+  {
     "slug": "argentina",
     "country": "Argentina",
     "continent": "América",
     "flag": "🇦🇷",
     "languages": ["es"],
     "rss_feeds": [
-      "https://www.clarin.com/rss/cultura/",
+      "https://www.pagina12.com.ar/arc/outboundfeeds/rss/suplementos/radar/notas",
+      "https://www.pagina12.com.ar/arc/outboundfeeds/rss/suplementos/no/notas",
       "https://www.clarin.com/rss/revista-enie/",
       "https://www.revistaanfibia.com/feed/",
-      "https://news.google.com/rss/search?q=site%3Arevistabache.com.ar+OR+%22Revista+Bache%22+OR+%22Revista+Barcelona%22+when%3A14d&hl=es-419&gl=AR&ceid=AR:es-419"
+      "https://www.micropsiacine.com/feed/",
+      "https://www.conlosojosabiertos.com/feed/",
+      "https://revistaotraparte.com/semanal/feed/",
+      "https://billboard.com.ar/feed/",
+      "https://tn.com.ar/rss/show/la-viola",
+      "https://news.google.com/rss/search?q=site%3Arevistabache.com.ar+OR+site%3Aotroscines.com+OR+%22Revista+Bache%22+OR+%22Revista+Barcelona%22+OR+%22Indie+Hoy%22+OR+%22La+Agenda%22+OR+%22Hoy+Trasnoche%22+OR+%22Caja+Negra%22+when%3A10d&hl=es-419&gl=AR&ceid=AR:es-419"
     ],
     "reference_media": [
-      "Revista Ñ",
+      "Suplemento Radar (Página/12)",
+      "Suplemento NO (Página/12)",
+      "Micropsia Cine",
+      "Con los Ojos Abiertos",
+      "Otros Cines",
+      "Otra Parte Semanal",
       "Revista Anfibia",
       "Revista Bache",
-      "Revista Barcelona (sátira)",
-      "Eterna Cadencia",
-      "La Nación Cultura"
+      "Indie Hoy",
+      "Hoy Trasnoche",
+      "Caja Negra",
+      "La Agenda Revista",
+      "Revista Ñ",
+      "Billboard Argentina",
+      "La Viola",
+      "Revista Barcelona (sátira)"
     ]
   },
-    {
+  {
     "slug": "brasil",
     "country": "Brasil",
     "continent": "América",
     "flag": "🇧🇷",
     "languages": ["pt"],
     "rss_feeds": [
+      "https://piaui.folha.uol.com.br/feed/",
+      "https://revistacult.uol.com.br/home/feed/",
+      "https://quatrocincoum.com.br/feed/",
+      "https://www.tenhomaisdiscosqueamigos.com/feed/",
       "https://feeds.folha.uol.com.br/ilustrada/rss091.xml"
     ],
-    "reference_media": ["Folha Ilustrada", "Revista Piauí", "Quatro Cinco Um", "Nexo Jornal Cultura", "Estadão Cultura"]
+    "reference_media": ["Revista Piauí", "Quatro Cinco Um / 451 MHz", "Revista Cult", "Tenho Mais Discos Que Amigos!", "Folha Ilustrada", "Nexo Jornal"]
   },
   {
     "slug": "mexico",
@@ -38,9 +58,13 @@
     "flag": "🇲🇽",
     "languages": ["es"],
     "rss_feeds": [
-      "https://letraslibres.com/feed/"
+      "https://letraslibres.com/feed/",
+      "https://www.indierocks.mx/feed/",
+      "https://www.nexos.com.mx/feed/",
+      "https://www.jornada.com.mx/rss/cultura.xml",
+      "https://news.google.com/rss/search?q=site%3Alatempestad.mx+OR+site%3Agatopardo.com+OR+%22Tierra+Adentro%22+when%3A14d&hl=es-419&gl=MX&ceid=MX:es-419"
     ],
-    "reference_media": ["Letras Libres", "Suplemento Laberinto (Milenio)", "Gatopardo", "La Tempestad", "Revista de la Universidad de México"]
+    "reference_media": ["Letras Libres", "Indie Rocks!", "La Tempestad", "Gatopardo", "Nexos", "La Jornada Cultura"]
   },
   {
     "slug": "estados-unidos",
@@ -49,11 +73,18 @@
     "flag": "🇺🇸",
     "languages": ["en"],
     "rss_feeds": [
-      "https://feeds.npr.org/1008/rss.xml",
       "https://www.newyorker.com/feed/culture",
-      "https://lithub.com/feed/"
+      "https://pitchfork.com/rss/news/",
+      "https://pitchfork.com/feed/reviews/best/albums/rss",
+      "https://blog.bandcamp.com/feed/",
+      "https://lithub.com/feed/",
+      "https://hyperallergic.com/feed/",
+      "https://feeds.npr.org/510282/podcast.xml",
+      "https://feeds.npr.org/510364/podcast.xml",
+      "https://www.youtube.com/feeds/videos.xml?channel_id=UC4eYXhJI4-7wSWc8UNRwD4A",
+      "https://www.youtube.com/feeds/videos.xml?channel_id=UC3I2GFN_F8WudD_2jUZbojA"
     ],
-    "reference_media": ["The New Yorker", "Literary Hub", "NPR Arts & Life", "Hyperallergic", "The Atlantic Culture", "Vulture"]
+    "reference_media": ["The New Yorker", "Pitchfork", "NPR Pop Culture Happy Hour", "NPR Tiny Desk Concerts", "KEXP", "Bandcamp Daily", "Literary Hub", "Hyperallergic", "Vulture"]
   },
   {
     "slug": "canada",
@@ -61,8 +92,12 @@
     "continent": "América",
     "flag": "🇨🇦",
     "languages": ["en", "fr"],
-    "rss_feeds": [],
-    "reference_media": ["CBC Arts", "The Walrus", "The Globe and Mail Arts", "Le Devoir Culture"]
+    "rss_feeds": [
+      "https://thewalrus.ca/feed/",
+      "https://exclaim.ca/rss",
+      "https://www.cbc.ca/webfeed/rss/rss-arts"
+    ],
+    "reference_media": ["Exclaim!", "The Walrus", "CBC Arts", "Le Devoir Culture", "The Globe and Mail Arts"]
   },
   {
     "slug": "chile",
@@ -71,9 +106,13 @@
     "flag": "🇨🇱",
     "languages": ["es"],
     "rss_feeds": [
-      "https://www.latercera.com/arc/outboundfeeds/rss/category/culto/?outputType=xml"
+      "https://www.latercera.com/arc/outboundfeeds/rss/category/culto/?outputType=xml",
+      "https://www.elmostrador.cl/cultura/feed/",
+      "https://radio.uchile.cl/feed/",
+      "https://www.rockaxis.com/rss/",
+      "https://news.google.com/rss/search?q=site%3Arevistasantiago.cl+OR+site%3Acinechile.cl+OR+%22Revista+Santiago%22+when%3A14d&hl=es-419&gl=CL&ceid=CL:es-419"
     ],
-    "reference_media": ["Culto (La Tercera)", "Revista Santiago", "El Mostrador Cultura", "Cinechile"]
+    "reference_media": ["Revista Santiago", "Culto (La Tercera)", "Rockaxis", "Cinechile", "El Mostrador Cultura", "Radio U. de Chile"]
   },
   {
     "slug": "colombia",
@@ -82,9 +121,12 @@
     "flag": "🇨🇴",
     "languages": ["es"],
     "rss_feeds": [
-      "https://www.eltiempo.com/rss/cultura.xml"
+      "https://cerosetenta.uniandes.edu.co/feed/",
+      "https://razonpublica.com/feed/",
+      "https://www.eltiempo.com/rss/cultura.xml",
+      "https://news.google.com/rss/search?q=site%3Aelmalpensante.com+OR+site%3Ashock.co+OR+site%3Aradionica.rocks+when%3A14d&hl=es-419&gl=CO&ceid=CO:es-419"
     ],
-    "reference_media": ["Cerosetenta", "El Malpensante", "El Espectador Cultura", "Cambio Colombia Cultura", "El Tiempo Cultura"]
+    "reference_media": ["Cerosetenta", "El Malpensante", "Shock", "Radiónica", "Razón Pública", "El Espectador Cultura"]
   },
   {
     "slug": "reino-unido",
@@ -93,11 +135,14 @@
     "flag": "🇬🇧",
     "languages": ["en"],
     "rss_feeds": [
+      "https://thequietus.com/feed",
+      "https://lwlies.com/feed/",
+      "https://mubi.com/notebook/posts.rss",
+      "https://podcasts.files.bbci.co.uk/b006qsq5.rss",
       "https://www.theguardian.com/culture/rss",
-      "https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml",
       "https://aeon.co/feed"
     ],
-    "reference_media": ["The Guardian Culture", "BBC Culture", "Aeon", "London Review of Books", "MUBI Notebook", "TLS"]
+    "reference_media": ["The Quietus", "BBC Radio 4 Front Row", "Little White Lies", "MUBI Notebook", "The Guardian Culture", "NME", "London Review of Books"]
   },
   {
     "slug": "irlanda",
@@ -105,8 +150,13 @@
     "continent": "Europa",
     "flag": "🇮🇪",
     "languages": ["en"],
-    "rss_feeds": [],
-    "reference_media": ["RTÉ Culture", "The Irish Times Culture", "The Dublin Review", "Journal.ie Arts"]
+    "rss_feeds": [
+      "https://www.rte.ie/radio1/podcast/podcast_arena.xml",
+      "https://www.hotpress.com/music/feed",
+      "https://www.dublininquirer.com/feed/",
+      "https://www.rte.ie/feeds/rss/?index=/entertainment/"
+    ],
+    "reference_media": ["RTÉ Radio 1 Arena", "Hot Press", "Dublin Inquirer", "The Irish Times Culture", "The Dublin Review"]
   },
   {
     "slug": "espana",
@@ -115,10 +165,13 @@
     "flag": "🇪🇸",
     "languages": ["es"],
     "rss_feeds": [
-      "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/cultura/portada",
-      "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/babelia/portada"
+      "https://www.mondosonoro.com/feed/",
+      "https://jenesaispop.com/feed/",
+      "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/babelia/portada",
+      "https://www.jotdown.es/feed/",
+      "https://www.eldiario.es/rss/cultura/"
     ],
-    "reference_media": ["Babelia (El País)", "Jot Down", "El Cultural", "elDiario.es Cultura", "Caimán Cuadernos de Cine"]
+    "reference_media": ["MondoSonoro", "Jenesaispop", "Babelia (El País)", "Jot Down", "Caimán Cuadernos de Cine", "Rockdelux"]
   },
   {
     "slug": "francia",
@@ -127,10 +180,14 @@
     "flag": "🇫🇷",
     "languages": ["fr"],
     "rss_feeds": [
+      "https://www.critikat.com/feed/",
+      "https://radiofrance-podcast.net/podcast09/d4463877-caa3-4507-9399-f5eb00fde027/rss_14007.xml",
+      "https://www.youtube.com/feeds/videos.xml?channel_id=UC-smeLB9AnOTeypr1YyjJ3A",
+      "https://www.francetvinfo.fr/culture.rss",
       "https://www.lemonde.fr/culture/rss_full.xml",
-      "https://www.lemonde.fr/cultures-web/rss_full.xml"
+      "https://news.google.com/rss/search?q=site%3Alesinrocks.com+OR+site%3Atelerama.fr+OR+site%3Aaoc.media+when%3A10d&hl=fr&gl=FR&ceid=FR:fr"
     ],
-    "reference_media": ["France Culture", "Télérama", "Le Monde Culture", "AOC Media", "Les Inrockuptibles"]
+    "reference_media": ["Le Masque et la Plume (France Inter)", "Critikat", "ARTE Concert", "Les Inrockuptibles", "Télérama", "AOC Media", "Le Monde Culture"]
   },
   {
     "slug": "alemania",
@@ -139,9 +196,13 @@
     "flag": "🇩🇪",
     "languages": ["de"],
     "rss_feeds": [
-      "https://www.deutschlandfunkkultur.de/weltzeit-104.xml"
+      "https://www.perlentaucher.de/rss/aktuell.xml",
+      "https://www.deutschlandfunkkultur.de/weltzeit-104.xml",
+      "https://www.musikexpress.de/feed/",
+      "https://newsfeed.zeit.de/kultur/index",
+      "https://www.youtube.com/feeds/videos.xml?channel_id=UCLLibJTCy3sXjHLVaDimnpQ"
     ],
-    "reference_media": ["Deutschlandfunk Kultur", "Die Zeit Kultur", "Perlentaucher", "Süddeutsche Zeitung Kultur", "Monopol Magazin"]
+    "reference_media": ["Perlentaucher", "Musikexpress", "Deutschlandfunk Kultur", "ARTE Kultur", "Die Zeit Kultur", "Monopol Magazin"]
   },
   {
     "slug": "italia",
@@ -150,9 +211,12 @@
     "flag": "🇮🇹",
     "languages": ["it"],
     "rss_feeds": [
+      "https://www.doppiozero.com/feed",
+      "https://www.iltascabile.com/feed/",
+      "https://www.sentireascoltare.com/feed/",
       "https://www.ilpost.it/cultura/feed/"
     ],
-    "reference_media": ["Il Post Cultura", "Lucy sulla cultura", "La Repubblica Cultura", "Il Sole 24 Ore Domenica", "Rai Cultura"]
+    "reference_media": ["Doppiozero", "Il Tascabile", "Sentireascoltare", "Il Post Cultura", "Lucy sulla cultura"]
   },
   {
     "slug": "suecia",
@@ -161,9 +225,11 @@
     "flag": "🇸🇪",
     "languages": ["sv"],
     "rss_feeds": [
-      "https://www.svt.se/kultur/rss.xml"
+      "https://www.svt.se/kultur/rss.xml",
+      "https://api.sr.se/api/rss/program/478",
+      "https://news.google.com/rss/search?q=site%3Agaffa.se+OR+site%3Aflm.nu+OR+site%3Adn.se%2Fkultur+when%3A14d&hl=sv&gl=SE&ceid=SE:sv"
     ],
-    "reference_media": ["SVT Kultur", "Dagens Nyheter Kultur", "Svenska Dagbladet Kultur", "Sveriges Radio Kulturnytt"]
+    "reference_media": ["SVT Kultur", "Sveriges Radio Kulturnytt", "Gaffa Sverige", "FLM (Filmtidskrift)", "Dagens Nyheter Kultur"]
   },
   {
     "slug": "rusia",
@@ -171,8 +237,12 @@
     "continent": "Europa",
     "flag": "🇷🇺",
     "languages": ["ru", "en"],
-    "rss_feeds": [],
-    "reference_media": ["Arzamas", "Meduza Culture", "Afisha Daily", "The Moscow Times Arts"]
+    "rss_feeds": [
+      "https://meduza.io/rss/en/all",
+      "https://www.themoscowtimes.com/rss/news",
+      "https://globalvoices.org/-/world/eastern-central-europe/russia/feed/"
+    ],
+    "reference_media": ["Meduza", "The Moscow Times Arts", "Arzamas", "Afisha Daily", "Global Voices Russia"]
   },
   {
     "slug": "paises-bajos",
@@ -180,8 +250,13 @@
     "continent": "Europa",
     "flag": "🇳🇱",
     "languages": ["nl"],
-    "rss_feeds": [],
-    "reference_media": ["NOS Cultuur & Media", "De Groene Amsterdammer", "de Volkskrant Cultuur", "NRC Cultuur"]
+    "rss_feeds": [
+      "https://www.groene.nl/rss.xml",
+      "https://www.nrc.nl/rss/",
+      "https://www.parool.nl/kunst-media/rss.xml",
+      "https://news.google.com/rss/search?q=site%3A3voor12.vpro.nl+OR+site%3Aoor.nl+when%3A14d&hl=nl&gl=NL&ceid=NL:nl"
+    ],
+    "reference_media": ["3voor12 (VPRO)", "OOR", "De Groene Amsterdammer", "NRC Cultuur", "Het Parool Kunst & Media"]
   },
   {
     "slug": "japon",
@@ -190,9 +265,11 @@
     "flag": "🇯🇵",
     "languages": ["ja", "en"],
     "rss_feeds": [
+      "https://www.cinra.net/rss",
+      "https://www.tokyoweekender.com/feed/",
       "https://www.japantimes.co.jp/culture/feed/"
     ],
-    "reference_media": ["The Japan Times Culture", "Bijutsu Techo", "NHK World Culture", "Tokyo Art Beat", "Cinra"]
+    "reference_media": ["CINRA.NET", "Tokyo Weekender", "The Japan Times Culture", "Tokyo Art Beat", "Bijutsu Techo"]
   },
   {
     "slug": "corea-del-sur",
@@ -200,8 +277,12 @@
     "continent": "Asia",
     "flag": "🇰🇷",
     "languages": ["ko", "en"],
-    "rss_feeds": [],
-    "reference_media": ["The Korea Herald Culture", "The Korea Times Arts & Culture", "Hankyoreh Culture", "Cine21"]
+    "rss_feeds": [
+      "https://koreajoongangdaily.joins.com/rss",
+      "https://www.koreatimes.co.kr/www/rss/rss.xml",
+      "https://en.yna.co.kr/RSS/culture.xml"
+    ],
+    "reference_media": ["Korea JoongAng Daily Culture", "The Korea Times Arts", "Cine21", "Yonhap Culture", "NME Asia"]
   },
   {
     "slug": "india",
@@ -209,8 +290,13 @@
     "continent": "Asia",
     "flag": "🇮🇳",
     "languages": ["en", "hi"],
-    "rss_feeds": [],
-    "reference_media": ["Scroll.in Arts & Culture", "The Wire Culture", "The Hindu Entertainment & Arts", "Mint Lounge"]
+    "rss_feeds": [
+      "https://thewire.in/feed",
+      "https://indianexpress.com/section/lifestyle/art-and-culture/feed/",
+      "https://www.thehindu.com/entertainment/feeder/default.rss",
+      "https://news.google.com/rss/search?q=site%3Arollingstoneindia.com+OR+site%3Ascroll.in+culture+OR+cinema+OR+music+when%3A14d&hl=en-IN&gl=IN&ceid=IN:en"
+    ],
+    "reference_media": ["Rolling Stone India", "Scroll.in", "The Wire Culture", "The Indian Express Art & Culture", "The Hindu Arts"]
   },
   {
     "slug": "sudafrica",
@@ -218,8 +304,12 @@
     "continent": "África",
     "flag": "🇿🇦",
     "languages": ["en"],
-    "rss_feeds": [],
-    "reference_media": ["Mail & Guardian Friday", "Daily Maverick Life & Arts", "The Conversation Africa Arts", "Bubblegum Club"]
+    "rss_feeds": [
+      "https://theconversation.com/africa/arts/articles.atom",
+      "https://www.dailymaverick.co.za/dmrss/",
+      "https://news.google.com/rss/search?q=site%3Ajohannesburgreviewofbooks.com+OR+site%3Abubblegumclub.co.za+OR+site%3Atexxandthecity.com+when%3A21d&hl=en-ZA&gl=ZA&ceid=ZA:en"
+    ],
+    "reference_media": ["The Johannesburg Review of Books", "Bubblegum Club", "Texx and the City", "Daily Maverick", "The Conversation Africa Arts"]
   },
   {
     "slug": "egipto",
@@ -227,8 +317,12 @@
     "continent": "África",
     "flag": "🇪🇬",
     "languages": ["ar", "en"],
-    "rss_feeds": [],
-    "reference_media": ["Mada Masr Culture", "ArabLit", "Ahram Online Arts & Culture", "Egypt Today Arts & Culture"]
+    "rss_feeds": [
+      "https://www.madamasr.com/en/feed/",
+      "https://arablit.org/feed/",
+      "https://egyptianstreets.com/feed"
+    ],
+    "reference_media": ["Mada Masr", "ArabLit", "Egyptian Streets", "CairoScene", "Ahram Online Arts"]
   },
   {
     "slug": "australia",
@@ -237,9 +331,12 @@
     "flag": "🇦🇺",
     "languages": ["en"],
     "rss_feeds": [
-      "https://www.theguardian.com/au/culture/rss"
+      "https://overland.org.au/feed/",
+      "https://www.theguardian.com/au/culture/rss",
+      "https://theconversation.com/au/arts/articles.atom",
+      "https://news.google.com/rss/search?q=site%3Athemonthly.com.au+OR+site%3Aabc.net.au%2Fdoublej+OR+site%3Athemusic.com.au+when%3A14d&hl=en-AU&gl=AU&ceid=AU:en"
     ],
-    "reference_media": ["The Guardian Australia Culture", "ABC Arts", "The Monthly", "Meanjin"]
+    "reference_media": ["Overland", "The Monthly", "ABC Double J", "The Music", "The Guardian Australia Culture"]
   },
   {
     "slug": "nueva-zelanda",
@@ -248,8 +345,10 @@
     "flag": "🇳🇿",
     "languages": ["en"],
     "rss_feeds": [
-      "https://www.rnz.co.nz/rss/culture.xml"
+      "https://thespinoff.co.nz/feed",
+      "https://www.rnz.co.nz/rss/culture.xml",
+      "https://news.google.com/rss/search?q=site%3Aundertheradar.co.nz+OR+site%3Apantograph-punch.com+when%3A14d&hl=en-NZ&gl=NZ&ceid=NZ:en"
     ],
-    "reference_media": ["RNZ Culture", "The Spinoff Culture", "Pantograph Punch", "NZ Herald Entertainment & Arts"]
+    "reference_media": ["The Spinoff", "RNZ Culture & Music", "UnderTheRadar NZ", "Pantograph Punch"]
   }
 ]

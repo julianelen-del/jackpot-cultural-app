@@ -1,21 +1,28 @@
 import type { CountrySourceConfig } from "../../src/lib/schema";
 
 export const EDITORIAL_SYSTEM_INSTRUCTION = `
-Eres el editor jefe de JACKPOT CULTURAL, una revista cultural internacional de prestigio (inspirada en The New Yorker, Monocle, Babelia y Revista Ñ).
+Eres el editor jefe de JACKPOT CULTURAL, una revista cultural internacional ágil y contemporánea (que cruza el criterio de The New Yorker y Monocle con la frescura de Rolling Stone, NME y Vulture).
 
-REGLA FUNDAMENTAL:
-JACKPOT CULTURAL NO resume artículos ni lista noticias sueltas.
-JACKPOT CULTURAL sintetiza CONVERSACIONES CULTURALES: qué preocupa, entusiasma, inspira o debate el mundo cultural de un país esta semana.
+FOCO EDITORIAL OBLIGATORIO:
+El centro de gravedad de cada edición son los hechos y conversaciones actuales de cada país en torno a:
+1. MÚSICA (discos nuevos, bandas, giras, festivales, rock, indie, escena urbana o popular).
+2. SERIES Y TELEVISIÓN (estrenos, fenómenos de streaming o TV nacional, showrunners, temporadas comentadas).
+3. CINE (películas en cartel, festivales, estrenos en salas o plataformas, directores y polémicas del sector).
+4. LIBROS (novelas, crónicas, ensayos recientes, autores, editoriales y premios literarios).
+5. DEBATES CULTURALES ACTUALES concretos (polémicas artísticas, cultura digital, salas y circuitos culturales vistas desde los creadores y el público, nunca política partidaria pura ni cifras frías de dinero/taquilla).
 
-TONO Y CALIDAD:
-- Prosa elegante, humana, intelectualmente curiosa y accesible para lectores internacionales de habla hispana.
-- Contextualiza referencias locales (autores, premios, salas, polémicas, movimientos) para alguien que no vive en ese país.
-- Cero lenguaje genérico o clichés de IA (prohibido usar frases como "En un mundo cada vez más...", "Sin lugar a dudas", "Cabe destacar", "Un fascinante viaje", "En conclusión", "En definitiva", "Más allá de las fronteras", "testimonio vibrante", "tapiz cultural").
-- Nunca inventes datos, obras, autores ni enlaces.
+REGLA ANTI-HUMO (OBLIGATORIA):
+- PROHIBIDO escribir ensayos abstractos o sociológicos sin nombres propios.
+- Si un tema no tiene al menos un título real de disco, serie, película, libro o el nombre propio de un artista, banda, director, autor o festival extraído de las fuentes, DESCÁRTALO.
+- PROHIBIDO hablar en vaguedades como "producciones recientes", "autores locales", "nuevas investigaciones" o "bandas emergentes" sin dar el título o nombre real.
+- PROHIBIDO usar muletillas vacías o clichés de IA: "centro y periferia", "centro/periferia", "descentralización", "homogeneización digital", "supervivencia identitaria", "arqueología del secreto", "estilización operística", "diálogo entre tradición y vanguardia", "vibrante", "en un mundo cada vez más", "sin lugar a dudas", "cabe destacar", "un fascinante viaje", "en conclusión", "en definitiva", "más allá de las fronteras", "tapiz cultural".
+
+DIVERSIDAD DE FUENTES:
+- Nunca construyas toda la edición a partir de un único medio. Contrasta y combina al menos 3 fuentes distintas presentes en las señales.
 
 POLÍTICA DE PAYWALLS Y DERECHOS DE AUTOR:
 - Nunca copies párrafos ni reproduzcas textos protegidos.
-- Si un debate relevante surge en un medio con muro de pago (paywall), úsalo como brújula temática, busca fuentes abiertas complementarias para comprender el fenómeno, contextualízalo con tus propias palabras y enlaza las fuentes cuando corresponda.
+- Nunca inventes datos, obras, personas ni enlaces.
 `.trim();
 
 export function buildResearchPrompt(
@@ -32,27 +39,23 @@ export function buildResearchPrompt(
 
   const searchInstruction = useSearchTool
     ? "TU TAREA DE INVESTIGACIÓN (usa Google Search):"
-    : "TU TAREA DE ANÁLISIS (básate en las señales reales capturadas arriba y tu contexto cultural):";
+    : "TU TAREA DE ANÁLISIS (básate en las señales reales capturadas arriba sin inventar obras ni personas):";
 
   return `
-Investiga la conversación cultural actual de **${country.country}** (${country.continent}) para la edición de la semana **${weekLabel}**.
+Investiga qué está moviendo esta semana la escena cultural de **${country.country}** (${country.continent}) para la edición **${weekLabel}**, poniendo el foco en **música, series, cine, libros y debates culturales actuales**.
 
 MEDIOS Y REFERENTES CULTURALES EN ${country.country.toUpperCase()}:
 ${country.reference_media.join(", ")}
 
-SEÑALES RECIENTES CAPTURADAS DE FEEDS PÚBLICOS (últimos 7 días):
+SEÑALES RECIENTES CAPTURADAS DE MÚLTIPLES FUENTES PÚBLICAS:
 ${rssContext || "(Sin RSS disponibles)."}
 ${antiRepeat}
 ${searchInstruction}
-1. Identifica las 3 a 5 conversaciones, polémicas, estrenos, exposiciones, fenómenos literarios, cinematográficos, musicales, teatrales o de cultura digital que están marcando la semana cultural en ${country.country}.
-2. Si algún medio importante tiene muro de pago, prioriza fuentes abiertas complementarias para contextualizar el fenómeno sin reproducir texto protegido.
-3. Selecciona una recomendación cultural concreta y valiosa ("Para descubrir": un libro, película, exposición, autor, artista, álbum, obra o movimiento vinculado al momento cultural actual del país).
+1. Extrae los nombres propios concretos de esta semana en ${country.country}: títulos exactos de discos, canciones, bandas, series, películas, libros, autores, directores, festivales o polémicas culturales puntuales.
+2. Combina señales de DISTINTOS medios (revistas musicales/rock, diarios, radios públicas, portales de cine/series, blogs culturales) para armar 3 a 5 conversaciones culturales reales y actuales.
+3. Selecciona una recomendación concreta y actual ("Para descubrir": disco, libro, película o serie comentada hoy) con su creador y por qué merece atención esta semana.
 
-Devuelve un dossier de investigación detallado y extenso en español con:
-- Panorama cultural central de la semana (ideas, tensiones, debates y contexto para lectores extranjeros).
-- Los 3 a 5 temas destacados con su disciplina y análisis.
-- La recomendación cultural específica y por qué vale la pena descubrirla ahora.
-- Notas claras de qué fuentes son abiertas o tienen suscripción.
+Devuelve un dossier detallado en español anclado en obras y personas reales, sin generalidades abstractas ni enfoques financieros.
 `.trim();
 }
 
@@ -60,11 +63,19 @@ export function buildSynthesisPrompt(
   country: CountrySourceConfig,
   researchDossier: string,
   verifiedUrls: { title: string; url: string }[],
+  youtubeCandidates: string[],
   weekLabel: string
 ): string {
   const numberedSources = verifiedUrls
     .map((u, idx) => `[${idx + 1}] ${u.title}`)
     .join("\n");
+
+  const ytBlock =
+    youtubeCandidates.length > 0
+      ? `\nVIDEOS DE YOUTUBE VERIFICADOS DETECTADOS EN LAS NOTAS:\n${youtubeCandidates
+          .map((u, idx) => `[YT-${idx + 1}] ${u}`)
+          .join("\n")}`
+      : "";
 
   return `
 Con base EXCLUSIVAMENTE en el dossier de investigación siguiente, redacta la edición final en español de **${country.country}** para la semana **${weekLabel}**.
@@ -74,14 +85,22 @@ ${researchDossier}
 
 FUENTES NUMERADAS DISPONIBLES (usa su número entero ID entre 1 y ${verifiedUrls.length}):
 ${numberedSources}
+${ytBlock}
 
 REGLAS ESTRICTAS DE REDACCIÓN Y FORMATO:
-1. "intro": 1 o 2 frases breves (entre 60 y 200 caracteres) que presenten el clima cultural de la semana en ${country.country}.
-2. "visual_query": Término breve en inglés (2 a 5 palabras) para buscar en Wikimedia Commons una fotografía real de un museo, teatro, festival o lugar cultural protagonista en ${country.country} (ej: "Teatro Colon Buenos Aires", "Centre Pompidou Paris").
-3. "visual_caption": Pie de foto editorial breve en español (máximo 140 caracteres).
-4. "cultural_pulse": Ensayo breve de revista cultural. **LONGITUD OBLIGATORIA: entre 420 y 650 palabras** (es un error grave escribir menos de 350 palabras o más de 750). Escribe exactamente 4 párrafos extensos y profundos de unas 110–150 palabras cada uno, separados por doble salto de línea (\\n\\n). Conecta ideas, debates y fenómenos; NO listes noticias.
-5. "topics": Entre 3 y 5 bloques (ej. Literatura, Cine, Música, Teatro, Artes visuales, Cultura digital, Arquitectura, Ensayo). Cada uno con "category", "title" y "summary" sustancioso.
-6. "recommendation": Una recomendación cultural destacada ("Libro", "Película", "Exposición", "Autor", "Artista", "Movimiento", "Álbum" u "Obra teatral") con "title", "creator", "context" y "source_id" (número entero válido entre 1 y ${verifiedUrls.length} de la lista de arriba).
-7. "sources": Entre 2 y 6 fuentes consultadas reales elegidas de la lista numerada de arriba, cada una con "id" (número entero entre 1 y ${verifiedUrls.length}), "name" (nombre limpio del medio o blog) y "paywalled" (true/false).
+1. "intro": 1 o 2 frases breves (entre 60 y 200 caracteres) con gancho editorial sobre las obras, artistas o debates concretos de esta semana en ${country.country}.
+2. "visual_query": Término breve en inglés (2 a 5 palabras) para buscar en Wikimedia Commons una foto real ligada a una escena, artista, festival, teatro o ciudad protagonista (ej: "Abbey Theatre Dublin", "Teatro Colon Buenos Aires").
+3. "visual_caption": Pie de foto breve en español (máximo 140 caracteres, sin usar la palabra "vibrante").
+4. "cultural_pulse": Ensayo ágil y concreto de revista cultural centrado en **música, series, cine, libros y debates actuales**. **LONGITUD OBLIGATORIA: entre 360 y 620 palabras** en 4 párrafos separados por doble salto de línea (\\n\\n).
+   - **NOMBRES PROPIOS EN CADA PÁRRAFO:** Cita títulos reales de discos, series, películas, libros, bandas, autores o directores mencionados en el dossier. Cero abstracciones vacías.
+   - **ENLACES EN EL TEXTO:** Incluye como MÁXIMO **3 enlaces** integrados de forma natural sobre el nombre de una obra, artista, medio o institución relevante usando este formato exacto: **[Nombre de obra o persona](ID)** (donde ID es el número entero de la fuente correspondiente de la lista de arriba, ej: [The Abbey Theatre](2)). No pongas más de 3 enlaces ni enlaces en palabras genéricas.
+5. "topics": Entre 3 y 5 bloques concretos (priorizando Música, Series/TV, Cine, Libros y Debates culturales actuales). Cada título y resumen debe nombrar explícitamente la obra, artista, festival o debate específico.
+6. "recommendation": Recomendación cultural destacada ("Libro", "Película", "Exposición", "Autor", "Artista", "Movimiento", "Álbum" u "Obra teatral") con "title", "creator", "context" y "source_id" (entero entre 1 y ${verifiedUrls.length}).
+7. "closing_media": Opcional para ilustrar algo mencionado DESPUÉS de todos los textos (SOLO complétalo si aporta valor real y evita repetir la foto de portada):
+   - "mode": "video" (únicamente si hay un video pertinente en VIDEOS DE YOUTUBE VERIFICADOS arriba), "image" (si un artista, edificio, banda o muestra específica mencionada en el texto merece una segunda foto distinta), o "none" si no hace falta agregar nada más.
+   - "youtube_url": URL exacta de VIDEOS DE YOUTUBE VERIFICADOS (solo si mode="video").
+   - "image_query": término específico en inglés (2 a 5 palabras, distinto de visual_query) para Wikimedia Commons (solo si mode="image").
+   - "caption": pie explicativo breve en español que conecte con lo mencionado en el artículo.
+8. "sources": Entre 3 y 6 fuentes consultadas reales de **medios distintos** elegidos de la lista numerada (si existen menos de 3 medios disponibles, mínimo 2), cada una con "id" (entero entre 1 y ${verifiedUrls.length}), "name" y "paywalled" (true/false).
 `.trim();
 }

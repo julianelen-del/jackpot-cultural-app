@@ -15,6 +15,19 @@ interface WikimediaPage {
   }>;
 }
 
+const EXCLUDED_IMAGE_TERMS = [
+  "map",
+  "logo",
+  "flag",
+  "coat of arms",
+  "diagram",
+  "chart",
+  "signature",
+  "seal",
+  "emblem",
+  "locator",
+];
+
 function cleanHtml(raw?: string): string {
   if (!raw) return "";
   return raw
@@ -25,7 +38,8 @@ function cleanHtml(raw?: string): string {
 
 export async function fetchWikimediaCoverImage(
   query: string,
-  caption: string
+  caption: string,
+  excludeUrl?: string
 ): Promise<CoverImage | undefined> {
   if (!query || query.trim().length < 3) return undefined;
 
@@ -37,7 +51,7 @@ export async function fetchWikimediaCoverImage(
         generator: "search",
         gsrnamespace: "6",
         gsrsearch: query.trim(),
-        gsrlimit: "8",
+        gsrlimit: "10",
         prop: "imageinfo",
         iiprop: "url|size|mime|extmetadata",
         iiurlwidth: "1280",
@@ -63,6 +77,11 @@ export async function fetchWikimediaCoverImage(
 
     const pages = Object.values(data.query?.pages || {});
     for (const page of pages) {
+      const titleLower = (page.title || "").toLowerCase();
+      if (EXCLUDED_IMAGE_TERMS.some((term) => titleLower.includes(term))) {
+        continue;
+      }
+
       const info = page.imageinfo?.[0];
       if (!info) continue;
 
@@ -71,11 +90,10 @@ export async function fetchWikimediaCoverImage(
 
       const width = info.width || 0;
       const height = info.height || 0;
-      // Solo fotos apaisadas (horizontales) de buena resolución
       if (width < 800 || height < 450 || width <= height) continue;
 
       const imageUrl = info.thumburl || info.url;
-      if (!imageUrl) continue;
+      if (!imageUrl || imageUrl === excludeUrl) continue;
 
       const artist = cleanHtml(info.extmetadata?.Artist?.value).slice(0, 55);
       const license = cleanHtml(
@@ -96,5 +114,45 @@ export async function fetchWikimediaCoverImage(
     return undefined;
   } catch {
     return undefined;
+  }
+}
+
+export function extractYouTubeEmbedUrl(rawUrl: string): string | null {
+  try {
+    const parsed = new URL(rawUrl);
+    let videoId = "";
+
+    if (parsed.hostname.includes("youtu.be")) {
+      videoId = parsed.pathname.slice(1).split("/")[0];
+    } else if (parsed.hostname.includes("youtube.com")) {
+      if (parsed.pathname === "/watch") {
+        videoId = parsed.searchParams.get("v") || "";
+      } else if (parsed.pathname.startsWith("/embed/")) {
+        videoId = parsed.pathname.split("/")[2] || "";
+      }
+    }
+
+    if (!/^[a-zA-Z0-9_-]{11}$/.test(videoId)) return null;
+    return `https://www.youtube-nocookie.com/embed/${videoId}`;
+  } catch {
+    return null;
+  }
+}
+
+export async function verifyYouTubeOEmbed(rawUrl: string): Promise<string | null> {
+  const embedUrl = extractYouTubeEmbedUrl(rawUrl);
+  if (!embedUrl) return null;
+
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 5000);
+    const res = await fetch(
+      `https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(rawUrl)}`,
+      { signal: controller.signal }
+    );
+    clearTimeout(timer);
+    return res.ok ? embedUrl : null;
+  } catch {
+    return null;
   }
 }

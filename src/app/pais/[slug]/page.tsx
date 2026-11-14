@@ -26,9 +26,21 @@ export async function generateMetadata({
   if (!config) {
     return { title: "País no encontrado — JACKPOT CULTURAL" };
   }
+  const edition = getCountryEdition(slug);
   return {
     title: `${config.flag} ${config.country} — JACKPOT CULTURAL`,
-    description: `El pulso cultural de ${config.country} esta semana en JACKPOT CULTURAL.`,
+    description:
+      edition?.intro ||
+      `El pulso cultural de ${config.country} esta semana en JACKPOT CULTURAL.`,
+    openGraph: {
+      title: `${config.flag} ${config.country} — JACKPOT CULTURAL`,
+      description:
+        edition?.intro ||
+        `El pulso cultural de ${config.country} esta semana.`,
+      ...(edition?.cover_image
+        ? { images: [{ url: edition.cover_image.url }] }
+        : {}),
+    },
   };
 }
 
@@ -45,8 +57,40 @@ function formatEditorialDate(isoDate: string): string {
 }
 
 function estimateReadingMinutes(text: string): number {
-  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  const plain = text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+  const words = plain.trim().split(/\s+/).filter(Boolean).length;
   return Math.max(2, Math.round(words / 200));
+}
+
+function renderInlineLinks(paragraph: string) {
+  const parts: React.ReactNode[] = [];
+  const regex = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = regex.exec(paragraph)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(paragraph.slice(lastIndex, match.index));
+    }
+    parts.push(
+      <a
+        key={`${match.index}-${match[2]}`}
+        href={match[2]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline decoration-accent/45 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+      >
+        {match[1]}
+      </a>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < paragraph.length) {
+    parts.push(paragraph.slice(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : paragraph;
 }
 
 export default async function CountryPage({ params }: PageProps) {
@@ -60,10 +104,7 @@ export default async function CountryPage({ params }: PageProps) {
   if (!edition) {
     return (
       <div className="min-h-dvh bg-paper">
-        <EditorialNav
-          groupedCountries={groupedCountries}
-          currentSlug={slug}
-        />
+        <EditorialNav groupedCountries={groupedCountries} currentSlug={slug} />
         <main className="mx-auto max-w-2xl px-6 py-24 text-center">
           <p className="text-5xl" aria-hidden="true">
             {config.flag}
@@ -102,7 +143,6 @@ export default async function CountryPage({ params }: PageProps) {
       <EditorialNav groupedCountries={groupedCountries} currentSlug={slug} />
 
       <article className="mx-auto max-w-5xl px-4 pt-10 sm:px-8 sm:pt-16">
-        {/* 1. ENCABEZADO EDITORIAL */}
         <header className="mx-auto max-w-3xl border-b-2 border-ink pb-8 text-center sm:pb-12">
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-medium tracking-[0.18em] text-ink-muted uppercase">
             <span className="text-accent">{edition.continent}</span>
@@ -130,7 +170,6 @@ export default async function CountryPage({ params }: PageProps) {
           </p>
         </header>
 
-        {/* FOTO DESTACADA (cuando Wikimedia Commons devuelve una imagen libre verificada) */}
         {edition.cover_image && (
           <figure className="mx-auto mt-10 max-w-4xl">
             <div className="overflow-hidden border border-ink/15 bg-paper-warm">
@@ -151,7 +190,6 @@ export default async function CountryPage({ params }: PageProps) {
           </figure>
         )}
 
-        {/* 2. EL PULSO CULTURAL DE LA SEMANA */}
         <section
           aria-labelledby="pulse-heading"
           className="mx-auto mt-12 max-w-[65ch] sm:mt-16"
@@ -169,13 +207,12 @@ export default async function CountryPage({ params }: PageProps) {
                 key={idx}
                 className={idx === 0 ? "editorial-dropcap" : undefined}
               >
-                {paragraph}
+                {renderInlineLinks(paragraph)}
               </p>
             ))}
           </div>
         </section>
 
-        {/* 3. TEMAS DESTACADOS */}
         <section
           aria-labelledby="topics-heading"
           className="mt-16 border-t-2 border-ink pt-10 sm:mt-20"
@@ -209,7 +246,6 @@ export default async function CountryPage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* 4. PARA DESCUBRIR */}
         <section
           aria-labelledby="discover-heading"
           className="mx-auto mt-16 max-w-3xl border border-ink/25 bg-paper-warm p-7 sm:mt-20 sm:p-10"
@@ -250,7 +286,40 @@ export default async function CountryPage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* 5. FUENTES CONSULTADAS */}
+        {edition.closing_media && (
+          <figure className="mx-auto mt-14 max-w-3xl">
+            {edition.closing_media.type === "video" ? (
+              <div className="aspect-video overflow-hidden border border-ink/15 bg-ink">
+                <iframe
+                  src={edition.closing_media.url}
+                  title={edition.closing_media.caption}
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            ) : (
+              <div className="overflow-hidden border border-ink/15 bg-paper-warm">
+                <img
+                  src={edition.closing_media.url}
+                  alt={edition.closing_media.caption}
+                  className="aspect-[16/9] w-full object-cover"
+                />
+              </div>
+            )}
+            <figcaption className="mt-2.5 flex flex-wrap items-baseline justify-between gap-2 border-b border-hairline pb-2.5 text-xs text-ink-muted">
+              <span className="font-serif italic">
+                {edition.closing_media.caption}
+              </span>
+              {edition.closing_media.credit && (
+                <span className="text-[11px] tracking-wide">
+                  {edition.closing_media.credit}
+                </span>
+              )}
+            </figcaption>
+          </figure>
+        )}
+
         <footer className="mx-auto mt-16 max-w-3xl border-t border-hairline pt-8">
           <h2 className="text-[11px] font-semibold tracking-[0.2em] text-ink-muted uppercase">
             Fuentes consultadas
@@ -288,7 +357,6 @@ export default async function CountryPage({ params }: PageProps) {
             ))}
           </ul>
 
-          {/* Cierre natural al terminar de leer */}
           <div className="mt-14 border-t border-ink/20 pt-10 text-center">
             <p className="font-serif text-lg italic text-ink-muted">
               ¿Seguimos viajando?
