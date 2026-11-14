@@ -11,7 +11,7 @@ export const CONTINENTS = [
 export const TopicSchema = z.object({
   category: z.string().min(2).max(40),
   title: z.string().min(5).max(120),
-  summary: z.string().min(50).max(420),
+  summary: z.string().min(50).max(550),
 });
 
 export const RecommendationSchema = z.object({
@@ -27,7 +27,7 @@ export const RecommendationSchema = z.object({
   ]),
   title: z.string().min(2).max(140),
   creator: z.string().min(2).max(120),
-  context: z.string().min(50).max(420),
+  context: z.string().min(50).max(550),
   url: z.string().url(),
 });
 

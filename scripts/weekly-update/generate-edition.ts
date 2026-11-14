@@ -13,8 +13,10 @@ import {
 import { validateEditionQuality } from "./quality-gate";
 import { verifyCandidateUrls, type CandidateUrl } from "./verify-links";
 
-const PRIMARY_MODEL = process.env.GEMINI_MODEL || "gemini-4-hydrogen";
-const FALLBACK_MODEL = "gemini-3.5-flash-lite";
+const PRIMARY_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
+const FALLBACK_MODEL = "gemini-4-hydrogen";
+
+let disableSearchForSession = false;
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -46,6 +48,10 @@ async function generateWithModelFallback(
     });
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
+    // Si falló por usar la herramienta googleSearch en plan gratuito, no reintentar search en otro modelo
+    if (config.tools) {
+      throw err;
+    }
     if (
       msg.includes("429") ||
       msg.includes("RESOURCE_EXHAUSTED") ||
@@ -87,51 +93,53 @@ export async function generateCountryEdition(
   let researchDossier = "";
   const candidateUrls: CandidateUrl[] = [];
 
-  // 2. Paso 1: Intentar Google Search Grounding; si Nivel Gratuito bloquea, activar Plan B (Google News RSS)
+  // 2. Paso 1: Intentar Google Search Grounding (salvo que ya sepamos que está bloqueado en esta sesión)
   let searchSucceeded = false;
-  try {
-    const researchPromptWithSearch = buildResearchPrompt(
-      country,
-      formatSignals(rssSignals),
-      previousTopics,
-      weekLabel,
-      true
-    );
+  if (!disableSearchForSession) {
+    try {
+      const researchPromptWithSearch = buildResearchPrompt(
+        country,
+        formatSignals(rssSignals),
+        previousTopics,
+        weekLabel,
+        true
+      );
 
-    const researchResponse = await generateWithModelFallback(
-      ai,
-      researchPromptWithSearch,
-      {
-        systemInstruction: EDITORIAL_SYSTEM_INSTRUCTION,
-        tools: [{ googleSearch: {} }],
-      }
-    );
-
-    const text = researchResponse.text?.trim() || "";
-    const groundingChunks =
-      researchResponse.candidates?.[0]?.groundingMetadata?.groundingChunks ||
-      [];
-
-    if (text.length >= 200) {
-      researchDossier = text;
-      for (const chunk of groundingChunks) {
-        if (chunk.web?.uri) {
-          candidateUrls.push({
-            title: chunk.web.title || "Fuente cultural",
-            url: chunk.web.uri,
-          });
+      const researchResponse = await generateWithModelFallback(
+        ai,
+        researchPromptWithSearch,
+        {
+          systemInstruction: EDITORIAL_SYSTEM_INSTRUCTION,
+          tools: [{ googleSearch: {} }],
         }
+      );
+
+      const text = researchResponse.text?.trim() || "";
+      const groundingChunks =
+        researchResponse.candidates?.[0]?.groundingMetadata?.groundingChunks ||
+        [];
+
+      if (text.length >= 200) {
+        researchDossier = text;
+        for (const chunk of groundingChunks) {
+          if (chunk.web?.uri) {
+            candidateUrls.push({
+              title: chunk.web.title || "Fuente cultural",
+              url: chunk.web.uri,
+            });
+          }
+        }
+        searchSucceeded = true;
       }
-      searchSucceeded = true;
+    } catch {
+      disableSearchForSession = true;
+      console.warn(
+        "  [Plan B gratuito] Google Search no disponible en Nivel Gratuito. Activando Google News RSS + feeds abiertos para la sesión."
+      );
     }
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    console.warn(
-      `  [Plan B gratuito] Google Search no disponible (${msg.slice(0, 80)}...). Usando Google News RSS + feeds abiertos.`
-    );
   }
 
-  // Si Google Search no estuvo disponible o trajo pocos enlaces, enriquecemos con Google News RSS del país
+  // Si Google Search no estuvo disponible o trajo pocos enlaces, usamos Google News RSS del país
   if (!searchSucceeded || candidateUrls.length < 2) {
     const newsSignals = await fetchGoogleNewsCulturalSignals(
       country.slug,
@@ -291,7 +299,6 @@ export async function generateCountryEdition(
     delete parsedJson.visual_query;
     delete parsedJson.visual_caption;
 
-    // Buscar foto libre verificada en Wikimedia Commons (si no halla, queda undefined sin romper)
     const coverImage = await fetchWikimediaCoverImage(visualQuery, visualCaption);
 
     const assembled = {

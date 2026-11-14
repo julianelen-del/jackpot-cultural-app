@@ -5,7 +5,6 @@ import { GoogleGenAI } from "@google/genai";
 import type { CountryEdition, CountrySourceConfig } from "../../src/lib/schema";
 import { generateCountryEdition } from "./generate-edition";
 
-// Carga .env.local si existe (útil en pruebas locales; en GitHub Actions usa Secrets)
 dotenv.config({ path: ".env.local" });
 dotenv.config();
 
@@ -39,7 +38,6 @@ async function main() {
   const sourcesRaw = fs.readFileSync(SOURCES_PATH, "utf-8");
   const allCountries = JSON.parse(sourcesRaw) as CountrySourceConfig[];
 
-  // Permite filtrar 1 país opcionalmente: npm run update-editions -- --country=francia
   const countryArg = process.argv.find((arg) => arg.startsWith("--country="));
   const filterSlug = countryArg?.split("=")[1]?.trim().toLowerCase();
 
@@ -76,9 +74,8 @@ async function main() {
       console.error(`  ✗ Error en ${country.country} (se conserva edición anterior): ${message}`);
     }
 
-    // Pausa amable entre países para cuidar cuotas de API
     if (i < targets.length - 1) {
-      await sleep(3000);
+      await sleep(2500);
     }
   }
 
@@ -87,10 +84,11 @@ async function main() {
     console.warn("Países con fallback a edición previa:\n- " + failures.join("\n- "));
   }
 
-  // Solo fallamos el proceso si absolutamente NINGÚN país se pudo actualizar
   if (updatedCount === 0) {
     process.exit(1);
   }
+
+  process.exit(0);
 }
 
 main();
