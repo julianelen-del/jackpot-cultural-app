@@ -3,63 +3,64 @@
   "country": "Chile",
   "continent": "América",
   "flag": "🇨🇱",
-  "updated_at": "2026-11-14T06:36:18.853Z",
+  "updated_at": "2026-11-14T15:37:46.758Z",
   "edition_week": "2026-W46",
-  "intro": "La conversación cultural en Chile transita esta semana entre la memoria institucional, la descentralización territorial y la fricción estética.",
+  "intro": "Melancolía urbana con Kidd Voodoo y el archivo televisivo de Sebastián Lelio marcan la semana cultural en Chile.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Teatro_Municipal_de_Santiago_1.JPG/1280px-Teatro_Municipal_de_Santiago_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "El Teatro Municipal de Santiago, epicentro de la reinvención escénica y lírica en el Chile contemporáneo.",
-    "credit": "Foto: Jaime Soto Ceura · CC BY-SA 3.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Gran_Santiago_Tower%2C_Views_from_San_Crit%C3%B3bal_Hill_-_Santiago_-_Chile_01.jpg/1280px-Gran_Santiago_Tower%2C_Views_from_San_Crit%C3%B3bal_Hill_-_Santiago_-_Chile_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Vista panorámica de la capital chilena, epicentro de la agenda artística y de debates intelectuales.",
+    "credit": "Foto: 3BRBS · CC BY-SA 3.0"
   },
-  "cultural_pulse": "La conversación cultural en Chile durante esta semana transita por una encrucijada muy particular: la fricción entre la institucionalidad cultural del Estado, la memoria recentísima del país y la expansión de sus expresiones artísticas hacia territorios periféricos que reclaman su propio centro. Mientras el Ministerio de las Culturas lidia con la turbulencia administrativa de anular premios literarios otorgados a obras sobre el estallido social —un recordatorio de que las heridas del relato político siguen frescas en los anaqueles editoriales—, las prácticas artísticas se despliegan con una vocación descentralizadora radical que sacude el histórico centralismo metropolitano chileno.\n\nDesde la proyección masiva de cine al aire libre en Rapa Nui hasta la circulación de los mitos y leyendas de Chiloé en la Región Metropolitana al cumplirse el bicentenario de la incorporación del archipiélago, el sistema cultural del país ensancha sus límites geográficos y simbólicos. Este doble movimiento —llevar el cine contemporáneo de prestigio a la insularidad oceánica y traer la mitología mágica del sur profundo al corazón de la capital— redibuja el mapa estético nacional, permitiendo que las comunidades periféricas dejen de ser meros objetos de estudio antropológico para convertirse en activas protagonistas de la creación contemporánea.\n\nA esta descentralización se suma la tensión permanente entre la vitrina internacional y la reinvención de las formas locales más arraigadas. La presencia de creadores nacionales en los Latin Grammy o el escrutinio global de plataformas de streaming con documentales sobre crónicas policiales y farándula demuestran la ambivalencia con que la sociedad chilena observa sus propios reflejos en los grandes escaparates globales. Lejos de la complacencia, el ecosistema artístico local busca sacudir las formas tradicionales mediante una profunda descarga de energía disruptiva, ya sea renovando el repertorio de la canción social o tensionando los moldes de la alta cultura.\n\nEste impulso transgresor encuentra un ejemplo elocuente en iniciativas como la del Teatro Municipal de Santiago, que al llevar una tragedia lírica al terreno de la estética punk subvierte las expectativas del público operístico tradicional. Para el observador internacional, el Chile cultural de estos días se revela como un territorio dinámico donde el pasado político inmediato, el mito insular y la vitrina global colisionan constantemente, generando un campo de debate intelectual vibrante que rechaza los lugares comunes y exige una lectura atenta de sus contradicciones más profundas.",
+  "cultural_pulse": "La escena musical chilena actual encuentra en el cruce generacional su pulso más lúcido. Por un lado, las crónicas críticas ponen el foco en la sensibilidad urbana de **[Kidd Voodoo](https://www.latercera.com/culto/noticia/critica-de-discos-kidd-voodoo-y-el-macha-le-cantan-a-la-melancolia-elyanna-al-mundo-y-los-blue-splendor-a-la-historia/)** al hermanar su propuesta con el repertorio desgarrado de Macha y el Bloque Depresivo, instalando la melancolía como eje del pop contemporáneo. Por otro lado, la arqueología sonora rescata joyas históricas como la reedición en vinilo del disco clave de **[Los Blue Splendor](https://www.latercera.com/culto/noticia/critica-de-discos-kidd-voodoo-y-el-macha-le-cantan-a-la-melancolia-elyanna-al-mundo-y-los-blue-splendor-a-la-historia/)**, un ejercicio de memoria frente a la tiranía del streaming. En paralelo, los circuitos independientes de Santiago se refugian en la novena edición del Festival de Música al Margen, mientras el histórico sello Alerce celebra medio siglo de resguardar el canto popular desde la época fundacional de la Nueva Canción Chilena.\n\nEn las pantallas y la trastienda audiovisual, la atención recae sobre el pasado formativo de los creadores locales. Un perfil detallado rescata los años universitarios en Periodismo y la participación en programas de archivo como El Futuro de Chile de **[Sebastián Lelio](https://www.latercera.com/culto/noticia/cuando-sebastian-lelio-era-sebastian-campos-sus-anos-de-periodismo-y-television/)**, mucho antes de consagrarse como uno de los directores imprescindibles del cine contemporáneo y ganar el Óscar. Este ejercicio de escarbar en el archivo contrasta con la discusión intelectual que agita las páginas de los medios especializados locales.\n\nEl debate intelectual de la semana trasciende la coyuntura para instalarse en las tensiones ideológicas y estéticas del presente. Desde las páginas de Revista Santiago, las reflexiones sobre el liberalismo político, el diseño del espacio público y las formas de habitar el territorio se cruzan con un diagnóstico urgente sobre la crisis patrimonial en los parques nacionales. Lejos de la retórica vacía, los reportajes de Radio Universidad de Chile denuncian las deudas históricas estatales en la conservación de áreas protegidas desde La Araucanía hasta el sur austral, advirtiendo que la declaración legal en el papel no equivale a la preservación real de los ecosistemas frente al abandono institucional.",
   "topics": [
     {
-      "category": "Literatura y Política",
-      "title": "La sombra institucional sobre la memoria del estallido",
-      "summary": "La anulación por parte del Ministerio de las Culturas de un galardón literario a una obra sobre el estallido social reabre el debate sobre la tutela estatal y la autonomía de los jurados frente a los quiebres políticos recientes."
+      "category": "MÚSICA",
+      "title": "Melancolía pop y vinilos fundacionales",
+      "summary": "La crítica destaca el diálogo generacional entre Kidd Voodoo y Macha y el Bloque Depresivo, mientras Los Blue Splendor regresan al vinilo gracias a La Tercera y el sello Alerce celebra 50 años de historia."
     },
     {
-      "category": "Descentralización",
-      "title": "Memoria insular y expansión territorial desde Rapa Nui a Chiloé",
-      "summary": "El cine al aire libre en Rapa Nui y la itinerancia de los mitos chilotes en la Región Metropolitana por su bicentenario redibujan el mapa cultural del país más allá de la capital."
+      "category": "CINE Y TELEVISIÓN",
+      "title": "El archivo televisivo de Sebastián Lelio",
+      "summary": "Un perfil rescata los años universitarios de periodismo y los archivos televisivos del cineasta Sebastián Lelio en programas como El Futuro de Chile."
     },
     {
-      "category": "Artes Escénicas",
-      "title": "Riesgo y transgresión con ópera punk y nuevo rock de raíz",
-      "summary": "El Teatro Municipal de Santiago subvierte la lírica clásica con una lectura punk de Elektra, mientras la escena independiente renueva la canción de contenido social."
+      "category": "DEBATES CULTURALES",
+      "title": "Liberalismo, pantallas y conservación",
+      "summary": "Revista Santiago debate las formas de habitar el territorio y el liberalismo, al tiempo que Radio Universidad de Chile expone las deudas en la conservación de parques nacionales."
     }
   ],
   "recommendation": {
-    "type": "Libro",
-    "title": "Chaya Chamullo",
-    "creator": "N. Pino Luna, Graciela Veas Ripoll e ilustraciones de Romina Toro",
-    "context": "Un volumen infantil que rescata la musicalidad de la décima espinela y el humor cotidiano en la poesía popular chilena.",
-    "url": "https://www.latercera.com/culto/noticia/chaya-chamullo-el-libro-infantil-que-convierte-la-vida-cotidiana-en-decimas-llenas-de-humor-y-corazon-chileno/"
+    "type": "Álbum",
+    "title": "Elyanna al mundo",
+    "creator": "Elyanna",
+    "context": "Destacado en las novedades críticas internacionales reseñadas en Chile, este trabajo expande las fronteras del pop global cruzando raíces de Medio Oriente con sensibilidades urbanas actuales.",
+    "url": "https://www.latercera.com/culto/noticia/critica-de-discos-kidd-voodoo-y-el-macha-le-cantan-a-la-melancolia-elyanna-al-mundo-y-los-blue-splendor-a-la-historia/"
+  },
+  "closing_media": {
+    "type": "image",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Sebasti%C3%A1n_Lelio_A_Fantastic_Woman_Berlinale_2017.jpg/960px-Sebasti%C3%A1n_Lelio_A_Fantastic_Woman_Berlinale_2017.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Sebastián Lelio, director retratado en su etapa formativa y televisiva previa al Óscar.",
+    "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
     {
       "name": "La Tercera",
-      "url": "https://www.latercera.com/culto/noticia/al-aire-libre-y-con-mas-de-mil-personas-caballo-salvaje-nueve-llega-a-rapa-nui-con-funcion-gratuita/",
+      "url": "https://www.latercera.com/culto/noticia/critica-de-discos-kidd-voodoo-y-el-macha-le-cantan-a-la-melancolia-elyanna-al-mundo-y-los-blue-splendor-a-la-historia/",
+      "paywalled": true
+    },
+    {
+      "name": "Revista Santiago",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1jSXQteGFxWkZmaGpCSkFnNjZFMi1UMUhTTVZMZTdoemZ5ZmVHc2pscVZESVdpa3k4UjNRLUlBWXhsWVFYWHdJY2laMTl1V294eU56YjAzS2VGcThmMUcwUGRfY1dURHhW?oc=5",
       "paywalled": false
     },
     {
-      "name": "La Tercera",
-      "url": "https://www.latercera.com/culto/noticia/autora-de-poemario-sobre-el-estallido-social-denuncia-irregularidades-en-premio-de-cultura-ministerio-anulo-la-decision/",
+      "name": "POTQ Magazine",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPLXhJaHdaWk9BVGdXbm04bmllZjdWMkZDQ0ltOWxqbW1STjBFbGFVSXI4d1NuS3prZzZrM3NVX0ZWWnJKX0tNdEJULThyZjMwNVkzV3ZJbXNIcmlTUUdFU29uYmpjdlNjVmdsa3ZDWVpvSWFpcFdsWElnbzljZnAwa0FXeTN3VXRmR091Q2d1Sll4ejJacTJrTFZ4X2t3QXd1UW9TMmpleHFoYk5ERjlyTGZNRjhRUVVaMk9ySFJKbUlzLVJEVm8wUURR?oc=5",
       "paywalled": false
     },
     {
-      "name": "La Tercera",
-      "url": "https://www.latercera.com/culto/noticia/elektra-la-tragedia-de-strauss-desborda-el-escenario-y-llega-al-municipal-con-estetica-punk/",
-      "paywalled": false
-    },
-    {
-      "name": "La Tercera",
-      "url": "https://www.latercera.com/culto/noticia/chaya-chamullo-el-libro-infantil-que-convierte-la-vida-cotidiana-en-decimas-llenas-de-humor-y-corazon-chileno/",
-      "paywalled": false
-    },
-    {
-      "name": "Portal Metropolitano",
-      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNM2RiNWRyM2EtUGNBdlFibWtHMzFMSDFhbzgzNXhCSGg4aEVwc3JlcE1mcWpxTHJBM2lybEVaTkI1UTd0aV9rYzB6MWF5Um5RZXFDVnJUNEYyNHh1aU0tTGM2c3FxY0VrdUdXb3VWTXRZRHk4OHJFNG51UmxacVZYYk5IYlZVRm9vdUJ1NW1QWTJLS1N0Q3IzNjVWTlE1VUZQUGk0OVRNUjlTRklWSlVfNlFXSW05NkJEcWd2dFo0bnp3MlVmN3Z1N0RIdXZNZTZ0TmNTSDJuWGZHZw?oc=5",
+      "name": "Radio Universidad de Chile",
+      "url": "https://radio.uchile.cl/2026/11/14/declarar-no-es-proteger-las-deudas-de-la-conservacion-en-chile/",
       "paywalled": false
     }
   ]

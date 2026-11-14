@@ -3,63 +3,64 @@
   "country": "Egipto",
   "continent": "África",
   "flag": "🇪🇬",
-  "updated_at": "2026-11-14T06:40:23.525Z",
+  "updated_at": "2026-11-14T15:46:22.744Z",
   "edition_week": "2026-W46",
-  "intro": "La vida cultural egipcia late esta semana entre la memoria cinematográfica de El Cairo y las nuevas diásporas literarias.",
+  "intro": "El Festival de El Cairo celebra cinco décadas de cine y Omar Taher disecciona la nostalgia analógica en papel.",
   "cover_image": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Cairo_opera_house.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "caption": "El Cairo consolida su pulso escénico y cinematográfico con festivales y espacios de resistencia cultural independiente.",
+    "caption": "Sede principal del Festival Internacional de Cine de El Cairo en su cuadragésima séptima edición.",
     "credit": "Foto: The original uploader was ThutmoseIII at English Wikipe · CC BY-SA 3.0"
   },
-  "cultural_pulse": "La vida cultural egipcia vive esta semana bajo el pulso magnético de su cinematografía y su literatura, dos industrias que operan simultáneamente como archivos de la memoria moderna y como vectores de proyección global. Con la inauguración de la cuadragésima séptima edición del Festival Internacional de Cine de El Cairo, la capital no solo despliega una programación de ciento cuarenta y cinco títulos, sino que propicia una intensa autoreflexión sobre medio siglo de producción audiovisual, los cambios en las estéticas urbanas y la necesidad de tejer alianzas internacionales que van desde la cooperación con la cinematografía bielorrusa hasta la reconfiguración de sus circuitos clásicos más tradicionales.\n\nMientras tanto, la infraestructura independiente de la ciudad —representada por bastiones como el histórico Teatro Rawabet— resiste y se reinventa en el corazón de Wust El-Balad, recordándonos que el pulso escénico cairota depende de una tenacidad autogestiva encomiable. En paralelo, la literatura egipcia y africana acelera su diáspora hacia nuevos públicos en Norteamérica y consolida premios continentales que descentralizan con acierto los centros tradicionales de edición, permitiendo que la creación contemporánea circule sin las viejas ataduras de los circuitos estrictamente coloniales o europeos.\n\nEsta semana, Egipto debate intensamente cómo se cuenta su propia historia visual y literaria, tensionando el peso ineludible de su vasto archivo con la urgencia contemporánea de encontrar nuevos mercados, públicos transnacionales y lenguajes expresivos propios. Lejos de constituir un mero ejercicio de nostalgia institucional, este examen crítico demuestra que la cultura egipcia contemporánea busca redefinir su posición en el mapa global a través de la revisión minuciosa de sus propias imágenes, sus espacios domésticos proyectados en la gran pantalla y su capacidad infinita para la autogestión artística.\n\nDe este modo, tanto las galerías de Zamalek y Garden City como las salas independientes y los foros editoriales canadienses configuran un ecosistema donde la tradición y la vanguardia dialogan sin estridencias. Los creadores y pensadores del país firman así una semana donde la memoria se convierte en materia prima para el porvenir, demostrando que la vitalidad intelectual de la región radica en su habilidad constante para interrogar al pasado sin renunciar a las complejas y urgentes demandas del presente global.",
+  "cultural_pulse": "El panorama cultural de Egipto se agita entre retrospectivas cinematográficas, crónicas de la memoria popular y debates sobre los límites de la representación artística. Las salas de la capital han encendido los proyectores para dar inicio a la **[47ª edición del Festival Internacional de Cine de El Cairo](https://news.google.com/rss/articles/CBMiWEFVX3lxTE5LbmR3cFVlNHA1M1JYUHFrQ1lVUDdzTGFwT1hSQ2hpWV84ZWZYRDdGR1hGWUQwTkx6cHJBR20tTTNXYVNRd1U3YTNPZEs3LVdRdDVkc3VRYlc?oc=5)**, un certamen que este año conmemora cinco décadas de historia en la gran pantalla. Directores, críticos y creadores se dan cita para debatir sobre la conservación de archivos visuales y el impacto de las coproducciones regionales frente a la hegemonía de las plataformas de streaming.\n\nEn el terreno literario, la atención se centra en el libro **[‘The Last Cassette Tape in Egypt’](https://arablit.org/2026/11/10/omar-tahers-the-last-cassette-tape-in-egypt/)**, escrito por Omar Taher. A partir del hallazgo fortuito de una vieja caja de galletas llena de cintas magnéticas en el armario familiar, la obra traza una crónica sobre cómo la cultura popular de consumo masivo moldeó la educación sentimental de una generación entera en las calles cairoisas antes de la llegada de la digitalización total. Por su parte, la emblemática librería Diwan amplía su presencia internacional con el lanzamiento de su plataforma digital en Norteamérica, conectando a los lectores canadienses con catálogos en árabe, francés e inglés que agrupan desde la literatura contemporánea hasta las escrituras feministas de la región SWANA.\n\nMientras tanto, en el ámbito de los foros independientes, los creadores ya discuten las bases de la iniciativa **[‘Welcome To The Fringe Palestine’](https://arablit.org/2026/11/12/on-welcome-to-the-fringe-palestine-plans-for-2027/)** de cara a 2027. Los organizadores apuestan por un modelo de programación libre de cuotas ideológicas, exigiendo que los artistas palestinos puedan subir a los escenarios teatrales sin la carga de representar forzosamente una causa política, limitándose estrictamente a compartir su práctica escénica. Esta discusión convive con la reciente sacudida institucional provocada por los decretos gubernamentales que revocan la ciudadanía egipcia a los hermanos Anas y Tarek Habib bajo la estricta Ley de Nacionalidad.",
   "topics": [
     {
       "category": "Cine",
-      "title": "El archivo de medio siglo y la arqueología visual de la modernidad",
-      "summary": "El Festival Internacional de Cine de El Cairo rinde homenaje a cinco décadas de historia audiovisual, impulsando un debate crítico sobre cómo la escenografía y el diseño de interiores en la gran pantalla funcionaron como documentos sociológicos de la clase media."
+      "title": "50 años de historia en la gran pantalla",
+      "summary": "La 47ª edición del Festival Internacional de Cine de El Cairo arrancó con un homenaje monumental a cinco décadas de cinematografía, centrando sus debates en la conservación de archivos visuales."
     },
     {
-      "category": "Artes Escénicas",
-      "title": "La trinchera independiente: El pulso del Teatro Rawabet",
-      "summary": "Los gestores culturales del histórico Teatro Rawabet debaten sobre la supervivencia de la vanguardia escénica en el centro de El Cairo, apostando por la coproducción regional y la hibridación entre danza contemporánea y performance."
+      "category": "Libros",
+      "title": "Arqueología sonora en papel",
+      "summary": "El libro de Omar Taher examina el papel de las cintas de casete analógicas como archivos clandestinos de la memoria urbana y sentimental en El Cairo."
     },
     {
-      "category": "Literatura y Edición",
-      "title": "Diásporas literarias entre El Cairo y los circuitos continentales",
-      "summary": "La editorial Diwan intensifica la proyección de la literatura árabe contemporánea hacia los lectores de la diáspora en Canadá, en sintonía con unos circuitos editoriales africanos que buscan romper los búnkeres geográficos y lingüísticos."
-    },
-    {
-      "category": "Artes Plásticas",
-      "title": "Geografías íntimas en las galerías de Zamalek",
-      "summary": "Las exposiciones individuales de Rania Gad y Rania Khalaf en los barrios históricos de la capital proponen una cartografía introspectiva basada en la memoria doméstica y la abstracción geométrica."
+      "category": "Debates culturales",
+      "title": "Teatro sin mandatos de representación",
+      "summary": "Los foros independientes debaten los preparativos de la iniciativa de 2027 para liberar a los creadores palestinos de cuotas políticas obligatorias en los escenarios."
     }
   ],
   "recommendation": {
-    "type": "Exposición",
-    "title": "Cartografías de la intimidad y abstracción urbana",
-    "creator": "Rania Gad y Rania Khalaf",
-    "context": "Presentadas en las galerías Demi y Moulk Art Space, estas muestras pictóricas encapsulan el giro de la plástica cairota hacia la introspección doméstica y la memoria visual.",
-    "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE96QjFIUEpWYTAtX054T2k5Y2RXbXNJMTNsUkZQcUdITEVwdHd4THJ5eW5zU21zSGZBVXdQT2tMeVNpRjRXbm9yMWcwWXpXb0d6WmpRMlhQdDk?oc=5"
+    "type": "Libro",
+    "title": "The Last Cassette Tape in Egypt",
+    "creator": "Omar Taher",
+    "context": "Una crónica de non-fiction indispensable para entender la arqueología sentimental de la sociedad urbana egipcia a través del formato físico del casete.",
+    "url": "https://arablit.org/2026/11/10/omar-tahers-the-last-cassette-tape-in-egypt/"
+  },
+  "closing_media": {
+    "type": "image",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Lebleba%2C_CIFF_%282017%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "caption": "El Cairo acoge el debate cinematográfico internacional en su 47ª edición.",
+    "credit": "Foto: وكالة أنباء الشرق الأوسط · CC BY 3.0"
   },
   "sources": [
-    {
-      "name": "CairoScene",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPUUVyVzZYYm1jUUhHWGUyYUlSbmhsVjNUUXYydkc1dlVSenp1c3lHZndwZXM3VEdNS3JsYnkzS2Q0NE93cnQ4TFFJeC1SaVljTGhKTDBMZEJWbG5ha0tLVkhDT1hhempPVm1UeHdLRkVMUFYwT3hVaFNFd2JrYXZPeHQtN0J4RVIwMUQtN2tyRkJ2cXVPZll2dDdDWGs4UWd2WTJz?oc=5",
-      "paywalled": false
-    },
     {
       "name": "Ahram Online",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5LbmR3cFVlNHA1M1JYUHFrQ1lVUDdzTGFwT1hSQ2hpWV84ZWZYRDdGR1hGWUQwTkx6cHJBR20tTTNXYVNRd1U3YTNPZEs3LVdRdDVkc3VRYlc?oc=5",
       "paywalled": false
     },
     {
-      "name": "Ahram Online",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9JYi1hdGQxbG5HMkJSdU40Q0tQSDRHbXZyOGZfemx2M0ExcG5lNU5WZW5FT1Fkc2VzSU9uNm1OSmFGSkx6TWpxQnFvbmNxcGRQTWwweUNWQXA?oc=5",
+      "name": "ARABLIT & ARABLIT QUARTERLY",
+      "url": "https://arablit.org/2026/11/10/omar-tahers-the-last-cassette-tape-in-egypt/",
       "paywalled": false
     },
     {
-      "name": "Ahram Online",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE96QjFIUEpWYTAtX054T2k5Y2RXbXNJMTNsUkZQcUdITEVwdHd4THJ5eW5zU21zSGZBVXdQT2tMeVNpRjRXbm9yMWcwWXpXb0d6WmpRMlhQdDk?oc=5",
+      "name": "ARABLIT & ARABLIT QUARTERLY",
+      "url": "https://arablit.org/2026/11/12/on-welcome-to-the-fringe-palestine-plans-for-2027/",
+      "paywalled": false
+    },
+    {
+      "name": "Egyptian Streets",
+      "url": "https://egyptianstreets.com/2026/11/13/egypt-revokes-citizenship-of-brothers-anas-and-tarek-habib-following-controversy/",
       "paywalled": false
     }
   ]

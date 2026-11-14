@@ -3,64 +3,65 @@
   "country": "Colombia",
   "continent": "América",
   "flag": "🇨🇴",
-  "updated_at": "2026-11-14T06:36:33.441Z",
+  "updated_at": "2026-11-14T15:38:19.632Z",
   "edition_week": "2026-W46",
-  "intro": "El pulso cultural colombiano de esta semana transita entre la memoria literaria del Caribe y la vitalidad sonora de los centros urbanos.",
-  "cultural_pulse": "El pulso cultural colombiano de esta semana se desplaza entre dos coordenadas geográficas y simbólicas muy marcadas que definen la vitalidad intelectual del país. Por un lado, la costa caribeña se erige como el epicentro literario gracias a la celebración de la Feria del Libro de Barranquilla (FILBAC 2026), un espacio que este año funciona como un agudo ejercicio de memoria al rendir homenaje a Álvaro Cepeda Samudio, figura capital del Grupo de Barranquilla. Este encuentro literario gratuito en las instalaciones de Bellas Artes moviliza a creadores y lectores en torno a una modernidad narrativa que rompe con los tópicos tradicionales del realismo mágico y descentraliza la discusión cultural fuera del eje andino tradicional.\n\nPor otro lado, los centros urbanos como Bogotá debaten intensamente sobre la salud de sus infraestructuras musicales y cinematográficas. La conversación pública transita por la consolidación del cine nacional tras la reciente entrega de los Premios Macondo, donde críticos e intelectuales analizan la madurez de producciones que abordan las violencias periféricas y la intimidad sin caer en el didactismo estatal. A esto se suma un mapa sonoro que reivindica la autoría femenina a través de ciclos especializados como el W Jazz Fest en el Centro Colombo Americano, y la celebración internacional de la cantautora Marta Gómez tras obtener su segundo Latin Grammy con un trabajo enfocado en la sensibilidad acústica y las infancias.\n\nFuera de las grandes capitales, la gestión cultural municipal experimenta movimientos de gran calado en regiones industriales y fluviales como Barrancabermeja. La asignación y premiación de recursos mediante programas distritales de estímulos artísticos reabre un debate perenne pero fundamental en Colombia: cómo las economías locales logran sostener el tejido social y la creación en territorios marcados por la transición económica. Para un observador internacional, la conversación de estos días demuestra que la riqueza cultural colombiana reside en su descentralización y en la capacidad de sus industrias creativas para dialogar con los fantasmas del pasado y las urgencias del presente.\n\nEsta constelación de eventos confirma que la cultura en Colombia no responde a un único relato unificado, sino a una constelación de apuestas estéticas y políticas que brotan tanto de la costa atlántica como de los valles interandinos. Al conectar la vanguardia literaria de mediados del siglo XX con la experimentación musical contemporánea, el país articula un discurso donde la memoria no es un ejercicio de nostalgia estéril, sino una herramienta viva para interpretar el tiempo presente. JACKPOT CULTURAL registra así una semana donde el pensamiento crítico y la gestión local se dan la mano para ensanchar el horizonte de lo posible en el panorama iberoamericano.",
+  "intro": "Edson Velandia, Adriana Lizcano y los debates urbanísticos marcan la agenda cultural de Colombia.",
+  "cover_image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Monserrate_Bogota.jpg/1280px-Monserrate_Bogota.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Los cerros orientales de Bogotá frente al crecimiento inmobiliario en altura.",
+    "credit": "Foto: Briyotome · CC BY-SA 4.0"
+  },
+  "cultural_pulse": "El formato canción vuelve a funcionar como trinchera económica y social en la escena colombiana actual con el lanzamiento de **[Todo Regalao](https://cerosetenta.uniandes.edu.co/podcast-cancionero-desigualdad-todo-regalao-justicia-fiscal/)**, el segundo volumen del podcast *Cancionero Nacional de la Desigualdad*. La alianza entre Cerosetenta, Oxfam y Dejusticia materializa este proyecto a través de la dupla formada por **[Edson Velandia](https://cerosetenta.uniandes.edu.co/podcast-cancionero-desigualdad-todo-regalao-justicia-fiscal/)** y **[Adriana Lizcano](https://cerosetenta.uniandes.edu.co/podcast-cancionero-desigualdad-todo-regalao-justicia-fiscal/)**, quienes utilizan la sátira y el pulso tradicional de la raspa para diseccionar los desequilibrios del sistema fiscal y el cobro de impuestos en el país. Lejos de los despachos tecnocráticos, la propuesta traslada el debate tributario al terreno de la agudeza lírica popular, confirmando que la canción de autor con carga política mantiene un filo incisivo.\n\nEn paralelo, la transformación urbana de la capital genera fricciones severas entre el tejido residencial tradicional y el apetito voraz del sector inmobiliario. Según informes detallados por **Cerosetenta**, la proliferación de torres residenciales de hasta treinta pisos en zonas de casas bajas está sepultando visualmente las vistas hacia los cerros orientales de la ciudad. Arquitectos y urbanistas denuncian que, a pesar de ajustarse a la normativa actual, el Plan de Ordenamiento Territorial se ha vuelto completamente obsoleto frente al impacto visual y espacial de estas moles de concreto que ahogan el paisaje urbano de Bogotá.\n\nPor otro lado, la programación musical en vivo despliega propuestas enfocadas en la autoría femenina dentro de los circuitos especializados. Con columnas de análisis firmadas en **El Espectador**, el *W Jazz Fest* desarrollado en el Centro Colombo Americano pone el foco en la ejecución instrumental y compositiva liderada por mujeres, abriendo un espacio de visibilidad imprescindible para creadoras que habitualmente quedan al margen de los grandes carteles comerciales. Finalmente, la discusión sobre la laicidad institucional cobra vigencia en las páginas de *Razón Pública*, donde se examinan las implicaciones sociales del uso recurrente del lema religioso en la esfera pública del país.",
   "topics": [
     {
-      "category": "Literatura",
-      "title": "El espíritu vanguardista de Álvaro Cepeda Samudio en la FILBAC 2026",
-      "summary": "Barranquilla acoge su feria del libro con un homenaje central a La casa grande y la modernidad narrativa del Caribe, cuestionando los estereotipos del realismo mágico."
+      "category": "Música",
+      "title": "La sátira fiscal de Edson Velandia y Adriana Lizcano",
+      "summary": "El sencillo Todo Regalao del Cancionero Nacional de la Desigualdad utiliza la raspa y la ironía para cuestionar los desequilibrios tributarios en Colombia."
     },
     {
-      "category": "Cine",
-      "title": "La madurez del cine nacional bajo la lupa de los Premios Macondo",
-      "summary": "La crítica cultural analiza el pulso de las producciones colombianas recientes, destacando su capacidad para narrar la intimidad urbana y las violencias periféricas sin artificios comerciales."
+      "category": "Debates Culturales",
+      "title": "El asedio de concreto a los cerros de Bogotá",
+      "summary": "Informes de Cerosetenta denuncian cómo la construcción masiva de torres residenciales de treinta pisos está sepultando visualmente las vistas hacia los cerros orientales."
     },
     {
       "category": "Música",
-      "title": "Nuevas cartografías sonoras: jazz hecho por mujeres y el triunfo de Marta Gómez",
-      "summary": "Bogotá acoge un circuito enfocado en la improvisación femenina mientras se celebra el nuevo reconocimiento internacional de la canción de autor con arraigo acústico."
+      "title": "Protagonismo instrumental femenino en el W Jazz Fest",
+      "summary": "El Centro Colombo Americano de Bogotá acoge un festival de jazz que visibiliza la ejecución y composición liderada por mujeres según el análisis de El Espectador."
     },
     {
-      "category": "Políticas culturales",
-      "title": "Estímulos artísticos y tejido social en las regiones fluviales",
-      "summary": "La asignación de recursos en municipios industriales como Barrancabermeja reactiva el debate sobre la sostenibilidad de la creación artística en territorios de transición económica."
+      "category": "Debates Culturales",
+      "title": "La laicidad institucional en entredicho",
+      "summary": "Analistas de Razón Pública examinan las tensiones políticas derivadas del uso recurrente de lemas religiosos en la esfera del poder civil colombiano."
     }
   ],
   "recommendation": {
-    "type": "Libro",
-    "title": "La casa grande",
-    "creator": "Álvaro Cepeda Samudio",
-    "context": "Enmarcada en el homenaje que la FILBAC 2026 rinde al autor barranquillero, esta novela de 1962 aborda la masacre de las bananeras desde una vanguardia estética que dialoga con el cine y la elipsis.",
-    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOV09RNk5tc0tBTlIzSXhkUVkwbS1LY25aWkE3cU9zdUdUZHRXZm1lVWxBWUFZVUlfaWY1U0lNYW5BRHZkYUQ5LWtDYVlmbEFRMmZFOVpSYUg2MF9qV01WNTlyNGRnZFFpd3RtMWpfUk1SYUxOc3dDMEdZbGxXcl80dW5ZbGxXQ3ZxMy1KMV92UURweWlseFJjLXl2b2stTnpCRHE4WTNiTTNUeDhvczR4QlJjUDBoNVdJSldSTDVn?oc=5"
+    "type": "Álbum",
+    "title": "Todo Regalao",
+    "creator": "Edson Velandia & Adriana Lizcano",
+    "context": "Una pieza de agitación sonora que convierte la aritmética de la desigualdad fiscal en raspa satírica e indispensable.",
+    "url": "https://cerosetenta.uniandes.edu.co/podcast-cancionero-desigualdad-todo-regalao-justicia-fiscal/"
+  },
+  "closing_media": {
+    "type": "image",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Velandia_Y_La_Tigra_Festcontrapedal_%2842025816%29.jpeg/960px-Velandia_Y_La_Tigra_Festcontrapedal_%2842025816%29.jpeg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Edson Velandia, referente de la canción satírica y la agitación sonora en Colombia.",
+    "credit": "Foto: Wikimedia Commons (vía Wikipedia ES)"
   },
   "sources": [
     {
-      "name": "EL TIEMPO",
-      "url": "https://www.eltiempo.com/cultura/cine-y-tv/macondo-si-tiene-cine-el-otro-lado-columna-de-opinion-de-omar-rincon-3600955",
+      "name": "Cerosetenta",
+      "url": "https://cerosetenta.uniandes.edu.co/podcast-cancionero-desigualdad-todo-regalao-justicia-fiscal/",
       "paywalled": false
     },
     {
-      "name": "Sede Electrónica de la Alcaldía de Barrancabermeja",
-      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOeV9WTW5vUWZhcW45Z1QwTlREODl1TXpLcy02MkFSQ25UYVZkN1ozNENmd2VwZVJzR3poSWdVd0NlVlVUR3p6TXdBbnF0Wjh4eWx5TU5hQmo3Z2d3NldNN2dtOEFpeDBfSnEwODdybXRIc1VCdldlWThiYjlPNUhFb3JwMXBaaFVfbDBsT3Fxb0lQQ0lRR0R1cjBVclQtR1A0a2E0ZlJIQks3UVJkM2NzRlJvVGx6djRQQ3JCWGhpTkd5RzlhZGNrTUdxOFZ3cENUelo1UWJxWDJRU3NibEdtalJn?oc=5",
+      "name": "Cerosetenta",
+      "url": "https://cerosetenta.uniandes.edu.co/pantallas-concreto-estan-tapando-cerros-bogota-edificios-pot/",
       "paywalled": false
     },
     {
-      "name": "El Tiempo",
-      "url": "https://news.google.com/rss/articles/CBMirAJBVV95cUxNX1pvNy1KMXpqQmJWbWRjZl9SbUNadUlOblBVT0xSMndMNGY4dUNoenJTbzFWZEF5RkdGUWFUWlh1c3Z5SVZwRlhCQUxuTEViVXF0TmQ2TU5zMENMRXh4TXpSMzB4MUROUWhjcEZmWEFDYjlZdEQwUVN0N0hUUTJSWFBoenhxNV8tYkRaaVg2enhVUkdzYURUYnA3YjB5dV9Rd3VpdHNGZlMwd0Q5RVJRc2hwZVF1MlZhSmdBVEZQNUpNUGw0ZHJ3a3FSZ1pEZkc0aVdaaGNuRnRqX3pOR1U1cTFqb1lPYlU3RmcxeVBKSVR2R04tZW5VTjhUYVRCd0o5aEF4Zm91ZUYxMTRuQTJkQTRrcGtTT1BDekFnMW1paEwzRHlSZ0pCWThJNm7SAawCQVVfeXFMTV9abzctSjF6akJiVm1kY2ZfUm1DWnVJTm5QVU9MUjJ3TDRmOHVDaHpyU28xVmRBeUZHRlFhVFpYdXN2eUlWcEZYQkFMbkxFYlVxdE5kNk1OczBDTEV4eE16UjMweDFETlFoY3BGZlhBQ2I5WXREMFFTdDdIVFEyUlhQaHp4cTVfLWJEWmlYNnp4VVJHc2FEVGJwN2IweXVfUXd1aXRzRmZTMHdEOUVSUXNocGVRdTJWYUpnQVRGUDVKTVBsNGRyd2txUmdaRGZHNGlXWmhjbkZ0al96TkdVNXExam9ZT2JVN0ZnMXlQSklUdkdOLWVuVU44VGFUQndKOWhBeGZvdWVGMTE0bkEyZEE0a3BrU09QQ3pBZzFtaWhMM0R5UmdKQlk4STZu?oc=5",
-      "paywalled": false
-    },
-    {
-      "name": "regioncaribe.org",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOV09RNk5tc0tBTlIzSXhkUVkwbS1LY25aWkE3cU9zdUdUZHRXZm1lVWxBWUFZVUlfaWY1U0lNYW5BRHZkYUQ5LWtDYVlmbEFRMmZFOVpSYUg2MF9qV01WNTlyNGRnZFFpd3RtMWpfUk1SYUxOc3dDMEdZbGxXcl80dW5ZbGxXQ3ZxMy1KMV92UURweWlseFJjLXl2b2stTnpCRHE4WTNiTTNUeDhvczR4QlJjUDBoNVdJSldSTDVn?oc=5",
-      "paywalled": false
-    },
-    {
-      "name": "Emisora Atlántico",
-      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQdWlPazUtUTVTQXN5Xzc1UUxUbGxFamMwM3dKelZvMlY3UXRKLThTMUtKWWlTRnlsekZNeWtFbnZ2MXJSdDRqRGZhWldqWUNXbnRVSkZrdFhsUm9YdFlGSzROMHEwYmE1VlRYdF82QU14ZV96RjlDd056QjFNSmNRZ09CckJ2UHF6Z0dnTGhURnBKTXVudkl3LXRINnRZY1QxRThfZEU5aXZZQTl3dnBZWnZ5NmhIR016UHZqUGlla1pMTFoxb2N0UmZzUTNCbWlvQ3EyTi1HanNUNUhFY3loT3htMUZKUdIB5gFBVV95cUxQdWlPazUtUTVTQXN5Xzc1UUxUbGxFamMwM3dKelZvMlY3UXRKLThTMUtKWWlTRnlsekZNeWtFbnZ2MXJSdDRqRGZhWldqWUNXbnRVSkZrdFhsUm9YdFlGSzROMHEwYmE1VlRYdF82QU14ZV96RjlDd056QjFNSmNRZ09CckJ2UHF6Z0dnTGhURnBKTXVudkl3LXRINnRZY1QxRThfZEU5aXZZQTl3dnBZWnZ5NmhIR016UHZqUGlla1pMTFoxb2N0UmZzUTNCbWlvQ3EyTi1HanNUNUhFY3loT3htMUZKUQ?oc=5",
-      "paywalled": false
+      "name": "EL TIEMPO.COM",
+      "url": "https://www.eltiempo.com/cultura/musica-y-libros/jazz-femenino-en-bogota-columna-de-opinion-de-oscar-acevedo-3600958",
+      "paywalled": true
     }
   ]
 }
