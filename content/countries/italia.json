@@ -3,48 +3,48 @@
   "country": "Italia",
   "continent": "Europa",
   "flag": "🇮🇹",
-  "updated_at": "2026-11-16T05:08:21.396Z",
+  "updated_at": "2026-11-16T20:32:15.006Z",
   "edition_week": "2026-W47",
-  "intro": "El debate cultural italiano discute la gentrificación urbana, los hitos de la música electrónica y las nuevas voces literarias.",
+  "intro": "El pulso cultural italiano de la semana cruza la tensión urbana de Milán con la literatura de Francesco Permunian y el debate geográfico.",
   "cover_image": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/0/04/SkylineMilanItaly-fromPirelliPenthouse5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "caption": "Perspectiva de la arquitectura urbana contemporánea en Milán, escenario de debates recientes sobre gentrificación.",
-    "credit": "Foto: LucaChp · CC BY-SA 3.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Balloons_%28126838661%29.jpeg/1280px-Balloons_%28126838661%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Detalle de la arquitectura contemporánea y los debates urbanísticos en Milán.",
+    "credit": "Foto: Matteo Mazziotti · CC BY 3.0"
   },
-  "cultural_pulse": "El pulso cultural italiano de esta semana encuentra en la reflexión sobre el territorio y la memoria sonora sus ejes más estimulantes. El ensayo sobre urbanismo y transformación urbana aborda de manera crítica cómo las intervenciones inmobiliarias modifican el tejido social de las metrópolis, un asunto analizado a fondo por [Vincenzo Latronico](https://www.iltascabile.com/recensioni/splendida-rovina-vincenzo-latronico/) en sus intervenciones públicas sobre los cambios en los barrios históricos de **Milán**. Las discusiones contemporáneas no solo miran al cemento, sino también a la persistencia de las ideas y los legados intelectuales internacionales, conectando las herencias del panafricanismo con los debates contemporáneos sobre derechos e identidad.\n\nEn el terreno de la música y la experimentación sónica, la atención se desplaza hacia los aniversarios que definieron la sensibilidad moderna. La figura de [Jean-Michel Jarre](https://www.iltascabile.com/linguaggi/alchimista-suono/) reaparece en las conversaciones especializadas para diseccionar medio siglo de su obra fundamental Oxygène, analizando cómo el uso pionero de los sintetizadores redefinió la escucha colectiva de la música electrónica europea. Al mismo tiempo, las nuevas propuestas discográficas exploran la creación de comunidades artísticas al margen de los circuitos masivos, apostando por la autogestión y los formatos de cercanía.\n\nEl panorama editorial y gráfico mantiene su dinamismo con la llegada de nuevas publicaciones que van desde la narrativa de no ficción hasta los lanzamientos de historietas populares. Las librerías y bibliotecas de distintas regiones articulan campañas de donación y fomento de la lectura que buscan sostener el hábito lector en los sectores más jóvenes. Lejos de la nostalgia vacía, la agenda cultural del país se consolida mediante la revisión crítica de sus archivos históricos y estéticos.",
+  "cultural_pulse": "El debate intelectual en **Italia** vuelve a centrarse esta semana en las fricciones de la vida urbana y la memoria literaria. Desde las páginas de [Doppiozero](https://www.doppiozero.com/biljana-srbljanovic-gioventu-bruciante), las reflexiones sobre los altercados recientes en Milán y las lecturas críticas de la gentrificación abren un diálogo necesario sobre el espacio público, conectando de manera directa con el trabajo del ensayista [Vincenzo Latronico](https://www.iltascabile.com/recensioni/splendida-rovina-vincenzo-latronico/), quien lleva años analizando la mutación inmobiliaria y cultural de los barrios milaneses. No se trata de simples postales sociológicas, sino de diseccionar cómo el tejido de las grandes ciudades italiane se transforma bajo la presión del diseño urbano especulativo y el turismo masivo.\n\nEn el terreno de la no ficción y la narrativa, la atención se desplaza hacia las geografías provinciales y la memoria afectiva. El reciente volumen de [Francesco Permunian](https://www.doppiozero.com/permunian-fotografia-e-scrittura), titulado *Camminando attraverso i campi bruciati dell’amore*, publicado por Oligo, consolida una prosa que dialoga con los residuos literarios de **Bruno Schulz** y las inflexiones dialectales del Véneto. Permunian evita el tono complaciente para sumergirse en una geografía de provincias donde la memoria personal se funde con la tradición lírica e histórica italiana, ofreciendo un contrapeso necesario al ruido de los grandes centros metropolitanos.\n\nLa agenda de festivales e infraestructuras culturales comienza a perfilar su calendario de invierno con eventos clave como el festival de ilustración [A occhi aperti](https://fumettologica.it/2026/11/a-occhi-aperti-2026-programma/) en Bolonia, organizado por Hamelin, que vuelve a reunir a los nombres mayores y emergentes del noveno arte europeo. Estos encuentros reafirman el pulso de una escena que no descansa, apostando por la divulgación rigurosa, la experimentación gráfica y la reflexión crítica sobre los lenguajes contemporáneos en un circuito cultural que abarca desde la edición independiente hasta los formatos digitales más exigentes.",
   "topics": [
     {
-      "category": "Música",
-      "title": "Los cincuenta años de Oxygène",
-      "summary": "Una mirada profunda al legado electrónico de Jean-Michel Jarre y su impacto en la producción sonora contemporánea."
-    },
-    {
       "category": "Libros",
-      "title": "Debates sobre urbanismo y gentrificación",
-      "summary": "El análisis de Vincenzo Latronico sobre las transformaciones arquitectónicas y sociales en los barrios milaneses."
+      "title": "Las combustiones literarias de Permunian",
+      "summary": "El nuevo libro de [Francesco Permunian](https://www.doppiozero.com/permunian-fotografia-e-scrittura) examina los márgenes geográficos y afectivos entre el Polesine y el Garda, cruzando la memoria de autores clásicos con la lengua de tradición véneto."
     },
     {
-      "category": "Cultura",
-      "title": "Memoria y pensamiento global",
-      "summary": "El recuerdo de la trayectoria de Gamal Nkrumah y su vigencia en el periodismo y el pensamiento político internacional."
+      "category": "Debates artísticos",
+      "title": "Urbanismo y gentrificación en Milán",
+      "summary": "Los análisis culturales en torno a los cambios urbanos ponen sobre la mesa el impacto de las transformaciones inmobiliarias y la turistificación en los barrios históricos de Milán."
+    },
+    {
+      "category": "Cómics",
+      "title": "El festival A occhi aperti en Bolonia",
+      "summary": "El evento internacional de historieta e ilustración organizado por Hamelin en Bolonia calienta motores para su nueva edición con muestras y encuentros destacados."
     }
   ],
   "recommendation": {
-    "type": "Álbum",
-    "title": "Oxygène",
-    "creator": "Jean-Michel Jarre",
-    "context": "Una obra cumbre de la electrónica que cambió para siempre la relación entre melodía sintética y arquitectura sonora.",
-    "url": "https://www.iltascabile.com/linguaggi/alchimista-suono/"
-  },
-  "closing_media": {
-    "type": "video",
-    "url": "https://www.youtube-nocookie.com/embed/ccfIW1zsNdM",
-    "caption": "Documento audiovisual vinculado a los lanzamientos musicales y sonoros de la semana."
+    "type": "Libro",
+    "title": "Camminando attraverso i campi bruciati dell’amore",
+    "creator": "Francesco Permunian",
+    "context": "Un recorrido literario descarnado por las provincias italianas y las huellas de la memoria afectiva.",
+    "url": "https://www.doppiozero.com/permunian-fotografia-e-scrittura"
   },
   "sources": [
     {
-      "name": "NAZIONE INDIANA",
-      "url": "https://www.nazioneindiana.com/2026/11/15/in-memory-of-gamal-nkrumah/",
+      "name": "Articoli Doppiozero",
+      "url": "https://www.doppiozero.com/biljana-srbljanovic-gioventu-bruciante",
+      "paywalled": false
+    },
+    {
+      "name": "Fumettologica",
+      "url": "https://fumettologica.it/2026/11/a-occhi-aperti-2026-programma/",
       "paywalled": false
     },
     {
@@ -53,8 +53,8 @@
       "paywalled": false
     },
     {
-      "name": "Il Tascabile",
-      "url": "https://www.iltascabile.com/linguaggi/alchimista-suono/",
+      "name": "Articoli Doppiozero",
+      "url": "https://www.doppiozero.com/permunian-fotografia-e-scrittura",
       "paywalled": false
     }
   ]

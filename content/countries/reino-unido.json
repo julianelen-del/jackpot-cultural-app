@@ -3,64 +3,63 @@
   "country": "Reino Unido",
   "continent": "Europa",
   "flag": "🇬🇧",
-  "updated_at": "2026-11-16T05:07:08.579Z",
+  "updated_at": "2026-11-16T20:29:03.859Z",
   "edition_week": "2026-W47",
-  "intro": "El Reino Unido sacude su temporada cultural con el favorito de James Bond y las nuevas fricciones artísticas en el West End.",
+  "intro": "El pulso cultural británico sacude la semana con el desembarco literario de [Jonathan Coe](https://es.wikipedia.org/wiki/Jonathan_Coe) y la nueva mirada a los clásicos.",
   "cover_image": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Piccadilly_Circus_Tube_Station_Entrance.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "caption": "El corazón de Londres en plena temporada de estrenos y debates culturales.",
-    "credit": "Foto: flem007_uk · CC BY 2.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/%28Barcelona%29_The_Golden_Bough_-_Joseph_Mallord_William_Turner_-_Tate_Britain.jpg/1280px-%28Barcelona%29_The_Golden_Bough_-_Joseph_Mallord_William_Turner_-_Tate_Britain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "La Tate Britain en Londres, hogar de la exhibición dedicada a Vanessa Bell y Duncan Grant.",
+    "credit": "Foto: Didier Descouens · Public domain"
   },
-  "cultural_pulse": "La semana cultural británica encuentra su epicentro en los movimientos de la industria cinematográfica y las adaptaciones teatrales que dominan la conversación en Londres y el resto del país. La maquinaria de Hollywood fija sus ojos en [Robert Pattinson](https://es.wikipedia.org/wiki/Robert_Pattinson), quien se perfila como el favorito de la productora Amazon MGM para enfundarse el esmoquin de 007 y suceder a **Daniel Craig** en la emblemática saga de espionaje. Este movimiento, adelantado por analistas de la industria, sitúa al protagonista de Primetime en el centro de las apuestas para liderar la próxima etapa de la franquicia.\n\nLas carteleras teatrales y literarias generan intensos debates sobre la memoria histórica y la ficción televisiva. La dramaturga [Emma Moran](https://www.bbc.co.uk/programmes/m0033zgx) encabeza las conversaciones culturales al ponerse al frente de la esperada precuela de **Killing Eve**, ambientada en el Berlín dividido de los años ochenta, una producción que recupera el pulso de la **Guerra Fría** con una mirada punzante y urbana. A su vez, los escenarios londinenses acogen propuestas de peso como la reposición de Cranford en el Orange Tree Theatre, consolidando un circuito donde el clasicismo británico dialoga constantemente con lecturas contemporáneas de la identidad.\n\nEl pulso musical y sonoro también encuentra espacios de revelación pública poco habituales, como la reciente charla entre el monarca británico y Elton John, donde se desataron preferencias musicales eclécticas que sorprendieron a los oyentes habituales de la radio pública. Lejos de los protocolos habituales, la cultura británica demuestra esta semana una vitalidad transversal que cruza el cine de autor, los grandes hitos de la ficción televisiva y el pulso de sus escenarios teatrales sin concesiones académicas.",
+  "cultural_pulse": "La escena cultural británica de esta semana combina la revisión de trayectorias artísticas fundamentales con debates sobre el patrimonio y la narrativa histórica. En la programación de la [BBC Radio 4 Front Row](https://www.bbc.co.uk/programmes/m00349xc), el crítico [Robbie Collin](https://es.wikipedia.org/wiki/Robbie_Collin) analizó los movimientos recientes en la industria cinematográfica y el impacto continuado de las adaptaciones literarias en la gran pantalla. La narrativa contemporánea encuentra un nuevo punto de fricción con la publicación de obras que exploran tanto los vínculos musicales históricos como la agitación social de épocas pasadas.\n\nEn el terreno literario y expositivo, los creadores exploran las fisuras entre la vida doméstica y la vanguardia artística. En la [Tate Britain](https://es.wikipedia.org/wiki/Tate_Britain), la muestra dedicada a [Vanessa Bell](https://es.wikipedia.org/wiki/Vanessa_Bell) y [Duncan Grant](https://es.wikipedia.org/wiki/Duncan_Grant) traslada parte del estudio original de **Charleston** para diseccionar décadas de colaboración creativa dentro del grupo de **Bloomsbury**. Esta inmersión en la trastienda de los artistas dialoga directamente con los lanzamientos editoriales recientes que buscan descifrar las afinidades electivas entre figuras capitales de la música clásica y la composición moderna.\n\nLos espacios culturales locales y las bibliotecas del sudeste de Inglaterra mantienen debates abiertos sobre la gestión de fondos y la circulación de determinados catálogos infantiles y juveniles, como los firmados por [David Walliams](https://es.wikipedia.org/wiki/David_Walliams), mientras los circuitos de cine independiente celebran muestras regionales en Norfolk que ponen en valor la producción cinematográfica de proximidad. Lejos del ruido comercial de las grandes franquicias, el pulso de la crítica se refugia en el análisis paciente de partituras, exposiciones de cámara y novelas de largo aliento que prefieren la profundidad temática al impacto efímero.",
   "topics": [
     {
-      "category": "Cine",
-      "title": "Robert Pattinson y el futuro de James Bond",
-      "summary": "El actor encabeza las preferencias del estudio Amazon MGM para tomar el relevo de la célebre saga de espionaje."
+      "category": "Música y Rock",
+      "title": "Las afinidades secretas de Ravel",
+      "summary": "El nuevo libro de [Jonathan Coe](https://es.wikipedia.org/wiki/Jonathan_Coe), [Lessons in Harmony](https://www.bbc.co.uk/programmes/m003418n), examina la improbable pero influyente amistad entre los compositores Maurice Ravel y Ralph Vaughan Williams, explorando las fronteras entre la música francesa y la británica."
     },
     {
-      "category": "Teatro",
-      "title": "Cranford en el Orange Tree Theatre",
-      "summary": "Una mirada escénica renovada sobre los clásicos literarios que convoca a la crítica en los escenarios londinenses."
+      "category": "Cine y Series",
+      "title": "Cine independiente en Norfolk",
+      "summary": "Las proyecciones especiales del ciclo Onwards and Sideways celebran la producción cinematográfica local y su vínculo con las redes de apoyo comunitario y caridad en la región de Norfolk."
     },
     {
-      "category": "Música",
-      "title": "El gusto musical de la realeza con Elton John",
-      "summary": "Revelaciones radiofónicas sobre las preferencias sonoras del monarca británico en una charla íntima con el músico."
+      "category": "Libros y Ensayo",
+      "title": "Crónicas de la revuelta campesina",
+      "summary": "La autora [AK Blakemore](https://es.wikipedia.org/wiki/GLUT5), en conversación con la historiadora [Janina Ramirez](https://es.wikipedia.org/wiki/Juan_Ram%C3%ADrez_de_Baquedano), analiza la trastienda creativa de su nueva novela *Doom Painting* y la persistencia de los levantamientos populares en el imaginario artístico británico."
+    },
+    {
+      "category": "Exhibiciones y Artes Visuales",
+      "title": "El estudio de Charleston en Londres",
+      "summary": "La pinacoteca [Tate Britain](https://es.wikipedia.org/wiki/Tate_Britain) reconstruye el espacio de trabajo de [Vanessa Bell](https://es.wikipedia.org/wiki/Vanessa_Bell) y Duncan Grant para documentar la trastienda visual del círculo intelectual de Bloomsbury."
     }
   ],
   "recommendation": {
-    "type": "Película",
-    "title": "Fjord",
-    "creator": "Sebastian Stan y Renate Reinsve",
-    "context": "Un drama noruego sobre conservadurismo y adaptación familiar que compite en el circuito europeo de festivales.",
+    "type": "Libro",
+    "title": "Lessons in Harmony",
+    "creator": "Jonathan Coe",
+    "context": "Una ineligente inmersión novelística en los vínculos íntimos y creativos entre Maurice Ravel y Ralph Vaughan Williams.",
     "url": "https://www.bbc.co.uk/programmes/m003418n"
   },
   "closing_media": {
-    "type": "image",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Robert_Pattinson_Venice_Film_Festival_%28cropped%29.jpg/960px-Robert_Pattinson_Venice_Film_Festival_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "caption": "Retrato de Robert Pattinson, principal candidato para liderar la saga cinematográfica de James Bond.",
-    "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
+    "type": "video",
+    "url": "https://www.youtube-nocookie.com/embed/rK5TyISxZ_M",
+    "caption": "Fragmento audiovisual vinculado al análisis cultural y cinematográfico en la BBC."
   },
   "sources": [
     {
       "name": "Front Row",
+      "url": "https://www.bbc.co.uk/programmes/m00349xc",
+      "paywalled": false
+    },
+    {
+      "name": "Edinburgh Music Review",
       "url": "https://www.bbc.co.uk/programmes/m003418n",
       "paywalled": false
     },
     {
-      "name": "Everything Theatre",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOM1NRNkVHcm9QQzZBcXI4OXNkcEN5ODRpdTE5eC13MU1UQ3J6c0Z1eWdkcWlZd0ZDQm5nZUhKNTlsaUltcmpCMHgxMmIyNWRxN3VFTkc0QlFpSThIM1dTWjBLdlZ1NTEyY2JKcHJLa2U0UGJCMW55RExzaThMc1VFZmxOOA?oc=5",
-      "paywalled": false
-    },
-    {
-      "name": "The Telegraph",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOSUYzNk9kWk8wSVFUblNjY0xtRk1sRWpqcF9MUnFnUVNLXzAwcjFoa3NsNnRJZHNyQm1QWUgyQzQzWHpodklNOUNOXzRTQ0tyZjFnZHQ0SmVXeEEyRGZJNF9vVjJNcEZVVmtGSWFOLXVtTGVKU2E2M2M4RDVvYmFYX2NfbU5MLW9oRTZvZzVEdWFuVzRfOGNrQUdwNjZ3eWVxNVVrVmZsYmpBVTlU?oc=5",
-      "paywalled": true
-    },
-    {
-      "name": "Culture | The Guardian",
-      "url": "https://www.theguardian.com/film/2026/nov/13/robert-pattinson-reportedly-leads-james-bond-contenders",
+      "name": "BBC",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9nZVZWYXQyTktObGpfOEcxUFRhMlJtdF9ZQzd0SVkyc1BLMU54UWZ0aG80Rmc2U3M2Mkg1M1FWTm1ZVnVuVzlMdjVqSjMzSDVRQWQ5VU9mck80Rmc?oc=5",
       "paywalled": false
     }
   ]

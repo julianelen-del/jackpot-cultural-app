@@ -3,60 +3,44 @@
   "country": "Suecia",
   "continent": "Europa",
   "flag": "🇸🇪",
-  "updated_at": "2026-11-16T19:45:05.572Z",
+  "updated_at": "2026-11-16T20:32:54.989Z",
   "edition_week": "2026-W47",
-  "intro": "La agenda cultural sueca vibra con nuevas nominaciones a los Grammy, cine de ciencia ficción y adaptaciones literarias.",
-  "cover_image": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Motala%2C_%C3%96sterg%C3%B6tland%2C_Sweden_%284976168309%29_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "caption": "Vista panorámica de Estocolmo, epicentro de la actividad escénica y literaria en Suecia.",
-    "credit": "Foto: Swedish National Heritage Board · No restrictions"
-  },
-  "cultural_pulse": "El panorama cultural de Suecia atraviesa una semana de marcado reconocimiento internacional y propuestas locales arriesgadas. En el plano musical, las nominaciones a los [Grammy Awards 2027](https://www.svt.se/kultur/zara-larsson-och-robyn-ar-nominerade-till-grammy-awards-2027) han colocado a figuras de peso como [Robyn](https://es.wikipedia.org/wiki/Robyn), [Zara Larsson](https://es.wikipedia.org/wiki/Zara_Larsson) y [Ludwig Göransson](https://es.wikipedia.org/wiki/Ludwig_G%C3%B6ransson) en el centro de la conversación global, compartiendo espacio con los históricos [Björn & Benny](https://es.wikipedia.org/wiki/Benny_Andersson) y los [Göteborgssymfonikerna](https://es.wikipedia.org/wiki/Orquesta_Sinf%C3%B3nica_de_Gotemburgo). La repercusión de estos nombres confirma la vitalidad creativa de la escena escandinava en los circuitos de premiación más exigentes de la industria.\n\nLa cinematografía local explora nuevas fronteras temáticas y estéticas. Destaca el acercamiento al cine fantástico con propuestas como el largometraje Arne goes to space, una mirada tierna y peculiar a la ciencia ficción firmada por una dupla veterana de creadores. Los realizadores y productores nacionales continúan debatiendo sobre los nuevos esquemas de financiación y apoyo institucional para el desarrollo de obras audiovisuales en el territorio, buscando diversificar las narrativas y asegurar la sostenibilidad de proyectos independientes.\n\nEn el terreno de las artes escénicas y la literatura, la actividad se desplaza hacia formatos interdisciplinarios y residencias de creación. El programa AIR Litteratur continúa expandiendo el mapa cultural en diversas regiones al vincular la escritura contemporánea con geografías específicas, permitiendo que tanto los autores como los espacios locales se fortalezcan mutuamente. Las carteleras teatrales de **Estocolmo y Gotemburgo** suman montajes centrados en debates sociopolíticos vigentes, consolidando un tejido crítico que dialoga permanentemente con la realidad europea.",
+  "intro": "Suecia combina el pulso de los Grammy con la clásica tradición televisiva navideña y el cine.",
+  "cultural_pulse": "La escena musical suiza y su proyección internacional atraviesan un momento de profunda efervescencia creativa, marcado esta semana por las nominaciones a los **Grammy awards 2027** que reconocen el peso de figuras como **Zara Larsson** y Robyn, además de los créditos orquestales y cinematográficos de Ludwig Göransson. Lejos de los circuitos de premiación masiva, el cine silente y su acompañamiento en directo siguen generando debates estéticos fundamentales para entender el lenguaje audiovisual contemporáneo. En una reciente entrevista con la prensa cultural, el reconocido músico [Matti Bye](https://news.google.com/rss/articles/CBMirAFBVV95cUxNTTAtckxZSlM2eFVNa3huYWdqWjc3bnNMYV82SFl1RGpaREM3ZTJfcHhHVGJaQjVBNGdQaE5jOE1yYUxqSU1ubXg1NUlrb2pPNlB4RjZYMDd1WUxlZmlQWkJjRjBMUWVhV0l0MFNHcnZDdzYzQVFBU3lBOXkyX3VLU2EzWURXRmFXUHB6ZnZ5TzZRMGk3blpmU05qdzI5SVJzNUJFdU0zRUI1NUxQ?oc=5) desgranaba los secretos y errores más frecuentes al interpretar **música para cine mudo**, enfatizando la necesidad de conectar de manera directa con las imágenes en lugar de limitarse a acompañarlas desde un segundo plano automatizado. Esta mirada artesanal dialoga directamente con la persistencia de los formatos físicos y el cuidado por el patrimonio sonoro que alimenta los cines de arte y ensayo en toda la región.\n\nLa ficción televisiva y las producciones de temporada comienzan a calentar motores de cara al cierre de año, estructurando agendas que combinan el riesgo narrativo con el humor de raigambre popular. La tradicional y esperada llegada del **julkalender** televisivo adquiere este año un matiz particularmente excéntrico con [Den ofrivillige tomten](https://www.svt.se/kultur/pappa-lever-dubbelliv-i-arets-julkalender), una ficción donde un abogado de doble vida debe asumir el rol de **papá Noel** en el Polo Norte bajo la atónita mirada de su hija Edith. Este tipo de apuestas demuestran que la televisión pública sueca mantiene una línea de ficción familiar capaz de hurgar en el absurdo cotidiano sin renunciar a una factura visual impecable, consolidando un espacio de consumo compartido por varias generaciones frente a la pantalla.\n\nEl pulso cultural también se desplaza hacia los margenes de la salud mental y la integración artística a través de iniciativas institucionales que cruzan el bienestar y la creación comunitaria. Desde el **Beroendecentrum de Estocolmo**, coordinadores culturales como **Christina Scheffel Birath** impulsan programas de **danza sin exigencias** como herramienta efectiva para la rehabilitación y la prevención de recaídas en pacientes con adicciones, demostrando que el arte en movimiento posee una eficacia clínica tangible. Estas iniciativas ratifican que la cultura en el país nórdico no se confina exclusivamente a los grandes festivales o a los grandes nombres de exportación pop, sino que impregna el tejido social cotidiano con herramientas prácticas de transformación y contención humana.",
   "topics": [
     {
-      "category": "Música y Rock",
-      "title": "Nombrados a los Grammy 2027",
-      "summary": "La Academia de Grabación estadounidense dio a conocer los nominados para la próxima edición, destacando la presencia de [Robyn](https://es.wikipedia.org/wiki/Robyn), [Zara Larsson](https://es.wikipedia.org/wiki/Zara_Larsson) y Yung Lean, además del compositor Ludwig Göransson."
+      "category": "Música",
+      "title": "Proyección internacional en los Grammy",
+      "summary": "Artistas como Zara Larsson, Robyn y el productor Ludwig Göransson suman nominaciones clave para la gala de los Grammy 2027."
     },
     {
-      "category": "Cine y Series",
-      "title": "Ciencia ficción con sello local",
-      "summary": "La crítica cultural ha celebrado el estreno de producciones singulares como [Arne goes to space](https://news.google.com/rss/articles/CBMipwFBVV95cUxPc0hvQ09INmtDREFpWThGRjRiblNlb05YV3ZQRzluMWYtWnlEY1UwaXZCWUdQRmxBOW1RYkxwN2pMUXA4Z0tpNWl3c1RhbktaV1FIWS03M0phRm4tRnJ0V2hEbjFLcmFlUjY0Zlg1Y2t2UHpDckc3WGVzX3JRRVE4U3N0QVVjMEhZS2JhMFppTlVOZExQcE0zandEZkhSS1hZaUl3SGN1aw?oc=5), un trabajo que renueva el género fantástico desde una perspectiva local y profundamente humana."
+      "category": "Cine",
+      "title": "El arte de musicalizar el cine mudo",
+      "summary": "El compositor [Matti Bye](https://news.google.com/rss/articles/CBMirAFBVV95cUxNTTAtckxZSlM2eFVNa3huYWdqWjc3bnNMYV82SFl1RGpaREM3ZTJfcHhHVGJaQjVBNGdQaE5jOE1yYUxqSU1ubXg1NUlrb2pPNlB4RjZYMDd1WUxlZmlQWkJjRjBMUWVhV0l0MFNHcnZDdzYzQVFBU3lBOXkyX3VLU2EzWURXRmFXUHB6ZnZ5TzZRMGk3blpmU05qdzI5SVJzNUJFdU0zRUI1NUxQ?oc=5) analiza los desafíos técnicos y expresivos de interpretar en directo partituras para películas silentes."
     },
     {
-      "category": "Libros y Autores",
-      "title": "Residencias literarias en expansión",
-      "summary": "El programa de residencias AIR Litteratur impulsa el trabajo de escritores contemporáneos en diálogo directo con los paisajes y comunidades de [Göteborg](https://es.wikipedia.org/wiki/Gotemburgo)."
+      "category": "Televisión",
+      "title": "Nuevos rumbos para el clásico calendario navideño",
+      "summary": "La serie [Den ofrivillige tomten](https://www.svt.se/kultur/pappa-lever-dubbelliv-i-arets-julkalender) propone un relato de dobles vidas y misiones en el Polo Norte para la televisión de fin de año."
     }
   ],
   "recommendation": {
     "type": "Álbum",
-    "title": "Body Talk",
-    "creator": "Robyn",
-    "context": "Una obra fundamental de la pop sueca moderna que redefinió las coordenadas de la música alternativa bailable.",
-    "url": "https://www.svt.se/kultur/zara-larsson-och-robyn-ar-nominerade-till-grammy-awards-2027"
-  },
-  "closing_media": {
-    "type": "image",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Sam_Peckinpah.JPG?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "caption": "La artista sueca Robyn, una de las principales figuras de la música pop contemporánea nominada a los premios internacionales.",
-    "credit": "Foto: Wikimedia Commons (vía Wikipedia ES)"
+    "title": "Proyectando melodías silentes",
+    "creator": "Matti Bye",
+    "context": "Una obra fundamental para comprender cómo el piano y los arreglos de cámara reviven la potencia expresiva del cine clásico.",
+    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNTTAtckxZSlM2eFVNa3huYWdqWjc3bnNMYV82SFl1RGpaREM3ZTJfcHhHVGJaQjVBNGdQaE5jOE1yYUxqSU1ubXg1NUlrb2pPNlB4RjZYMDd1WUxlZmlQWkJjRjBMUWVhV0l0MFNHcnZDdzYzQVFBU3lBOXkyX3VLU2EzWURXRmFXUHB6ZnZ5TzZRMGk3blpmU05qdzI5SVJzNUJFdU0zRUI1NUxQ?oc=5"
   },
   "sources": [
     {
-      "name": "Dagens Nyheter",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPc0hvQ09INmtDREFpWThGRjRiblNlb05YV3ZQRzluMWYtWnlEY1UwaXZCWUdQRmxBOW1RYkxwN2pMUXA4Z0tpNWl3c1RhbktaV1FIWS03M0phRm4tRnJ0V2hEbjFLcmFlUjY0Zlg1Y2t2UHpDckc3WGVzX3JRRVE4U3N0QVVjMEhZS2JhMFppTlVOZExQcE0zandEZkhSS1hZaUl3SGN1aw?oc=5",
+      "name": "Kultur | SVT Nyheter",
+      "url": "https://www.svt.se/kultur/pappa-lever-dubbelliv-i-arets-julkalender",
+      "paywalled": false
+    },
+    {
+      "name": "Dagens Nyheter Kultur",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNTTAtckxZSlM2eFVNa3huYWdqWjc3bnNMYV82SFl1RGpaREM3ZTJfcHhHVGJaQjVBNGdQaE5jOE1yYUxqSU1ubXg1NUlrb2pPNlB4RjZYMDd1WUxlZmlQWkJjRjBMUWVhV0l0MFNHcnZDdzYzQVFBU3lBOXkyX3VLU2EzWURXRmFXUHB6ZnZ5TzZRMGk3blpmU05qdzI5SVJzNUJFdU0zRUI1NUxQ?oc=5",
       "paywalled": true
-    },
-    {
-      "name": "Göteborgs Stad",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOdHJ2bHJBSnZzN3h4eGpXbzFrYWt4eGJsQkdnZm5IaG51ZHd0SElmaUU3LTlKSnAwRTdZd2N4ZTM3Mk1ZaVE5aHhfQVBxOWY4Vm1HLXAzWTZhVkVZaUNqRGdqVlNldVo5RU1xOEp2UmhjWHVOWm1LQTZXbHVrcDc2TlI1Vk9SQ1lVbFg3Sg?oc=5",
-      "paywalled": false
-    },
-    {
-      "name": "Göteborgs Stad",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPVDlxOUtjUGRjWVZXUnVJRGxkS1ZESHVicEh1VHRRODlrVVk5UWtRU1liZ1BNU2NKUWxDTFViUzczeXNFTm13VEJYWi1SSF9QazNDQU5zNUFka2tKalRRV1dRbWpBZnI3X2xkUGU4RFp3OENTTXptalBlMXFoQlByX2t5emJuWjgxRW84Nw?oc=5",
-      "paywalled": false
     },
     {
       "name": "Kultur | SVT Nyheter",

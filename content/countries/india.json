@@ -3,64 +3,54 @@
   "country": "India",
   "continent": "Asia",
   "flag": "🇮🇳",
-  "updated_at": "2026-11-16T19:49:12.806Z",
+  "updated_at": "2026-11-16T20:35:19.775Z",
   "edition_week": "2026-W47",
-  "intro": "El pulso cultural de India se agita con la llegada del IFFI y nuevas apuestas en artes visuales y música en vivo.",
+  "intro": "El pulso cultural indio explora la memoria musical de R.D. Burman, el arte figurativo en Mumbai y los debates sobre algoritmos y festivales.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Goa_prepares_to_welcome_the_42nd_International_Film_Festival_of_India%2C_in_Panaji%2C_Goa_on_November_21%2C_2011_%282%29.jpg/1280px-Goa_prepares_to_welcome_the_42nd_International_Film_Festival_of_India%2C_in_Panaji%2C_Goa_on_November_21%2C_2011_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Sede principal del Festival Internacional de Cine de India en Goa.",
-    "credit": "Foto: Ministry of Information and Broadcasting · GODL-India"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Gateway_Of_India.jpg/1280px-Gateway_Of_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "El Gateway of India en Mumbai, epicentro de intercambios artísticos y exposiciones contemporáneas en el país.",
+    "credit": "Foto: Joe Ravi · CC BY-SA 3.0"
   },
-  "cultural_pulse": "La temporada cinematográfica encuentra su epicentro en Goa con la nueva edición del [Festival Internacional de Cine de India](https://news.google.com/rss/articles/CBMiyAFBVV95cUxOZGU4ZzdibWRyLXZpaV8way1LUFZfSUhsdVp5MUNxbjQtdDFPTTJRSndfUkdfT0ZKdjdPbTM5d0ZVYm5vVjBOOENzYWV3M2k3ZDVBdlBQZlBwdnRQbnNPeWpvRlhhZHhTZ3lCREJVbHZyeV9SWktSUkFpanFBajF4U2s1M0haM3dFVjNxckFWV3RUblBWcmhRTmFScmZVczZRRm5sNTJTc3JGWTRIenBZSEs2cHAxVEU3a2VyM21TMTVYekhmeUJ3YQ?oc=5), que este año despliega un catálogo minuciosamente seleccionado bajo una renovada dirección artística. Entre los atractivos de la programación figuran producciones como *Call Me Queen* y *Marie Madeleine*, ambas seleccionadas para competir por el codiciado galardón [Gandhi Medal at IFFI](https://news.google.com/rss/articles/CBMifkFVX3lxTE1RV1EyNWNzNGthdkw0ZE1FYUZuWVdOdkN6R005N256bWdZZWpzbDVIeFBGcVVaVVJ3YmJDX1JHNEZTWDdQb09Ka0NnMGdLellDS1lTemVPYkhxSXV0a3g4TmZieGVFTXZ3a3RhNm1ISi1rODJpX2M4UzkyMndQdw?oc=5). Lejos de las salas tradicionales, el debate sobre el impacto de la industria en los territorios rurales toma fuerza tras los recientes análisis sobre cómo los pueblos de [Telangana](https://news.google.com/rss/articles/CBMioAFBVV95cUxNNE1tT0swZUNjNTRFbHAyY09EMU92cmNGeFNmQVREbHcyQVNha2tpOHNPQi1uMTM1TTZUV0FLb3ZHRWdGUWlfRk1ka0IxNUMzNTB0OFBpa0p1cUhqbHB2ZGs0amRfbkNwLUdPSzVWdmdjSndxR1M3dDEzS3V5MjFUQzJPbzlhbzlNVTlNWk5fUmRYYXROY2hWX0ZPZlZram8w?oc=5) operan de manera informal como estudios de cine a cielo abierto, generando tensiones y cuestionamientos locales sobre quiénes toman realmente las decisiones creativas en cada set.\n\nLa escena musical en directo experimenta una transformación tecnológica impulsada por la adopción de herramientas algorítmicas. Plataformas locales como thumpN y SkillBox están introduciendo sistemas orientados a optimizar la experiencia de los espectadores y reorganizar la [búsqueda de conciertos](https://rollingstoneindia.com/ai-ticketing-platforms-thumpn-skillbox/) en el vasto mercado indio. Esta transición hacia la automatización busca simplificar la gestión de eventos, aunque abre interrogantes en creadores y promotores independientes sobre el verdadero peso de la curaduría humana frente a la centralización digital.\n\nEl circuito de artes plásticas también aporta movimiento a la agenda cultural con propuestas intimistas como la exposición titulada *In Quiet Measure*, organizada en el espacio [Space 118](https://www.thehindu.com/entertainment/art/in-quiet-measure-art-collector-saloni-doshi-figurative-art-jaiveer-johal-space-118/article71709326.ece) por la coleccionista **Saloni Doshi** junto al artista **Jaiveer Johal**. La muestra propone un recorrido reflexivo por los márgenes de la pintura figurativa contemporánea, demostrando que el coleccionismo privado en el país continúa apostando por discursos visuales arriesgados fuera del circuito estrictamente comercial de las grandes galerías metropolitanas.",
+  "cultural_pulse": "La escena cultural en la India transita por intersecciones profundas entre la memoria sonora de archivo y los nuevos formatos de curaduría. Desde las calles de Patna hasta las salas de exhibición en Mumbai, los creadores revisitan los cimientos de la identidad artística nacional. Un ejemplo claro se encuentra en el rescate de la obra y el legado del compositor [R.D. Burman](https://news.google.com/rss/articles/CBMikwFBVV95cUxOSkZLUnBCbC1vbGFLRnZtTjloaFVJWWswaEVmTTRZc0Zla2pHRE03VWMwTHVYOW5pQ1lDazh3WXZBQkNZZTRLNVd4N0hmQ3lQWm5fNkYxanowZmJ5RjVWUjU3VTdQanhTTUs2SHV0ZmRjdEFvYjJURUNucHRBd0pvU0U1Ny13WDlLUC1BRjk1dW5nekHSAZgBQVVfeXFMT3RjazRTUnI2S1BzZ095eG9xUEMtVmt1cDhJWWhOeUE0NkJTN1liMUJjaVAxMmlWcm1YUl9ZLVc3ZzNqZWNQNXFyeHVRT2lTLThjMGlMTHQ0U2FFVUN6QTFENmdOazhjSUw4OEptM3VJanlfcXE0ZjcwUVBSeTdtY0ZwU2RhS3lSc00tazluSVBsZW9vSlpWa0M?oc=5), cuyas melodías continúan resonando en las nuevas generaciones que descubren su archivo a través de plataformas digitales y ensayos especializados.\n\nEn el circuito de artes visuales, las galerías apuestan por discursos íntimos y reflexivos. La muestra **In Quiet Measure** en el espacio Space 118, curada por [Jaiveer Johal](https://www.thehindu.com/entertainment/art/in-quiet-measure-art-collector-saloni-doshi-figurative-art-jaiveer-johal-space-118/article71709326.ece) y con la participación de la coleccionista [Saloni Doshi](https://www.thehindu.com/entertainment/art/in-quiet-measure-art-collector-saloni-doshi-figurative-art-jaiveer-johal-space-118/article71709326.ece), pone el foco en la vigencia del arte figurativo y en la soledad inherente al acto de coleccionar. Lejos de los circuitos puramente comerciales, este tipo de exhibiciones consolidan un espacio para el análisis pausado de la plástica contemporánea en el subcontinente.\n\nLa industria musical y el sector de eventos en vivo discuten la llegada de herramientas digitales orientadas a la optimización de carteleras. Iniciativas tecnológicas recientes buscan transformar la manera en que el público accede a los recitales independientes, generando debates sobre si la automatización algorítmica favorece la diversidad o estandariza el consumo cultural en las principales metrópolis del país.",
   "topics": [
     {
-      "category": "Cine",
-      "title": "Nuevos horizontes en el IFFI",
-      "summary": "El [International Film Festival of India](https://news.google.com/rss/articles/CBMiyAFBVV95cUxOZGU4ZzdibWRyLXZpaV8way1LUFZfSUhsdVp5MUNxbjQtdDFPTTJRSndfUkdfT0ZKdjdPbTM5d0ZVYm5vVjBOOENzYWV3M2k3ZDVBdlBQZlBwdnRQbnNPeWpvRlhhZHhTZ3lCREJVbHZyeV9SWktSUkFpanFBajF4U2s1M0haM3dFVjNxckFWV3RUblBWcmhRTmFScmZVczZRRm5sNTJTc3JGWTRIenBZSEs2cHAxVEU3a2VyM21TMTVYekhmeUJ3YQ?oc=5) arrancó su programación oficial con títulos internacionales como *Call Me Queen* compitiendo por la medalla Gandhi."
-    },
-    {
-      "category": "Música",
-      "title": "Algoritmos y música en vivo",
-      "summary": "Nuevas plataformas basadas en tecnología digital buscan redefinir la forma en que el público accede a los [conciertos en India](https://rollingstoneindia.com/ai-ticketing-platforms-thumpn-skillbox/)."
+      "category": "Música y Rock",
+      "title": "La huella permanente de R.D. Burman",
+      "summary": "Nuevos ensayos y crónicas rescatan la vigencia del compositor R.D. Burman y su impacto imborrable en la memoria sonora popular de la India."
     },
     {
       "category": "Exhibiciones",
-      "title": "Figuración y memoria íntima",
-      "summary": "La muestra *In Quiet Measure*, curada por Jaiveer Johal en [Space 118](https://www.thehindu.com/entertainment/art/in-quiet-measure-art-collector-saloni-doshi-figurative-art-jaiveer-johal-space-118/article71709326.ece), examina los vínculos solitarios del coleccionismo pictórico actual."
+      "title": "Reflexiones sobre el coleccionismo en Mumbai",
+      "summary": "La muestra *In Quiet Measure* en Space 118 analiza las posibilidades expresivas de la pintura figurativa actual bajo la mirada de [Saloni Doshi](https://www.thehindu.com/entertainment/art/in-quiet-measure-art-collector-saloni-doshi-figurative-art-jaiveer-johal-space-118/article71709326.ece)."
+    },
+    {
+      "category": "Festivales y Debates",
+      "title": "Algoritmos y música en vivo",
+      "summary": "Analistas y promotores discuten el impacto de plataformas automatizadas en la discovery de conciertos independientes en la escena local."
     }
   ],
   "recommendation": {
     "type": "Exposición",
     "title": "In Quiet Measure",
     "creator": "Saloni Doshi y Jaiveer Johal",
-    "context": "Una mirada profunda al coleccionismo privado y la vigencia de la pintura figurativa en el circuito contemporáneo.",
+    "context": "Una inmersión necesaria en la figuración contemporánea y la soledad del coleccionismo artístico en Mumbai.",
     "url": "https://www.thehindu.com/entertainment/art/in-quiet-measure-art-collector-saloni-doshi-figurative-art-jaiveer-johal-space-118/article71709326.ece"
   },
   "closing_media": {
     "type": "image",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/HB_inngang.jpg/960px-HB_inngang.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "caption": "Espacio cultural donde se exhibe la muestra de arte figurativo organizada por Saloni Doshi y Jaiveer Johal.",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Mumbai_Bandra-Worli_Sea_Link.jpg/960px-Mumbai_Bandra-Worli_Sea_Link.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Retrato arquitectónico que evoca el espacio cultural Space 118 en Mumbai.",
     "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
     {
-      "name": "The Hindu Arts",
+      "name": "The Hindu",
       "url": "https://www.thehindu.com/entertainment/art/in-quiet-measure-art-collector-saloni-doshi-figurative-art-jaiveer-johal-space-118/article71709326.ece",
       "paywalled": false
     },
     {
-      "name": "Variety",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1RV1EyNWNzNGthdkw0ZE1FYUZuWVdOdkN6R005N256bWdZZWpzbDVIeFBGcVVaVVJ3YmJDX1JHNEZTWDdQb09Ka0NnMGdLellDS1lTemVPYkhxSXV0a3g4TmZieGVFTXZ3a3RhNm1ISi1rODJpX2M4UzkyMndQdw?oc=5",
-      "paywalled": false
-    },
-    {
-      "name": "Screen Daily",
-      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOZGU4ZzdibWRyLXZpaV8way1LUFZfSUhsdVp5MUNxbjQtdDFPTTJRSndfUkdfT0ZKdjdPbTM5d0ZVYm5vVjBOOENzYWV3M2k3ZDVBdlBQZlBwdnRQbnNPeWpvRlhhZHhTZ3lCREJVbHZyeV9SWktSUkFpanFBajF4U2s1M0haM3dFVjNxckFWV3RUblBWcmhRTmFScmZVczZRRm5sNTJTc3JGWTRIenBZSEs2cHAxVEU3a2VyM21TMTVYekhmeUJ3YQ?oc=5",
-      "paywalled": false
-    },
-    {
-      "name": "Telangana Today",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNNE1tT0swZUNjNTRFbHAyY09EMU92cmNGeFNmQVREbHcyQVNha2tpOHNPQi1uMTM1TTZUV0FLb3ZHRWdGUWlfRk1ka0IxNUMzNTB0OFBpa0p1cUhqbHB2ZGs0amRfbkNwLUdPSzVWdmdjSndxR1M3dDEzS3V5MjFUQzJPbzlhbzlNVTlNWk5fUmRYYXROY2hWX0ZPZlZram8w?oc=5",
+      "name": "Scroll.in",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOSkZLUnBCbC1vbGFLRnZtTjloaFVJWWswaEVmTTRZc0Zla2pHRE03VWMwTHVYOW5pQ1lDazh3WXZBQkNZZTRLNVd4N0hmQ3lQWm5fNkYxanowZmJ5RjVWUjU3VTdQanhTTUs2SHV0ZmRjdEFvYjJURUNucHRBd0pvU0U1Ny13WDlLUC1BRjk1dW5nekHSAZgBQVVfeXFMT3RjazRTUnI2S1BzZ095eG9xUEMtVmt1cDhJWWhOeUE0NkJTN1liMUJjaVAxMmlWcm1YUl9ZLVc3ZzNqZWNQNXFyeHVRT2lTLThjMGlMTHQ0U2FFVUN6QTFENmdOazhjSUw4OEptM3VJanlfcXE0ZjcwUVBSeTdtY0ZwU2RhS3lSc00tazluSVBsZW9vSlpWa0M?oc=5",
       "paywalled": false
     },
     {
