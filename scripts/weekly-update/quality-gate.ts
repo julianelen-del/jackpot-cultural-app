@@ -9,7 +9,6 @@ const AI_CLICHE_PATTERNS = [
   /tapiz cultural/i,
   /centro y periferia/i,
   /centro\/periferia/i,
-  /descentralización/i,
   /homogeneización digital/i,
   /supervivencia identitaria/i,
   /arqueología del secreto/i,

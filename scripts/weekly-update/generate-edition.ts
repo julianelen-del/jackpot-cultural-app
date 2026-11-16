@@ -36,6 +36,7 @@ const MODEL_CHAIN = Array.from(
 
 let disableSearchForSession = false;
 const exhaustedModelsForSession = new Set<string>();
+const consecutiveModelErrors = new Map<string, number>();
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -71,6 +72,7 @@ function isDailyOrMissingModelError(msg: string): boolean {
     msg.includes("free_tier_requests") ||
     msg.includes("PerDay") ||
     msg.includes("limit: 20") ||
+    msg.includes("limit: 0") ||
     msg.includes("not found") ||
     msg.includes("404")
   );
@@ -99,11 +101,13 @@ async function generateWithModelFallback(
       if (exhaustedModelsForSession.has(model)) continue;
 
       try {
-        return await ai.models.generateContent({
+        const res = await ai.models.generateContent({
           model,
           contents,
           config,
         });
+        consecutiveModelErrors.set(model, 0);
+        return res;
       } catch (err) {
         lastErr = err;
         const msg = err instanceof Error ? err.message : String(err);
@@ -112,16 +116,26 @@ async function generateWithModelFallback(
           throw err;
         }
 
-        if (isDailyOrMissingModelError(msg)) {
+        const prevFails = (consecutiveModelErrors.get(model) || 0) + 1;
+        consecutiveModelErrors.set(model, prevFails);
+
+        const activeLeft = MODEL_CHAIN.filter(
+          (m) => !exhaustedModelsForSession.has(m)
+        ).length;
+
+        if (
+          isDailyOrMissingModelError(msg) ||
+          (prevFails >= 2 && activeLeft > 1)
+        ) {
           exhaustedModelsForSession.add(model);
           console.warn(
-            `  [Modelo] ${model} no disponible o alcanzó tope diario. Probando siguiente modelo...`
+            `  [Modelo] ${model} descartado para esta sesión. Usando siguiente modelo disponible...`
           );
         } else {
           console.warn(
             `  [Modelo] ${model} saturado (429/503). Saltando al siguiente modelo...`
           );
-          await sleep(1500);
+          await sleep(1200);
         }
       }
     }
@@ -131,8 +145,10 @@ async function generateWithModelFallback(
         (m) => !exhaustedModelsForSession.has(m)
       );
       if (remaining.length === 0) break;
-      console.warn("  [Modelo] Todos saturados momentáneamente; reintentando en 5s...");
-      await sleep(5000);
+      console.warn(
+        "  [Modelo] Modelos restantes ocupados; reintentando en 4s..."
+      );
+      await sleep(4000);
     }
   }
 
@@ -156,7 +172,9 @@ function stripNumericCitations(text: string): string {
 function trimAtBoundary(text: string, maxLen: number): string {
   const clean = text.trim();
   if (clean.length <= maxLen) return clean;
-  const slice = clean.slice(0, maxLen - 1);
+  const safeText = clean.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, "$1");
+  if (safeText.length <= maxLen) return safeText;
+  const slice = safeText.slice(0, maxLen - 1);
   const lastPeriod = slice.lastIndexOf(".");
   if (lastPeriod >= Math.floor(maxLen * 0.6)) {
     return slice.slice(0, lastPeriod + 1).trim();
@@ -243,6 +261,27 @@ async function resolveInlineLinks(
   const matches = Array.from(rawText.matchAll(regex));
   if (matches.length === 0) return rawText;
 
+  const wikiQueries = Array.from(
+    new Set(
+      matches
+        .slice(0, maxLinks + 2)
+        .map((m) => String(m[2]).trim())
+        .filter((t) => /^wiki:/i.test(t))
+        .map((t) => t.replace(/^wiki:/i, "").trim())
+        .filter(Boolean)
+    )
+  );
+
+  const wikiResults = new Map<string, string | null>();
+  if (wikiQueries.length > 0) {
+    const resolved = await Promise.all(
+      wikiQueries.map(async (q) => ({ q, url: await findWikipediaPageUrl(q) }))
+    );
+    for (const item of resolved) {
+      wikiResults.set(item.q, item.url);
+    }
+  }
+
   let result = "";
   let lastIndex = 0;
   let linkCount = 0;
@@ -263,7 +302,7 @@ async function resolveInlineLinks(
 
     if (/^wiki:/i.test(target)) {
       const query = target.replace(/^wiki:/i, "").trim();
-      const wikiUrl = await findWikipediaPageUrl(query);
+      const wikiUrl = wikiResults.get(query);
       if (wikiUrl) {
         const cleanUrl = safeEncodeParens(wikiUrl);
         allowedUrlSet.add(cleanUrl);
@@ -704,7 +743,7 @@ export async function generateCountryEdition(
         ? trimAtBoundary(resolvedIntro, 238)
         : resolvedIntro;
 
-    const cleanTopics = Array.isArray(parsedJson.topics)
+    const rawTopics = Array.isArray(parsedJson.topics)
       ? await Promise.all(
           parsedJson.topics.map(async (t) => {
             if (t && typeof t === "object") {
@@ -743,6 +782,23 @@ export async function generateCountryEdition(
           })
         )
       : parsedJson.topics;
+
+    let cleanTopics = rawTopics;
+    if (Array.isArray(rawTopics)) {
+      const validTopics = rawTopics.filter((t) => {
+        if (!t || typeof t !== "object") return false;
+        const item = t as Record<string, unknown>;
+        return (
+          typeof item.title === "string" &&
+          item.title.trim().length >= 5 &&
+          typeof item.summary === "string" &&
+          item.summary.trim().length >= 50
+        );
+      });
+      if (validTopics.length >= 3) {
+        cleanTopics = validTopics.slice(0, 5);
+      }
+    }
 
     const assembled = {
       slug: country.slug,

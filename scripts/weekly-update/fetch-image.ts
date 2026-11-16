@@ -28,6 +28,8 @@ const EXCLUDED_IMAGE_TERMS = [
   "locator",
 ];
 
+const wikiPageCache = new Map<string, string | null>();
+
 function cleanHtml(raw?: string): string {
   if (!raw) return "";
   return raw
@@ -228,7 +230,13 @@ export async function fetchWikipediaLeadImage(
 export async function findWikipediaPageUrl(
   query: string
 ): Promise<string | null> {
-  if (!query || query.trim().length < 2) return null;
+  const clean = query?.trim();
+  if (!clean || clean.length < 2) return null;
+
+  const cacheKey = clean.toLowerCase();
+  if (wikiPageCache.has(cacheKey)) {
+    return wikiPageCache.get(cacheKey) ?? null;
+  }
 
   for (const lang of ["es", "en"] as const) {
     try {
@@ -237,14 +245,14 @@ export async function findWikipediaPageUrl(
         new URLSearchParams({
           action: "query",
           list: "search",
-          srsearch: query.trim(),
+          srsearch: clean,
           srlimit: "1",
           format: "json",
           origin: "*",
         }).toString();
 
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 4000);
+      const timer = setTimeout(() => controller.abort(), 3500);
       const searchRes = await fetch(searchUrl, {
         signal: controller.signal,
         headers: {
@@ -264,7 +272,7 @@ export async function findWikipediaPageUrl(
         pageTitle.replace(/ /g, "_")
       )}`;
       const sumController = new AbortController();
-      const sumTimer = setTimeout(() => sumController.abort(), 4000);
+      const sumTimer = setTimeout(() => sumController.abort(), 3500);
       const sumRes = await fetch(summaryUrl, {
         signal: sumController.signal,
         headers: {
@@ -282,13 +290,16 @@ export async function findWikipediaPageUrl(
       if (summary.type === "disambiguation") continue;
       const desktopUrl = summary.content_urls?.desktop?.page;
       if (desktopUrl) {
-        return desktopUrl.replace(/\(/g, "%28").replace(/\)/g, "%29");
+        const finalUrl = desktopUrl.replace(/\(/g, "%28").replace(/\)/g, "%29");
+        wikiPageCache.set(cacheKey, finalUrl);
+        return finalUrl;
       }
     } catch {
       continue;
     }
   }
 
+  wikiPageCache.set(cacheKey, null);
   return null;
 }
 

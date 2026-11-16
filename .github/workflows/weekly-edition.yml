@@ -2,12 +2,12 @@ name: Edición Semanal Automática
 
 on:
   schedule:
-    # Todos los lunes a las 03:00 UTC (00:00 hora Argentina)
-    - cron: "0 3 * * 1"
+    # Todos los lunes a las 09:00 UTC (06:00 hora Argentina, tras el reseteo diario de cuota)
+    - cron: "0 9 * * 1"
   workflow_dispatch:
     inputs:
       country_slug:
-        description: "Opcional: actualizar solo un país (ej: francia). Dejar vacío para los 23."
+        description: "Opcional: actualizar solo un país (ej: francia). Dejar vacío para los 27."
         required: false
         default: ""
 
@@ -17,7 +17,7 @@ permissions:
 jobs:
   update-cultural-editions:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 60
 
     steps:
       - name: Descargar repositorio
@@ -27,7 +27,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          
 
       - name: Instalar dependencias
         run: npm install
