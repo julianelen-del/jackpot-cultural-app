@@ -25,11 +25,17 @@ import {
 import { validateEditionQuality } from "./quality-gate";
 import { verifyCandidateUrls, type CandidateUrl } from "./verify-links";
 
-const PRIMARY_MODEL = process.env.GEMINI_MODEL || "gemini-4-hydrogen";
-const FALLBACK_MODEL = "gemini-3.5-flash-lite";
+const MODEL_CHAIN = Array.from(
+  new Set([
+    process.env.GEMINI_MODEL || "gemini-4-hydrogen",
+    "gemini-3.8-flash",
+    "gemini-3.6-flash",
+    "gemini-3.5-flash-lite",
+  ])
+);
 
 let disableSearchForSession = false;
-let disablePrimaryModelForSession = false;
+const exhaustedModelsForSession = new Set<string>();
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -60,67 +66,77 @@ function isTransientOrQuotaError(msg: string): boolean {
   );
 }
 
+function isDailyOrMissingModelError(msg: string): boolean {
+  return (
+    msg.includes("free_tier_requests") ||
+    msg.includes("PerDay") ||
+    msg.includes("limit: 20") ||
+    msg.includes("not found") ||
+    msg.includes("404")
+  );
+}
+
 async function generateWithModelFallback(
   ai: GoogleGenAI,
   contents: string,
   config: Record<string, unknown>
 ) {
-  const activeModel = disablePrimaryModelForSession
-    ? FALLBACK_MODEL
-    : PRIMARY_MODEL;
-
-  try {
+  if (config.tools) {
+    const searchModel =
+      MODEL_CHAIN.find((m) => !exhaustedModelsForSession.has(m)) ||
+      MODEL_CHAIN[0];
     return await ai.models.generateContent({
-      model: activeModel,
+      model: searchModel,
       contents,
       config,
     });
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    if (config.tools) {
-      throw err;
-    }
+  }
 
-    if (!isTransientOrQuotaError(msg)) {
-      throw err;
-    }
+  let lastErr: unknown;
 
-    if (
-      !disablePrimaryModelForSession &&
-      (msg.includes("free_tier_requests") || msg.includes("limit: 20"))
-    ) {
-      disablePrimaryModelForSession = true;
-      console.warn(
-        `  [Cuota] ${PRIMARY_MODEL} alcanzó su tope diario gratuito. Cambiando a ${FALLBACK_MODEL} para el resto de la sesión.`
-      );
-    }
+  for (let round = 0; round < 2; round++) {
+    for (const model of MODEL_CHAIN) {
+      if (exhaustedModelsForSession.has(model)) continue;
 
-    const delays = [3500, 7000];
-    let lastErr: unknown = err;
-
-    for (const delay of delays) {
-      console.warn(
-        `  [Modelo] Reintentando con ${FALLBACK_MODEL} en ${delay / 1000}s...`
-      );
-      await sleep(delay);
       try {
         return await ai.models.generateContent({
-          model: FALLBACK_MODEL,
+          model,
           contents,
           config,
         });
-      } catch (retryErr) {
-        lastErr = retryErr;
-        const retryMsg =
-          retryErr instanceof Error ? retryErr.message : String(retryErr);
-        if (!isTransientOrQuotaError(retryMsg)) {
-          throw retryErr;
+      } catch (err) {
+        lastErr = err;
+        const msg = err instanceof Error ? err.message : String(err);
+
+        if (!isTransientOrQuotaError(msg)) {
+          throw err;
+        }
+
+        if (isDailyOrMissingModelError(msg)) {
+          exhaustedModelsForSession.add(model);
+          console.warn(
+            `  [Modelo] ${model} no disponible o alcanzó tope diario. Probando siguiente modelo...`
+          );
+        } else {
+          console.warn(
+            `  [Modelo] ${model} saturado (429/503). Saltando al siguiente modelo...`
+          );
+          await sleep(1500);
         }
       }
     }
 
-    throw lastErr;
+    if (round === 0) {
+      const remaining = MODEL_CHAIN.filter(
+        (m) => !exhaustedModelsForSession.has(m)
+      );
+      if (remaining.length === 0) break;
+      console.warn("  [Modelo] Todos saturados momentáneamente; reintentando en 5s...");
+      await sleep(5000);
+    }
   }
+
+  throw lastErr;
 }
 
 function cleanRoboticTransitions(text: string): string {
@@ -135,6 +151,18 @@ function stripNumericCitations(text: string): string {
   return text
     .replace(/\s*\[(?:YT-)?\d{1,3}(?:\s*,\s*\d{1,3})*\](?!\()/g, "")
     .replace(/ +([.,;:!?])/g, "$1");
+}
+
+function trimAtBoundary(text: string, maxLen: number): string {
+  const clean = text.trim();
+  if (clean.length <= maxLen) return clean;
+  const slice = clean.slice(0, maxLen - 1);
+  const lastPeriod = slice.lastIndexOf(".");
+  if (lastPeriod >= Math.floor(maxLen * 0.6)) {
+    return slice.slice(0, lastPeriod + 1).trim();
+  }
+  const lastSpace = slice.lastIndexOf(" ");
+  return (lastSpace > 20 ? slice.slice(0, lastSpace) : slice).trim() + "…";
 }
 
 function ensureBoldHighlights(text: string): string {
@@ -527,14 +555,24 @@ export async function generateCountryEdition(
       typeof recRaw.context === "string"
         ? stripNumericCitations(recRaw.context)
         : "";
-    const recContext =
+    const resolvedRecContext =
       typeof recRaw.context === "string"
         ? await resolveInlineLinks(rawRecContext, verifiedUrls, allowedUrlSet, 2)
         : recRaw.context;
+    const recContext =
+      typeof resolvedRecContext === "string"
+        ? trimAtBoundary(resolvedRecContext, 218)
+        : resolvedRecContext;
     const recommendation = {
       type: recRaw.type,
-      title: recRaw.title,
-      creator: recRaw.creator,
+      title:
+        typeof recRaw.title === "string"
+          ? trimAtBoundary(recRaw.title, 138)
+          : recRaw.title,
+      creator:
+        typeof recRaw.creator === "string"
+          ? trimAtBoundary(recRaw.creator, 118)
+          : recRaw.creator,
       context: recContext,
       url: recUrl,
     };
@@ -652,7 +690,7 @@ export async function generateCountryEdition(
       }
     }
 
-    const cleanIntro =
+    const resolvedIntro =
       typeof parsedJson.intro === "string"
         ? await resolveInlineLinks(
             stripNumericCitations(parsedJson.intro),
@@ -661,6 +699,10 @@ export async function generateCountryEdition(
             2
           )
         : parsedJson.intro;
+    const cleanIntro =
+      typeof resolvedIntro === "string"
+        ? trimAtBoundary(resolvedIntro, 238)
+        : resolvedIntro;
 
     const cleanTopics = Array.isArray(parsedJson.topics)
       ? await Promise.all(
@@ -669,20 +711,26 @@ export async function generateCountryEdition(
               const topic = t as Record<string, unknown>;
               const titleText =
                 typeof topic.title === "string"
-                  ? await resolveInlineLinks(
-                      stripNumericCitations(topic.title),
-                      verifiedUrls,
-                      allowedUrlSet,
-                      1
+                  ? trimAtBoundary(
+                      await resolveInlineLinks(
+                        stripNumericCitations(topic.title),
+                        verifiedUrls,
+                        allowedUrlSet,
+                        1
+                      ),
+                      118
                     )
                   : topic.title;
               const summaryText =
                 typeof topic.summary === "string"
-                  ? await resolveInlineLinks(
-                      stripNumericCitations(topic.summary),
-                      verifiedUrls,
-                      allowedUrlSet,
-                      2
+                  ? trimAtBoundary(
+                      await resolveInlineLinks(
+                        stripNumericCitations(topic.summary),
+                        verifiedUrls,
+                        allowedUrlSet,
+                        2
+                      ),
+                      545
                     )
                   : topic.summary;
               return {
@@ -717,19 +765,12 @@ export async function generateCountryEdition(
       return verdict.data;
     }
 
-    const recCtxLen =
-      typeof recommendation.context === "string"
-        ? recommendation.context.length
-        : 0;
-
     lastError =
       plainWordCount < 200
         ? `Tu 'cultural_pulse' anterior tuvo SOLO ${plainWordCount} palabras y el mínimo obligatorio del sistema es 200 palabras. Desarrolla 3 o 4 párrafos completos con más detalles de obras, bandas, películas o libros del dossier hasta llegar a 320-450 palabras.`
         : plainWordCount > 800
           ? `Tu 'cultural_pulse' anterior tuvo ${plainWordCount} palabras (máximo 800). Resúmelo a unas 450 palabras.`
-          : recCtxLen > 220
-            ? `Tu 'recommendation.context' tuvo ${recCtxLen} caracteres y el máximo es 220. Escríbelo en 1 sola frase bien breve (120-180 caracteres).`
-            : verdict.reason;
+          : verdict.reason;
 
     console.warn(`  [Reintento ${attempt}] ${country.country}: ${lastError}`);
   }
