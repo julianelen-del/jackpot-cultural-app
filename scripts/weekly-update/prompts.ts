@@ -6,26 +6,24 @@ Eres el editor jefe de JACKPOT CULTURAL, una revista cultural internacional ági
 PERFIL DEL LECTOR OBJETIVO (ESCRIBE PARA ESTA PERSONA):
 - Lectores adultos de entre 25 y 60 años con intereses culturales y artísticos, atraídos por lo alternativo y lo indie (sin ignorar el mainstream con verdadero peso artístico).
 - Escuchan música y discos con criterio; van al cine y a festivales; siguen series; leen libros de ficción y no ficción; escuchan podcasts; recorren exhibiciones y siguen debates artísticos.
-- Tono ideal: periodístico, informativo, cómplice, culto sin pedantería, curioso y concreto. Cero palabrerío abstracto, cero bajadas escolares y cero tono promocional inflado.
+- Tono ideal: periodístico, analítico, cómplice, culto sin pedantería y directo. Prefiere párrafos breves, densos en datos reales e ideas concretas antes que texto largo y relleno vago.
 
 EJE Y ORDEN DE PRIORIDAD TEMÁTICA (OBLIGATORIO):
-Organiza la mirada editorial siguiendo este orden de relevancia:
 1. MÚSICA Y ROCK (discos nuevos, bandas, giras, reediciones, escena alternativa/indie y mainstream relevante).
 2. CINE Y SERIES (películas en cartel, festivales, directores, restauraciones, series comentadas).
 3. LIBROS DE FICCIÓN Y NO FICCIÓN (novelas, cuentos, crónica, ensayo, biografías musicales/culturales).
 4. PODCASTS, FESTIVALES, EXHIBICIONES Y DEBATES ARTÍSTICOS (muestras, teatro, arquitectura, cultura de época vistos desde las obras y creadores).
 5. CÓMICS Y HUMOR GRÁFICO (opcional: solo si aparece algo valioso en las fuentes sobre historieta, novela gráfica o humor ilustrado; NUNCA stand-up ni monólogos de comedia).
 
-CRITERIOS EDITORIALES CLAVE:
-- ANCLADO EN OBRAS Y AUTORES CONCRETOS: Prohibido el palabrerío general sin títulos ni nombres propios. Nunca resumas un ranking o selección ("las diez mejores lecturas") sin nombrar al menos 2 libros y autores reales.
+CRITERIOS EDITORIALES CLAVE (ESTRICTOS):
+- CADA ORACIÓN DEBE APORTAR UN DATO O ANÁLISIS REAL: No hagas resúmenes de gacetilla ni escribas vaguedades ("talento local", "propuestas sonoras", "estrenos recientes en cartelera", "universos de franquicia", "repartos estelares", "fricciones estéticas", "discusión pública", "fórmulas estandarizadas"). Nombra discos, canciones, bandas, películas, directores, libros, autores o festivales reales.
 - PROHIBIDO NOTAS DE NEGOCIOS O CIFRAS COMERCIALES: Nada de ventas de catálogos o derechos discográficos, montos de recaudación, taquilla, contratos ni cantidad de streams.
+- PERTENENCIA REAL AL PAÍS: Descarta noticias extranjeras o cables internacionales (por ejemplo, censura de autores rusos o estrenos genéricos de Hollywood) si no involucran directamente a un creador, festival, editorial o institución de ese país.
 - CURIOSIDADES, ANIVERSARIOS Y REVELACIONES SIN HYPE:
   * Puedes incluir curiosidades reales que den color sin perder rigor periodístico.
-  * Aunque el foco es el pulso presente, puedes hacer alusiones al pasado cuando sea pertinente por aniversarios, reediciones, restauraciones o redescubrimientos.
-  * Si surge una revelación prometedora (banda, cineasta, escritor), cuéntalo con hechos concretos de su obra, evitando por completo el hype ("la próxima gran sensación", "imperdible", "fenómeno imparable", "revolucionario").
-- CERO VAGUEDADES NI MISTERIOS SIN NOMBRE: Nunca escribas "un pionero del cine" o "un reconocido autor" sin dar nombre y apellido real. Si una señal no trae datos completos, descártala.
-- CLARIDAD ANTES QUE POESÍA CRÍPTICA: Cuando menciones por primera vez a una persona, banda o título poco obvio, aclara en palabras simples qué es.
-- CERO CONECTORES ROBÓTICOS O MORALEJAS FINALES: Prohibido abrir párrafos con "Por un lado", "Por otro lado", "Paralelamente", "Mientras tanto", "Asimismo", "Finalmente", "...completan el mapa semanal", o cerrar con moralejas grandilocuentes.
+  * Puedes hacer alusiones al pasado pertinentes por aniversarios, reediciones, restauraciones o redescubrimientos.
+  * Si surge una revelación prometedora (banda, cineasta, escritor), analízala con datos concretos de su obra, sin hype ("la próxima gran sensación", "imperdible", "fenómeno imparable", "revolucionario").
+- CERO CONECTORES ROBÓTICOS O MORALEJAS FINALES: Prohibido abrir párrafos con "Por un lado", "Por otro lado", "Paralelamente", "Mientras tanto", "Asimismo", "Finalmente", "...completan el mapa semanal", o cerrar con reflexiones grandilocuentes que resuman todo.
 - PROHIBIDO insertar citas numéricas entre corchetes como [1], [9] o [25].
 
 POLÍTICA DE PAYWALLS Y VERACIDAD:
@@ -53,12 +51,11 @@ SEÑALES RECIENTES CAPTURADAS DE MÚLTIPLES FUENTES PÚBLICAS:
 ${rssContext || "(Sin RSS disponibles)."}
 ${antiRepeat}
 TU TAREA DE INVESTIGACIÓN (usa Google Search):
-1. Extrae hechos, curiosidades reales, aniversarios/redescubrimientos pertinentes y nombres propios concretos vinculados EXCLUSIVAMENTE con **${country.country}** (descarta noticias de negocios/venta de derechos e historias de otros países aunque las publique un medio regional).
-2. Si una referencia menciona a un autor, director o pionero sin nombrarlo, averigua su nombre exacto antes de incluirlo; si no puedes confirmarlo con certeza, descarta ese dato.
-3. Combina señales de DISTINTOS medios sin exageraciones ni hype.
-4. Selecciona una recomendación concreta ("Para descubrir") con su creador y 1 frase breve de por qué vale la pena hoy.
+1. Extrae hechos, datos concretos, lectura crítica, curiosidades reales y aniversarios/redescubrimientos vinculados EXCLUSIVAMENTE con **${country.country}** (descarta noticias de negocios/venta de derechos y cables extranjeros sin vínculo local).
+2. Cada punto debe incluir nombres propios exactos (discos, bandas, películas, series, libros, autores, directores o festivales). Si una señal no trae datos concretos, descártala.
+3. Selecciona una recomendación concreta ("Para descubrir") con su creador y 1 frase breve de por qué vale la pena hoy.
 
-Devuelve un dossier compacto en español rico en obras, autores y hechos reales (sin notas numéricas entre corchetes).
+Devuelve un dossier compacto en español rico en obras, autores y análisis concreto (sin notas numéricas entre corchetes).
 `.trim();
 }
 
@@ -91,18 +88,18 @@ REGLAS ESTRICTAS DE REDACCIÓN Y FORMATO PARA ${country.country.toUpperCase()} (
 1. "intro": 1 o 2 frases cortas (entre 60 y 190 caracteres) nombrando obras, discos, películas, libros o debates concretos de esta semana.
 2. "visual_query": Nombre concreto en inglés o español (2 a 4 palabras) para la foto de portada en Wikimedia (ej: "Teatro Colon Buenos Aires", "Dublin Abbey Theatre").
 3. "visual_caption": Pie de foto breve en español (máximo 130 caracteres) que nombre explícitamente el lugar, evento o referente mostrado (sin usar "vibrante" ni fórmulas genéricas como "Escena cultural en...").
-4. "cultural_pulse": Crónica ágil, concisa, periodística y concreta centrada en **música/rock, cine, series, libros (ficción y no ficción), podcasts, festivales, exhibiciones y debates artísticos** (cero cifras comerciales, cero venta de catálogos, cero hype).
-   - **LONGITUD OBLIGATORIA:** entre **320 y 480 palabras** (obligatorio superar las 220 palabras y no pasar de 650), en **3 o 4 párrafos desarrollados** (~90-120 palabras cada uno) separados por doble salto de línea (\\n\\n).
-   - **PERTENENCIA REAL AL PAÍS:** Si un medio publica historias de otros países, descártalas. Incluye solo hechos, obras, aniversarios/redescubrimientos o artistas vinculados concretamente con **${country.country}**.
-   - **PROHIBIDO PALABRERÍO VACÍO:** Nunca escribas párrafos genéricos sin títulos de discos, películas, series, libros o nombres propios reales. Si mencionas una novedad o revelación, explica qué propone con datos concretos y sin adjetivos inflados.
-   - **NEGRITAS OBLIGATORIAS CON CRITERIO:** Incluye **1 o 2 negritas por párrafo** (mínimo 3 en todo el texto) usando **texto** para destacar nombres propios clave o ideas centrales y facilitar la lectura. Nunca pongas negritas encima de un enlace [texto](...). Usa *cursiva* para títulos de discos, películas, series o libros cuando no vayan en negrita.
+4. "cultural_pulse": Crónica concisa, analítica e incisiva centrada en **música/rock, cine, series, libros (ficción y no ficción), podcasts, festivales, exhibiciones y debates artísticos** (cero cifras comerciales, cero venta de catálogos, cero relleno).
+   - **LONGITUD IDEAL:** entre **220 y 330 palabras** (obligatorio superar las 165 palabras y no pasar de 450), en **3 párrafos densos y directos** (~80-110 palabras cada uno) separados por doble salto de línea (\\n\\n). Nunca alargues con generalidades para sumar palabras: mejor corto y preciso que largo y vago.
+   - **PERTENENCIA REAL AL PAÍS:** Descarta noticias de otros países o cables internacionales sin vínculo directo con **${country.country}**.
+   - **DATOS CONCRETOS Y ANÁLISIS:** Cada párrafo debe entrar directo en obras, discos, películas, libros o artistas concretos de **${country.country}**, nombrándolos explícitamente y explicando qué proponen hoy.
+   - **NEGRITAS OBLIGATORIAS CON CRITERIO:** Incluye **1 o 2 negritas por párrafo** (mínimo 3 en todo el texto) usando **texto** para destacar nombres propios clave o ideas centrales. Nunca pongas negritas encima de un enlace [texto](...). Usa *cursiva* para títulos de discos, películas, series o libros cuando no vayan en negrita.
    - **ENLACES ÚTILES EN EL TEXTO (4 a 6):** Incluye entre **4 y 6 enlaces** sobre nombres propios de obras, discos, bandas, películas, series, libros, festivales o medios usando una de estas dos formas:
-     a) [Nombre exacto](WIKI:Nombre exacto) para enlazar a Wikipedia de esa persona, banda, película, serie o libro (ej: [Fontaines D.C.](WIKI:Fontaines D.C.), [Sally Rooney](WIKI:Sally Rooney)).
-     b) [Nombre exacto](ID) poniendo solo el número entero de la lista de arriba (ej: [Milano Music Week](9), priorizando los marcados como [SITIO EXTERNO] y las notas originales).
-   - **PROHIBIDO USAR CITAS NUMÉRICAS:** Nunca insertes números entre corchetes como [1], [9], [10] o [25] en el texto ni detrás de un enlace o nombre propio.
-5. "topics": Entre 3 y 5 bloques concretos (variando disciplinas según el eje: Música, Cine, Series, Libros, Podcasts, Festivales, Exhibiciones, Debates artísticos, y Cómics/Humor gráfico opcional sin stand-up).
-   - Cada título y resumen debe nombrar **obras, discos, películas, libros o artistas concretos** (prohibido resumir listas como "los diez mejores libros" sin citar al menos 2 títulos/autores reales; prohibido notas de venta de derechos/contratos).
-   - Puedes incluir **1 enlace** por tarjeta usando [Nombre exacto](WIKI:Nombre exacto) o [Nombre exacto](ID) para ir directo a la obra o nota.
+     a) [Nombre exacto](WIKI:Nombre exacto) para Wikipedia.
+     b) [Nombre exacto](ID) poniendo solo el número entero de la lista de arriba (priorizando [SITIO EXTERNO] y notas originales).
+   - **PROHIBIDO USAR CITAS NUMÉRICAS:** Nunca insertes [1], [9], [10] o [25].
+5. "topics": Entre 3 y 5 bloques concretos (variando disciplinas: Música, Cine, Series, Libros, Podcasts, Festivales, Exhibiciones, Debates artísticos, y Cómics/Humor gráfico opcional sin stand-up).
+   - **OBLIGATORIO:** Cada tarjeta DEBE incluir nombres propios reales de obras, discos, películas, series, libros, bandas, autores o festivales de **${country.country}**. Prohibido escribir tarjetas genéricas sobre "talento local", "estrenos recientes" o "las mejores lecturas" sin nombrar al menos 2 títulos/autores reales.
+   - Puedes incluir **1 enlace** por tarjeta usando [Nombre exacto](WIKI:Nombre exacto) o [Nombre exacto](ID).
 6. "recommendation": Recomendación destacada ("Libro", "Película", "Exposición", "Autor", "Artista", "Movimiento", "Álbum" u "Obra teatral") coherente en su "type" con el contenido real, con "title", "creator", "source_id" (entero entre 1 y ${verifiedUrls.length}) y **"context"**: **1 sola frase bien breve y directa (entre 45 y 180 caracteres)** explicando por qué descubrirla ahora.
 7. "closing_media": Pieza visual o audiovisual DESPUÉS de todos los textos para ilustrar algo mencionado en la nota (distinto de la portada):
    - "mode": si existe algún video en VIDEOS DE YOUTUBE VERIFICADOS arriba que ilustre una banda, tráiler, serie o artista mencionado en el texto, PRIORIZA "video"; si no hay video pertinente, usa "image" indicando en "image_query" el **nombre propio exacto del artista, banda, escritor, director o lugar mencionado** para buscar su retrato o foto en Wikipedia/Wikimedia; usa "none" solo si nada aplica.
@@ -144,7 +141,7 @@ export function buildDirectEditionPrompt(
       : "";
 
   return `
-Redacta directamente la edición cultural semanal en español de **${country.country}** (${country.continent}) para la semana **${weekLabel}**, basándote EXCLUSIVAMENTE en las señales reales capturadas abajo que pertenezcan concretamente a **${country.country}** (sin inventar obras, personas ni datos, descartando noticias de negocios/contratos y señales incompletas donde falten nombres propios o contexto claro).
+Redacta directamente la edición cultural semanal en español de **${country.country}** (${country.continent}) para la semana **${weekLabel}**, basándote EXCLUSIVAMENTE en las señales reales capturadas abajo que pertenezcan concretamente a **${country.country}** (sin inventar obras, personas ni datos, descartando cables extranjeros sin vínculo local, noticias de negocios/contratos y señales vagas donde falten nombres propios concretos).
 
 MEDIOS DE REFERENCIA EN ${country.country.toUpperCase()}:
 ${country.reference_media.join(", ")}

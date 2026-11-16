@@ -20,12 +20,103 @@ const AI_CLICHE_PATTERNS = [
   /fenómeno imparable/i,
 ];
 
+const VAGUE_PHRASE_PATTERNS = [
+  /talento local/i,
+  /propuestas sonoras/i,
+  /estrenos recientes en cartelera/i,
+  /universos de franquicia/i,
+  /repartos estelares/i,
+  /otros autores esenciales/i,
+  /diversidad de propuestas/i,
+  /fricciones estéticas/i,
+  /discusión pública/i,
+  /fórmulas estandarizadas/i,
+];
+
 const GENERIC_CAPTION_PATTERNS = [
   /retrato editorial/i,
   /vinculado al debate/i,
   /imagen ilustrativa/i,
   /^escena cultural (actual )?en\b/i,
 ];
+
+const NON_PROPER_CAPS = new Set([
+  "El",
+  "La",
+  "Los",
+  "Las",
+  "Un",
+  "Una",
+  "Unos",
+  "Unas",
+  "En",
+  "De",
+  "Del",
+  "Al",
+  "Por",
+  "Para",
+  "Con",
+  "Sin",
+  "Sobre",
+  "Entre",
+  "Tras",
+  "Hacia",
+  "Ante",
+  "Bajo",
+  "Según",
+  "Como",
+  "Más",
+  "Menos",
+  "Muy",
+  "Todo",
+  "Toda",
+  "Todos",
+  "Todas",
+  "Este",
+  "Esta",
+  "Estos",
+  "Estas",
+  "Ese",
+  "Esa",
+  "Nuevo",
+  "Nueva",
+  "Nuevos",
+  "Nuevas",
+  "Gran",
+  "Grandes",
+  "Mejores",
+  "Diez",
+  "Cinco",
+  "Tres",
+  "Cuatro",
+  "Presencia",
+  "Debate",
+  "Debates",
+  "Lecturas",
+  "Análisis",
+  "Crítica",
+  "Industria",
+  "Escena",
+  "Cultura",
+  "Música",
+  "Cine",
+  "Series",
+  "Libros",
+  "Arte",
+  "Teatro",
+  "Festival",
+  "Festivales",
+  "Literatura",
+]);
+
+function hasConcreteProperNoun(text: string): boolean {
+  const plain = text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+  const matches = plain.match(
+    /\b[A-ZÁÉÍÓÚÑÜ][a-záéíóúñüA-ZÁÉÍÓÚÑÜ0-9'’-]{2,}\b/g
+  );
+  if (!matches) return false;
+  return matches.some((word) => !NON_PROPER_CAPS.has(word));
+}
 
 export function validateEditionQuality(
   rawEdition: unknown,
@@ -46,6 +137,15 @@ export function validateEditionQuality(
       return {
         ok: false,
         reason: `Detectado cliché o hype prohibido (${pattern.source}). Reescribe con obras y nombres propios concretos.`,
+      };
+    }
+  }
+
+  for (const pattern of VAGUE_PHRASE_PATTERNS) {
+    if (pattern.test(edition.cultural_pulse)) {
+      return {
+        ok: false,
+        reason: `Detectada vaguedad genérica (${pattern.source}) en cultural_pulse. Nombra obras, bandas, discos, libros o directores concretos.`,
       };
     }
   }
@@ -100,11 +200,28 @@ export function validateEditionQuality(
     }
   }
 
-  for (const topic of edition.topics) {
+  for (let i = 0; i < edition.topics.length; i++) {
+    const topic = edition.topics[i];
+    const combined = `${topic.title} ${topic.summary}`;
+
+    for (const pattern of [...AI_CLICHE_PATTERNS, ...VAGUE_PHRASE_PATTERNS]) {
+      if (pattern.test(combined)) {
+        return {
+          ok: false,
+          reason: `El tema destacado "${topic.title}" usa una vaguedad prohibida (${pattern.source}). Reemplázalo con títulos de obras y autores concretos del país.`,
+        };
+      }
+    }
+
+    if (!hasConcreteProperNoun(combined)) {
+      return {
+        ok: false,
+        reason: `El tema destacado "${topic.title}" es demasiado vago: no nombra ningún artista, banda, libro, película, serie o festival concreto.`,
+      };
+    }
+
     const topicLinks = Array.from(
-      `${topic.title} ${topic.summary}`.matchAll(
-        /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g
-      )
+      combined.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g)
     );
     for (const match of topicLinks) {
       if (!allowedUrls.has(match[2])) {

@@ -36,7 +36,6 @@ const MODEL_CHAIN = Array.from(
 
 let disableSearchForSession = false;
 const exhaustedModelsForSession = new Set<string>();
-const consecutiveModelErrors = new Map<string, number>();
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -95,19 +94,18 @@ async function generateWithModelFallback(
   }
 
   let lastErr: unknown;
+  const roundDelays = [2500, 6000, 0];
 
-  for (let round = 0; round < 2; round++) {
+  for (let round = 0; round < 3; round++) {
     for (const model of MODEL_CHAIN) {
       if (exhaustedModelsForSession.has(model)) continue;
 
       try {
-        const res = await ai.models.generateContent({
+        return await ai.models.generateContent({
           model,
           contents,
           config,
         });
-        consecutiveModelErrors.set(model, 0);
-        return res;
       } catch (err) {
         lastErr = err;
         const msg = err instanceof Error ? err.message : String(err);
@@ -116,39 +114,30 @@ async function generateWithModelFallback(
           throw err;
         }
 
-        const prevFails = (consecutiveModelErrors.get(model) || 0) + 1;
-        consecutiveModelErrors.set(model, prevFails);
-
-        const activeLeft = MODEL_CHAIN.filter(
-          (m) => !exhaustedModelsForSession.has(m)
-        ).length;
-
-        if (
-          isDailyOrMissingModelError(msg) ||
-          (prevFails >= 2 && activeLeft > 1)
-        ) {
+        if (isDailyOrMissingModelError(msg)) {
           exhaustedModelsForSession.add(model);
           console.warn(
-            `  [Modelo] ${model} descartado para esta sesión. Usando siguiente modelo disponible...`
+            `  [Modelo] ${model} alcanzó tope diario o no está disponible. Probando siguiente...`
           );
         } else {
           console.warn(
-            `  [Modelo] ${model} saturado (429/503). Saltando al siguiente modelo...`
+            `  [Modelo] ${model} saturado (429/503). Saltando al siguiente...`
           );
-          await sleep(1200);
+          await sleep(1000);
         }
       }
     }
 
-    if (round === 0) {
-      const remaining = MODEL_CHAIN.filter(
-        (m) => !exhaustedModelsForSession.has(m)
-      );
-      if (remaining.length === 0) break;
+    const remaining = MODEL_CHAIN.filter(
+      (m) => !exhaustedModelsForSession.has(m)
+    );
+    if (remaining.length === 0) break;
+
+    if (roundDelays[round] > 0) {
       console.warn(
-        "  [Modelo] Modelos restantes ocupados; reintentando en 4s..."
+        `  [Modelo] Modelos ocupados; reintentando en ${roundDelays[round] / 1000}s...`
       );
-      await sleep(4000);
+      await sleep(roundDelays[round]);
     }
   }
 
@@ -422,10 +411,11 @@ export async function generateCountryEdition(
 ): Promise<CountryEdition> {
   const weekLabel = getCurrentIsoWeek();
 
-  const [directRss, newsRss] = await Promise.all([
-    fetchCountryRssSignals(country.rss_feeds),
-    fetchGoogleNewsCulturalSignals(country.slug, country.country),
-  ]);
+  const directRss = await fetchCountryRssSignals(country.rss_feeds);
+  const newsRss = await fetchGoogleNewsCulturalSignals(
+    country.slug,
+    country.country
+  );
 
   const balancedSignals = balanceSignalsBySource(
     [...directRss, ...newsRss],
@@ -822,10 +812,10 @@ export async function generateCountryEdition(
     }
 
     lastError =
-      plainWordCount < 200
-        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${plainWordCount} palabras y el mínimo obligatorio del sistema es 200 palabras. Desarrolla 3 o 4 párrafos completos con más detalles de obras, bandas, películas o libros del dossier hasta llegar a 320-450 palabras.`
-        : plainWordCount > 800
-          ? `Tu 'cultural_pulse' anterior tuvo ${plainWordCount} palabras (máximo 800). Resúmelo a unas 450 palabras.`
+      plainWordCount < 150
+        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${plainWordCount} palabras y el mínimo obligatorio del sistema es 150 palabras. Desarrolla 3 párrafos densos con obras, bandas, películas o libros concretos hasta llegar a 220-320 palabras.`
+        : plainWordCount > 700
+          ? `Tu 'cultural_pulse' anterior tuvo ${plainWordCount} palabras (máximo 700). Resúmelo a unas 280 palabras precisas.`
           : verdict.reason;
 
     console.warn(`  [Reintento ${attempt}] ${country.country}: ${lastError}`);

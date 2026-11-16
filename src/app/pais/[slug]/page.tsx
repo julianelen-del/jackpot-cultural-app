@@ -424,20 +424,23 @@ export default async function CountryPage({ params }: PageProps) {
                 Para escuchar y ver en {edition.country}
               </h2>
               <span className="font-serif text-xs italic text-ink-muted">
-                Aire local, podcasts y selecciones
+                Aire local, podcasts y sesiones
               </span>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div
+              className={`grid gap-4 ${
+                listeningItems.length === 1
+                  ? "grid-cols-1"
+                  : "grid-cols-1 sm:grid-cols-2"
+              }`}
+            >
               {listeningItems.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <a
+                  <div
                     key={`${item.kind}-${item.name}`}
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex flex-col justify-between border border-ink/15 bg-paper-warm/50 p-4 transition-colors hover:border-ink/40 hover:bg-paper-warm"
+                    className="flex flex-col justify-between border border-ink/15 bg-paper-warm/50 p-4"
                   >
                     <div>
                       <div className="flex items-center justify-between gap-2 text-[10px] font-semibold tracking-[0.16em] text-accent uppercase">
@@ -445,16 +448,56 @@ export default async function CountryPage({ params }: PageProps) {
                           <Icon className="h-3.5 w-3.5" />
                           <span>{item.kind}</span>
                         </span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-ink-muted transition-colors group-hover:text-accent" />
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-0.5 text-ink-muted transition-colors hover:text-accent"
+                        >
+                          <span>Sitio</span>
+                          <ArrowUpRight className="h-3 w-3" />
+                        </a>
                       </div>
-                      <h3 className="mt-2 font-serif text-lg font-medium text-ink group-hover:text-accent">
-                        {item.name}
+
+                      <h3 className="mt-2 font-serif text-lg font-medium text-ink">
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="transition-colors hover:text-accent"
+                        >
+                          {item.name}
+                        </a>
                       </h3>
                       <p className="mt-1 text-xs leading-relaxed text-ink-muted">
                         {item.description}
                       </p>
                     </div>
-                  </a>
+
+                    {item.embed_url ? (
+                      <div className="mt-3 overflow-hidden border border-ink/10 bg-paper">
+                        <iframe
+                          src={item.embed_url}
+                          title={item.name}
+                          className="h-44 w-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          loading="lazy"
+                          allowFullScreen
+                        />
+                      </div>
+                    ) : item.audio_url ? (
+                      <div className="mt-3">
+                        <audio
+                          controls
+                          preload="none"
+                          src={item.audio_url}
+                          className="h-9 w-full"
+                        >
+                          Tu navegador no soporta audio integrado.
+                        </audio>
+                      </div>
+                    ) : null}
+                  </div>
                 );
               })}
             </div>

@@ -13,7 +13,7 @@
       "https://www.conlosojosabiertos.com/feed/",
       "https://revistaotraparte.com/semanal/feed/",
       "https://news.google.com/rss/search?q=site%3Aindiehoy.com+OR+site%3Abillboard.com.ar+OR+(site%3Aes.rollingstone.com+Argentina)+when%3A10d&hl=es-419&gl=AR&ceid=AR:es-419",
-      "https://news.google.com/rss/search?q=site%3Aotroscines.com+OR+site%3Aeternacadencia.com.ar+OR+site%3Arevistabache.com.ar+OR+%22Hoy+Trasnoche%22+when%3A10d&hl=es-419&gl=AR&ceid=AR:es-419",
+      "https://news.google.com/rss/search?q=site%3Aotroscines.com+OR+site%3Aeternacadencia.com.ar+OR+site%3Arevistabache.com.ar+OR+site%3Adiariodecultura.com.ar+OR+%22Hoy+Trasnoche%22+when%3A10d&hl=es-419&gl=AR&ceid=AR:es-419",
       "https://news.google.com/rss/search?q=%22Teor%C3%ADa+de+Circuitos%22+(Ultrapop+OR+Elencwajg+OR+Lucena+OR+disco+OR+single+OR+videoclip+OR+%C3%A1lbum+OR+banda+OR+canciones)+when%3A21d&hl=es-419&gl=AR&ceid=AR:es-419"
     ],
     "reference_media": [
@@ -29,6 +29,7 @@
       "Otra Parte Semanal",
       "Eterna Cadencia",
       "Revista Bache",
+      "Diario de Cultura",
       "Revista Ñ"
     ],
     "listening": {
@@ -53,7 +54,8 @@
           "kind": "Radio / Programa",
           "name": "Toma y Daca (Futurock)",
           "url": "https://futurock.fm/",
-          "description": "Programa dominguero de radio en Futurock FM"
+          "description": "Programa dominguero de radio en Futurock FM",
+          "audio_url": "https://nowplaying.mdstrm.com/5b7dcf666253b80766f27858/576b06096457cff453000015/live/icecast.audio"
         },
         {
           "kind": "Podcast",
@@ -72,23 +74,29 @@
     "languages": ["pt"],
     "rss_feeds": [
       "https://screamyell.com.br/site/feed/",
-      "https://piaui.folha.uol.com.br/feed/",
       "https://revistacult.uol.com.br/home/feed/",
       "https://quatrocincoum.com.br/feed/",
       "https://www.tenhomaisdiscosqueamigos.com/feed/",
       "https://feeds.folha.uol.com.br/ilustrada/rss091.xml",
-      "https://news.google.com/rss/search?q=site%3Aomelete.com.br+OR+site%3Apapelpop.com+OR+site%3Acinemacomrapadura.com.br+when%3A10d&hl=pt-BR&gl=BR&ceid=BR:pt-419"
+      "https://news.google.com/rss/search?q=site%3Apopload.com.br+OR+site%3Aomelete.com.br+OR+site%3Apapelpop.com+OR+site%3Acinemacomrapadura.com.br+when%3A10d&hl=pt-BR&gl=BR&ceid=BR:pt-419"
     ],
     "reference_media": [
       "Scream & Yell",
-      "Revista Piauí",
+      "Popload",
       "Quatro Cinco Um / 451 MHz",
       "Revista Cult",
       "Tenho Mais Discos Que Amigos!",
       "Folha Ilustrada",
       "Omelete",
       "Papelpop"
-    ]
+    ],
+    "listening": {
+      "podcast": {
+        "name": "451 MHz (Quatro Cinco Um)",
+        "url": "https://quatrocincoum.com.br/podcasts/",
+        "description": "Podcast semanal sobre libros, literatura y cultura brasileña"
+      }
+    }
   },
   {
     "slug": "mexico",
@@ -97,19 +105,19 @@
     "flag": "🇲🇽",
     "languages": ["es"],
     "rss_feeds": [
+      "https://www.mehaceruido.com/feed/",
       "https://letraslibres.com/feed/",
       "https://www.indierocks.mx/feed/",
-      "https://www.nexos.com.mx/feed/",
       "https://www.jornada.com.mx/rss/cultura.xml",
       "https://news.google.com/rss/search?q=site%3Alatempestad.mx+OR+site%3Agatopardo.com+OR+site%3Acinepremiere.com.mx+OR+%22Tierra+Adentro%22+when%3A14d&hl=es-419&gl=MX&ceid=MX:es-419"
     ],
     "reference_media": [
-      "Letras Libres",
+      "Me Hace Ruido",
       "Indie Rocks!",
+      "Letras Libres",
       "La Tempestad",
       "Gatopardo",
       "Cine PREMIERE",
-      "Nexos",
       "La Jornada Cultura"
     ],
     "listening": {
@@ -131,18 +139,23 @@
       "https://www.indiewire.com/feed/",
       "https://pitchfork.com/rss/news/",
       "https://pitchfork.com/feed/reviews/best/albums/rss",
+      "https://aquariumdrunkard.com/feed/",
+      "https://www.brooklynvegan.com/feed/",
       "https://www.stereogum.com/feed/",
       "https://consequence.net/feed/",
       "https://blog.bandcamp.com/feed/",
       "https://lithub.com/feed/",
       "https://hyperallergic.com/feed/",
       "https://www.comicsbeat.com/feed/",
+      "https://www.tcj.com/feed/",
       "https://feeds.feedburner.com/nybooks",
       "https://feeds.npr.org/510282/podcast.xml",
       "https://feeds.npr.org/510364/podcast.xml"
     ],
     "reference_media": [
       "The New Yorker",
+      "Aquarium Drunkard",
+      "BrooklynVegan",
       "IndieWire",
       "Pitchfork",
       "Stereogum",
@@ -150,6 +163,7 @@
       "Bandcamp Daily",
       "Literary Hub",
       "Hyperallergic",
+      "The Comics Journal",
       "The Beat (Cómics)",
       "NYRB",
       "NPR Pop Culture Happy Hour",
@@ -161,12 +175,14 @@
       "radio": {
         "name": "The Current 89.3 FM",
         "url": "https://www.thecurrent.org/",
-        "description": "Indie, rock, raíces y sesiones en vivo desde Minnesota Public Radio"
+        "description": "Indie, rock, raíces y sesiones en vivo desde Minnesota Public Radio",
+        "audio_url": "https://current.stream.publicradio.org/kcmp.mp3"
       },
       "radio_alt": {
         "name": "KEXP 90.3 FM",
         "url": "https://www.kexp.org/",
-        "description": "Radio independiente de Seattle: indie, rock y sesiones en estudio"
+        "description": "Radio independiente de Seattle: indie, rock y sesiones en estudio",
+        "audio_url": "https://kexp-mp3-128.streamguys1.com/kexp128.mp3"
       },
       "podcast": {
         "name": "NPR All Songs Considered",
@@ -219,10 +235,14 @@
     "flag": "🇨🇱",
     "languages": ["es"],
     "rss_feeds": [
+      "https://www.potq.net/feed/",
+      "https://expectador.cl/feed/",
       "https://www.latercera.com/arc/outboundfeeds/rss/category/culto/?outputType=xml",
       "https://news.google.com/rss/search?q=(site%3Arevistasantiago.cl+OR+site%3Acinechile.cl+OR+site%3Arockaxis.com+OR+site%3Aelmostrador.cl%2Fcultura+OR+site%3Aradio.uchile.cl)+(musica+OR+rock+OR+cine+OR+series+OR+libros+OR+cultura)+when%3A14d&hl=es-419&gl=CL&ceid=CL:es-419"
     ],
     "reference_media": [
+      "POTQ Magazine",
+      "Expectador",
       "Culto (La Tercera)",
       "Revista Santiago",
       "Rockaxis",
@@ -246,16 +266,15 @@
     "flag": "🇨🇴",
     "languages": ["es"],
     "rss_feeds": [
-      "https://www.eltiempo.com/rss/cultura.xml",
-      "https://news.google.com/rss/search?q=site%3Aelmalpensante.com+OR+site%3Ashock.co+OR+site%3Aradionica.rocks+when%3A14d&hl=es-419&gl=CO&ceid=CO:es-419",
-      "https://news.google.com/rss/search?q=site%3Aelespectador.com+(cultura+OR+musica+OR+cine+OR+series+OR+libros)+when%3A10d&hl=es-419&gl=CO&ceid=CO:es-419"
+      "https://news.google.com/rss/search?q=site%3Aradionica.rocks+OR+site%3Abacanika.com+OR+site%3Ashock.co+when%3A14d&hl=es-419&gl=CO&ceid=CO:es-419",
+      "https://news.google.com/rss/search?q=(site%3Aelmalpensante.com+OR+site%3Aelespectador.com%2Fel-magazin-cultural)+(Colombia+OR+colombiano+OR+colombiana+OR+musica+OR+rock+OR+cine+OR+libros+OR+festival)+when%3A14d&hl=es-419&gl=CO&ceid=CO:es-419"
     ],
     "reference_media": [
+      "Radiónica",
+      "Bacánika",
       "El Malpensante",
       "Shock",
-      "Radiónica",
-      "El Espectador Cultura",
-      "El Tiempo Cultura"
+      "El Magazín Cultural (El Espectador)"
     ],
     "listening": {
       "radio": {
@@ -272,12 +291,13 @@
     "flag": "🇺🇾",
     "languages": ["es"],
     "rss_feeds": [
-      "https://news.google.com/rss/search?q=(site%3Abrecha.com.uy+OR+site%3Aladiaria.com.uy)+(cultura+OR+musica+OR+rock+OR+cine+OR+series+OR+libros+OR+teatro+OR+festival)+when%3A14d&hl=es-419&gl=UY&ceid=UY:es-419",
+      "https://news.google.com/rss/search?q=(site%3Abrecha.com.uy+OR+site%3Aladiaria.com.uy+OR+site%3Apiiila.com)+(cultura+OR+musica+OR+rock+OR+cine+OR+series+OR+libros+OR+teatro+OR+festival)+when%3A14d&hl=es-419&gl=UY&ceid=UY:es-419",
       "https://news.google.com/rss/search?q=(site%3Aelobservador.com.uy+OR+site%3Amontevideo.com.uy)+(musica+OR+rock+OR+cine+OR+series+OR+libros+OR+cultura)+when%3A14d&hl=es-419&gl=UY&ceid=UY:es-419"
     ],
     "reference_media": [
       "Semanario Brecha (Cultura)",
       "la diaria Cultura",
+      "Piiila",
       "El Observador Luces",
       "Radiomundo / Oír con los ojos"
     ],
@@ -297,15 +317,18 @@
     "languages": ["en"],
     "rss_feeds": [
       "https://www.nme.com/feed",
+      "https://louderthanwar.com/feed/",
       "https://lwlies.com/feed/",
       "https://mubi.com/notebook/posts.rss",
       "https://podcasts.files.bbci.co.uk/b006qsq5.rss",
       "https://www.theguardian.com/culture/rss",
       "https://aeon.co/feed",
-      "https://news.google.com/rss/search?q=site%3Athequietus.com+OR+site%3Alrb.co.uk+when%3A10d&hl=en-GB&gl=GB&ceid=GB:en"
+      "https://news.google.com/rss/search?q=site%3Athequietus.com+OR+site%3Atheskinny.co.uk+OR+site%3Alrb.co.uk+when%3A10d&hl=en-GB&gl=GB&ceid=GB:en"
     ],
     "reference_media": [
       "The Quietus",
+      "Louder Than War",
+      "The Skinny",
       "NME",
       "BBC Radio 6 Music",
       "BBC Radio 4 Front Row",
@@ -407,6 +430,7 @@
     "flag": "🇫🇷",
     "languages": ["fr"],
     "rss_feeds": [
+      "https://gonzai.com/feed/",
       "https://www.critikat.com/feed/",
       "https://radiofrance-podcast.net/podcast09/d4463877-caa3-4507-9399-f5eb00fde027/rss_14007.xml",
       "https://www.francetvinfo.fr/culture.rss",
@@ -414,6 +438,7 @@
       "https://news.google.com/rss/search?q=site%3Alesinrocks.com+OR+site%3Atelerama.fr+OR+site%3Aactuabd.com+OR+site%3Aaoc.media+when%3A10d&hl=fr&gl=FR&ceid=FR:fr"
     ],
     "reference_media": [
+      "Gonzaï",
       "Le Masque et la Plume (France Inter)",
       "Critikat",
       "Les Inrockuptibles",
@@ -421,10 +446,17 @@
       "ActuaBD (Bande Dessinée)",
       "AOC Media",
       "Le Monde Culture",
+      "FIP (Radio France)",
       "Radio Nova"
     ],
     "listening": {
       "radio": {
+        "name": "FIP (Radio France)",
+        "url": "https://www.radiofrance.fr/fip",
+        "description": "Radio musical ecléctica sin publicidad de Radio France",
+        "audio_url": "https://icecast.radiofrance.fr/fip-midfi.mp3?id=radiofrance"
+      },
+      "radio_alt": {
         "name": "Radio Nova",
         "url": "https://www.nova.fr/",
         "description": "El Grand Mix parisino: indie, soul, electrónica y selección sin algoritmo"
@@ -438,10 +470,12 @@
     "flag": "🇩🇪",
     "languages": ["de"],
     "rss_feeds": [
+      "https://diffus.de/feed/",
       "https://www.musikexpress.de/feed/",
       "https://news.google.com/rss/search?q=site%3Aperlentaucher.de+OR+site%3Azeit.de%2Fkultur+OR+site%3Amonopol-magazin.de+OR+site%3Akino-zeit.de+OR+site%3Aserienjunkies.de+when%3A10d&hl=de&gl=DE&ceid=DE:de"
     ],
     "reference_media": [
+      "DIFFUS",
       "Musikexpress",
       "Perlentaucher",
       "Kino-Zeit",
@@ -526,11 +560,13 @@
     "flag": "🇳🇱",
     "languages": ["nl"],
     "rss_feeds": [
+      "https://writteninmusic.com/feed/",
       "https://www.parool.nl/kunst-media/rss.xml",
       "https://news.google.com/rss/search?q=site%3A3voor12.vpro.nl+OR+site%3Aoor.nl+when%3A14d&hl=nl&gl=NL&ceid=NL:nl",
       "https://news.google.com/rss/search?q=site%3Anrc.nl%2Fcultuur+OR+site%3Avolkskrant.nl%2Fcultuur-media+when%3A14d&hl=nl&gl=NL&ceid=NL:nl"
     ],
     "reference_media": [
+      "Written in Music",
       "3voor12 (VPRO)",
       "OOR",
       "Het Parool Kunst & Media",
@@ -552,10 +588,12 @@
     "flag": "🇵🇹",
     "languages": ["pt"],
     "rss_feeds": [
+      "https://altamont.pt/feed/",
       "https://news.google.com/rss/search?q=(site%3Apublico.pt%2Fculturaipsilon+OR+site%3Arimasbatidas.pt+OR+site%3Acomunidadeculturaearte.com)+(musica+OR+rock+OR+indie+OR+cinema+OR+filmes+OR+series+OR+livros+OR+festival)+when%3A14d&hl=pt-PT&gl=PT&ceid=PT:pt-150",
       "https://news.google.com/rss/search?q=(site%3Aobservador.pt%2Fseccao%2Fcultura+OR+site%3Ablitz.pt+OR+site%3Aantena3.rtp.pt)+when%3A14d&hl=pt-PT&gl=PT&ceid=PT:pt-150"
     ],
     "reference_media": [
+      "Altamont",
       "Ípsilon (Público)",
       "Rimas e Batidas",
       "Comunidade Cultura e Arte",
@@ -577,10 +615,14 @@
     "flag": "🇧🇪",
     "languages": ["fr", "nl"],
     "rss_feeds": [
+      "https://www.dansendeberen.be/feed/",
+      "https://luminousdash.be/feed/",
       "https://news.google.com/rss/search?q=site%3Afocus.levif.be+OR+site%3Artbf.be%2Fculture+when%3A14d&hl=fr&gl=BE&ceid=BE:fr",
       "https://news.google.com/rss/search?q=site%3Abruzz.be%2Fnl%2Fcultuur+OR+site%3Aknack.be%2Ffocus+OR+site%3Adestandaard.be%2Fcultuur+when%3A14d&hl=nl&gl=BE&ceid=BE:nl"
     ],
     "reference_media": [
+      "Dansende Beren",
+      "Luminous Dash",
       "Focus Vif",
       "Knack Focus",
       "BRUZZ Cultuur",
@@ -592,7 +634,8 @@
       "radio": {
         "name": "Studio Brussel (StuBru)",
         "url": "https://www.vrt.be/vrtmax/kanalen/studio-brussel/",
-        "description": "Rock, música alternativa y escena de festivales belga"
+        "description": "Rock, música alternativa y escena de festivales belga",
+        "audio_url": "https://icecast.vrtcdn.be/stubru-high.mp3"
       }
     }
   },
@@ -703,128 +746,4 @@
     "continent": "Asia",
     "flag": "🇮🇳",
     "languages": ["en", "hi"],
-    "rss_feeds": [
-      "https://www.rollingstoneindia.com/feed/",
-      "https://www.thehindu.com/entertainment/feeder/default.rss",
-      "https://news.google.com/rss/search?q=site%3Ascroll.in%2Freel+OR+site%3Athewire.in%2Fculture+OR+site%3Alivemint.com%2Fmint-lounge+when%3A14d&hl=en-IN&gl=IN&ceid=IN:en"
-    ],
-    "reference_media": [
-      "Rolling Stone India",
-      "Mint Lounge",
-      "Scroll.in (The Reel)",
-      "The Wire Culture",
-      "The Hindu Arts",
-      "boxout.fm"
-    ],
-    "listening": {
-      "radio": {
-        "name": "boxout.fm",
-        "url": "https://boxout.fm/",
-        "description": "Radio comunitaria enfocada en la escena alternativa y underground india"
-      }
-    }
-  },
-  {
-    "slug": "sudafrica",
-    "country": "Sudáfrica",
-    "continent": "África",
-    "flag": "🇿🇦",
-    "languages": ["en"],
-    "rss_feeds": [
-      "https://texxandthecity.com/feed",
-      "https://theconversation.com/africa/arts/articles.atom",
-      "https://news.google.com/rss/search?q=site%3Ajohannesburgreviewofbooks.com+OR+site%3Abubblegumclub.co.za+OR+site%3Amg.co.za%2Ffriday+OR+site%3Adailymaverick.co.za%2Fsection%2Fmaverick-life+when%3A14d&hl=en-ZA&gl=ZA&ceid=ZA:en"
-    ],
-    "reference_media": [
-      "Texx and the City",
-      "The Johannesburg Review of Books",
-      "Bubblegum Club",
-      "Mail & Guardian Friday",
-      "Maverick Life",
-      "Kaya 959"
-    ],
-    "listening": {
-      "radio": {
-        "name": "Kaya 959",
-        "url": "https://www.kaya959.co.za/",
-        "description": "Soul, jazz, kwaito y escena urbana contemporánea desde Johannesburgo"
-      }
-    }
-  },
-  {
-    "slug": "nigeria",
-    "country": "Nigeria",
-    "continent": "África",
-    "flag": "🇳🇬",
-    "languages": ["en"],
-    "rss_feeds": [
-      "https://brittlepaper.com/feed/",
-      "https://news.google.com/rss/search?q=site%3Athenativemag.com+OR+site%3Aculturecustodian.com+when%3A14d&hl=en-NG&gl=NG&ceid=NG:en",
-      "https://news.google.com/rss/search?q=(Nigerian+music+OR+Afrobeats+OR+Nollywood+OR+%22Nigerian+literature%22+OR+%22Nigerian+film%22)+when%3A14d&hl=en-NG&gl=NG&ceid=NG:en"
-    ],
-    "reference_media": [
-      "The Native",
-      "Culture Custodian",
-      "Brittle Paper"
-    ],
-    "listening": {
-      "podcast": {
-        "name": "Culture Custodian Podcast Network",
-        "url": "https://culturecustodian.com/",
-        "description": "Conversaciones sobre música, cine Nollywood y cultura pop nigeriana"
-      }
-    }
-  },
-  {
-    "slug": "australia",
-    "country": "Australia",
-    "continent": "Oceanía",
-    "flag": "🇦🇺",
-    "languages": ["en"],
-    "rss_feeds": [
-      "https://overland.org.au/feed/",
-      "https://www.theguardian.com/au/culture/rss",
-      "https://theconversation.com/au/arts/articles.atom",
-      "https://news.google.com/rss/search?q=site%3Athemonthly.com.au+OR+site%3Aabc.net.au%2Fdoublej+OR+site%3Athemusic.com.au+when%3A14d&hl=en-AU&gl=AU&ceid=AU:en"
-    ],
-    "reference_media": [
-      "Overland",
-      "The Monthly",
-      "ABC Double J",
-      "The Music",
-      "The Guardian Australia Culture"
-    ],
-    "listening": {
-      "radio": {
-        "name": "ABC Double J",
-        "url": "https://www.abc.net.au/listen/doublej/",
-        "description": "Rock alternativo, indie australiano y sesiones para público adulto"
-      }
-    }
-  },
-  {
-    "slug": "nueva-zelanda",
-    "country": "Nueva Zelanda",
-    "continent": "Oceanía",
-    "flag": "🇳🇿",
-    "languages": ["en"],
-    "rss_feeds": [
-      "https://www.rnz.co.nz/rss/culture.xml",
-      "https://news.google.com/rss/search?q=site%3Athespinoff.co.nz+OR+site%3Aundertheradar.co.nz+OR+site%3Apantograph-punch.com+when%3A14d&hl=en-NZ&gl=NZ&ceid=NZ:en"
-    ],
-    "reference_media": [
-      "The Spinoff",
-      "RNZ Culture & Music",
-      "UnderTheRadar NZ",
-      "Pantograph Punch",
-      "95bFM"
-    ],
-    "listening": {
-      "radio": {
-        "name": "95bFM",
-        "url": "https://www.95bfm.com/",
-        "description": "Radio independiente de Auckland dedicada al indie y rock neozelandés"
-      }
-    }
-  }
-]
+    "rss_feeds":

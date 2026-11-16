@@ -63,9 +63,9 @@ export const CountryEditionSchema = z.object({
     (text) => {
       const plain = text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
       const words = plain.trim().split(/\s+/).filter(Boolean).length;
-      return words >= 200 && words <= 800;
+      return words >= 150 && words <= 700;
     },
-    { message: "El pulso cultural debe tener entre 200 y 800 palabras." }
+    { message: "El pulso cultural debe tener entre 150 y 700 palabras." }
   ),
   topics: z.array(TopicSchema).min(3).max(5),
   recommendation: RecommendationSchema,
@@ -86,6 +86,8 @@ export interface ListeningItem {
   name: string;
   url: string;
   description: string;
+  audio_url?: string;
+  embed_url?: string;
 }
 
 export interface CountryListeningConfig {

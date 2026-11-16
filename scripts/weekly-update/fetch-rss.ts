@@ -72,7 +72,7 @@ const GOOGLE_NEWS_LOCALE: Record<
     hl: "es-419",
     gl: "CO",
     ceid: "CO:es-419",
-    queryTerm: "(musica OR rock OR indie OR cine OR series OR libros OR literatura OR comic)",
+    queryTerm: "(Colombia OR colombiano OR colombiana) (musica OR rock OR indie OR cine OR series OR libros OR literatura OR festival)",
   },
   uruguay: {
     hl: "es-419",
@@ -227,6 +227,10 @@ const GENERIC_LINK_LABELS = [
   "source",
   "fuente",
 ];
+
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 function normalizeFeedUrl(rawUrl: string): string {
   const ytFeedBase =
@@ -388,65 +392,74 @@ async function parseSingleFeed(
   const tenDaysAgo = Date.now() - 10 * 24 * 60 * 60 * 1000;
   const signals: RssSignal[] = [];
 
-  try {
-    const feed = await parser.parseURL(feedUrl);
-    const sourceTitle = feed.title?.trim() || new URL(feedUrl).hostname;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const feed = await parser.parseURL(feedUrl);
+      const sourceTitle = feed.title?.trim() || new URL(feedUrl).hostname;
 
-    for (const item of (feed.items || []).slice(0, limit)) {
-      const title = item.title?.trim();
-      const link = item.link?.trim();
-      if (!title || !link) continue;
+      for (const item of (feed.items || []).slice(0, limit)) {
+        const title = item.title?.trim();
+        const link = item.link?.trim();
+        if (!title || !link) continue;
 
-      const rawDate = item.pubDate || item.isoDate;
-      const itemTime = rawDate ? Date.parse(rawDate) : NaN;
-      if (!Number.isNaN(itemTime) && itemTime < tenDaysAgo) {
+        const rawDate = item.pubDate || item.isoDate;
+        const itemTime = rawDate ? Date.parse(rawDate) : NaN;
+        if (!Number.isNaN(itemTime) && itemTime < tenDaysAgo) {
+          continue;
+        }
+
+        const mediaDesc = extractMediaDescription(item);
+        const rawHtml = [
+          link,
+          item.content || "",
+          item.summary || "",
+          item.contentSnippet || "",
+          mediaDesc,
+        ].join(" ");
+        const youtubeUrl = findYouTubeInHtml(rawHtml);
+
+        let host = "";
+        try {
+          host = new URL(link).hostname;
+        } catch {
+          host = "";
+        }
+        const rssExtLinks = host
+          ? extractExternalLinksFromParagraphs(
+              `${item.content || ""} ${item.summary || ""}`,
+              host
+            )
+          : [];
+
+        const rawSnippet =
+          item.contentSnippet || item.summary || item.content || mediaDesc || "";
+        const cleanSnippet = rawSnippet
+          .replace(/<[^>]*>/g, " ")
+          .replace(/\s+/g, " ")
+          .trim()
+          .slice(0, 850);
+
+        signals.push({
+          sourceTitle,
+          title,
+          snippet: cleanSnippet,
+          url: link,
+          pubDate: rawDate,
+          youtubeUrl,
+          externalLinks: rssExtLinks,
+        });
+      }
+
+      return signals;
+    } catch (error) {
+      const msg = error instanceof Error ? error.message : String(error);
+      if (attempt === 0 && msg.includes("429")) {
+        await sleep(2500);
         continue;
       }
-
-      const mediaDesc = extractMediaDescription(item);
-      const rawHtml = [
-        link,
-        item.content || "",
-        item.summary || "",
-        item.contentSnippet || "",
-        mediaDesc,
-      ].join(" ");
-      const youtubeUrl = findYouTubeInHtml(rawHtml);
-
-      let host = "";
-      try {
-        host = new URL(link).hostname;
-      } catch {
-        host = "";
-      }
-      const rssExtLinks = host
-        ? extractExternalLinksFromParagraphs(
-            `${item.content || ""} ${item.summary || ""}`,
-            host
-          )
-        : [];
-
-      const rawSnippet =
-        item.contentSnippet || item.summary || item.content || mediaDesc || "";
-      const cleanSnippet = rawSnippet
-        .replace(/<[^>]*>/g, " ")
-        .replace(/\s+/g, " ")
-        .trim()
-        .slice(0, 850);
-
-      signals.push({
-        sourceTitle,
-        title,
-        snippet: cleanSnippet,
-        url: link,
-        pubDate: rawDate,
-        youtubeUrl,
-        externalLinks: rssExtLinks,
-      });
+      console.warn("  [RSS aviso] No se pudo leer " + feedUrl + ": " + msg);
+      return signals;
     }
-  } catch (error) {
-    const msg = error instanceof Error ? error.message : String(error);
-    console.warn("  [RSS aviso] No se pudo leer " + feedUrl + ": " + msg);
   }
 
   return signals;
@@ -528,10 +541,25 @@ export async function fetchCountryRssSignals(
   feedUrls: string[]
 ): Promise<RssSignal[]> {
   if (!feedUrls.length) return [];
-  const results = await Promise.all(
-    feedUrls.map((url) => parseSingleFeed(url, 6))
+
+  const directUrls = feedUrls.filter((u) => !u.includes("news.google.com"));
+  const gnewsUrls = feedUrls.filter((u) => u.includes("news.google.com"));
+
+  const directResults = await Promise.all(
+    directUrls.map((url) => parseSingleFeed(url, 6))
   );
-  return balanceSignalsBySource(results.flat(), 3, 26);
+
+  const gnewsResults: RssSignal[][] = [];
+  for (let i = 0; i < gnewsUrls.length; i++) {
+    if (i > 0) await sleep(700);
+    gnewsResults.push(await parseSingleFeed(gnewsUrls[i], 6));
+  }
+
+  return balanceSignalsBySource(
+    [...directResults.flat(), ...gnewsResults.flat()],
+    3,
+    26
+  );
 }
 
 export async function fetchGoogleNewsCulturalSignals(
@@ -544,6 +572,8 @@ export async function fetchGoogleNewsCulturalSignals(
     ceid: "US:en",
     queryTerm: `${countryName} (culture OR music OR rock OR film OR series OR books)`,
   };
+
+  await sleep(600);
 
   const query = encodeURIComponent(cfg.queryTerm + " when:7d");
   const url =
