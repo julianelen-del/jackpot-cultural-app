@@ -1,7 +1,7 @@
 import Parser from "rss-parser";
 
 const parser = new Parser({
-  timeout: 6500,
+  timeout: 10000,
   customFields: {
     item: [["media:group", "mediaGroup"]],
   },
@@ -203,11 +203,24 @@ const GENERIC_LINK_LABELS = [
   "fuente",
 ];
 
+function normalizeFeedUrl(rawUrl: string): string {
+  const ytFeedBase =
+    "https://" + "www.youtube.com/feeds/videos.xml?channel_id=";
+  if (rawUrl.startsWith(".xml?channel_id=")) {
+    return ytFeedBase + rawUrl.slice(".xml?channel_id=".length);
+  }
+  if (rawUrl.startsWith("yt-channel:")) {
+    return ytFeedBase + rawUrl.slice("yt-channel:".length).trim();
+  }
+  return rawUrl;
+}
+
 function findYouTubeInHtml(rawHtml: string): string | undefined {
   const regex =
     /https?:\/\/(?:www\.|m\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube-nocookie\.com\/embed\/)([a-zA-Z0-9_-]{11})/;
   const match = rawHtml.match(regex);
-  return match ? `https://www.youtube.com/watch?v=${match[1]}` : undefined;
+  const ytWatchBase = "https://" + "www.youtube.com/watch?v=";
+  return match ? ytWatchBase + match[1] : undefined;
 }
 
 function extractMediaDescription(item: unknown): string {
@@ -342,7 +355,11 @@ async function fetchOpenArticleContext(url: string): Promise<{
   }
 }
 
-async function parseSingleFeed(feedUrl: string, limit = 8): Promise<RssSignal[]> {
+async function parseSingleFeed(
+  rawFeedUrl: string,
+  limit = 8
+): Promise<RssSignal[]> {
+  const feedUrl = normalizeFeedUrl(rawFeedUrl);
   const tenDaysAgo = Date.now() - 10 * 24 * 60 * 60 * 1000;
   const signals: RssSignal[] = [];
 

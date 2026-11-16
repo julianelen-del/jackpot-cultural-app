@@ -89,12 +89,12 @@ ${ytBlock}
 REGLAS ESTRICTAS DE REDACCIÓN Y FORMATO PARA ${country.country.toUpperCase()} (${weekLabel}):
 1. "intro": 1 o 2 frases cortas (entre 60 y 190 caracteres) nombrando obras, artistas o debates concretos de esta semana.
 2. "visual_query": Nombre concreto en inglés o español (2 a 4 palabras) para la foto de portada en Wikimedia (ej: "Teatro Colon Buenos Aires", "Dublin Abbey Theatre").
-3. "visual_caption": Pie de foto breve en español (máximo 130 caracteres, sin usar "vibrante").
+3. "visual_caption": Pie de foto breve en español (máximo 130 caracteres) que nombre explícitamente el lugar, evento o referente mostrado (sin usar "vibrante" ni fórmulas genéricas como "Escena cultural en...").
 4. "cultural_pulse": Crónica ágil, inteligente, clara y concreta centrada en **música, series, cine, libros/cómic y debates artísticos actuales** (cero cifras de ventas, taquilla o streams).
-   - **LONGITUD:** entre **380 y 500 palabras** (obligatorio superar las 270 palabras y no pasar de 650), en 3 o 4 párrafos fluidos separados por doble salto de línea (\\n\\n).
+   - **LONGITUD OBLIGATORIA:** entre **420 y 550 palabras** (NUNCA menos de 330 palabras ni más de 650). Escribe **4 párrafos desarrollados** (~110 palabras cada uno) separados por doble salto de línea (\\n\\n), sin resumir en exceso.
    - **PERTENENCIA REAL AL PAÍS:** Si un medio publica historias de otros países (por ejemplo, una revista regional cubriendo escenas de otro territorio), descártalas. Incluye solo hechos, obras o artistas vinculados concretamente con **${country.country}**.
-   - **PROHIBIDO RELLENO VAGO O CONFUSO:** Nunca escribas "un pionero", "un reconocido artista" o descripciones anónimas sin nombre propio; si la señal no dice quién es ni qué es la obra, descártala. No arranques párrafos con frases-paraguas ("...completan el mapa semanal", "Mientras tanto...") ni amontones 3 o 4 menciones sueltas y crípticas en un mismo párrafo: es preferible desarrollar 2 hechos claros, explicando brevemente qué es cada obra o creador antes de describir su contenido.
-   - **NEGRITAS CON CRITERIO:** Incluye **1 o 2 negritas por párrafo** usando **texto** para destacar nombres propios clave o ideas centrales y facilitar la lectura. Nunca pongas negritas encima de un enlace [texto](...). Usa *cursiva* para títulos de discos, películas, series o libros cuando no vayan en negrita.
+   - **PROHIBIDO RELLENO VAGO O CONFUSO:** Nunca escribas "un pionero", "un reconocido artista" o descripciones anónimas sin nombre propio; si la señal no dice quién es ni qué es la obra, descártala. No arranques párrafos con frases-paraguas ("...completan el mapa semanal", "Mientras tanto...") ni amontones 3 o 4 menciones sueltas y crípticas en un mismo párrafo: desarrolla 2 hechos claros por párrafo, explicando brevemente qué es cada obra o creador antes de describir su contenido.
+   - **NEGRITAS OBLIGATORIAS CON CRITERIO:** Incluye **1 o 2 negritas por párrafo** (mínimo 3 en todo el texto) usando **texto** para destacar nombres propios clave o ideas centrales y facilitar la lectura. Nunca pongas negritas encima de un enlace [texto](...). Usa *cursiva* para títulos de discos, películas, series o libros cuando no vayan en negrita.
    - **ENLACES OBLIGATORIOS EN EL TEXTO (2 o 3):** Incluye exactamente **2 o 3 enlaces** sobre nombres propios de obras, bandas, artistas, festivales o librerías usando una de estas dos formas:
      a) [Nombre exacto](WIKI:Nombre exacto) para enlazar a la página real de Wikipedia de esa persona, banda, película, serie o libro (ej: [Fontaines D.C.](WIKI:Fontaines D.C.), [Sally Rooney](WIKI:Sally Rooney)).
      b) [Nombre exacto](ID) poniendo solo el número entero de la lista de arriba (ej: [Milano Music Week](9), priorizando los marcados como [SITIO EXTERNO]).
@@ -106,7 +106,7 @@ REGLAS ESTRICTAS DE REDACCIÓN Y FORMATO PARA ${country.country.toUpperCase()} (
    - "mode": si existe algún video en VIDEOS DE YOUTUBE VERIFICADOS arriba que ilustre una banda, tráiler, serie o artista mencionado en el texto, PRIORIZA "video"; si no hay video pertinente, usa "image" indicando en "image_query" el **nombre propio exacto del artista, banda, escritor, director o lugar mencionado** para buscar su retrato o foto en Wikipedia/Wikimedia; usa "none" solo si nada aplica.
    - "youtube_url": URL exacta de VIDEOS DE YOUTUBE VERIFICADOS (solo si mode="video").
    - "image_query": nombre propio exacto (solo si mode="image").
-   - "caption": pie explicativo breve en español que conecte esa imagen/video con lo contado en la nota.
+   - "caption": pie explicativo breve en español que **nombre explícitamente a la persona, banda, obra o lugar que se muestra** y explique su relación con la nota (PROHIBIDO usar fórmulas genéricas como "Retrato editorial vinculado..." o "Imagen ilustrativa...").
 8. "sources": Entre 3 y 6 medios distintos elegidos de la lista numerada (si existen menos de 3 medios distintos, mínimo 2), con "id" (entero entre 1 y ${verifiedUrls.length}), "name" y "paywalled" (true/false).
 `.trim();
 }

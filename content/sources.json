@@ -13,7 +13,7 @@
       "https://www.conlosojosabiertos.com/feed/",
       "https://revistaotraparte.com/semanal/feed/",
       "https://billboard.com.ar/feed/",
-      "https://news.google.com/rss/search?q=site%3Aindiehoy.com+OR+site%3Asilencio.com.ar+OR+site%3Arollingstone.com.ar+when%3A10d&hl=es-419&gl=AR&ceid=AR:es-419",
+      "https://news.google.com/rss/search?q=site%3Aindiehoy.com+OR+(site%3Aes.rollingstone.com+Argentina)+when%3A10d&hl=es-419&gl=AR&ceid=AR:es-419",
       "https://news.google.com/rss/search?q=site%3Aotroscines.com+OR+site%3Aeternacadencia.com.ar+OR+site%3Arevistabache.com.ar+OR+%22Hoy+Trasnoche%22+when%3A10d&hl=es-419&gl=AR&ceid=AR:es-419"
     ],
     "reference_media": [
@@ -21,7 +21,6 @@
       "Suplemento NO (Página/12)",
       "Indie Hoy",
       "Rolling Stone Argentina",
-      "Silencio",
       "Micropsia Cine",
       "Otros Cines",
       "Con los Ojos Abiertos",
@@ -102,8 +101,8 @@
       "https://feeds.feedburner.com/nybooks",
       "https://feeds.npr.org/510282/podcast.xml",
       "https://feeds.npr.org/510364/podcast.xml",
-      "https://www.youtube.com/feeds/videos.xml?channel_id=UC4eYXhJI4-7wSWc8UNRwD4A",
-      "https://www.youtube.com/feeds/videos.xml?channel_id=UC3I2GFN_F8WudD_2jUZbojA"
+      "yt-channel:UC4eYXhJI4-7wSWc8UNRwD4A",
+      "yt-channel:UC3I2GFN_F8WudD_2jUZbojA"
     ],
     "reference_media": [
       "The New Yorker",
@@ -258,7 +257,7 @@
     "rss_feeds": [
       "https://www.critikat.com/feed/",
       "https://radiofrance-podcast.net/podcast09/d4463877-caa3-4507-9399-f5eb00fde027/rss_14007.xml",
-      "https://www.youtube.com/feeds/videos.xml?channel_id=UC-smeLB9AnOTeypr1YyjJ3A",
+      "yt-channel:UC-smeLB9AnOTeypr1YyjJ3A",
       "https://www.francetvinfo.fr/culture.rss",
       "https://www.lemonde.fr/culture/rss_full.xml",
       "https://news.google.com/rss/search?q=site%3Alesinrocks.com+OR+site%3Atelerama.fr+OR+site%3Aactuabd.com+OR+site%3Aaoc.media+when%3A10d&hl=fr&gl=FR&ceid=FR:fr"
@@ -282,7 +281,7 @@
     "languages": ["de"],
     "rss_feeds": [
       "https://www.musikexpress.de/feed/",
-      "https://www.youtube.com/feeds/videos.xml?channel_id=UCLLibJTCy3sXjHLVaDimnpQ",
+      "yt-channel:UCLLibJTCy3sXjHLVaDimnpQ",
       "https://news.google.com/rss/search?q=site%3Aperlentaucher.de+OR+site%3Azeit.de%2Fkultur+OR+site%3Amonopol-magazin.de+OR+site%3Akino-zeit.de+OR+site%3Aserienjunkies.de+when%3A10d&hl=de&gl=DE&ceid=DE:de"
     ],
     "reference_media": [

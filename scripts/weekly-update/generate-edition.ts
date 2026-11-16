@@ -125,7 +125,7 @@ async function generateWithModelFallback(
 
 function cleanRoboticTransitions(text: string): string {
   return text.replace(
-    /(^|\n\n|[.!?]\s+)(?:Por un lado|Por otro lado|Paralelamente|En paralelo|Asimismo|Finalmente|En suma|En conclusión|En definitiva),?\s+(\*\*|\*|\[)?([a-záéíóúñüA-ZÁÉÍÓÚÑÜ])/g,
+    /(^|\n\n|[.!?]\s+)(?:Por un lado|Por otro lado|Paralelamente|En paralelo|Mientras tanto|Asimismo|Por su parte|Finalmente|En suma|En conclusión|En definitiva),?\s+(\*\*|\*|\[)?([a-záéíóúñüA-ZÁÉÍÓÚÑÜ])/g,
     (_, prefix: string, opener = "", firstChar: string) =>
       `${prefix}${opener}${firstChar.toUpperCase()}`
   );
@@ -508,7 +508,7 @@ export async function generateCountryEdition(
     const visualCaption =
       typeof parsedJson.visual_caption === "string"
         ? stripNumericCitations(parsedJson.visual_caption)
-        : `Escena cultural en ${country.country}.`;
+        : `${country.country}: panorama cultural semanal.`;
 
     const rawPulse =
       typeof parsedJson.cultural_pulse === "string"
@@ -633,8 +633,8 @@ export async function generateCountryEdition(
         : 0;
 
     lastError =
-      plainWordCount < 250
-        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${plainWordCount} palabras y el mínimo obligatorio es 250. Desarróllalo hasta alcanzar 350-450 palabras con hechos y obras concretas.`
+      plainWordCount < 300
+        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${plainWordCount} palabras y el mínimo obligatorio del sistema es 300 palabras. No resumas tanto: desarrolla 4 párrafos completos con más detalles de obras, artistas y hechos del dossier hasta llegar a 420-520 palabras.`
         : plainWordCount > 800
           ? `Tu 'cultural_pulse' anterior tuvo ${plainWordCount} palabras (máximo 800). Resúmelo a unas 450 palabras.`
           : recCtxLen > 220

@@ -14,7 +14,16 @@ const AI_CLICHE_PATTERNS = [
   /supervivencia identitaria/i,
   /arqueología del secreto/i,
   /estilización operística/i,
+  /diálogo entre tradición y vanguardia/i,
+  /completan el mapa semanal/i,
   /recordándonos que el arte/i,
+];
+
+const GENERIC_CAPTION_PATTERNS = [
+  /retrato editorial/i,
+  /vinculado al debate/i,
+  /imagen ilustrativa/i,
+  /^escena cultural (actual )?en\b/i,
 ];
 
 export function validateEditionQuality(
@@ -38,6 +47,32 @@ export function validateEditionQuality(
         reason: `Detectado cliché abstracto prohibido (${pattern.source}). Reescribe con obras y nombres propios concretos.`,
       };
     }
+  }
+
+  const captionsToCheck = [
+    edition.cover_image?.caption,
+    edition.closing_media?.caption,
+  ].filter((c): c is string => Boolean(c));
+
+  for (const cap of captionsToCheck) {
+    for (const pattern of GENERIC_CAPTION_PATTERNS) {
+      if (pattern.test(cap)) {
+        return {
+          ok: false,
+          reason: `Epígrafe demasiado genérico ("${cap}"). Debe nombrar explícitamente a la persona, banda, obra o lugar que aparece en la imagen o video.`,
+        };
+      }
+    }
+  }
+
+  const boldMatches = Array.from(
+    edition.cultural_pulse.matchAll(/\*\*([^*\n]{2,80})\*\*/g)
+  );
+  if (boldMatches.length < 2) {
+    return {
+      ok: false,
+      reason: `Faltan negritas en cultural_pulse (incluyó ${boldMatches.length}; obligatorio destacar al menos 3 nombres propios o ideas clave usando **texto**, sin ponerlas encima de enlaces).`,
+    };
   }
 
   const inlineLinks = Array.from(

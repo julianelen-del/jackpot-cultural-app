@@ -175,15 +175,36 @@ export async function fetchWikipediaLeadImage(
 
       if (!sumRes.ok) continue;
       const summary = (await sumRes.json()) as {
+        type?: string;
         thumbnail?: { source?: string; width?: number; height?: number };
         originalimage?: { source?: string; width?: number; height?: number };
       };
 
-      const img = summary.originalimage || summary.thumbnail;
-      const imageUrl = summary.thumbnail?.source || summary.originalimage?.source;
-      if (!imageUrl || imageUrl === excludeUrl) continue;
+      if (summary.type === "disambiguation") continue;
 
-      const lower = imageUrl.toLowerCase();
+      const orig = summary.originalimage;
+      const thumb = summary.thumbnail;
+      const origWidth = orig?.width || 0;
+      const thumbWidth = thumb?.width || 0;
+
+      if (origWidth > 0 && origWidth < 400) continue;
+      if (origWidth === 0 && thumbWidth > 0 && thumbWidth < 400) continue;
+
+      let chosenUrl: string | undefined;
+      if (orig?.source && origWidth <= 1600) {
+        chosenUrl = orig.source;
+      } else if (thumb?.source) {
+        chosenUrl =
+          origWidth >= 960
+            ? thumb.source.replace(/\/\d+px-/, "/960px-")
+            : thumb.source;
+      } else {
+        chosenUrl = orig?.source;
+      }
+
+      if (!chosenUrl || chosenUrl === excludeUrl) continue;
+
+      const lower = chosenUrl.toLowerCase();
       if (
         lower.endsWith(".svg") ||
         EXCLUDED_IMAGE_TERMS.some((t) => lower.includes(t))
@@ -191,13 +212,8 @@ export async function fetchWikipediaLeadImage(
         continue;
       }
 
-      const width = img?.width || 0;
-      if (width > 0 && width < 400) continue;
-
-      const cleanUrl = imageUrl.replace(/\/\d+px-/, "/960px-");
-
       return {
-        url: cleanUrl,
+        url: chosenUrl,
         caption: caption.trim().slice(0, 195),
         credit: `Foto: Wikimedia Commons (vía Wikipedia ${lang.toUpperCase()})`,
       };
@@ -307,10 +323,10 @@ export async function verifyYouTubeOEmbed(
   try {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 4500);
-    const res = await fetch(
-      `https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(rawUrl)}`,
-      { signal: controller.signal }
-    );
+    const oembedBase = "https://" + "www.youtube.com/oembed?format=json&url=";
+    const res = await fetch(oembedBase + encodeURIComponent(rawUrl), {
+      signal: controller.signal,
+    });
     clearTimeout(timer);
     return res.ok ? embedUrl : null;
   } catch {
