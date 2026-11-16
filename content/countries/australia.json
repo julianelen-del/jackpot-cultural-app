@@ -3,43 +3,43 @@
   "country": "Australia",
   "continent": "Oceanía",
   "flag": "🇦🇺",
-  "updated_at": "2026-11-16T05:10:05.749Z",
+  "updated_at": "2026-11-16T19:51:56.693Z",
   "edition_week": "2026-W47",
-  "intro": "La nueva poesía y la prosa australiana desatan debates generacionales en Overland.",
+  "intro": "Cincuenta años de Don's Party y las nuevas polémicas de la comedia televisiva marcan el pulso de la cultura australiana.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Sydney_Opera_House_-_Dec_2008.jpg/1280px-Sydney_Opera_House_-_Dec_2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Vista panorámica de la Ópera de Sídney, epicentro de la actividad cultural contemporánea en Australia.",
-    "credit": "Foto: Diliff · CC BY-SA 3.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Sydney_Opera_House_interior_tour%2C_2023%2C_07.jpg/1280px-Sydney_Opera_House_interior_tour%2C_2023%2C_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Vista interior de la Sydney Opera House, epicentro de los debates artísticos en Australia.",
+    "credit": "Foto: Kgbo · CC BY-SA 4.0"
   },
-  "cultural_pulse": "El panorama cultural australiano de esta semana encuentra su eje en las tensiones y renovaciones que sacuden el circuito literario y editorial. Desde las páginas de la emblemática revista trimestral [Overland](https://overland.org.au/2026/11/contingencies-nicholas-southall-and-mark-gawnes-crimes-of-class/), la discusión pública se enciende en torno a quiénes se benefician realmente cuando los creadores de las **Primeras Naciones** alcanzan el éxito en mercados desregulados dominados por el individualismo. Esta reflexión coral convive con ensayos que abogan por la desoriginalidad como un método poético legítimo y una forma genuina de resistencia política, desafiando las estructuras tradicionales de autoría.\n\nLa agenda artística local dialoga con los debates globales sobre censura y disidencia política, recordando cómo los intentos de silenciar voces críticas en distintos escenarios internacionales terminan amplificando su mensaje de manera imprevista. Las recientes entregas de premios y convocatorias culturales en el territorio australiano reflejan una búsqueda constante por ensanchar los márgenes de las expresiones independientes, priorizando la crudeza lírica y la urgencia temática por encima de cualquier concesión comercial.\n\nLa narrativa contemporánea y la poesía publicada en las últimas ediciones de colecciones locales demuestran que las nuevas generaciones de escritores no temen abordar la crisis ambiental ni los dilemas identitarios desde una óptica descarnada. Lejos de buscar refugio en la nostalgia institucional, los autores contemporáneos prefieren desmenuzar las contradicciones de su propio tiempo, consolidando una escena que mantiene intacto su pulso crítico y su vocación experimental.",
+  "cultural_pulse": "El debate cultural australiano mira al pasado con una mezcla de incomodidad y fascinación al cumplirse el quincuagésimo aniversario de la adaptación cinematográfica de **Don's Party**, la célebre obra teatral de **David Williamson** que dirigió [Bruce Beresford](https://es.wikipedia.org/wiki/Bruce_Beresford). Esta radiografía feroz de la autocomplacencia y las contradicciones de la izquierda de clase media durante la noche electoral de 1969 mantiene una vigencia asombrosa, recordando cómo el cine australiano supo diseccionar las miserias íntimas de su burguesía ilustrada con actores de la talla de **John Hargreaves** y **Ray Barrett**. Aquel retrato de la petty bourgeoise en plena crisis existencial resuena con fuerza en los debates contemporáneos sobre los límites de la representación política y los privilegios culturales.\n\nLas pantallas locales digieren la llegada de producciones que intentan conectar la tradición del entretenimiento familiar con sensibilidades globales. La irrupción de **Ludo Studio**, el estudio responsable del fenómeno animado de **Bluey**, con su primer largometraje de acción real titulado *Allen*, ha generado discusiones sobre el peso de la industria audiovisual australiana en el streaming internacional. Lejos del autobombo comercial, la crítica observa con lupa cómo estas factorías locales adaptan fórmulas foráneas sin perder el pulso de su identidad territorial, un ejercicio constante de equilibrio entre la expansión industrial y la preservación de voces genuinas en un mercado hiperconectado.\n\nLa vitalidad del ensayo y la crítica literaria encuentra nuevos cauces en publicaciones independientes como la revista [Overland](https://overland.org.au/2026/11/contingencies-nicholas-southall-and-mark-gawnes-crimes-of-class/), que en su número reciente despliega densos análisis sobre las economías del arte de las Primeras Naciones y las derivas del mercado cultural contemporáneo. En un ecosistema donde la creación literaria y poética busca resistir la mercantilización excesiva, las discusiones sobre la autonomía estética y la propiedad de los relatos indígenas siguen marcando la agenda intelectual del país, alejándose de los circuitos más comerciales para apostar por la reflexión a largo plazo.",
   "topics": [
     {
-      "category": "Libros y Revistas",
-      "title": "Nuevas voces en Overland",
-      "summary": "La revista literaria Overland publica su número más extenso, reuniendo a los ganadores de los premios de poesía Judith Wright, el galardón de relato corto Neilma Sidney y el premio para jóvenes escritores indígenas Nakata Brophy."
+      "category": "Cine y Series",
+      "title": "Cincuenta años de Don's Party",
+      "summary": "El clásico dirigido por [Bruce Beresford](https://es.wikipedia.org/wiki/Bruce_Beresford) sobre la obra de **David Williamson** sigue siendo la disección más afilada de la clase media progresista australiana."
     },
     {
-      "category": "Cine",
-      "title": "El salto al live-action de Ludo Studio",
-      "summary": "El estudio de animación responsable de Bluey debuta en el formato de acción real con Allen, un largometraje familiar que explora el reencuentro de un adulto con el tierno alienígena que conoció en su infancia."
+      "category": "Música y Rock",
+      "title": "Nuevas coordenadas sonoras",
+      "summary": "Los circuitos independientes alternativos exploran cruces entre la tradición local y las nuevas estéticas digitales en plataformas de radio como [Double J](https://news.google.com/rss/articles/CBMib0FVX3lxTE5NVWNSbENaOHB3YkF5d1pfeEFnLWVZRjlFZGNuMl9WeWRDN29Tb1lWTlN2eXZYS2xWel9ibTNqZWkwWjZYc2cxYkc4UEtNRHdXa0E2elZmWXNaWG1yX1FoNFhDSV9zbTIxczBVUXc4MA?oc=5)."
     },
     {
-      "category": "Debates Culturales",
-      "title": "Censura y amplificación artística",
-      "summary": "Analistas culturales repasan los efectos históricos y actuales de la censura estatal y corporativa sobre músicos disidentes, demostrando cómo el destierro o los vetos suelen potenciar el alcance de sus mensajes."
+      "category": "Libros de Ficción y No Ficción",
+      "title": "El pulso crítico de Overland",
+      "summary": "La revista literaria [Overland](https://overland.org.au/2026/11/contingencies-nicholas-southall-and-mark-gawnes-crimes-of-class/) consolida su espacio de debate con ensayos que cuestionan las economías extractivas en el arte contemporáneo de las Primeras Naciones."
     }
   ],
   "recommendation": {
-    "type": "Álbum",
-    "title": "Catálogo de la escena independiente australiana",
-    "creator": "Varios artistas",
-    "context": "Un recorrido esencial por las propuestas sonoras más audaces y renovadoras del circuito alternativo de Oceanía.",
-    "url": "https://overland.org.au/2026/11/contingencies-nicholas-southall-and-mark-gawnes-crimes-of-class/"
+    "type": "Película",
+    "title": "Don's Party",
+    "creator": "Bruce Beresford",
+    "context": "Una comedia negra indispensable para entender los dilemas morales e ideológicos de la burguesía australiana.",
+    "url": "https://theconversation.com/dons-party-at-50-remains-a-biting-examination-of-australias-left-leaning-middle-class-293944"
   },
   "closing_media": {
     "type": "image",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Sydney_Town_Hall_clock_tower._%2821090328131%29.jpg/960px-Sydney_Town_Hall_clock_tower._%2821090328131%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "caption": "Retrato de archivo de Sydney, reflejando el dinamismo arquitectónico y cultural de la metrópoli australiana.",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Bruce_Beresford_2016_%281GEfTW9wxpc%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "caption": "Retrato de Bruce Beresford, director fundamental del cine australiano.",
     "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
@@ -55,7 +55,12 @@
     },
     {
       "name": "Arts + Culture – The Conversation",
-      "url": "https://theconversation.com/east-germany-exiled-singer-wolf-biermann-they-only-made-his-message-louder-295247",
+      "url": "https://theconversation.com/dons-party-at-50-remains-a-biting-examination-of-australias-left-leaning-middle-class-293944",
+      "paywalled": false
+    },
+    {
+      "name": "Google News",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5NVWNSbENaOHB3YkF5d1pfeEFnLWVZRjlFZGNuMl9WeWRDN29Tb1lWTlN2eXZYS2xWel9ibTNqZWkwWjZYc2cxYkc4UEtNRHdXa0E2elZmWXNaWG1yX1FoNFhDSV9zbTIxczBVUXc4MA?oc=5",
       "paywalled": false
     }
   ]

@@ -1,0 +1,62 @@
+{
+  "slug": "belgica",
+  "country": "Bélgica",
+  "continent": "Europa",
+  "flag": "🇧🇪",
+  "updated_at": "2026-11-16T19:47:05.071Z",
+  "edition_week": "2026-W47",
+  "intro": "El pulso cultural de Bélgica explora esta semana una mirada renovada a los clásicos desde las tablas de Bruselas hasta la gran pantalla.",
+  "cover_image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/ROYAL_THEATRE-BRUSSELS-Dr._Murali_Mohan_Gurram_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "caption": "Fachada del teatro de Bruselas, epicentro de la creación escénica contemporánea en Bélgica.",
+    "credit": "Foto: Dr Murali Mohan Gurram · CC BY-SA 3.0"
+  },
+  "cultural_pulse": "La cartelera cultural belga de esta semana mixtura con pulso firme las coordenadas del cine internacional y la reinvención de los grandes textos dramáticos en la escena local. Mientras los cinéfilos discuten en los medios francófonos sobre los nombres propios que definirán la próxima etapa del espía más famoso del cine a través de coberturas en [Focus Vif](https://news.google.com/rss/articles/CBMigAFBVV95cUxNUjN2LUFIcVBNcVItMDRQeDNHV2ViQnh6RnhLd3RlWS1ORTdBaXd0ZUtOeEhOTFlPTjdxV0ZhcXhRTXpWZURuWGN6RDB3RTBuUWpVc293VDc1cDNvdG40azZuaE9Ib0ctZ2FxQ0pWWW90dzNYc0xJaXBxUS03Q0JvbQ?oc=5), el pulso escénico se concentra en propuestas audaces que sacuden los repertorios tradicionales.\n\nEn el terreno de las artes escénicas, la directora y dramaturga **Eline Schumacher** irrumpe con fuerza en la programación teatral al proponer una lectura completamente contemporánea del imaginario popular. Su enfoque interroga la vigencia de las pasiones clásicas y las traslada a formatos dinámicos que conectan de inmediato con las inquietudes del público actual, alejándose de cualquier solemnidad académica y apostando por la agilidad narrativa.\n\nLa vitalidad de la agenda cultural en **Bruselas y Valonia** demuestra que el circuito alternativo e independiente mantiene un diálogo constante con las grandes marcas de la cultura pop. Ya sea analizando los relevos generacionales en franquicias globales o renovando el lenguaje del teatro de texto, la crítica especializada insiste en la necesidad de observar con lupa la autoría local y sus cruces con la ficción contemporánea.",
+  "topics": [
+    {
+      "category": "Cine",
+      "title": "El futuro de James Bond",
+      "summary": "La prensa cultural de Bruselas analiza minuciosamente los nombres y perfiles que tomarán la posta de Daniel Craig en la legendaria saga cinematográfica según reporta [Focus Vif](https://news.google.com/rss/articles/CBMigAFBVV95cUxNUjN2LUFIcVBNcVItMDRQeDNHV2ViQnh6RnhLd3RlWS1ORTdBaXd0ZUtOeEhOTFlPTjdxV0ZhcXhRTXpWZURuWGN6RDB3RTBuUWpVc293VDc1cDNvdG40azZuaE9Ib0ctZ2FxQ0pWWW90dzNYc0xJaXBxUS03Q0JvbQ?oc=5)."
+    },
+    {
+      "category": "Teatro",
+      "title": "Juliette et Roméo por Eline Schumacher",
+      "summary": "La creadora revisita los códigos del teatro popular en una puesta en escena que subvierte los arquetipos románticos tradicionales con frescura y agudeza contemporánea."
+    },
+    {
+      "category": "Cultura",
+      "title": "Debates de la crítica francófona",
+      "summary": "Los suplementos culturales belgas profundizan en las tensiones entre las grandes producciones de estudio y la supervivencia de los formatos de autor en la cartelera."
+    }
+  ],
+  "recommendation": {
+    "type": "Obra teatral",
+    "title": "Juliette et Roméo",
+    "creator": "Eline Schumacher",
+    "context": "Una reinvención escénica imprescindible para entender cómo el teatro popular dialoga hoy con las grandes tragedias clásicas.",
+    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOWXZTRFQ3SjVXSWRFckV4bUlwNE1LOHdENGt1enE5cVJOOTZZbHBSVWkyTVN5YnpXM0xwLTFMbzNwTGZqLTlOM0EzdmtJUGVrRmI4Qm84aHJwV2dQbzBWdHlPQXZYczFMQUFvTm1WQnRlNnpJem5JZ19SVDFLUFlSVDZNSFU2MW55cUlMWHp4a0xoU3FxWEs3RExFREJ5QWI1TkFR?oc=5"
+  },
+  "closing_media": {
+    "type": "image",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Mallon-Mary_01.jpg/960px-Mallon-Mary_01.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "La directora y dramaturga Eline Schumacher, responsable de la renovada lectura escénica de los clásicos en Bélgica.",
+    "credit": "Foto: Wikimedia Commons (vía Wikipedia ES)"
+  },
+  "sources": [
+    {
+      "name": "Focus Vif",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNUjN2LUFIcVBNcVItMDRQeDNHV2ViQnh6RnhLd3RlWS1ORTdBaXd0ZUtOeEhOTFlPTjdxV0ZhcXhRTXpWZURuWGN6RDB3RTBuUWpVc293VDc1cDNvdG40azZuaE9Ib0ctZ2FxQ0pWWW90dzNYc0xJaXBxUS03Q0JvbQ?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "Focus Vif",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOMWUwTDFHWXRjU3hZM2FON0RXNzFzS3VaOUcza01td3NuVVZyWTJlbHVvdGVpaTRqUm1TLWV5SDdQcFd5TXFfMFFnZ2VMN3h3ZEYydUJxTEY4c2g3WXBzc29NMEtiaHpFanp2ZGNRSElxaExrOXRBLXZraFd3LVNvUm1qZ08zZHBEMTUxS0VhMjYxVG9pRkVyM0kyV1B2RVdxYWtiX1ZTeWQ?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "Focus Vif",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOWXZTRFQ3SjVXSWRFckV4bUlwNE1LOHdENGt1enE5cVJOOTZZbHBSVWkyTVN5YnpXM0xwLTFMbzNwTGZqLTlOM0EzdmtJUGVrRmI4Qm84aHJwV2dQbzBWdHlPQXZYczFMQUFvTm1WQnRlNnpJem5JZ19SVDFLUFlSVDZNSFU2MW55cUlMWHp4a0xoU3FxWEs3RExFREJ5QWI1TkFR?oc=5",
+      "paywalled": false
+    }
+  ]
+}

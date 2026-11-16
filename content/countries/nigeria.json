@@ -1,0 +1,72 @@
+{
+  "slug": "nigeria",
+  "country": "Nigeria",
+  "continent": "África",
+  "flag": "🇳🇬",
+  "updated_at": "2026-11-16T19:51:22.297Z",
+  "edition_week": "2026-W47",
+  "intro": "Lagos arde con la nominación a los Grammy de [Tems](https://es.wikipedia.org/wiki/Tems) y [Burna Boy](https://es.wikipedia.org/wiki/Burna_Boy), el fenómeno en salas de *Agbara Nla: The Return* y los galardones literarios de la temporada.",
+  "cover_image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Lagos_skyline.jpg/1280px-Lagos_skyline.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Vista panorámica de Lagos, el epicentro creativo y cultural de la industria musical y cinematográfica en Nigeria.",
+    "credit": "Foto: Clara Sanchiz · CC BY-SA 2.0"
+  },
+  "cultural_pulse": "La temporada cultural nigeriana cruza un momento de alta visibilidad internacional y consolidación de sus mercados locales. En el terreno musical, la carrera hacia los **Premios Grammy 2027** sitúa a figuras fundamentales como [Burna Boy](https://es.wikipedia.org/wiki/Burna_Boy) y [Asake](https://es.wikipedia.org/wiki/Pr%C3%ADncipe_Yasuhiko_Asaka) en el centro de las nominaciones globales, mientras las giras internacionales reafirman el peso arrollador de los sonidos locales. La escena sonora repasa los veenzi discos y canciones que dominaron las listas locales durante todo el año, reflejando una diversidad estética que va del afrobeats puro a texturas experimentales.\n\nEn las pantallas grandes, [Nollywood](https://es.wikipedia.org/wiki/Nollywood) sigue batiendo récords de taquilla con propuestas que dialogan entre la memoria y la renovación técnica. El largometraje *Agbara Nla: The Return* se consolidó como un fenómeno masivo al ingresar firmemente en el top ten histórico de la taquilla nacional, un síntoma del apetito del público por narrativas con arraigo cultural y escala industrial. Esta expansión comercial coincide con iniciativas de cooperación internacional, como el taller germano-nigeriano enfocado en potenciar coproducciones y abrir nuevos mercados globales para el cine de autor y de género producido en el país.\n\nLa literatura y las artes escritas atraviesan una de sus semanas más dinámicas con el anuncio de los galardones de la **Asociación de Escritores de Nigeria**, donde [Oyinkan Braithwaite](https://es.wikipedia.org/wiki/Lagos) se alzó con el premio de ficción por su esperada obra *Cursed Daughters*. La proyección internacional de editoriales independientes del país se ratificó con el reconocimiento obtenido por el sello **Cassava Republic Press** en la Feria del Libro de Sharjah, demostrando que la narrativa contemporánea nigeriana mantiene una salud creativa desbordante tanto en los anaqueles locales como en los circuitos globales.",
+  "topics": [
+    {
+      "category": "Música",
+      "title": "La pulseada de los Grammy 2027",
+      "summary": "Artistas como [Tems](https://es.wikipedia.org/wiki/Tems) y [Asake](https://es.wikipedia.org/wiki/Pr%C3%ADncipe_Yasuhiko_Asaka) encabezan la presencia de la escena nigeriana en las nominaciones globales de la Academia de Grabación."
+    },
+    {
+      "category": "Cine",
+      "title": "El fenómeno de taquilla de Agbara Nla",
+      "summary": "La película *Agbara Nla: The Return* rompe esquemas comerciales y entra de lleno en la historia grande del box-office de [Nollywood](https://es.wikipedia.org/wiki/Nollywood)."
+    },
+    {
+      "category": "Libros",
+      "title": "Premios literarios de la ANA",
+      "summary": "La escritora [Oyinkan Braithwaite](https://es.wikipedia.org/wiki/Lagos) se impone en los galardones anuales de la Asociación de Autores de Nigeria con su novela *Cursed Daughters*."
+    }
+  ],
+  "recommendation": {
+    "type": "Libro",
+    "title": "Cursed Daughters",
+    "creator": "Oyinkan Braithwaite",
+    "context": "Una novela incisiva que confirma el pulso narrativo único de una de las voces imprescindibles de la ficción contemporánea en Nigeria.",
+    "url": "https://brittlepaper.com/2026/11/oyinkan-braithwaite-dexter-loko-chude-jideonwo-and-others-win-the-2026-ana-literary-prizes/"
+  },
+  "closing_media": {
+    "type": "image",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Oyinkan_Braithwaite1150112.jpg/960px-Oyinkan_Braithwaite1150112.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Retrato de la escritora Oyinkan Braithwaite, ganadora de los premios literarios de la ANA en Abuja.",
+    "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
+  },
+  "sources": [
+    {
+      "name": "BBC",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE02VU96dzN1MDNfclA1TWotbnFubEVleElWNEJqaGs4cWNwNzNKSlZnWU1JSWllSlhUd3JjUVBoT0YwLWxXanJwdVZjNjdfQkIyakdtWThlTkEyNTJOeUHSAWNBVV95cUxObExzcHlXNDRhUTc5VzVpM1ZVYmFXUHBacnhaZEpqbF9BWUJPU0RlTUZJZXRWUEtCY21BWlNaeUpkQkRjb1lpNDBoa0hUMURJT0U5OWt5Z3p0Njl6emx0bHo3T3M?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "Broadcast Media Africa",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNZV9HYjdrb0gxMElucHNhQUF0djhtUnBDdl9mOFdwWjdmM3d1eGd0R1ZEcDRRZDhFZDB6X2F1TVRNQWJ4ZWVGT094bkM5QVM5WTRuaW1lUC04Zm5MOWdyVUpkWkp5TFZzaWNHVzNUMk5oeVl1TjQ0Y0JOZ1hNQVFMYm1qb0FFUDhLWU53ZXFhTFJWb1BtMnQ3REZIQlNMY0toRXpKendhMXloemtEb09FcGN4OURLdUtiRGdkcXM4WEpELXlpdTFF?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "The Whistler Newspaper",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNbVZpTEY0RWJnQ3FfVnNwMnRKYkt4UFo4UVdXajkyaldvbzBsN0ppXzIxeGJoTExWQk9WZjBpRUR5eGFBRUdHNU1mVHZHQ2trdW1rMzdVaWNrLVZLZ0NIYnlzQUxxV0lDWXRYbkFRZU1ZV2hVQWFuS216T1NHQW1ieHd0a1l6bU9F?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "Brittle Paper",
+      "url": "https://brittlepaper.com/2026/11/cassava-republic-presss-the-mercy-step-by-marcia-hutchinson-wins-best-international-fiction-book-at-the-2026-sharjah-international-book-fair/",
+      "paywalled": false
+    },
+    {
+      "name": "Brittle Paper",
+      "url": "https://brittlepaper.com/2026/11/oyinkan-braithwaite-dexter-loko-chude-jideonwo-and-others-win-the-2026-ana-literary-prizes/",
+      "paywalled": false
+    }
+  ]
+}
