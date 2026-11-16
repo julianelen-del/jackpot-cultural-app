@@ -3,80 +3,65 @@
   "country": "Japón",
   "continent": "Asia",
   "flag": "🇯🇵",
-  "updated_at": "2026-11-16T02:28:58.001Z",
+  "updated_at": "2026-11-16T03:34:09.221Z",
   "edition_week": "2026-W47",
-  "intro": "Entre la música viral de Monaki, los dilemas del streaming en Love Village y el caos laboral por Microsoft 365, Tokio redibuja su pulso cultural.",
+  "intro": "El impacto del manga en la cultura contemporánea y el pulso musical de Japón marcan la agenda semanal entre Tokio y los escenarios globales.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Tokyo_by_night_2011.jpg/1280px-Tokyo_by_night_2011.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Luces de neón y pantallas gigantes en las calles de Tokio.",
-    "credit": "Foto: Nalilord · CC BY-SA 3.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Ridge-end_tile%2C_Nara_period%2C_8th_century%2C_Tokyo_National_Museum.JPG/1280px-Ridge-end_tile%2C_Nara_period%2C_8th_century%2C_Tokyo_National_Museum.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Fachada del Museo Nacional de Tokio, epicentro de las grandes exposiciones de arte e historia en la capital japonesa.",
+    "credit": "Foto: Hiart · CC0"
   },
-  "cultural_pulse": "La cultura contemporánea en Japón transita por zonas de fricción inesperadas donde las pantallas de los teléfonos, los estudios de grabación y los despachos corporativos colisionan. Esta semana, la atención mediática se desvió hacia las oficinas cuando un fallo global en **Microsoft 365** paralizó las herramientas de comunicación y obligó a miles de empleados a abandonar las bandejas de entrada para buscar refugio inmediato en las barras de los bares, un inusual paréntesis analógico en medio de la hiperconectividad urbana analizado por [Tokyo Weekender](https://www.tokyoweekender.com/japan-life/news-and-opinion/microsoft-365-outage-japan-reactions/). Mientras las rutinas de oficina sufrían este cortocircuito, la escena musical seguía demostrando su capacidad para insuflar vidas nuevas a proyectos insólitos. El fenómeno de **Monaki** consolidó su ruta en las listas de popularidad tras escalar desde actuaciones en centros comerciales hasta el estrellato viral, redefiniendo las reglas del juego discográfico actual sin necesidad de recurrir a fórmulas predecibles, tal como detalla [The Japan Times Culture](https://www.japantimes.co.jp/culture/2026/11/16/music/japanese-music-monaki-honmayade/).\n\nLas pantallas domésticas continúan diseccionando los afectos contemporáneos con una honestidad inusual. La telerrealidad de plataformas encuentra en producciones como la tercera temporada de **Love Village** un terreno fértil para retratar las complejidades, traumas y dudas de la madurez sentimental sin filtros ni moralejas edulcoradas, ofreciendo un espejo de las relaciones humanas muy alejado del artificio comercial habitual. Al mismo tiempo, el cine y las artes visuales ensanchan sus márgenes geográficos y estéticos. La labor de programadores como Shozo Ichiyama al frente del Festival Internacional de Cine de Tokio continúa tejiendo colaboraciones estrechas con el cine chino contemporáneo, apostando por el talento emergente y el intercambio creativo por encima de las fronteras políticas. Por su parte, la cartelera museística de la capital mantiene su pulso inagotable con exposiciones que van desde grabados históricos hasta instalaciones digitales inmersivas de creadores locales.\n\nEste dinamismo también salpica a las figuras públicas que saltan de la televisión al ojo del huracán policial. El caso de la influencer Asuka Oguri, conocida por su paso por formatos de telerrealidad y arrestada recientemente en Nagoya por operar un negocio nocturno sin licencia, ilustra la delgada línea que separa la exposición en las redes de la marginalidad urbana. Lejos de los circuitos oficiales, la agenda cultural japonesa demuestra que la vitalidad artística no reside únicamente en los grandes templos institucionales, sino en la capacidad de absorber los accidentes cotidianos, las mutaciones de la música independiente y las pequeñas grietas de la vida urbana.",
+  "cultural_pulse": "La industria editorial japonesa atraviesa un momento de reconfiguración creativa donde los títulos de largo aliento continúan dominando las listas de lectura. El volumen 18 del manga [SPY×FAMILY](https://news.google.com/rss/articles/CBMipwFBVV95cUxQODdJdE9jYnluRFBxM1Rwal9Kdm1rVGZPZ3htTDhKOEZRSzRpcU1kUG80ZHBRbUt2Vy1tek1QOEtSWm13NlFSTGxGOHNaUkFDckZuUUNzbVU0c3N1a3pHbXl4N25zNTZBR1NBbWJNYk52SWhoTlB2SW5admJ5SUhIbGphc3ZLdm5mcDRONHh2MVlFSjd6MnpIdkNWdE8wWFB6SGRLenplUQ?oc=5), creado por **Tatsuya Endo**, se situó al frente del Billboard Japan Book Hot 100, demostrando la vigencia de las tramas que combinan espionaje, comedia familiar y personajes entrañables. A su zaga se posicionaron las recientes entregas de las series gráficas *Dandadan* y *SAKAMOTO DAYS*, consolidando un ecosistema de publicaciones seriadas que mantiene enganchados a millones de lectores ávidos de narrativas dinámicas y universos visuales complejos. Los centros académicos y comunitarios buscan nuevas herramientas pedagógicas a través de la historieta, como lo demuestra el uso de recursos gráficos en el Social Justice Center para difundir la cultura y las tradiciones de los pueblos indígenas del archipiélago.\n\nEn el terreno de la ficción televisiva y el anime, las transiciones generacionales marcan el pulso de la temporada. El manga *Witch Watch*, escrito e ilustrado por [Kenta Shinohara](https://www.animenewsnetwork.com/news/2026-11-15/witch-watch-manga-ends-with-anime-season-2-to-air-in-2027/.243834), llegó a su cierre oficial en las páginas del semanario Shonen Jump, mientras sus seguidores ya preparan el terreno para el estreno de la segunda temporada de su adaptación animada fijada para el próximo año. Este relevo en las pantallas ocurre en un momento en que las productoras locales buscan mantener el equilibrio entre el desarrollo de nuevas franquicias y la sostenibilidad creativa del sector privado, debatiendo los límites de la intervención institucional frente a la espontaneidad de los estudios independientes de animación y videojuegos.\n\nLa música en directo y las giras internacionales también experimentan sobresaltos logísticos y celebraciones de la industria. La banda de rock alternativo [SPITZ](https://www.animenewsnetwork.com/news/2026-11-15/spitz-band-drummer-tatsuo-sakiyama-seriously-injured-in-traffic-accident/.243836), conocida por su sonido melódico y su trayectoria clave en la escena nipona, sufrió un contratiempo luego de que su baterista **Tatsuo Sakiyama** sufriera un accidente de tráfico que lo mantendrá hospitalizado temporalmente. Pese a la pausa del músico en las actividades presenciales, el grupo confirmó que mantendrá su calendario discográfico y promocional utilizando grabaciones previas para sus apariciones televisivas. Hacia el futuro inmediato, el sector ya fijó la fecha para los **MUSIC AWARDS JAPAN 2027**, que congregarán a los nombres más destacados de la escena musical en el recinto Toyota Arena Tokyo durante el mes de junio.\n\nPor fuera de las fronteras insulares, la presencia artística del país sigue agitando circuitos internacionales con hitos de taquilla y expansión cultural. La película animada y de acción real vinculada al legado cinematográfico de Godzilla firmó un arranque histórico en las salas IMAX de todo el planeta, marcando el mejor estreno global para una producción de origen japonés en este formato. Esta expansión converge con iniciativas inusuales como la incursión de bodegas boutique y restaurantes emergentes en ciudades como Berkeley, donde se celebran fiestas temáticas que exportan la gastronomía y la cultura de bebida nipona hacia nuevos públicos urbanos en el extranjero, reafirmando un intercambio cultural en constante movimiento.",
   "topics": [
     {
       "category": "Música",
-      "title": "El ascenso inusual de Monaki",
-      "summary": "Cuatro músicos provenientes de trayectorias profesionales completamente alejadas irrumpen en la escena con humor y frescura."
+      "title": "La pausa temporal de SPITZ tras el accidente de Tatsuo Sakiyama",
+      "summary": "La emblemática banda de rock alternativo reorganizó su agenda promocional y apariciones en televisión utilizando material grabado, mientras el baterista Tatsuo Sakiyama se recupera de sus lesiones."
     },
     {
-      "category": "Series y TV",
-      "title": "La crudeza del afecto maduro en Love Village",
-      "summary": "La tercera entrega del formato profundiza en las cicatrices y los matices del romance en la edad adulta."
+      "category": "Cómics y Manga",
+      "title": "El dominio de SPY×FAMILY y el cierre de Witch Watch",
+      "summary": "El volumen 18 de la obra de Tatsuya Endo lideró el ranking de ventas en Japón, mientras que Kenta Shinohara despidió su manga Witch Watch de la revista Shonen Jump a la espera de su segunda temporada animada."
     },
     {
       "category": "Cine",
-      "title": "Puentes cinematográficos entre Tokio y Pekín",
-      "summary": "La dirección de programación del TIFF refuerza el apoyo a nuevas voces del cine independiente chino."
-    },
-    {
-      "category": "Debates culturales",
-      "title": "El apagón informático y las barras de bar",
-      "summary": "La caída de herramientas corporativas digitales provocó una reacción espontánea en los trabajadores urbanos."
+      "title": "El récord global de Godzilla en formato IMAX",
+      "summary": "Las producciones cinematográficas japonesas alcanzaron una marca histórica de recaudación internacional en salas de gran formato, consolidando el alcance global de sus franquicias más icónicas."
     }
   ],
   "recommendation": {
-    "type": "Álbum",
-    "title": "Honmayade",
-    "creator": "Monaki",
-    "context": "Un soplo de aire fresco en el pop japonés actual que combina humor, madurez y melodías directas.",
-    "url": "https://www.japantimes.co.jp/culture/2026/11/16/music/japanese-music-monaki-honmayade/"
+    "type": "Movimiento",
+    "title": "SPY×FAMILY Vol. 18",
+    "creator": "Tatsuya Endo",
+    "context": "El manga de espionaje y comedia familiar que domina las listas de éxitos editoriales en Japón.",
+    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQODdJdE9jYnluRFBxM1Rwal9Kdm1rVGZPZ3htTDhKOEZRSzRpcU1kUG80ZHBRbUt2Vy1tek1QOEtSWm13NlFSTGxGOHNaUkFDckZuUUNzbVU0c3N1a3pHbXl4N25zNTZBR1NBbWJNYk52SWhoTlB2SW5admJ5SUhIbGphc3ZLdm5mcDRONHh2MVlFSjd6MnpIdkNWdE8wWFB6SGRLenplUQ?oc=5"
   },
   "closing_media": {
     "type": "image",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/960px-Skyscrapers_of_Shinjuku_2009_January.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "caption": "Shinjuku, uno de los epicentros neurálgicos y culturales de Tokio.",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Bow_Ditama_20081102_Chibi_Japan_Expo_03.jpg/960px-Bow_Ditama_20081102_Chibi_Japan_Expo_03.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Retrato gráfico representativo del impacto cultural del manga y las series de animación japonesa en el mercado editorial global.",
     "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
     {
-      "name": "Tokyo Weekender",
-      "url": "https://www.tokyoweekender.com/japan-life/news-and-opinion/assun-badly-in-love-arrested/",
+      "name": "Anime News Network",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-15/spitz-band-drummer-tatsuo-sakiyama-seriously-injured-in-traffic-accident/.243836",
       "paywalled": false
     },
     {
-      "name": "Culture - The Japan Times",
-      "url": "https://www.japantimes.co.jp/culture/2026/11/16/music/japanese-music-monaki-honmayade/",
-      "paywalled": true
-    },
-    {
-      "name": "Tokyo Weekender",
-      "url": "https://www.tokyoweekender.com/things-to-do-in-tokyo/current-and-upcoming-art-exhibitions/",
+      "name": "Billboard",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQODdJdE9jYnluRFBxM1Rwal9Kdm1rVGZPZ3htTDhKOEZRSzRpcU1kUG80ZHBRbUt2Vy1tek1QOEtSWm13NlFSTGxGOHNaUkFDckZuUUNzbVU0c3N1a3pHbXl4N25zNTZBR1NBbWJNYk52SWhoTlB2SW5admJ5SUhIbGphc3ZLdm5mcDRONHh2MVlFSjd6MnpIdkNWdE8wWFB6SGRLenplUQ?oc=5",
       "paywalled": false
     },
     {
-      "name": "Culture - The Japan Times",
-      "url": "https://www.japantimes.co.jp/culture/2026/11/15/film/shozo-ichiyama-chinese-film-tiff/",
-      "paywalled": true
-    },
-    {
-      "name": "Tokyo Weekender",
-      "url": "https://www.tokyoweekender.com/japan-life/news-and-opinion/microsoft-365-outage-japan-reactions/",
+      "name": "Lohud",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNenc3QzVlQ0ZzenUxdGVKZjNmYnZveWdWR3RFajZaaWJ3eVR1RWFLT2EzQUVmZ1VzelcwelpKa3pxZFpIN3VBaE5QaGxNem9wRXNfWC1JZW5uTmR6OWVpVjlYc3J4cjJvMHNOU0I0MmxGZTU2d2JYTXJXWmV6OWFRSXM5eWRaYXIyT1RrTGV2X1JrR0Q1VTN3azVkUGFoenMyMG9JakQyUWs1VDJwZWVFX2V3Q1JsZ1Vr?oc=5",
       "paywalled": false
     },
     {
-      "name": "Culture - The Japan Times",
-      "url": "https://www.japantimes.co.jp/culture/2026/11/14/tv-streaming/love-village-season-3/",
-      "paywalled": true
+      "name": "Anime News Network",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-15/witch-watch-manga-ends-with-anime-season-2-to-air-in-2027/.243834",
+      "paywalled": false
     }
   ]
 }
