@@ -3,60 +3,80 @@
   "country": "Francia",
   "continent": "Europa",
   "flag": "🇫🇷",
-  "updated_at": "2026-11-16T19:43:46.033Z",
+  "updated_at": "2026-11-16T20:49:57.461Z",
   "edition_week": "2026-W47",
-  "intro": "La agenda cultural francesa de la semana cruza el debate literario y cinematográfico, con la nueva novela de Giuliano da Empoli y el cine de Christelle Lheureux.",
+  "intro": "El cine de Albert Dupontel, la expansión del chansigne en la música en vivo y las novedades del cómic francobelga marcan la conversación cultural en Francia.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Paris%2C_Notre_Dame_--_2014_--_1458-65.jpg/1280px-Paris%2C_Notre_Dame_--_2014_--_1458-65.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Ambiente cultural y literario en París durante las presentaciones editoriales de la temporada.",
-    "credit": "Foto: Dietmar Rabich · CC BY-SA 4.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Ray_Lema_%C3%A0_la_Cin%C3%A9math%C3%A8que_fran%C3%A7aise.jpg/1280px-Ray_Lema_%C3%A0_la_Cin%C3%A9math%C3%A8que_fran%C3%A7aise.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "La Cinémathèque Française en París, epicentro del debate cinematográfico y el análisis de autor en la capital gala.",
+    "credit": "Foto: Romanceor · CC BY-SA 3.0"
   },
-  "cultural_pulse": "El pulso cultural francés se agita alrededor de las novedades editoriales y los debates que marcan la temporada parisina y nacional. En el terreno literario, el nuevo libro **Le Fondateur** de **Giuliano da Empoli**, publicado por las editoriales del circuito europeo y analizado en [Le masque et la plume](https://www.radiofrance.fr/franceinter/podcasts/le-masque-et-la-plume/le-masque-et-la-plume-du-dimanche-15-novembre-2026-1230115), ha generado opiniones encontradas por su aproximación incisiva a las figuras de la tecnología y el poder contemporáneo. La discusión en torno a la novela demuestra que los lectores y críticos siguen ávidos de ficciones y ensayos capaces de interrogar las dinámicas de nuestro tiempo sin concesiones publicitarias.\n\nLa escena de la historieta y la novela gráfica continúa su expansión con voces singulares como la de **Léa Murawiec**, quien regresa con su nueva obra tras el éxito de *Le Grand Vide*. Su mirada sobre el agotamiento físico y emocional a través de la fantasía demuestra la vitalidad del cómic de autor en Francia, consolidando un lenguaje propio que dialoga de igual a igual con la literatura de ficción tradicional reseñada en [Le Monde](https://news.google.com/rss/articles/CBMisAFBVV95cUxNd19iMkh5TmlWNzVqZDRDeXJjd2FaeHNCT2xLTUo2NjJwcU1WUW1kTEFhbEItS0RYV2VYQWprcHYtQmFOdDRXa2FqQVA3VnVqc05Zd0g4NHI2Z1ltRHhFX1luUnBpZlJ0WnFQR20xc3JSWVJnazdTYzBnMjgtVV9sb1c2NFg0UTRmQjhfVGgtX2tzcjd5NGd0bkduTURFUHZnVE5RSmtKcmFSQ0kzYmljdA?oc=5). Estas narrativas gráficas apuestan por universos visuales densos que interpelan directamente al público adulto.\n\nEn el ámbito de las artes en vivo y el cine de proximidad, las salas independientes y los ciclos especializados mantienen viva la llama del descubrimiento. El cineasta e investigador vinculado a la programación de [Critikat](https://www.critikat.com/autres-pages/cine-club-autres-pages/cine-club-critikat-la-terre-penche-myrtilles-la-nuit/) propone este mes revisiones de obras menos transitadas como los mediometrajes de **Christelle Lheureux**, recordando que el circuito cultural francés prioriza la memoria fílmica y el debate directo con el público en espacios como el cine Les 3 Luxembourg. Lejos de los grandes tanques comerciales, este circuito nutre la conversación artística semanal con solidez y rigor crítico.",
+  "cultural_pulse": "La transformación de las artes escénicas en Francia encuentra esta semana un punto de inflexión con el desarrollo del **chansigne**, la disciplina que traduce la música y la poesía cantada a la lengua de signos. Según analiza [Le Monde](https://news.google.com/rss/articles/CBMi0AFBVV95cUxOWGhkTXhINEh6LWwwcFpHWTFaSmQ3ekNqNko0Yi1oVE1LOFZRYXBvWVpRUjNuY0FTMTNCUER2RHQ2N181MTN5eFR1eWdyRDF5VWZFUmxtWVpLN2VvWkxjaG40b3ZxbGFFTGcwNmFWTVpPYWRnOFRjbkg4QU50YTNqajZpZ3ZCQ3I5Q3JWcWlTcXVzVHdZU19OMFBUQlhzSWl4QW5FblRuV003dkhjQk5pOUs1QjE3c2JWRUprTnBYQlpjZmJZaVd1dVhKaGx6VWx3?oc=5), esta práctica ha trascendido la accesibilidad funcional para consolidarse como una forma de expresión performativa con cuerpo propio en salas de conciertos y festivales. Artistas y colectivos galos convierten el ritmo y las dinámicas sonoras en gestos visuales, desafiando la frontera entre la escucha tradicional y el movimiento en el escenario.\n\nEn el panorama cinematográfico, la controversia rodea el estreno de *Il faut brûler maman*, la más reciente producción dirigida y protagonizada por **Albert Dupontel**. La revista [Les Inrockuptibles](https://news.google.com/rss/articles/CBMisAFBVV95cUxNd19iMkh5TmlWNzVqZDRDeXJjd2FaeHNCT2xLTUo2NjJwcU1WUW1kTEFhbEItS0RYV2VYQWprcHYtQmFOdDRXa2FqQVA3VnVqc05Zd0g4NHI2Z1ltRHhFX1luUnBpZlJ0WnFQR20xc3JSWVJnazdTYzBnMjgtVV9sb1c2NFg0UTRmQjhfVGgtX2tzcjd5NGd0bkduTURFUHZnVE5RSmtKcmFSQ0kzYmljdA?oc=5) ha dedicado una severa reseña al filme, señalando lo que considera un agotamiento creativo marcado por el exceso y la caricatura. Al mismo tiempo, la crítica explora el terreno de **Leos Carax** alrededor de su proyecto *Terrain vague*, comentado por [diacritik](https://news.google.com/rss/articles/CBMihwFBVV95cUxONmkxVzNpLW9hZFBZVnV5NVlxSnZwa2tFOVlKUzhLa2djcERsSU9kYmZ2U04wLWpTMmswZUpZQ2hZY2NlOFVJVWdjRE5uckpkUEUwS3dJdjV3WXRqb0hrMUp2eTJrVVhhNE1wd3FlNk9BMm5YTXEtVkxlbWR3MUcwdzZTaXRFc0E?oc=5), mientras la red regional de exhibición [Cinessonne](https://news.google.com/rss/articles/CBMijwFBVV95cUxPc2lCMkNwSUd1R0NBbDVHTDhBbDM5WE8zRmw5T2pDa2x0akptdGpNdGpuMkZHWUw3aFE5bU1tREh6a3BEeXNaWTBVNVJTNUQtcGFoVnpQZktjVExRUVV1Z19qN19zcV9jSkJncVUwRFpfM095VnowV1ZPQmhzdjJyaWtDei1XZUNBZlNwN2RFMA?oc=5) conmemora tres décadas dedicadas a la proyección de cine de autor en las salas de proximidad.\n\nEl ámbito literario muestra una intensa actividad en la agenda crítica. El emblemático programa radiofónico [Le Masque et la Plume](https://www.radiofrance.fr/franceinter/podcasts/le-masque-et-la-plume/le-masque-et-la-plume-du-dimanche-15-novembre-2026-1230115) centró su emisión en la narrativa contemporánea gala, evaluando los nuevos libros de **Elise Lespade** y la escritura intimista de **Pierric Bailly**. El cómic de gran tirada firma el regreso de un icono popular con *Saint Lucky Luke*, una revisión satírica firmada por el guionista **Jul** junto al dibujante **Achdé**, quienes devuelven al célebre vaquero a las estanterías con un trasfondo de humor ácido sobre las mitologías del género.\n\nEl debate ético que atraviesa las artes escénicas francesas suma un episodio institucional clave. El actor **Gérard Depardieu** anunció mediante un comunicado recogido por [franceinfo](https://www.franceinfo.fr/culture/cinema/depardieu/gerard-depardieu-presente-ses-excuses-et-renonce-a-faire-appel-de-sa-condamnation-pour-agressions-sexuelles_8285405.html) que renuncia de forma definitiva a interponer un recurso de apelación tras su condena por agresiones sexuales sufridas por dos trabajadoras durante el rodaje de *Les Volets verts*. La decisión judicial pone fin a un proceso mediático complejo y consolida la exigencia de transformaciones estructurales en los entornos de producción del cine francés.",
   "topics": [
     {
       "category": "Cine",
-      "title": "Ciné-club Critikat y el cine de Christelle Lheureux",
-      "summary": "El cine-club programado en el cine Les 3 Luxembourg recupera los mediometrajes *La terre penche* y *Myrtilles la nuit* de la realizadora Christelle Lheureux para un debate abierto con la crítica especializada de [Critikat](https://www.critikat.com/autres-pages/cine-club-autres-pages/cine-club-critikat-la-terre-penche-myrtilles-la-nuit/)."
-    },
-    {
-      "category": "Libros",
-      "title": "Debates editoriales en torno a Giuliano da Empoli",
-      "summary": "La novela *Le Fondateur* escrita por **Giuliano da Empoli** desata intensas polémicas críticas en los programas culturales radiofónicos por su radiografía descarnada sobre las élites tecnológicas y el poder global, analizada detalladamente en [Le masque et la plume](https://www.radiofrance.fr/franceinter/podcasts/le-masque-et-la-plume/le-masque-et-la-plume-du-dimanche-15-novembre-2026-1230115)."
+      "title": "Albert Dupontel desata la polémica crítica con 'Il faut brûler maman'",
+      "summary": "El cineasta galo [Albert Dupontel](https://es.wikipedia.org/wiki/Albert_Dupontel) regresa con una comedia calificada de estruendosa y fallida por la revista [Les Inrockuptibles](https://news.google.com/rss/articles/CBMisAFBVV95cUxNd19iMkh5TmlWNzVqZDRDeXJjd2FaeHNCT2xLTUo2NjJwcU1WUW1kTEFhbEItS0RYV2VYQWprcHYtQmFOdDRXa2FqQVA3VnVqc05Zd0g4NHI2Z1ltRHhFX1luUnBpZlJ0WnFQR20xc3JSWVJnazdTYzBnMjgtVV9sb1c2NFg0UTRmQjhfVGgtX2tzcjd5NGd0bkduTURFUHZnVE5RSmtKcmFSQ0kzYmljdA?oc=5)."
     },
     {
       "category": "Cómics",
-      "title": "El nuevo universo narrativo de Léa Murawiec",
-      "summary": "La autora de novela gráfica **Léa Murawiec** regresa con un nuevo álbum que explora el deceso y el desgaste cotidiano transformando a los difuntos en objetos, publicado con el respaldo de la crítica de [Le Monde](https://news.google.com/rss/articles/CBMisAFBVV95cUxNd19iMkh5TmlWNzVqZDRDeXJjd2FaeHNCT2xLTUo2NjJwcU1WUW1kTEFhbEItS0RYV2VYQWprcHYtQmFOdDRXa2FqQVA3VnVqc05Zd0g4NHI2Z1ltRHhFX1luUnBpZlJ0WnFQR20xc3JSWVJnazdTYzBnMjgtVV9sb1c2NFg0UTRmQjhfVGgtX2tzcjd5NGd0bkduTURFUHZnVE5RSmtKcmFSQ0kzYmljdA?oc=5)."
+      "title": "Revisión satírica de un clásico en 'Saint Lucky Luke'",
+      "summary": "El guionista [Jul](https://es.wikipedia.org/wiki/Jul_%28historietista%29)) y el dibujante Achdé firman la nueva entrega del célebre vaquero francobelga, analizada en [Le Masque et la Plume](https://www.radiofrance.fr/franceinter/podcasts/le-masque-et-la-plume/le-masque-et-la-plume-du-dimanche-15-novembre-2026-1230115)."
+    },
+    {
+      "category": "Música",
+      "title": "El chansigne transforma la interpretación sonora en vivo",
+      "summary": "La traducción visual de canciones mediante la lengua de signos gana peso performativo en las salas francesas, según reporta [Le Monde](https://news.google.com/rss/articles/CBMi0AFBVV95cUxOWGhkTXhINEh6LWwwcFpHWTFaSmQ3ekNqNko0Yi1oVE1LOFZRYXBvWVpRUjNuY0FTMTNCUER2RHQ2N181MTN5eFR1eWdyRDF5VWZFUmxtWVpLN2VvWkxjaG40b3ZxbGFFTGcwNmFWTVpPYWRnOFRjbkg4QU50YTNqajZpZ3ZCQ3I5Q3JWcWlTcXVzVHdZU19OMFBUQlhzSWl4QW5FblRuV003dkhjQk5pOUs1QjE3c2JWRUprTnBYQlpjZmJZaVd1dVhKaGx6VWx3?oc=5)."
+    },
+    {
+      "category": "Debates artísticos",
+      "title": "Gérard Depardieu asume su condena y renuncia a apelar",
+      "summary": "El actor francés desiste del recurso judicial tras la sentencia por agresiones sexuales en el rodaje de *Les Volets verts*, según informa [franceinfo](https://www.franceinfo.fr/culture/cinema/depardieu/gerard-depardieu-presente-ses-excuses-et-renonce-a-faire-appel-de-sa-condamnation-pour-agressions-sexuelles_8285405.html)."
     }
   ],
   "recommendation": {
     "type": "Libro",
-    "title": "Le Fondateur",
-    "creator": "Giuliano da Empoli",
-    "context": "Una inmersión literaria tan lúcida como incómoda en las cloacas del poder tecnológico actual.",
+    "title": "Saint Lucky Luke",
+    "creator": "Jul & Achdé",
+    "context": "Una relectura ágil y satírica del clásico cómic francobelga que cuestiona los mitos del wéstern tradicional.",
     "url": "https://www.radiofrance.fr/franceinter/podcasts/le-masque-et-la-plume/le-masque-et-la-plume-du-dimanche-15-novembre-2026-1230115"
   },
   "closing_media": {
     "type": "image",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Murawiec.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "caption": "Retrato de la autora de novela gráfica Léa Murawiec, referente del cómic contemporáneo francés.",
-    "credit": "Foto: Wikimedia Commons (vía Wikipedia ES)"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Albert_Dupontel_%28c%29_Chistophe_Brachet.JPG/960px-Albert_Dupontel_%28c%29_Chistophe_Brachet.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "El cineasta y actor francés Albert Dupontel, centro de los debates críticos esta semana.",
+    "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
-    {
-      "name": "Critikat",
-      "url": "https://www.critikat.com/autres-pages/cine-club-autres-pages/cine-club-critikat-la-terre-penche-myrtilles-la-nuit/",
-      "paywalled": false
-    },
     {
       "name": "Le masque et la plume",
       "url": "https://www.radiofrance.fr/franceinter/podcasts/le-masque-et-la-plume/le-masque-et-la-plume-du-dimanche-15-novembre-2026-1230115",
       "paywalled": false
     },
     {
-      "name": "Le Monde",
+      "name": "franceinfo- Culture",
+      "url": "https://www.franceinfo.fr/culture/cinema/depardieu/gerard-depardieu-presente-ses-excuses-et-renonce-a-faire-appel-de-sa-condamnation-pour-agressions-sexuelles_8285405.html",
+      "paywalled": false
+    },
+    {
+      "name": "Les Inrocks",
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNd19iMkh5TmlWNzVqZDRDeXJjd2FaeHNCT2xLTUo2NjJwcU1WUW1kTEFhbEItS0RYV2VYQWprcHYtQmFOdDRXa2FqQVA3VnVqc05Zd0g4NHI2Z1ltRHhFX1luUnBpZlJ0WnFQR20xc3JSWVJnazdTYzBnMjgtVV9sb1c2NFg0UTRmQjhfVGgtX2tzcjd5NGd0bkduTURFUHZnVE5RSmtKcmFSQ0kzYmljdA?oc=5",
-      "paywalled": true
+      "paywalled": false
+    },
+    {
+      "name": "diacritik",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxONmkxVzNpLW9hZFBZVnV5NVlxSnZwa2tFOVlKUzhLa2djcERsSU9kYmZ2U04wLWpTMmswZUpZQ2hZY2NlOFVJVWdjRE5uckpkUEUwS3dJdjV3WXRqb0hrMUp2eTJrVVhhNE1wd3FlNk9BMm5YTXEtVkxlbWR3MUcwdzZTaXRFc0E?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "cnc.fr",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPc2lCMkNwSUd1R0NBbDVHTDhBbDM5WE8zRmw5T2pDa2x0akptdGpNdGpuMkZHWUw3aFE5bU1tREh6a3BEeXNaWTBVNVJTNUQtcGFoVnpQZktjVExRUVV1Z19qN19zcV9jSkJncVUwRFpfM095VnowV1ZPQmhzdjJyaWtDei1XZUNBZlNwN2RFMA?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "Le Monde.fr",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOWGhkTXhINEh6LWwwcFpHWTFaSmQ3ekNqNko0Yi1oVE1LOFZRYXBvWVpRUjNuY0FTMTNCUER2RHQ2N181MTN5eFR1eWdyRDF5VWZFUmxtWVpLN2VvWkxjaG40b3ZxbGFFTGcwNmFWTVpPYWRnOFRjbkg4QU50YTNqajZpZ3ZCQ3I5Q3JWcWlTcXVzVHdZU19OMFBUQlhzSWl4QW5FblRuV003dkhjQk5pOUs1QjE3c2JWRUprTnBYQlpjZmJZaVd1dVhKaGx6VWx3?oc=5",
+      "paywalled": false
     }
   ]
 }
