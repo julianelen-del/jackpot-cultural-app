@@ -5,6 +5,7 @@ import {
   CountryEditionSchema,
   type Continent,
   type CountryEdition,
+  type CountryListeningConfig,
   type CountrySourceConfig,
 } from "./schema";
 
@@ -16,6 +17,7 @@ export interface CountrySummary {
   country: string;
   continent: Continent;
   flag: string;
+  listening?: CountryListeningConfig;
 }
 
 export function getAllCountrySummaries(): CountrySummary[] {
@@ -26,6 +28,7 @@ export function getAllCountrySummaries(): CountrySummary[] {
     country: c.country,
     continent: c.continent,
     flag: c.flag,
+    ...(c.listening ? { listening: c.listening } : {}),
   }));
 }
 
