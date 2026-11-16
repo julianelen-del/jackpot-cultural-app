@@ -61,7 +61,7 @@ export async function fetchWikimediaCoverImage(
       }).toString();
 
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 7000);
+    const timer = setTimeout(() => controller.abort(), 6000);
 
     const res = await fetch(endpoint, {
       signal: controller.signal,
@@ -143,7 +143,7 @@ export async function fetchWikipediaLeadImage(
         }).toString();
 
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 5000);
+      const timer = setTimeout(() => controller.abort(), 4500);
       const searchRes = await fetch(searchUrl, {
         signal: controller.signal,
         headers: {
@@ -164,7 +164,7 @@ export async function fetchWikipediaLeadImage(
       )}`;
 
       const sumController = new AbortController();
-      const sumTimer = setTimeout(() => sumController.abort(), 5000);
+      const sumTimer = setTimeout(() => sumController.abort(), 4500);
       const sumRes = await fetch(summaryUrl, {
         signal: sumController.signal,
         headers: {
@@ -228,7 +228,7 @@ export async function findWikipediaPageUrl(
         }).toString();
 
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 4500);
+      const timer = setTimeout(() => controller.abort(), 4000);
       const searchRes = await fetch(searchUrl, {
         signal: controller.signal,
         headers: {
@@ -248,7 +248,7 @@ export async function findWikipediaPageUrl(
         pageTitle.replace(/ /g, "_")
       )}`;
       const sumController = new AbortController();
-      const sumTimer = setTimeout(() => sumController.abort(), 4500);
+      const sumTimer = setTimeout(() => sumController.abort(), 4000);
       const sumRes = await fetch(summaryUrl, {
         signal: sumController.signal,
         headers: {
@@ -265,7 +265,9 @@ export async function findWikipediaPageUrl(
 
       if (summary.type === "disambiguation") continue;
       const desktopUrl = summary.content_urls?.desktop?.page;
-      if (desktopUrl) return desktopUrl;
+      if (desktopUrl) {
+        return desktopUrl.replace(/\(/g, "%28").replace(/\)/g, "%29");
+      }
     } catch {
       continue;
     }
@@ -304,7 +306,7 @@ export async function verifyYouTubeOEmbed(
 
   try {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 5000);
+    const timer = setTimeout(() => controller.abort(), 4500);
     const res = await fetch(
       `https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(rawUrl)}`,
       { signal: controller.signal }

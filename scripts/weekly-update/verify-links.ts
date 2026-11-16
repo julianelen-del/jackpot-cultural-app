@@ -8,14 +8,12 @@ async function resolveAndCheckUrl(rawUrl: string): Promise<string | null> {
     const parsed = new URL(rawUrl);
     if (!["http:", "https:"].includes(parsed.protocol)) return null;
 
-    // Las URLs que acaban de venir del feed oficial de Google News RSS ya son válidas;
-    // evitar consultarlas cientos de veces seguidas previene bloqueos y cambios en la URL.
     if (parsed.hostname === "news.google.com") {
       return rawUrl;
     }
 
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 7000);
+    const timer = setTimeout(() => controller.abort(), 4500);
 
     let response = await fetch(rawUrl, {
       method: "HEAD",
@@ -66,19 +64,28 @@ export async function verifyCandidateUrls(
 ): Promise<CandidateUrl[]> {
   const seen = new Set<string>();
   const verified: CandidateUrl[] = [];
+  const CHUNK_SIZE = 8;
 
-  for (const item of candidates) {
-    const resolved = await resolveAndCheckUrl(item.url);
-    if (!resolved) continue;
+  for (let i = 0; i < candidates.length; i += CHUNK_SIZE) {
+    const batch = candidates.slice(i, i + CHUNK_SIZE);
+    const resolvedBatch = await Promise.all(
+      batch.map(async (item) => ({
+        item,
+        resolved: await resolveAndCheckUrl(item.url),
+      }))
+    );
 
-    const normalized = resolved.split("#")[0];
-    if (seen.has(normalized)) continue;
+    for (const { item, resolved } of resolvedBatch) {
+      if (!resolved) continue;
+      const normalized = resolved.split("#")[0];
+      if (seen.has(normalized)) continue;
 
-    seen.add(normalized);
-    verified.push({
-      title: item.title.trim() || new URL(normalized).hostname,
-      url: normalized,
-    });
+      seen.add(normalized);
+      verified.push({
+        title: item.title.trim() || new URL(normalized).hostname,
+        url: normalized,
+      });
+    }
   }
 
   return verified;

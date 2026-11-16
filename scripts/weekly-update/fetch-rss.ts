@@ -1,7 +1,7 @@
 import Parser from "rss-parser";
 
 const parser = new Parser({
-  timeout: 10000,
+  timeout: 6500,
   customFields: {
     item: [["media:group", "mediaGroup"]],
   },
@@ -160,7 +160,7 @@ async function fetchOpenArticleContext(url: string): Promise<{
     }
 
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 4000);
+    const timer = setTimeout(() => controller.abort(), 3500);
     const res = await fetch(url, {
       signal: controller.signal,
       redirect: "follow",
@@ -327,40 +327,48 @@ export function balanceSignalsBySource(
 export async function enrichSignalsWithArticleContext(
   signals: RssSignal[]
 ): Promise<RssSignal[]> {
-  let fetched = 0;
-  const enriched: RssSignal[] = [];
+  const indicesToFetch: number[] = [];
 
-  for (const sig of signals) {
+  signals.forEach((sig, idx) => {
+    if (indicesToFetch.length >= 7) return;
     const needsText = sig.snippet.length < 240;
     const needsLinks = !sig.externalLinks || sig.externalLinks.length === 0;
-    if ((needsText || needsLinks) && fetched < 7) {
-      const res = await fetchOpenArticleContext(sig.url);
-      fetched++;
-      enriched.push({
-        ...sig,
-        snippet: res.text.length > sig.snippet.length ? res.text : sig.snippet,
-        externalLinks:
-          sig.externalLinks && sig.externalLinks.length > 0
-            ? sig.externalLinks
-            : res.externalLinks,
-      });
-      continue;
+    if (needsText || needsLinks) {
+      indicesToFetch.push(idx);
     }
-    enriched.push(sig);
-  }
+  });
 
-  return enriched;
+  const fetchedResults = await Promise.all(
+    indicesToFetch.map(async (idx) => ({
+      idx,
+      res: await fetchOpenArticleContext(signals[idx].url),
+    }))
+  );
+
+  const byIndex = new Map(fetchedResults.map((item) => [item.idx, item.res]));
+
+  return signals.map((sig, idx) => {
+    const extra = byIndex.get(idx);
+    if (!extra) return sig;
+    return {
+      ...sig,
+      snippet: extra.text.length > sig.snippet.length ? extra.text : sig.snippet,
+      externalLinks:
+        sig.externalLinks && sig.externalLinks.length > 0
+          ? sig.externalLinks
+          : extra.externalLinks,
+    };
+  });
 }
 
 export async function fetchCountryRssSignals(
   feedUrls: string[]
 ): Promise<RssSignal[]> {
-  const all: RssSignal[] = [];
-  for (const url of feedUrls) {
-    const items = await parseSingleFeed(url, 6);
-    all.push(...items);
-  }
-  return balanceSignalsBySource(all, 3, 22);
+  if (!feedUrls.length) return [];
+  const results = await Promise.all(
+    feedUrls.map((url) => parseSingleFeed(url, 6))
+  );
+  return balanceSignalsBySource(results.flat(), 3, 22);
 }
 
 export async function fetchGoogleNewsCulturalSignals(

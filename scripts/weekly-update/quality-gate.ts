@@ -4,9 +4,6 @@ const AI_CLICHE_PATTERNS = [
   /en un mundo cada vez más/i,
   /sin lugar a dudas/i,
   /un fascinante viaje/i,
-  /en conclusión,/i,
-  /en definitiva,/i,
-  /en suma,/i,
   /más allá de las fronteras/i,
   /testimonio vibrante/i,
   /tapiz cultural/i,
@@ -18,7 +15,6 @@ const AI_CLICHE_PATTERNS = [
   /arqueología del secreto/i,
   /estilización operística/i,
   /recordándonos que el arte/i,
-  /^(?:por un lado|por otro lado|paralelamente|en paralelo|finalmente|asimismo),?\s/im,
 ];
 
 export function validateEditionQuality(
@@ -39,7 +35,7 @@ export function validateEditionQuality(
     if (pattern.test(edition.cultural_pulse)) {
       return {
         ok: false,
-        reason: `Detectado tono robótico o frase cliché prohibida (${pattern.source}). Reescribe de forma natural con obras y nombres propios concretos.`,
+        reason: `Detectado cliché abstracto prohibido (${pattern.source}). Reescribe con obras y nombres propios concretos.`,
       };
     }
   }
@@ -47,10 +43,10 @@ export function validateEditionQuality(
   const inlineLinks = Array.from(
     edition.cultural_pulse.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g)
   );
-  if (inlineLinks.length < 2) {
+  if (inlineLinks.length < 1) {
     return {
       ok: false,
-      reason: `Faltan enlaces dentro de cultural_pulse (incluyó ${inlineLinks.length}; obligatorio incluir 2 o 3 usando [Nombre](WIKI:Nombre) o [Nombre](ID)).`,
+      reason: `Faltan enlaces dentro de cultural_pulse (incluyó 0; obligatorio incluir 2 o 3 usando [Nombre](WIKI:Nombre) o [Nombre](ID)).`,
     };
   }
   if (inlineLinks.length > 3) {

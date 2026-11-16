@@ -81,43 +81,58 @@ async function generateWithModelFallback(
       throw err;
     }
 
-    if (isTransientOrQuotaError(msg)) {
-      if (
-        !disablePrimaryModelForSession &&
-        (msg.includes("free_tier_requests") || msg.includes("limit: 20"))
-      ) {
-        disablePrimaryModelForSession = true;
-        console.warn(
-          `  [Cuota] ${PRIMARY_MODEL} alcanzó su tope diario gratuito. Cambiando a ${FALLBACK_MODEL} para el resto de la sesión.`
-        );
-      } else {
-        console.warn(
-          `  [Modelo] Reintentando con ${FALLBACK_MODEL} tras aviso temporal en ${activeModel}...`
-        );
-      }
+    if (!isTransientOrQuotaError(msg)) {
+      throw err;
+    }
 
-      await sleep(3000);
+    if (
+      !disablePrimaryModelForSession &&
+      (msg.includes("free_tier_requests") || msg.includes("limit: 20"))
+    ) {
+      disablePrimaryModelForSession = true;
+      console.warn(
+        `  [Cuota] ${PRIMARY_MODEL} alcanzó su tope diario gratuito. Cambiando a ${FALLBACK_MODEL} para el resto de la sesión.`
+      );
+    }
+
+    const delays = [3500, 7000];
+    let lastErr: unknown = err;
+
+    for (const delay of delays) {
+      console.warn(
+        `  [Modelo] Reintentando con ${FALLBACK_MODEL} en ${delay / 1000}s...`
+      );
+      await sleep(delay);
       try {
         return await ai.models.generateContent({
           model: FALLBACK_MODEL,
           contents,
           config,
         });
-      } catch (err2) {
-        const msg2 = err2 instanceof Error ? err2.message : String(err2);
-        if (isTransientOrQuotaError(msg2)) {
-          await sleep(5000);
-          return await ai.models.generateContent({
-            model: FALLBACK_MODEL,
-            contents,
-            config,
-          });
+      } catch (retryErr) {
+        lastErr = retryErr;
+        const retryMsg =
+          retryErr instanceof Error ? retryErr.message : String(retryErr);
+        if (!isTransientOrQuotaError(retryMsg)) {
+          throw retryErr;
         }
-        throw err2;
       }
     }
-    throw err;
+
+    throw lastErr;
   }
+}
+
+function cleanRoboticTransitions(text: string): string {
+  return text.replace(
+    /(^|\n\n|[.!?]\s+)(?:Por un lado|Por otro lado|Paralelamente|En paralelo|Asimismo|Finalmente|En suma|En conclusión|En definitiva),?\s+(\*\*|\*|\[)?([a-záéíóúñüA-ZÁÉÍÓÚÑÜ])/g,
+    (_, prefix: string, opener = "", firstChar: string) =>
+      `${prefix}${opener}${firstChar.toUpperCase()}`
+  );
+}
+
+function safeEncodeParens(url: string): string {
+  return url.replace(/\(/g, "%28").replace(/\)/g, "%29");
 }
 
 async function resolveInlineLinks(
@@ -147,31 +162,33 @@ async function resolveInlineLinks(
       continue;
     }
 
-    // 1) Soporte WIKI:Nombre -> busca URL real verificada en Wikipedia
     if (/^wiki:/i.test(target)) {
       const query = target.replace(/^wiki:/i, "").trim();
       const wikiUrl = await findWikipediaPageUrl(query);
       if (wikiUrl) {
-        allowedUrlSet.add(wikiUrl);
+        const cleanUrl = safeEncodeParens(wikiUrl);
+        allowedUrlSet.add(cleanUrl);
         linkCount++;
-        result += `[${label}](${wikiUrl})`;
+        result += `[${label}](${cleanUrl})`;
         continue;
       }
     }
 
-    // 2) Soporte ID numérico -> busca en lista cerrada de URLs verificadas
     const id = Number(target);
     const matched = Number.isInteger(id) ? verifiedUrls[id - 1] : undefined;
     if (matched) {
+      const cleanUrl = safeEncodeParens(matched.url);
+      allowedUrlSet.add(cleanUrl);
       linkCount++;
-      result += `[${label}](${matched.url})`;
+      result += `[${label}](${cleanUrl})`;
       continue;
     }
 
-    // 3) Si el modelo puso directamente una URL verificada válida
     if (allowedUrlSet.has(target)) {
+      const cleanUrl = safeEncodeParens(target);
+      allowedUrlSet.add(cleanUrl);
       linkCount++;
-      result += `[${label}](${target})`;
+      result += `[${label}](${cleanUrl})`;
       continue;
     }
 
@@ -266,12 +283,11 @@ export async function generateCountryEdition(
 ): Promise<CountryEdition> {
   const weekLabel = getCurrentIsoWeek();
 
-  // Combinar RSS curados + Google News balanceados y leer párrafos + links externos de notas abiertas
-  const directRss = await fetchCountryRssSignals(country.rss_feeds);
-  const newsRss = await fetchGoogleNewsCulturalSignals(
-    country.slug,
-    country.country
-  );
+  const [directRss, newsRss] = await Promise.all([
+    fetchCountryRssSignals(country.rss_feeds),
+    fetchGoogleNewsCulturalSignals(country.slug, country.country),
+  ]);
+
   const balancedSignals = balanceSignalsBySource(
     [...directRss, ...newsRss],
     3,
@@ -354,7 +370,6 @@ export async function generateCountryEdition(
     )
   ).slice(0, 4);
 
-  // Primero agregamos fuentes periodísticas y luego enlaces externos de obras/bandas/eventos
   for (const sig of rssSignals) {
     candidateUrls.push({
       title: `${sig.sourceTitle} - ${sig.title}`,
@@ -486,7 +501,7 @@ export async function generateCountryEdition(
 
     const rawPulse =
       typeof parsedJson.cultural_pulse === "string"
-        ? parsedJson.cultural_pulse
+        ? cleanRoboticTransitions(parsedJson.cultural_pulse)
         : "";
     const resolvedPulse = await resolveInlineLinks(
       rawPulse,
@@ -580,8 +595,8 @@ export async function generateCountryEdition(
         : 0;
 
     lastError =
-      plainWordCount < 300
-        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${plainWordCount} palabras y el mínimo obligatorio es 300. Desarróllalo hasta alcanzar 380-480 palabras con hechos y obras concretas.`
+      plainWordCount < 250
+        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${plainWordCount} palabras y el mínimo obligatorio es 250. Desarróllalo hasta alcanzar 350-450 palabras con hechos y obras concretas.`
         : plainWordCount > 800
           ? `Tu 'cultural_pulse' anterior tuvo ${plainWordCount} palabras (máximo 800). Resúmelo a unas 450 palabras.`
           : recCtxLen > 220
