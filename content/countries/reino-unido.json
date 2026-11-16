@@ -3,43 +3,53 @@
   "country": "Reino Unido",
   "continent": "Europa",
   "flag": "🇬🇧",
-  "updated_at": "2026-11-16T22:15:39.025Z",
+  "updated_at": "2026-11-16T23:17:23.149Z",
   "edition_week": "2026-W47",
-  "intro": "El nuevo 007 británico y la música de Radie Peat sacuden el pulso cultural de Londres.",
-  "cultural_pulse": "La semana cultural británica encuentra su terremoto en la confirmación de [Robert Pattinson](https://www.nme.com/news/film/robert-pattinson-new-james-bond-actor-revealed-3976113) como el séptimo actor en encarnar a [James Bond](https://www.theguardian.com/film/2026/nov/16/new-james-bond-announced-and-the-names-pattinson-robert-pattinson) en la gran pantalla. La audaz elección del protagonista de **The Batman** desplaza los tópicos de la franquicia hacia una sensibilidad contemporánea que promete redefinir el pulso del cine de espionaje en el **Reino Unido**.\n\nEn los terrenos de la narrativa literaria, el debate se enciende con [The Rouse](https://www.bbc.co.uk/programmes/m0033zgx), la monumental obra de 1.264 páginas firmada por [China Miéville](https://es.wikipedia.org/wiki/China_Mi%C3%A9ville), que acaba de alzarse con el prestigioso [Goldsmiths Prize](https://es.wikipedia.org/wiki/Rachel_Cusk). La novela exige una lectura paciente y expansiva, consolidando una de las voces más singulares de la ficción británica actual frente a las fórmulas comerciales del mercado editorial.\n\nLa escena sonora alternativa vuelve la mirada hacia las raíces con los rescates de [Radie Peat](https://news.google.com/rss/articles/CBMinAFBVV95cUxPcjRadlBab1Nmc1kzdTNyZFlRQ0c0V2gtRWIzWDNIM2F0ZS1rY0tjZU4wM3dvMWpjQnZBU25jSE1yWnNLQ2VQTjBOYjF3VS1mQ1hIU21tbkJybnQwSERING9ZdXZvUnJLbDNWNHBJWXYxb3lFTXZfYXpKYkpUUWl3U0VWTWJkemlsak1zNDAzOXRNT0cxdjl0ak1QOTk?oc=5), quien explora los recovecos de la memoria folk en sus selecciones discográficas recientes. Este rescate de sonoridades oscuras dialoga con la vitalidad de las emisoras independientes frente a la homogeneización del mainstream radiofónico.",
+  "intro": "El nuevo 007 cinematográfico y los discos que sacuden la temporada británica.",
+  "cover_image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/%28Barcelona%29_The_Golden_Bough_-_Joseph_Mallord_William_Turner_-_Tate_Britain.jpg/1280px-%28Barcelona%29_The_Golden_Bough_-_Joseph_Mallord_William_Turner_-_Tate_Britain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Fachada de la Tate Britain en Londres, hogar de los grandes debates artísticos y retrospectivas de época.",
+    "credit": "Foto: Didier Descouens · Public domain"
+  },
+  "cultural_pulse": "El tablero cinematográfico británico e internacional se reconfigura tras el anuncio oficial de que [Robert Pattinson](https://www.nme.com/news/film/robert-pattinson-new-james-bond-actor-revealed-3976113) asumirá el rol icónico de **James Bond**, sucediendo a **Daniel Craig** tras un proceso de casting que mantuvo en vilo a la industria. Con una trayectoria que transita desde el cine de autor hasta grandes superproducciones, la llegada de este actor promete dotar al agente secreto de una sensibilidad atípica y distante de los clichés recientes del blockbuster de estudio.\n\nEn el terreno literario y de las artes visuales, la discusión cultural se desplaza hacia las nuevas publicaciones y exposiciones que dominan las carteleras de Londres y las regiones. El novelista [Jonathan Coe](https://www.bbc.co.uk/programmes/m003418n) regresa al centro de la escena con su flamante obra Lessons in Harmony, una inmersión en los vínculos y tensiones entre compositores fundamentales como **Maurice Ravel y Ralph Vaughan** Williams, explorando la trastienda de la creación musical clásica con su habitual agudeza narrativa.\n\nLos espacios institucionales como la Tate Britain aglutinan la atención crítica con muestras dedicadas a la profunda sociedad creativa entre Vanessa Bell y Duncan Grant dentro del círculo de Bloomsbury. Estas coordenadas confirman una agenda donde la reinterpretación de los legados artísticos británicos convive con giros inesperados en la ficción contemporánea, manteniendo el pulso de una temporada cultural densa en cruces entre literatura, música y cine.",
   "topics": [
     {
-      "category": "Cine",
+      "category": "Cine y Series",
       "title": "El nuevo rostro de 007",
-      "summary": "La confirmación de [Robert Pattinson](https://www.theguardian.com/film/2026/nov/16/new-james-bond-announced-and-the-names-pattinson-robert-pattinson) como el relevo de Daniel Craig en la saga de [James Bond](https://es.wikipedia.org/wiki/James_Bond) sacude la industria cinematográfica británica con una apuesta por el riesgo autoral."
+      "summary": "La confirmación de [Robert Pattinson](https://www.theguardian.com/film/2026/nov/16/new-james-bond-announced-and-the-names-pattinson-robert-pattinson) como el séptimo actor en encarnar a James Bond redefine el futuro de la franquicia británica más longeva tras la era de Daniel Craig."
     },
     {
-      "category": "Libros",
-      "title": "La novela monumental de Miéville",
-      "summary": "[China Miéville](https://es.wikipedia.org/wiki/China_Mi%C3%A9ville) conquista el [Goldsmiths Prize](https://es.wikipedia.org/wiki/Rachel_Cusk) con *The Rouse*, un volumen colosal que redefine los límites formales de la ficción contemporánea."
+      "category": "Libros de Ficción y No Ficción",
+      "title": "Música y amistad entre compositores",
+      "summary": "Jonathan Coe publica [Lessons in Harmony](https://www.bbc.co.uk/programmes/m003418n), una novela centrada en la compleja relación entre Maurice Ravel y Ralph Vaughan Williams."
     },
     {
-      "category": "Música",
-      "title": "Arqueología folk con Radie Peat",
-      "summary": "Las selecciones discográficas de [Radie Peat](https://news.google.com/rss/articles/CBMinAFBVV95cUxPcjRadlBab1Nmc1kzdTNyZFlRQ0c0V2gtRWIzWDNIM2F0ZS1rY0tjZU4wM3dvMWpjQnZBU25jSE1yWnNLQ2VQTjBOYjF3VS1mQ1hIU21tbkJybnQwSERING9ZdXZvUnJLbDNWNHBJWXYxb3lFTXZfYXpKYkpUUWl3U0VWTWJkemlsak1zNDAzOXRNT0cxdjl0ak1QOTk?oc=5) bucean en las profundidades de la música tradicional británica e irlandesa, reivindicando discos de culto olvidados por el circuito masivo."
+      "category": "Exhibiciones",
+      "title": "El círculo de Bloomsbury en la Tate",
+      "summary": "Una nueva exhibición en la Tate Britain examina la colaboración artística entre Vanessa Bell y Duncan Grant, relocalizando secciones de su histórico estudio."
+    },
+    {
+      "category": "Música y Rock",
+      "title": "Raíces folk y álbumes de culto",
+      "summary": "Las selecciones de [Radie Peat](https://news.google.com/rss/articles/CBMinAFBVV95cUxPcjRadlBab1Nmc1kzdTNyZFlRQ0c0V2gtRWIzWDNIM2F0ZS1rY0tjZU4wM3dvMWpjQnZBU25jSE1yWnNLQ2VQTjBOYjF3VS1mQ1hIU21tbkJybnQwSERING9ZdXZvUnJLbDNWNHBJWXYxb3lFTXZfYXpKYkpUUWl3U0VWTWJkemlsak1zNDAzOXRNT0cxdjl0ak1QOTk?oc=5) y los análisis sonoros recientes reafirman el vigor de la trastienda folk y experimental en el circuito británico."
     }
   ],
   "recommendation": {
     "type": "Libro",
-    "title": "The Rouse",
-    "creator": "China Miéville",
-    "context": "Una obra monumental y desbordante que desafía las convenciones de la novela contemporánea.",
-    "url": "https://www.bbc.co.uk/programmes/m0033zgx"
+    "title": "Lessons in Harmony",
+    "creator": "Jonathan Coe",
+    "context": "Una inmersión aguda en las tensiones creativas y humanas entre Maurice Ravel y Ralph Vaughan Williams.",
+    "url": "https://www.bbc.co.uk/programmes/m003418n"
   },
   "closing_media": {
     "type": "video",
     "url": "https://www.youtube-nocookie.com/embed/Ldq1ySMoABk",
-    "caption": "Videoclip oficial y material de archivo vinculado a los lanzamientos analizados en la escena británica."
+    "caption": "Fragmento audiovisual vinculado a los estrenos y coberturas culturales de la temporada británica."
   },
   "sources": [
     {
-      "name": "The Quietus",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPcjRadlBab1Nmc1kzdTNyZFlRQ0c0V2gtRWIzWDNIM2F0ZS1rY0tjZU4wM3dvMWpjQnZBU25jSE1yWnNLQ2VQTjBOYjF3VS1mQ1hIU21tbkJybnQwSERING9ZdXZvUnJLbDNWNHBJWXYxb3lFTXZfYXpKYkpUUWl3U0VWTWJkemlsak1zNDAzOXRNT0cxdjl0ak1QOTk?oc=5",
+      "name": "Front Row",
+      "url": "https://www.bbc.co.uk/programmes/m00349xc",
       "paywalled": false
     },
     {
@@ -48,13 +58,13 @@
       "paywalled": false
     },
     {
-      "name": "The Guardian Culture",
-      "url": "https://www.theguardian.com/film/2026/nov/16/new-james-bond-announced-and-the-names-pattinson-robert-pattinson",
+      "name": "Front Row",
+      "url": "https://www.bbc.co.uk/programmes/m003418n",
       "paywalled": false
     },
     {
-      "name": "BBC Radio 4 Front Row",
-      "url": "https://www.bbc.co.uk/programmes/m0033zgx",
+      "name": "Culture | The Guardian",
+      "url": "https://www.theguardian.com/film/2026/nov/16/new-james-bond-announced-and-the-names-pattinson-robert-pattinson",
       "paywalled": false
     }
   ]

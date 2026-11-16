@@ -3,43 +3,48 @@
   "country": "Alemania",
   "continent": "Europa",
   "flag": "🇩🇪",
-  "updated_at": "2026-11-16T20:31:58.789Z",
+  "updated_at": "2026-11-16T23:18:52.542Z",
   "edition_week": "2026-W47",
-  "intro": "El pulso cultural alemán de la semana recorre el drama intimista, la literatura llevada a la gran pantalla y los debates de época.",
+  "intro": "El cine alemán cruza la adaptación literaria con la crudeza contemporánea mientras la escena musical celebra nuevos debuts y debates de programación.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Berlin_Alexanderplatz_1903.JPG/1280px-Berlin_Alexanderplatz_1903.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Calle de Berlín, epicentro del pulso cultural contemporáneo en Alemania.",
-    "credit": "Foto: Unknown author Unknown author · Public domain"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/2019-04-13_Hannah_Neumann_by_Olaf_Kosinsky-0535.jpg/1280px-2019-04-13_Hannah_Neumann_by_Olaf_Kosinsky-0535.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "El director Volker Schlöndorff lleva la obra de Jenny Erpenbeck a la gran pantalla.",
+    "credit": "Foto: Olaf Kosinsky · CC BY-SA 3.0 de"
   },
-  "cultural_pulse": "La cartelera cultural alemana de esta semana pone el foco en las intersecciones entre la literatura y el cine de autor. El director **Volker Schlöndorff** continúa consolidando su maestría en las adaptaciones literarias al llevar al cine la novela *Heimsuchung* de la escritora **Jenny Erpenbeck**, un proyecto que profundiza en las capas de la memoria histórica alemana a través de una casa a orillas de un lago. Este ejercicio de traducción estética convive con otras miradas sensibles sobre la veteranía y los vínculos humanos, como demuestra la cineasta **Doris Dörrie** en su reciente largometraje *Frau Winkler verlässt das Haus*, donde explora la vejez y la autonomía femenina sin caer en lugares comunes ni moralejas sentimentales.\n\nLas salas de cine reciben propuestas de carácter coral y social como *Lieblingsmenschen*, una ficción que examina las transformaciones vitales a partir de la convivencia en una comuna urbana. Este estreno dialoga en el circuito de festivales con producciones que abordan traumas colectivos europeos recientes, manteniendo vivo el debate sobre los límites de la representación cinematográfica de la violencia contemporánea. La vitalidad de la exhibición en salas se complementa con ciclos especiales que recuperan hitos del séptimo arte, demostrando que el público alemán mantiene un apetito constante por el cruce entre el riesgo formal y la reflexión política.\n\nEl circuito editorial y de debates mantiene su pulso afilado mediante revisiones historiográficas y ensayos críticos. Las recomendaciones de lectura impulsadas por instituciones como la [Bayerischer Rundfunk](https://news.google.com/rss/articles/CBMiY0FVX3lxTE1fb3doSFQ5MkNHcEh6MlUtTG53YUdfQ2V4OHAwNThtQXI3SThBdlEyT3dkcmM2VE5wZW92TFhFUnV5TlZ6QWZNLUJUMlRKLVdCbWhKb21WempPaV9fM1B0b3IwMA?oc=5) priorizan obras de no ficción y narrativa contemporánea que evitan el efectismo comercial. De este modo, la agenda semanal consolida un mapa donde la creación artística local dialoga de manera directa con las tensiones sociales del presente, priorizando siempre la solidez de los textos y la hondura de las miradas autorales por encima de cualquier fenómeno efímero.",
+  "cultural_pulse": "El panorama cultural alemán de esta semana redobla su apuesta por el cruce entre la gran literatura y el cine de autor. El veterano director [Volker Schlöndorff](https://news.google.com/rss/articles/CBMioAFBVV95cUxQVjJqUXNNU3IySXRaLVFjQnM4WEp3YWxQdUdzdWlYUm96dWVfSVk5Nkcyc3hrSGE5cmJVTm93c1k2ZlpaYmJUUWYzWHBxRDhvZ3BjeEdyOVk4SXBROC16VUZTbkl5UVMzRDlOQ2phbEthLXZZcWtmU3RheGpxZERjOFZpQ19tdmhmVlIzNkFYZ3VnS01BVDBOZ04wTVNIc2Ju?oc=5) ha anunciado la adaptación cinematográfica de *Heimsuchung*, la celebrada novela de **Jenny Erpenbeck**, consolidando una trayectoria marcada por el rigor en la traducción de textos complejos al lenguaje audiovisual. Las salas de cine locales reciben producciones como *Lieblingsmenschen*, una mirada aguda sobre la convivencia y la transformación generacional en núcleos urbanos compartidos que dialoga directamente con los debates contemporáneos sobre la afectividad y la precarietad habitacional.\n\nEn el terreno sonoro, la apuesta por las texturas experimentales y el indie de guitarras encuentra un pulso firme en lanzamientos recientes como *ALDIE*, el debut de **Beaks**, reseñado ampliamente por [DIFFUS](https://diffus.de/p/album-der-woche-beaks-aldie/) por su capacidad para amalgamar post-punk, electrónica y viñetas de urgencia urbana. Este pulso creativo contrasta con la persistente discusión en los medios culturales alemanes sobre las cuotas de difusión radiofónica y la necesidad de blindar el repertorio independiente frente a la homogeneización de las grandes emisoras comerciales, un debate que moviliza tanto a sellos discográficos como a colectivos de creadores.\n\nLa agenda escénica y de directos también suma hitos de impacto masivo en las principales ciudades del país, destacando el regreso a los escenarios de Stuttgart del musical *We will rock you*, basado en el cancionero de **Queen**, que vuelve a convocar a audiencias intergeneracionales en torno al imaginario del rock de estadios. El ecosistema editorial digiere los balances de la temporada y los galardones recientes como el premio de la crítica de *Spiegel* a voces como la de **Tony Tulathimutte**, reafirmando la vigencia de una narrativa en alemán que no teme examinar las zonas oscuras de la psicología contemporánea.",
   "topics": [
     {
-      "category": "Cine",
-      "title": "Nuevas miradas en la gran pantalla alemana",
-      "summary": "El estreno de *Lieblingsmenschen* y la nueva incursión de **Doris Dörrie** con *Frau Winkler verlässt das Haus* reafirman el vigor del cine alemán centrado en los vínculos íntimos y las dinámicas urbanas contemporáneas."
+      "category": "Cine y Series",
+      "title": "De la página a la pantalla alemana",
+      "summary": "El realizador [Volker Schlöndorff](https://news.google.com/rss/articles/CBMioAFBVV95cUxQVjJqUXNNU3IySXRaLVFjQnM4WEp3YWxQdUdzdWlYUm96dWVfSVk5Nkcyc3hrSGE5cmJVTm93c1k2ZlpaYmJUUWYzWHBxRDhvZ3BjeEdyOVk4SXBROC16VUZTbkl5UVMzRDlOQ2phbEthLXZZcWtmU3RheGpxZERjOFZpQ19tdmhmVlIzNkFYZ3VnS01BVDBOZ04wTVNIc2Ju?oc=5) traslada al cine la novela *Heimsuchung* de Jenny Erpenbeck, un proyecto que ratifica la vigencia del diálogo entre la narrativa alemana contemporánea y la dirección de prestigio."
     },
     {
-      "category": "Libros",
-      "title": "Itinerarios de lectura y crítica",
-      "summary": "Las guías editoriales difundidas por la [Bayerischer Rundfunk](https://news.google.com/rss/articles/CBMiY0FVX3lxTE1fb3doSFQ5MkNHcEh6MlUtTG53YUdfQ2V4OHAwNThtQXI3SThBdlEyT3dkcmM2VE5wZW92TFhFUnV5TlZ6QWZNLUJUMlRKLVdCbWhKb21WempPaV9fM1B0b3IwMA?oc=5) y las reseñas de la crítica literaria ponen en primer plano novelas de calado psicológico como el clásico recuperado *El destino de Mary Rose* de **Caroline Blackwood**."
+      "category": "Música y Rock",
+      "title": "Nuevas coordenadas del indie local",
+      "summary": "El álbum *ALDIE* de la formación **Beaks** irrumpe en la escena con un cruce de post-punk y electrónica que canaliza las urgencias de la juventud berlinesa actual."
     },
     {
-      "category": "Cine",
-      "title": "El arte de la adaptación literaria",
-      "summary": "La labor de **Volker Schlöndorff** al adaptar *Heimsuchung* de **Jenny Erpenbeck** sitúa una vez más el diálogo entre la prosa alemana contemporánea y la puesta en escena cinematográfica en el centro de la conversación estética."
+      "category": "Teatro y Espectáculos",
+      "title": "El retorno del rock de estadios a Stuttgart",
+      "summary": "El musical *We will rock you*, construido sobre los temas fundamentales de **Queen**, reabre sus funciones en el escenario suabo congregando a miles de seguidores."
+    },
+    {
+      "category": "Libros y Ensayo",
+      "title": "Radiografías del dolor contemporáneo",
+      "summary": "Las reflexiones literarias de **Tony Tulathimutte** analizan la anatomía del sufrimiento en la ficción actual, marcando el pulso de la crítica en las páginas de *Spiegel*."
     }
   ],
   "recommendation": {
-    "type": "Película",
-    "title": "Frau Winkler verlässt das Haus",
-    "creator": "Doris Dörrie",
-    "context": "Una mirada tierna y lúcida sobre la vejez y la búsqueda de independencia personal firmada por una de las directoras esenciales del cine alemán.",
-    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOaVpHemduUHZESFA0ZTBzbEd1dE91YzE4MDVwWC0xMkpHLVV3TUxoaW9zSndEMmlncFZHb1hQa2xjSjBpaFVPOUExSDV5SGhWRUxmMnFlUFdBU3J5NDFIbGFaZW5jemM4MXlpV2J4NzRmVFJ5bzdCUm1qWjZoV2sxUnZ5SnU2TEh4d2ZlLTFHMGs0eFhVX29PNUVfeUN2dHdSSUdwU3JnTlJtTzA?oc=5"
+    "type": "Álbum",
+    "title": "ALDIE",
+    "creator": "Beaks",
+    "context": "Un debut imprescindible que mezcla post-punk y electrónica con una sensibilidad urbana muy lograda.",
+    "url": "https://diffus.de/p/album-der-woche-beaks-aldie/"
   },
   "closing_media": {
     "type": "image",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Frankfurter_Buchmesse_2011_Doris_D%C3%B6rrie_und_Dorothea_Westphal.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "caption": "Retrato de la cineasta Doris Dörrie, directora de Frau Winkler verlässt das Haus.",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Geoff_Barrow_at_The_Troubadour.jpg/960px-Geoff_Barrow_at_The_Troubadour.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Retrato de la banda Beaks, artífices del disco ALDIE.",
     "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
@@ -49,23 +54,18 @@
       "paywalled": false
     },
     {
-      "name": "BR",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1fb3doSFQ5MkNHcEh6MlUtTG53YUdfQ2V4OHAwNThtQXI3SThBdlEyT3dkcmM2VE5wZW92TFhFUnV5TlZ6QWZNLUJUMlRKLVdCbWhKb21WempPaV9fM1B0b3IwMA?oc=5",
-      "paywalled": false
-    },
-    {
       "name": "SWR",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOaVpHemduUHZESFA0ZTBzbEd1dE91YzE4MDVwWC0xMkpHLVV3TUxoaW9zSndEMmlncFZHb1hQa2xjSjBpaFVPOUExSDV5SGhWRUxmMnFlUFdBU3J5NDFIbGFaZW5jemM4MXlpV2J4NzRmVFJ5bzdCUm1qWjZoV2sxUnZ5SnU2TEh4d2ZlLTFHMGs0eFhVX29PNUVfeUN2dHdSSUdwU3JnTlJtTzA?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQNjlLRlcxLXdHdmZ3VVJXeWtDRWRfVWRRRG9kZy1mUWtyMW9qbVZYNUhadW9KbVIybmlnbGlKdzRpR0xjQ0JaUFZqT1I4R0RjdU54NjVWbGRGOHAySEk2WlJFb1ZnTzZMYUo2cnl1RDZ5RURmU3FfYUJWdy0wRkJHeFJiNjhLTDQzbmFuRmFmMExDTkJKNVJnRXFIMXJSdHl2T25VTGFTTXpUc2c?oc=5",
       "paywalled": false
     },
     {
-      "name": "NDR.de",
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPM2pYQTBxaHN6RXdBaURaREdETDUxR2ZwcndOSWNNam9ZaEd4VlB3M0Zrd180SndpejJkS3M3MmM2cV9HWUFoc1A1Zjd4TlcxbTZ6QnppcGtCdzJqU2VMek5UTUExUkZvbU5fNWpIeW1OVi1NSmJzZnAzWklnaGhlbFlsUUN0QmdXT3M1UWRzTjYzSlZVY2NmWnJLYkw1V2pwLVBta3dIdHdlMG9XdkZlNHJsTVIxVkpBOWs4Tmo2NFM?oc=5",
-      "paywalled": false
+      "name": "Spiegel",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNSk4xeFZvbTNWaUJfWXpPOFllajNmVEZhMC0zdV9HM2pKWGJ3NnFGcUtaaGRQSEZjUG9RcEsxNWhWcnYyNHY2Q2lHaER2dHZPMU14cTFTdkxfbTQyUkxPTVdYMmlLRDRablRONzBuMUx6YTJQN1pub1J2VlFGd0piSGlhVjRZUVdHeXlTb21rRjZtb1Q3b0t6T2tEOXI3RkpoQ29LcTlBNHhVVVB6ZnB4cVc0N1VHODZxWUxuYklyNlRSX09yWXRkQ1RtNlN2eXgyUUVxQnR3UQ?oc=5",
+      "paywalled": true
     },
     {
-      "name": "Perlentaucher",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVEJmNUVoMHlsRmtrZ3RaT3ljM0lKVXdlRU9xa3BBZUhvNnlEWUtTdnFHY2pTZVFudndaZkVvRjRLX1k2Q3dybVN5RkJwck9FVXpQUmx2aXVYQWk1YVYtWTBZczZWODlUemJSS2VVSDlkWTRLbWhGeTNZZU5QSk5zY0RGMFNpcUt2RHcxeXlR?oc=5",
+      "name": "DIFFUS",
+      "url": "https://diffus.de/p/album-der-woche-beaks-aldie/",
       "paywalled": false
     }
   ]

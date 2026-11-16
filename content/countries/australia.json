@@ -3,44 +3,49 @@
   "country": "Australia",
   "continent": "Oceanía",
   "flag": "🇦🇺",
-  "updated_at": "2026-11-16T22:25:02.316Z",
+  "updated_at": "2026-11-16T23:23:48.004Z",
   "edition_week": "2026-W47",
-  "intro": "Música en directo alterada por cancelaciones en Perth y memoria viva en las páginas de Overland.",
+  "intro": "El pulso cultural australiano late entre la memoria fotográfica de la huelga de Pilbara, el debut literario en Overland y la escena en vivo.",
   "cover_image": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Taylor_Swift_%286820740076%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "caption": "Público en un recinto de conciertos en Perth, Australia.",
-    "credit": "Foto: Eva Rinaldi · CC BY-SA 2.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Sydney_Opera_House_-_Dec_2008.jpg/1280px-Sydney_Opera_House_-_Dec_2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "La icónica estructura de la Ópera de Sídney frente al puerto.",
+    "credit": "Foto: Diliff · CC BY-SA 3.0"
   },
-  "cultural_pulse": "El pulso de la escena musical australiana se sacudió esta semana tras la abrupta cancelación de un esperado concierto de una reconocida banda de rock en Perth, un incidente que dejó a cientos de seguidores desconcertados a los pocos minutos de haber comenzado el espectáculo y que reavivó el debate sobre la fragilidad de las giras internacionales en el circuito de Oceanía. El sector editorial reafirma su músculo crítico con la publicación del número 260 de la revista [Overland](https://overland.org.au/2026/11/contingencies-nicholas-southall-and-mark-gawnes-crimes-of-class/), que alcanza las 212 páginas y recopila las voces galardonadas en los premios literarios Judith Wright, Neilma Sidney y Nakata Brophy.\n\nEn este nuevo volumen, el debate estético y político adquiere densidad gracias a ensayos incisivos como el firmado por **Hana Pera Aoake**, quien cuestiona los engranajes comerciales del arte indígena y problematiza el beneficio real de los creadores maoríes dentro de un mercado desregulado. El escritor **John Kinsella** despliega una defensa radical de la no originalidad entendida tanto como método poético subversivo como una forma de resistencia política frente al consumo cultural estandarizado que domina las plataformas contemporáneas de lectura y distribución digital.\n\nLa memoria histórica del país rescata episodios fundamentales de la clase trabajadora australiana a través del archivo fotográfico recuperado de la huelga de **Pilbara** de 1946 [Pilbara strike camps](https://www.theguardian.com/australia-news/ng-interactive/2026/nov/17/aboriginal-workers-1946-pilbara-strike-camps-john-wilson-photographs-australia-history-ntwnfb), donde cientos de obreros aborígenes desafiaron a los gigantes mineros de la época. Estas imágenes, expuestas recientemente en Perth gracias al testimonio de descendientes como **Troy Eaton**, documentan la génesis de un activismo sindical y comunitario profundamente arraigado en el paisaje minero del noroeste australiano, lejos de cualquier edulcoramiento turístico o institucional.",
+  "cultural_pulse": "La semana cultural en **Australia** sacude los cimientos de la memoria histórica y la creación contemporánea con un rigor que esquiva cualquier fórmula complaciente. La aparición de los archivos fotográficos del levantamiento laboral en la región de **Pilbara**, documentados en [The Guardian](https://www.theguardian.com/australia-news/ng-interactive/2026/nov/17/aboriginal-workers-1946-pilbara-strike-camps-john-wilson-photographs-australia-history-ntwnfb), devuelve al presente una de las luchas obreras e indígenas más determinantes del siglo XX sin filtros de postal turística. Las imágenes de aquellos huelguistas desafiando el poder colonial y minero dialogan directamente con las nuevas voces que publica [Overland literary journal](https://overland.org.au/2026/11/contingencies-nicholas-southall-and-mark-gawnes-crimes-of-class/), donde la poesía y la crítica literaria diseccionan las tensiones de clase y las economías del arte originario.\n\nEl pulso de la música en vivo y las salas de cine experimenta sobresaltos imprevisibles. Las salas de Sídney abren debates técnicos urgentes sobre la presión sonora extrema en proyecciones como las de Godzilla, mientras la cartelera local y los festivales de invierno británico en [The Footy Almanac](https://news.google.com/rss/articles/CBMigwFBVV95cUxNUk8zcVY2dDZzZnp6U29nVHVyVzRPTHl2V19iNlBieUlLcEVVOHNXc3drM2lhdWVwc3VMazN5NGlKdndIY2F6ZTJVSnpwcjlGS1BkUWt6VERxYk9RbmRhTUI1NHR5ZlppdlRrVlJOY19DVW9WVmg4NWZ4Y2ZJN1pjeVMyaw?oc=5) miden el pulso de narrativas que priorizan la textura cinematográfica por encima del consumo rápido. Lejos del ruido comercial de las grandes franquicias, los creadores independientes continúan tensando las formas del medio audiovisual y literario en todo el territorio.\n\nLa televisión y las plataformas no escapan a este movimiento hacia relatos más oscuros y arraigados en el territorio. Series recientes protagonizadas por intérpretes como [Rose Byrne](https://news.google.com/rss/articles/CBMiZEFVX3lxTFA5TTAzZFp4V1ZIdkZVUk84ZENHYzhCZ05IZnQwSUFKcEpGUG5YRUVYU0pLX2RHX3pCcFBGVEYxMktueEZFczlaS0tzel8zU1JmOGFReHd0dmMxdFRlelc2X19KeUw?oc=5) consolidan un formato de thriller rural donde la geografía australiana deja de ser un mero decorado exótico para convertirse en un personaje asfixiante y moralmente ambiguo. Este mapa cultural demuestra que la vitalidad artística del país se alimenta de su capacidad para revisar los archivos del pasado y confrontar las derivas del presente con una mirada tan lúcida como directa.",
   "topics": [
     {
-      "category": "Música",
-      "title": "Sobresaltos en vivo y memoria discográfica",
-      "summary": "La escena en directo vivió momentos de tensión con la cancelación imprevista de un recital en Perth por parte de una banda invitada, un suceso que resonó con fuerza en los medios especializados. En el plano editorial musical, la comunidad despide al cofundador de **Taxiride**, **Dan Hall**, recordado por su huella melódica en el pop rock australiano de finales de los noventa."
+      "category": "Música y Rock",
+      "title": "El adiós a Dan Hall de Taxiride",
+      "summary": "La escena musical independiente y el rock melódico australiano lloran la pérdida de [Dan Hall](https://news.google.com/rss/articles/CBMilgFBVV95cUxNXzYzVUlEY2JBMUs4dzVodFRncUZjYzNVbjdDd1J4LVRyTUxoSk5KOGJKUkgwM3lJQzRMSlY2cUVaUnNRbk1UNFVBTk43YkROb2xOOGhBOUtrc1R5UTNMcGh2RWxraVFlaUFpcHloSXUzOWgwc2hYMkp1blVub1NGSWVpSUtFYUtZdk0xT1hqMG04dDZyOFE?oc=5), cofundador de la influyente banda Taxiride, cuyo legado marcó una época dorada en las radios y los escenarios del país."
     },
     {
-      "category": "Literatura",
-      "title": "Nuevas voces en el número 260 de Overland",
-      "summary": "La revista [Overland](https://overland.org.au/2026/11/contingencies-nicholas-southall-and-mark-gawnes-crimes-of-class/) consolida su posición como trinchera del ensayo y la poesía australiana con un número monumental de más de doscientos folios. Se destacan los textos de los premios Judith Wright y los análisis sobre poética y economía de las artes visuales indígenas."
+      "category": "Cine y Series",
+      "title": "Nuevos thrillers en pantalla chica",
+      "summary": "La ficción televisiva nacional apuesta por atmósferas opresivas en producciones recientes encabezadas por [Rose Byrne](https://news.google.com/rss/articles/CBMiZEFVX3lxTFA5TTAzZFp4V1ZIdkZVUk84ZENHYzhCZ05IZnQwSUFKcEpGUG5YRUVYU0pLX2RHX3pCcFBGVEYxMktueEZFczlaS0tzel8zU1JmOGFReHd0dmMxdFRlelc2X19KeUw?oc=5) y Meghann Fahy, explorando los secretos inconfesables de comunidades cerradas."
     },
     {
-      "category": "Historia y Patrimonio",
-      "title": "El archivo fotográfico de la huelga de Pilbara",
-      "summary": "El redescubrimiento de instantáneas históricas sobre la gran huelga de 1946 en la región de **Pilbara** [Pilbara strike camps](https://www.theguardian.com/australia-news/ng-interactive/2026/nov/17/aboriginal-workers-1946-pilbara-strike-camps-john-wilson-photographs-australia-history-ntwnfb) devuelve el protagonismo a los trabajadores aborígenes que sentaron las bases de la resistencia laboral y la organización comunitaria en Australia."
+      "category": "Literatura y Ensayo",
+      "title": "Voces críticas en Overland",
+      "summary": "El número 260 de la revista [Overland literary journal](https://overland.org.au/2026/11/contingencies-nicholas-southall-and-mark-gawnes-crimes-of-class/) reúne los textos galardonados en los premios Judith Wright y Neilma Sidney, consolidando una plataforma insustituible para la nueva poesía y narrativa australiana."
+    },
+    {
+      "category": "Exhibiciones y Memoria",
+      "title": "Los archivos visuales de Pilbara",
+      "summary": "Una serie de fotografías rescatadas del olvido revelan la trastienda de la histórica huelga de trabajadores aborígenes en Pilbara, documentando una resistencia fundamental en la historia social de [Australia](https://www.theguardian.com/australia-news/ng-interactive/2026/nov/17/aboriginal-workers-1946-pilbara-strike-camps-john-wilson-photographs-australia-history-ntwnfb)."
     }
   ],
   "recommendation": {
-    "type": "Álbum",
-    "title": "Music for Empty Stadiums",
-    "creator": "OR",
-    "context": "Un recorrido sonoro por texturas electrónicas y ambientales que desafía el formato de estadio masivo.",
-    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9rSkxIaTNFT2ZhZktFX0FtYjlYYk1kNmF2US13V0w3N3hCeGIybGdGcEZscnZKeHdaUnJXQjI2OUIwakY1c1FPUTVLTjdHa1ZKSlFPazdpU3dRMnduQjhha0paMmRLdFkyNEhTdWFlUlp3d0k?oc=5"
+    "type": "Libro",
+    "title": "Crimes of Class",
+    "creator": "Nicholas Southall y Mark Gawne",
+    "context": "Un ensayo incisivo publicado en Overland que desarma las estructuras de clase en la Australia contemporánea.",
+    "url": "https://overland.org.au/2026/11/contingencies-nicholas-southall-and-mark-gawnes-crimes-of-class/"
   },
   "closing_media": {
     "type": "image",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Western_Australia_-_November_10%2C_2013.jpg/960px-Western_Australia_-_November_10%2C_2013.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "caption": "Fotografía histórica de los campamentos y trabajadores durante la huelga de Pilbara de 1946.",
-    "credit": "Foto: Wikimedia Commons (vía Wikipedia ES)"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Prime_Minister_Gough_Whitlam_pours_soil_into_the_hand_of_traditional_land_owner_Vincent_Lingiari_1975_Mervyn_Bishop.jpg/960px-Prime_Minister_Gough_Whitlam_pours_soil_into_the_hand_of_traditional_land_owner_Vincent_Lingiari_1975_Mervyn_Bishop.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Retrato que documenta el archivo histórico de la huelga de trabajadores aborígenes en la región de Pilbara.",
+    "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
     {
@@ -49,18 +54,13 @@
       "paywalled": false
     },
     {
-      "name": "PerthNow",
-      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOQk9jYXJsSW1KemtsVFVtT19udTNIT0t3NTBzbUs1TUg0Z2tPNFVER0h1bTYtSFY4T2FzMVpURTRMOUsydTJXWHEwcVN1Z2oyOTdpcEg0d255S0N6SkNYbUFwcXphcEMyc192UTZsUmtQUGVLV3dOMnY0eG1SY2lGRnRpMWZ0YnpUNEktanJYT1BKbU9OY1Q2djI4TUVjM2JDclJsV0ZrUmhBX2I1UW1WRnRLS1A1d1pROXhWWG9GbER3NXBwMENEUm8ycmVWWjZmNHl4TUhQUE1qR01sdnNMOS1xbG03akJEdWVPV1ZRZVhpT3RG?oc=5",
+      "name": "Mamamia",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFA5TTAzZFp4V1ZIdkZVUk84ZENHYzhCZ05IZnQwSUFKcEpGUG5YRUVYU0pLX2RHX3pCcFBGVEYxMktueEZFczlaS0tzel8zU1JmOGFReHd0dmMxdFRlelc2X19KeUw?oc=5",
       "paywalled": false
     },
     {
-      "name": "Pitchfork",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9rSkxIaTNFT2ZhZktFX0FtYjlYYk1kNmF2US13V0w3N3hCeGIybGdGcEZscnZKeHdaUnJXQjI2OUIwakY1c1FPUTVLTjdHa1ZKSlFPazdpU3dRMnduQjhha0paMmRLdFkyNEhTdWFlUlp3d0k?oc=5",
-      "paywalled": false
-    },
-    {
-      "name": "theMusic",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNXzYzVUlEY2JBMUs4dzVodFRncUZjYzNVbjdDd1J4LVRyTUxoSk5KOGJKUkgwM3lJQzRMSlY2cUVaUnNRbk1UNFVBTk43YkROb2xOOGhBOUtrc1R5UTNMcGh2RWxraVFlaUFpcHloSXUzOWgwc2hYMkp1blVub1NGSWVpSUtFYUtZdk0xT1hqMG04dDZyOFE?oc=5",
+      "name": "The Footy Almanac",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNUk8zcVY2dDZzZnp6U29nVHVyVzRPTHl2V19iNlBieUlLcEVVOHNXc3drM2lhdWVwc3VMazN5NGlKdndIY2F6ZTJVSnpwcjlGS1BkUWt6VERxYk9RbmRhTUI1NHR5ZlppdlRrVlJOY19DVW9WVmg4NWZ4Y2ZJN1pjeVMyaw?oc=5",
       "paywalled": false
     },
     {
