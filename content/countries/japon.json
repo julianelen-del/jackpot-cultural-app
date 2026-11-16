@@ -3,60 +3,70 @@
   "country": "Japón",
   "continent": "Asia",
   "flag": "🇯🇵",
-  "updated_at": "2026-11-16T02:01:22.007Z",
+  "updated_at": "2026-11-16T02:28:58.001Z",
   "edition_week": "2026-W47",
-  "intro": "Tokio despliega su pulso otoñal entre el humor viral de Monaki, el colapso digital de las oficinas y el esperado ritual televisivo del Kohaku.",
+  "intro": "Entre la música viral de Monaki, los dilemas del streaming en Love Village y el caos laboral por Microsoft 365, Tokio redibuja su pulso cultural.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Tokyo_rooftop_football.jpg/1280px-Tokyo_rooftop_football.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Las calles de Tokio combinan el ritmo hipertecnológico con el refugio en galerías y salas de cine.",
-    "credit": "Foto: Jack French from San Francisco, USA · CC BY 2.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Tokyo_by_night_2011.jpg/1280px-Tokyo_by_night_2011.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Luces de neón y pantallas gigantes en las calles de Tokio.",
+    "credit": "Foto: Nalilord · CC BY-SA 3.0"
   },
-  "cultural_pulse": "La semana en Tokio transcurre entre la sorpresa generacional y la desconexión involuntaria. El fenómeno de **Monaki** demuestra que el pop japonés todavía guarda rendijas para la excentricidad, llevando a cuatro hombres de carreras dispares desde las actuaciones en centros comerciales hasta la viralidad nacional, armados de humor y desparpajo [2]. Lejos de los circuitos habituales, la música popular se cruza con las rutinas de oficina cuando un fallo global en los sistemas de Microsoft paraliza las herramientas corporativas de la mañana a la noche, provocando que miles de empleados opten por abandonar las pantallas y buscar refugio en los bares bajo el lema espontáneo de dejar el trabajo atrás [4].\n\nEn las pantallas y los escenarios, la conversación cultural empieza a mirar hacia el cierre del año con el despliegue de preparativos para el [Kohaku Uta Gassen](https://www.tokyoweekender.com/entertainment/movies-tv/kohaku-uta-gassen-guide/), el histórico combate televisivo de canciones de la cadena NHK que convoca a audiencias intergeneracionales frente al televisor. Mientras tanto, el sector audiovisual y las plataformas continúan diseccionando los vínculos afectivos más ásperos, consolidando éxitos de no ficción como la tercera temporada de *Love Village* en Netflix, un ejercicio de telerrealidad que rehúye el artificio para sumergirse en los traumas y las expectativas amorosas de adultos que superan la mediana edad [7].\n\nLas galerías de la capital tampoco se quedan atrás en su habitual saturación otoñal de propuestas visuales [1]. La oferta de salas y espacios independientes compite con la programación del Festival Internacional de Cine de Tokio, donde figuras como el director de programación Shozo Ichiyama impulsan puentes creativos con el cine chino contemporáneo y apuestan por la savia nueva de la región [5]. Todo ocurre en un circuito que no da tregua, donde cada sala de proyección y cada muro expositivo compiten por capturar la atención de un público urbano permanentemente alerta.",
+  "cultural_pulse": "La cultura contemporánea en Japón transita por zonas de fricción inesperadas donde las pantallas de los teléfonos, los estudios de grabación y los despachos corporativos colisionan. Esta semana, la atención mediática se desvió hacia las oficinas cuando un fallo global en **Microsoft 365** paralizó las herramientas de comunicación y obligó a miles de empleados a abandonar las bandejas de entrada para buscar refugio inmediato en las barras de los bares, un inusual paréntesis analógico en medio de la hiperconectividad urbana analizado por [Tokyo Weekender](https://www.tokyoweekender.com/japan-life/news-and-opinion/microsoft-365-outage-japan-reactions/). Mientras las rutinas de oficina sufrían este cortocircuito, la escena musical seguía demostrando su capacidad para insuflar vidas nuevas a proyectos insólitos. El fenómeno de **Monaki** consolidó su ruta en las listas de popularidad tras escalar desde actuaciones en centros comerciales hasta el estrellato viral, redefiniendo las reglas del juego discográfico actual sin necesidad de recurrir a fórmulas predecibles, tal como detalla [The Japan Times Culture](https://www.japantimes.co.jp/culture/2026/11/16/music/japanese-music-monaki-honmayade/).\n\nLas pantallas domésticas continúan diseccionando los afectos contemporáneos con una honestidad inusual. La telerrealidad de plataformas encuentra en producciones como la tercera temporada de **Love Village** un terreno fértil para retratar las complejidades, traumas y dudas de la madurez sentimental sin filtros ni moralejas edulcoradas, ofreciendo un espejo de las relaciones humanas muy alejado del artificio comercial habitual. Al mismo tiempo, el cine y las artes visuales ensanchan sus márgenes geográficos y estéticos. La labor de programadores como Shozo Ichiyama al frente del Festival Internacional de Cine de Tokio continúa tejiendo colaboraciones estrechas con el cine chino contemporáneo, apostando por el talento emergente y el intercambio creativo por encima de las fronteras políticas. Por su parte, la cartelera museística de la capital mantiene su pulso inagotable con exposiciones que van desde grabados históricos hasta instalaciones digitales inmersivas de creadores locales.\n\nEste dinamismo también salpica a las figuras públicas que saltan de la televisión al ojo del huracán policial. El caso de la influencer Asuka Oguri, conocida por su paso por formatos de telerrealidad y arrestada recientemente en Nagoya por operar un negocio nocturno sin licencia, ilustra la delgada línea que separa la exposición en las redes de la marginalidad urbana. Lejos de los circuitos oficiales, la agenda cultural japonesa demuestra que la vitalidad artística no reside únicamente en los grandes templos institucionales, sino en la capacidad de absorber los accidentes cotidianos, las mutaciones de la música independiente y las pequeñas grietas de la vida urbana.",
   "topics": [
     {
       "category": "Música",
-      "title": "El ascenso improbable de Monaki",
-      "summary": "El cuarteto de J-pop compuesto por veteranos de profesiones ajenas a la música revoluciona las listas gracias a unas actuaciones que priorizan la ironía y el desparpajo frente al molde industrial."
-    },
-    {
-      "category": "Cine",
-      "title": "Puentes entre Tokio y Pekín",
-      "summary": "El director Shozo Ichiyama detalla las claves de la programación del festival cinematográfico tokiota, enfocada en rescatar el pulso de los autores independientes de China."
+      "title": "El ascenso inusual de Monaki",
+      "summary": "Cuatro músicos provenientes de trayectorias profesionales completamente alejadas irrumpen en la escena con humor y frescura."
     },
     {
       "category": "Series y TV",
-      "title": "La crudeza del afecto maduro",
-      "summary": "La tercera entrega del formato de telerrealidad Love Village expone sin filtros las cicatrices emocionales y las complejas negociaciones afectivas de sus participantes."
+      "title": "La crudeza del afecto maduro en Love Village",
+      "summary": "La tercera entrega del formato profundiza en las cicatrices y los matices del romance en la edad adulta."
     },
     {
-      "category": "Cultura Digital",
-      "title": "Apagón informático y barras de bar",
-      "summary": "La caída inesperada de las herramientas corporativas de Microsoft en las oficinas japonesas desata reacciones colectivas que celebran la espantada laboral hacia los izakayas."
+      "category": "Cine",
+      "title": "Puentes cinematográficos entre Tokio y Pekín",
+      "summary": "La dirección de programación del TIFF refuerza el apoyo a nuevas voces del cine independiente chino."
+    },
+    {
+      "category": "Debates culturales",
+      "title": "El apagón informático y las barras de bar",
+      "summary": "La caída de herramientas corporativas digitales provocó una reacción espontánea en los trabajadores urbanos."
     }
   ],
   "recommendation": {
     "type": "Álbum",
     "title": "Honmayade",
     "creator": "Monaki",
-    "context": "Una inyección de frescura y humor absurdo que subvierte los códigos más rígidos del pop comercial actual.",
+    "context": "Un soplo de aire fresco en el pop japonés actual que combina humor, madurez y melodías directas.",
     "url": "https://www.japantimes.co.jp/culture/2026/11/16/music/japanese-music-monaki-honmayade/"
   },
   "closing_media": {
     "type": "image",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Shibuya_Crossing%2C_Aerial.jpg/960px-Shibuya_Crossing%2C_Aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "caption": "El cruce de Shibuya, epicentro del pulso urbano donde convergen la cultura digital, el ocio nocturno y el arte contemporáneo.",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/960px-Skyscrapers_of_Shinjuku_2009_January.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Shinjuku, uno de los epicentros neurálgicos y culturales de Tokio.",
     "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
+    {
+      "name": "Tokyo Weekender",
+      "url": "https://www.tokyoweekender.com/japan-life/news-and-opinion/assun-badly-in-love-arrested/",
+      "paywalled": false
+    },
+    {
+      "name": "Culture - The Japan Times",
+      "url": "https://www.japantimes.co.jp/culture/2026/11/16/music/japanese-music-monaki-honmayade/",
+      "paywalled": true
+    },
     {
       "name": "Tokyo Weekender",
       "url": "https://www.tokyoweekender.com/things-to-do-in-tokyo/current-and-upcoming-art-exhibitions/",
       "paywalled": false
     },
     {
-      "name": "The Japan Times Culture",
-      "url": "https://www.japantimes.co.jp/culture/2026/11/16/music/japanese-music-monaki-honmayade/",
-      "paywalled": false
+      "name": "Culture - The Japan Times",
+      "url": "https://www.japantimes.co.jp/culture/2026/11/15/film/shozo-ichiyama-chinese-film-tiff/",
+      "paywalled": true
     },
     {
       "name": "Tokyo Weekender",
@@ -64,19 +74,9 @@
       "paywalled": false
     },
     {
-      "name": "The Japan Times Culture",
-      "url": "https://www.japantimes.co.jp/culture/2026/11/15/film/shozo-ichiyama-chinese-film-tiff/",
-      "paywalled": false
-    },
-    {
-      "name": "Tokyo Weekender",
-      "url": "https://www.tokyoweekender.com/entertainment/movies-tv/kohaku-uta-gassen-guide/",
-      "paywalled": false
-    },
-    {
-      "name": "The Japan Times Culture",
+      "name": "Culture - The Japan Times",
       "url": "https://www.japantimes.co.jp/culture/2026/11/14/tv-streaming/love-village-season-3/",
-      "paywalled": false
+      "paywalled": true
     }
   ]
 }

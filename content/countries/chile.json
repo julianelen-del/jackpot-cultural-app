@@ -3,74 +3,59 @@
   "country": "Chile",
   "continent": "América",
   "flag": "🇨🇱",
-  "updated_at": "2026-11-16T01:57:03.505Z",
+  "updated_at": "2026-11-16T02:25:35.109Z",
   "edition_week": "2026-W47",
-  "intro": "La memoria sonora y el debate cultural en Chile sacuden las semanas con nuevas tensiones y aniversarios cardinales.",
+  "intro": "Violeta Parra y Los Tres reescriben el pulso musical chileno entre memorias centenarias y aniversarios eléctricos.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Gran_Santiago_Tower%2C_Views_from_San_Crit%C3%B3bal_Hill_-_Santiago_-_Chile_01.jpg/1280px-Gran_Santiago_Tower%2C_Views_from_San_Crit%C3%B3bal_Hill_-_Santiago_-_Chile_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Una mirada a la escena urbana y artística contemporánea en Santiago de Chile.",
-    "credit": "Foto: 3BRBS · CC BY-SA 3.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Dardignac_28_-mural_de_Violeta_Parra_-fRF1.jpg/1280px-Dardignac_28_-mural_de_Violeta_Parra_-fRF1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Violeta Parra, creadora de Las Últimas Composiciones, pilar ineludible de la música chilena.",
+    "credit": "Foto: Rodrigo Fernández · CC BY-SA 4.0"
   },
-  "cultural_pulse": "El pulso cultural chileno de la temporada transita entre la celebración de hitos musicales ineludibles y discusiones urgentes sobre el patrimonio y la censura institucional. Mientras los melómanos conmemoran las seis décadas de [Las últimas composiciones](https://es.wikipedia.org/wiki/Las_%C3%BAltimas_composiciones) de **Violeta Parra**, la trastienda de la obra total de la cantautora sigue marcando pauta en las lecturas especializadas sobre la identidad local. Lejos de la nostalgia pasatista, la trastienda de aquel cancionero definitivo dialoga con el trabajo de archivos históricos como el **Sello Alerce**, que cumple medio siglo documentando el mapa sonoro del país frente a las adversidades del mercado y el tiempo [5].\n\nEl circuito documental y visual despliega miradas punzantes hacia las heridas del pasado reciente. Los estrenos en salas y ciclos independientes sobre la infancia en dictadura demuestran una vez más que la autoficción audiovisual y el archivo testimonial funcionan como antídotos contra el olvido institucional, resonando con la crudeza de testimonios donde el pasado familiar se cruza con la historia política [14]. A esto se suma la tensión en torno a los premios literarios nacionales y las controversias desatadas por la anulación de fallos que premian poemarios sobre el estallido social, un debate donde las firmas de creadores consagrados exigen claridad y respeto al criterio de los jurados independientes [1].\n\nFuera del circuito estrictamente libresco, la intervención urbana gana terreno con iniciativas ciudadanas y artísticas que buscan transformar el espacio cotidiano. La disputa por llevar la biodiversidad nativa a los murales de la futura Línea 7 del Metro mediante propuestas como la de Evelyn Latorre refleja cómo la gráfica y la ilustración contemporánea compiten por habitar los tránsitos diarios de la ciudadanía [13]. La cultura, en su definición más áspera y vital, se niega a quedar recluida en vitrinas de museo y reclama las calles, los vagones y los escenarios con una urgencia que trasciende los efímeros calendarios institucionales.",
+  "cultural_pulse": "El otoño cultural chileno transita por coordenadas donde la memoria sonora y la revisión histórica devienen en ejercicio urgente. A seis décadas de su lanzamiento, **Las Últimas Composiciones** de [Violeta Parra](https://es.wikipedia.org/wiki/Violeta_Parra) continúa operando como un artefacto inabarcable que excede la etiqueta de despedida para consolidarse como el vértice absoluto de una creadora total moldeada en los escenarios europeos y la investigación rigurosa del folclor. Mientras los especialistas debaten en torno a los matices políticos y estéticos de aquella obra maestra, la cartografía rockera nacional responde con músculo en directo. **Los Tres** acaban de recrear íntegramente su histórico formato acústico para la televisión estadounidense en el Santander Arena, convocando a distintas generaciones y sumando invitados como [Inti-Illimani](https://es.wikipedia.org/wiki/Inti-Illimani) para estirar las costuras de un cancionero que se niega a envejecer bajo el peso del bronce institucional.\n\nLas artes visuales y el patrimonio despliegan nuevas lecturas sobre el territorio urbano y su devenir. Valparaíso recupera casi dos siglos de registro fotográfico en una muestra impulsada por [Puerto de Ideas](https://news.google.com/rss/articles/CBMi3wFBVV95cUxQeERNaDBMcE5hWGpIelNISmF0UG5RamFYNkQ5OWg0NVlzNHgwZGVOWWRqdzN3SGwwNzUwN1R3R21RN0otLUpaNXRNcVZtZkNsa0Z5TTZXdnhJTmhwX3dtTTJqZnNQVTJVYVUxYlJDUVIxUXl1ZEF0dURXR09lb0tFQTNKelNiYVFhWlAyaHV5ODJzNTJxMTRIUVBsOEl3bGtUOHJydm9RTWxhaWtyZkRYNHVtQWVtY2JFbko5Y0QxTlg5SXdNZzNFVmhnbFpyQllvZjVscmtZVlJPRGF0WGYw?oc=5), revelando los pliegues invisibles de un puerto que oscila permanentemente entre el archivo documental y la postal melancólica. Lejos de la complacencia turística, las imágenes exhibidas exponen las cicatrices arquitectónicas y la cotidianidad obrera de un territorio habitado por poetas, marinos y fantasmas decimonónicos. Este ejercicio de rescate visual dialoga directamente con las tensiones que sacuden al ecosistema institucional, donde museos emblemáticos operan con presupuestos mínimos mientras la comunidad artística exige coherencia a las carteras de cultura tras fallos polémicos en certámenes literarios.\n\nLa vitalidad creativa también irrumpe desde los márgenes con propuestas que buscan intervenir el espacio cotidiano de las ciudades. El debate sobre cómo habitar el espacio público encuentra un contrapunto luminoso en iniciativas ciudadanas que disputan los trayectos subterráneos, transformando la infraestructura de transporte en galerías vivas para la biodiversidad local. Lejos de los circuitos oficiales, la escena independiente cruza lenguajes entre el ensayo gráfico, la crónica barrial y la edición autogestionada, sosteniendo un pulso crítico que desmonta cualquier tentación de complacencia cultural en el cono sur.",
   "topics": [
     {
       "category": "Música",
-      "title": "Cincuenta años del Sello Alerce",
-      "summary": "La labor fonográfica que rescató la memoria sonora de Chile celebra cinco décadas de resistencia cultural y catálogo histórico."
+      "title": "A seis décadas de un testamento sonoro",
+      "summary": "Musicólogos y críticos reexaminan Las Últimas Composiciones de Violeta Parra, reinterpretando el disco no solo como un adiós, sino como la cúspide de una artista integral."
     },
     {
-      "category": "Cine",
-      "title": "Documentales sobre la infancia en dictadura",
-      "summary": "Nuevos estrenos abordan desde la perspectiva de los niños el impacto profundo de la violencia política y el trauma social."
+      "category": "Música",
+      "title": "Los Tres celebran tres décadas de acústico",
+      "summary": "La banda penquista llevó los arreglos de su mítico MTV Unplugged al Santander Arena junto a invitados históricos como Inti-Illimani."
     },
     {
       "category": "Artes Visuales",
-      "title": "Murales para la Línea 7 del Metro",
-      "summary": "Artistas visuales como Evelyn Latorre disputan espacios públicos para integrar la biodiversidad chilena en el trayecto subterráneo."
-    },
-    {
-      "category": "Literatura",
-      "title": "Disputas por el Premio Mejores Obras Literarias",
-      "summary": "Más de doscientos creadores cuestionan la invalidación del reconocimiento al poemario de Verónica Jiménez sobre el estallido social."
+      "title": "Dos siglos de memoria porteña en imágenes",
+      "summary": "El encuentro Puerto de Ideas inauguró una ambiciosa exposición fotográfica que recorre la evolución urbana y social de Valparaíso."
     }
   ],
   "recommendation": {
     "type": "Álbum",
-    "title": "Las últimas composiciones",
+    "title": "Las Últimas Composiciones",
     "creator": "Violeta Parra",
-    "context": "Una obra cumbre e irrepetible que consolidó el testamento artístico definitivo de la creadora chilena.",
+    "context": "Una obra cumbre imprescindible para comprender la profundidad lírica y el genio musical de la gran cantautora chilena.",
     "url": "https://www.latercera.com/culto/noticia/las-ultimas-composiciones-de-violeta-parra-los-60-anos-del-disco-mas-importante-de-la-musica-chilena/"
   },
   "closing_media": {
     "type": "image",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Violeta_Parra.jpg/1280px-Violeta_Parra.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Violeta Parra, figura fundamental de la creación chilena cuyo legado discográfico sigue vigente.",
+    "caption": "Violeta Parra, cuyo legado discográfico sigue marcando el estándar de la creación artística en Chile.",
     "credit": "Foto: Ariel Quiroz · CC BY 2.0"
   },
   "sources": [
     {
       "name": "La Tercera",
-      "url": "https://www.latercera.com/culto/noticia/mas-de-200-figuras-de-la-cultura-exigen-revertir-anulacion-de-fallo-que-premiaba-poemario-sobre-el-estallido-social/",
-      "paywalled": true
-    },
-    {
-      "name": "TVN",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOUnlYVEh1ajRTUTlhaXV6aUU5NzVTWHdseHBMWmJVd3dMY19HTjdiQlhqN0JJREJZQzZZV3JTYWRGYk15LU9KRFVIRzVseWxZZzRFVlBXM1FPeVNXV3BXbVBfcjZXYzZYM29wTGh4QVVwRHZvRFRKU1V3YWhjMTByTFM1UmZYUFNS0gGOAUFVX3lxTFAwNTN0ZE5wRHZIRXpNQ0ZoWFhLVkt3eldGWGNNeG00MHdhOU9tQjlIckJINnhfd2hIc3ROVDR3enItM1hOckpHLWFFUnJIS3pFdXM5a0dObW9DRVRQU3JDU2NTYTJ0QWlTUmY4aGM5N1h5dHU2Wmd5N3ZvT1Y5V0dqQUg3ZEdMbFRRUC14Rmc?oc=5",
-      "paywalled": false
-    },
-    {
-      "name": "La Tercera",
       "url": "https://www.latercera.com/culto/noticia/las-ultimas-composiciones-de-violeta-parra-los-60-anos-del-disco-mas-importante-de-la-musica-chilena/",
-      "paywalled": true
-    },
-    {
-      "name": "Diario y Radio Universidad Chile",
-      "url": "https://radio.uchile.cl/2026/11/15/la-loica-busca-llevar-al-metro-la-biodiversidad-chilena-entre-pasajeros-y-vagones/",
       "paywalled": false
     },
     {
       "name": "El Mostrador",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQcHVIVk81ZGtEQWJxT05XMTUyZDZvNmxOeV9mZHQ2SS1Tb1NvMjZKcVlZUktMWmdsakhYUzNsYWRkQ18zcUc2SjBac2d5U0J3c29DdG5La3dRUkg0ZGd0SnQ5WGpDbS1VVlBWdERKV1g5Z0JaWm1NMnFwNXNzbnZQWXBZWXpxZ0pDZFpaLXNQSFktbExYQk83RV9oY2hmeHZKRXRuVGd4eUpUd3h1Y2x4N3hSNDFUM0I1SU4zZlpjN3E4aUplRnBscXR3?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQeERNaDBMcE5hWGpIelNISmF0UG5RamFYNkQ5OWg0NVlzNHgwZGVOWWRqdzN3SGwwNzUwN1R3R21RN0otLUpaNXRNcVZtZkNsa0Z5TTZXdnhJTmhwX3dtTTJqZnNQVTJVYVUxYlJDUVIxUXl1ZEF0dURXR09lb0tFQTNKelNiYVFhWlAyaHV5ODJzNTJxMTRIUVBsOEl3bGtUOHJydm9RTWxhaWtyZkRYNHVtQWVtY2JFbko5Y0QxTlg5SXdNZzNFVmhnbFpyQllvZjVscmtZVlJPRGF0WGYw?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "La Tercera",
+      "url": "https://www.latercera.com/culto/noticia/los-tres-celebran-los-30-anos-del-unplugged-aunque-me-lleve-el-tiempo-no-tengo-edad/",
       "paywalled": false
     }
   ]

@@ -3,64 +3,74 @@
   "country": "Brasil",
   "continent": "América",
   "flag": "🇧🇷",
-  "updated_at": "2026-11-16T01:55:46.510Z",
+  "updated_at": "2026-11-16T02:24:19.439Z",
   "edition_week": "2026-W47",
-  "intro": "Entre la literatura de Conceição Evaristo y el cine de Allan Deberton, la agenda cultural brasileña activa debates urgentes sobre memoria e infancia.",
+  "intro": "Drauzio Varella ingresa a la Academia Brasileira de Letras mientras los escenarios urbanos vibran con el legado del rock y la literatura.",
   "cover_image": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Guilherme_Gaensly_-_Panorama_de_S%C3%A3o_Paulo_I%2C_Acervo_do_Museu_Paulista_da_USP.jpg/1280px-Guilherme_Gaensly_-_Panorama_de_S%C3%A3o_Paulo_I%2C_Acervo_do_Museu_Paulista_da_USP.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Una mirada a la efervescencia de la agenda cultural urbana en Brasil.",
+    "caption": "La escena cultural urbana de Brasil se articula entre nuevas sillas literarias y circuitos independientes de música.",
     "credit": "Foto: Guilherme Gaensly · Public domain"
   },
-  "cultural_pulse": "La semana cultural brasileña transita por cruces fértiles entre la memoria literaria, el rescate sonoro y las tensiones del relato audiovisual. Las celebraciones en torno a [Conceição Evaristo](https://es.wikipedia.org/wiki/Concei%C3%A7%C3%A3o_Evaristo) movilizan a lectores y críticos que debaten el alcance de sus ficciones en el panorama contemporáneo, mientras los escenarios y estudios continúan procesando legados monumentales como el del clásico ídolo del [frevo](https://www1.folha.uol.com.br/folha-topicos/frevo/) [Claudionor Germano](https://es.wikipedia.org/wiki/Festival_Internacional_da_Can%C3%A7%C3%A3o), recientemente despedido en Recife. Las escenas independientes y los circuitos de festivales alternativos mantienen una vitalidad inusual que desafía cualquier lógica comercial convencional, poniendo el foco en creadores que operan al margen de los grandes conglomerados de entretenimiento y distribución.\n\nEn el terreno cinematográfico, las proyecciones y debates en torno al largometraje *Feito Pipa*, dirigido por Allan Deberton, consolidan una conversación delicada sobre los vínculos familiares y la infancia anacrónica, distanciándose por completo de los convencionalismos habituales del melodrama televisivo. Al mismo tiempo, los documentales enfocados en figuras singulares de la canción de autor —como el trabajo de Rafael Saar sobre Luís Capucho— demuestran que el cine documental brasileño vive un momento de profunda inmersión en los márgenes de su propia historia musical. Esta atención a los detalles biográficos y poéticos contrasta con el consumo masivo de las plataformas, ofreciendo un contrapeso reflexivo que resuena con fuerza en los cineclubes y salas de arte de todo el país.\n\nLos escenarios musicales también registran cruces generacionales y estéticos de gran calado, desde los espectáculos intimistas hasta las revisiones de repertorios históricos que sacuden la nostalgia para transformarla en materia viva. Los debates en torno a la permanencia de las formas tradicionales en el rock, el metal y la canción popular demuestran que las audiencias locales mantienen un apetito voraz por la experimentación y el disenso. Lejos de cualquier complacencia institucional, la crítica cultural y los espacios independientes continúan mapeando un territorio donde la obra artística se enfrenta sin red a las urgencias de su propio tiempo.",
+  "cultural_pulse": "La semana cultural brasileña deja un movimiento inusual en las instituciones literarias con la elección del médico y escritor [Drauzio Varella](https://es.wikipedia.org/wiki/Estaci%C3%B3n_Carandiru_%28libro%29) para ocupar una silla en la [Academia Brasileira de Letras](https://es.wikipedia.org/wiki/Academia_Brasile%C3%B1a_de_Letras), sucediendo al recordado Zuenir Ventura en un nombramiento que cruza la divulgación científica, la crónica carceraria y la narrativa urbana contemporánea. Mientras tanto, en los estantes y las ondas radiofónicas, la atención se concentra en los 45 años de trayectoria artística que celebra [Zélia Duncan](https://quatrocincoum.com.br/transcricao/podcast/transcricao-zelia-duncan-no-podcast-451-mhz/) con su nuevo álbum *Agudo grave*, donde repasa su relación visceral con la poesía y la canción de autor durante su paso por los circuitos de ferias literarias recientes.\n\nEn el terreno del **rock y la memoria sonora**, las agrupaciones y los clásicos continúan movilizando audiencias masivas a lo largo del país. Dado Villa-Lobos y André Frateschi cerraron la Bienal de Guarulhos con un recorrido por el cancionero inoxidable de Legião Urbana, demostrando la vigencia intergeneracional de aquellos himnos alternativos de los noventa. Los homenajes y descubrimientos cruzados sorprenden en internet con iniciativas como la reacción de comunidades tradicionales del Paquistão al icónico videoclip de *Roots Bloody Roots* del grupo Sepultura, comprobando la incombustible expansión global del metal brasileño.\n\nFuera de los grandes centros, la agenda del fin de semana despliega festivales temáticos y circuitos vivos que combinan el rescate patrimonial con la música en vivo. En Cuiabá, Zé Ramalho conmemora media década de actuaciones en directo con un repertorio que funde la psicodelia nordestina con la trova mística, mientras los escenarios de Río Grande do Sul reciben a formaciones como Maria do Relento para repasar las raíces del rock gaúcho en salas autogestionadas.\n\nPor último, las polémicas y los debates en torno a las pantallas y los escenarios en vivo siguen alimentando las crónicas de entretenimiento y televisión. Las apariciones de figuras de la música popular en formatos de concurso y programas dominicales de la red Globo generan conversación inmediata en redes y portales culturales, marcando el pulso de una temporada donde la televisión abierta y las plataformas digitales continúan disputándose la atención del espectador urbano.",
   "topics": [
     {
-      "category": "Cine",
-      "title": "Feito Pipa en la ruta internacional",
-      "summary": "El largometraje dirigido por Allan Deberton genera profundos debates sobre infancias anacrónicas y relaciones familiares de cara a su camino hacia el Oscar."
-    },
-    {
       "category": "Literatura",
-      "title": "Homenaje a Conceição Evaristo",
-      "summary": "La escritora mineira celebra ocho décadas de vida mientras sus libros continúan circulando y expandiendo el debate sobre literatura y escritura afrobrasileña."
+      "title": "Drauzio Varella en la Academia Brasileira de Letras",
+      "summary": "El reconocido médico oncologista, investigador y escritor fue elegido como nuevo miembro de la ABL, ocupando la silla 32."
     },
     {
       "category": "Música",
-      "title": "Adiós a Claudionor Germano",
-      "summary": "Recife despide a los 94 años a una de las máximas referencias y patrimonio vivo del frevo pernambucano."
+      "title": "Zélia Duncan celebra 45 años de carrera",
+      "summary": "La cantautora repasa su trayectoria y su vínculo con la literatura a través de su nuevo trabajo discográfico y conversaciones públicas."
+    },
+    {
+      "category": "Rock y Memoria",
+      "title": "Legião Urbana en Guarulhos",
+      "summary": "Dado Villa-Lobos y André Frateschi clausuraron la Bienal de Guarulhos con un show centrado en los clásicos de la banda."
+    },
+    {
+      "category": "Escena en Vivo",
+      "title": "Gira de Zé Ramalho",
+      "summary": "El cantautor celebra cinco décadas de música en los escenarios con presentaciones que recorren el país."
     }
   ],
   "recommendation": {
-    "type": "Película",
-    "title": "Feito Pipa",
-    "creator": "Allan Deberton",
-    "context": "Una mirada delicada y sin artificios sobre la infancia que representa el cine brasileño actual.",
-    "url": "https://screamyell.com.br/site/2026/11/14/cinema-feito-pipa-de-allan-deberton-e-um-delicado-olhar-sobre-infancia-e-as-relacoes-familiares/"
+    "type": "Álbum",
+    "title": "Agudo grave",
+    "creator": "Zélia Duncan",
+    "context": "Una celebración sonora de 45 años de trayectoria que entrelaza la voz de la intérprete con la mejor tradición poética brasileña.",
+    "url": "https://quatrocincoum.com.br/transcricao/podcast/transcricao-zelia-duncan-no-podcast-451-mhz/"
   },
   "closing_media": {
     "type": "image",
-    "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/3/35/Palacio_festivais.jpg/960px-Palacio_festivais.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "caption": "Allan Deberton, director de Feito Pipa, en el centro de la conversación cinematográfica de la temporada.",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Z%C3%89LIA_DUNCAN_%287074849073%29.jpg/960px-Z%C3%89LIA_DUNCAN_%287074849073%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Zélia Duncan repasa más de cuatro décadas de música y literatura en su proyecto actual.",
     "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
     {
-      "name": "Revista Cult",
-      "url": "https://revistacult.uol.com.br/home/o-papai-vai-passar-mal-uma-infancia-anacronica-em-feito-pipa/",
+      "name": "Quatro cinco um",
+      "url": "https://quatrocincoum.com.br/transcricao/podcast/transcricao-zelia-duncan-no-podcast-451-mhz/",
       "paywalled": false
     },
     {
-      "name": "SCREAM & YELL",
-      "url": "https://screamyell.com.br/site/2026/11/14/cinema-feito-pipa-de-allan-deberton-e-um-delicado-olhar-sobre-infancia-e-as-relacoes-familiares/",
+      "name": "Olhar Direto",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOemo2YV9MMmFyTDlfOWJxM3dDcTVWSTcwSV9xMl9LNk11OXFSVXEwTmYzZi1GMHFSd1dSdWVndnVIWUZhbl8wNUg3c2c0d1ZPeE13NlVFOE1UX09YT25Pa3k0a19MOENPbGticDMzbTJ5Q0xTTUFKTEVWMmRDYlBqbHMwOVNGSXRSdU5idmJFYmREY1pFWHFCNXdjQndrWE1pTzczSjNQby1Ta0F5cC1hVnN2WQ?oc=5",
       "paywalled": false
     },
     {
-      "name": "Folha de S.Paulo - Ilustrada",
-      "url": "https://www1.folha.uol.com.br/ilustrada/2026/11/morre-claudionor-germano-aos-94-idolo-do-frevo-e-patrimonio-de-pernambuco.shtml",
-      "paywalled": true
+      "name": "GuarulhosWeb",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNdmxFXzBQeW4xSlFUMTVXcjJBNzRLMENnd05Bamp6Z1JlQjR5dW9VNnBrLWNWOWgtUDFuM2o4bVFESHk2SW9tQ3hRdFdQZ3NMQTFXUVNjc0RYZld1VkstaC1xVkVUWERzaDFlRVFuRUdEY09jZHdOV1dRdzdfOVpQWWE3Vlk4XzBoQWZzX2szRzYxNThzaTEzY1Y3bV9BU3hpVC01bXFNVzU0QWJubF9SQkF4OWhVdFFfb0E?oc=5",
+      "paywalled": false
     },
     {
-      "name": "Quatro Cinco Um",
-      "url": "https://quatrocincoum.com.br/transcricao/podcast/transcricao-conceicao-evaristo-no-podcast-451-mhz/",
+      "name": "Quatro cinco um",
+      "url": "https://quatrocincoum.com.br/noticias/literatura/literatura-brasileira/drauzio-varella-e-eleito-para-a-academia-brasileira-de-letras/",
+      "paywalled": false
+    },
+    {
+      "name": "TMDQA!",
+      "url": "https://www.tenhomaisdiscosqueamigos.com/2026/11/13/grupo-tribal-reage-hit-sepultura/",
       "paywalled": false
     }
   ]
