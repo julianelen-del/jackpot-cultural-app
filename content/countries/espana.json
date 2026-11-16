@@ -3,64 +3,59 @@
   "country": "España",
   "continent": "Europa",
   "flag": "🇪🇸",
-  "updated_at": "2026-11-16T04:00:26.565Z",
+  "updated_at": "2026-11-16T04:38:17.790Z",
   "edition_week": "2026-W47",
-  "intro": "El cine español domina los Premios del Cine Europeo con diez nominaciones para la obra de los Javis, mientras las salas acogen nuevos ciclos y debates.",
+  "intro": "El pulso cultural español transita entre el cine inédito en Mérida y los nuevos rumbos literarios e intelectuales de la temporada.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Vista_de_Madrid_desde_el_C%C3%ADrculo_de_Bellas_Artes_02.jpg/1280px-Vista_de_Madrid_desde_el_C%C3%ADrculo_de_Bellas_Artes_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Vista panorámica de la Gran Vía en Madrid, epicentro de la actividad cinematográfica y cultural de la semana.",
-    "credit": "Foto: Felipe Gabaldón · CC BY 2.0"
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/C%C3%ADrculo_de_Bellas_Artes_%28Madrid%29_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "caption": "El emblemático Círculo de Bellas Artes en Madrid, sede habitual de encuentros y muestras cinematográficas.",
+    "credit": "Foto: Álvaro Jaramillo · CC BY-SA 2.0"
   },
-  "cultural_pulse": "El mapa cultural de España se mueve esta semana entre el reconocimiento internacional y la agitación de las carteleras locales. La gran noticia cinematográfica la protagonizan **Javier Calvo** y **Javier Ambrossi**, conocidos popularmente como los Javis, cuya obra [La bola negra](https://news.google.com/rss/articles/CBMipAFBVV95cUxQa2ZWclJaNThNRUtSU2IxWm12MkNiOElDaFZFZUlzajByY3VCSTM3RlRCTEFXN3VFUEhkbThueE9hem5EbEpjMEVMeDFwQjFwbDkwYnZySTRUMlA4dEw1ekpUakRZVkZuaXlYYzlrZjlhSDlvcFAwbjgyZU9SemVLcG8ySTcxeEtYT0FFSlMwMnhBNUZCSE03Mm1kclZZMkhXZ2doQg?oc=5) ha cosechado diez nominaciones en los prestigiosos [Premios del Cine Europeo](https://news.google.com/rss/articles/CBMif0FVX3lxTE9tRzIxZzRHMDB2d09WeHlwSEpnZUtGb1FkSnBaeG83RE9vamJjOThtZEo4eWxUdWZOVnZQMUR0VTFuU3VueHNYMzk2QXJKUXl5Nl9BcXNhOE9RaDluVGxOb1lKa3l2Y0RRdFNhR0dSZ2hqRzhxMWpSdEpVODJEZGc?oc=5), consolidando un momento de enorme visibilidad para la ficción de autor firmada en el país. El ecosistema de festivales y muestras mantiene su pulso con iniciativas como la nueva edición del QueerCineMad, el Festival Internacional de Cine LGBTIAQ+ de Madrid celebrado en el histórico Círculo de Bellas Artes, que ofrece una panorámica imprescindible sobre las diversidades sexo-genéricas en la pantalla contemporánea.\n\nEn el terreno de la exhibición y la cinefilia, las propuestas se multiplican fuera de los grandes circuitos comerciales. El Ayuntamiento de Zaragoza ha inaugurado una nueva edición de su veterano certamen cinematográfico poniendo el foco en el talento aragonés e invitando a la cinematografía mexicana como eje internacional, mientras que Mérida celebra su Festival de Cine Inédito con proyecciones y encuentros orientados a la reflexión sobre el lenguaje audiovisual. El Ministerio de Cultura impulsa el programa Cine Escuela, una iniciativa destinada a llevar a más de 100.000 estudiantes de secundaria a las salas oscuras de toda España durante este curso escolar, apostando por la formación de nuevas audiencias jóvenes y el consumo colectivo frente al aislamiento digital.\n\nLa literatura y los debates intelectuales también encuentran espacios propios en la agenda semanal con homenajes de calado. El centenario del escritor [Rafael Azcona](https://elpais.com/babelia/2026-11-14/azcona-inolvidable.html) sigue reavivando el interés crítico por su prosa incisiva y su enorme legado como guionista fundamental de la historia del cine español, recordado estos días por figuras como el escritor Manuel Vicent. Al mismo tiempo, los ciclos de cine y literatura en espacios municipales como el organizado en Hoyo de Manzanares con la proyección de la película Escape y su posterior cinefórum dirigido por el director Rodrigo Cortés fomentan un diálogo directo entre los creadores y los lectores y espectadores congregados en las salas culturales de proximidad.\n\nEn el plano musical y de la cultura urbana, la agenda combina las grandes convocatorias con el pulso de las salas independientes. La banda madrileña **Alcalá Norte** continúa copando las conversaciones de la crítica especializada gracias a las tensiones y contradicciones de la masculinidad exploradas en su último disco, analizadas a fondo en publicaciones como Jenesaispop Alcalá Norte. A su lado, la escena de directos se enciende con el paso de formaciones veteranas como el grupo de rock **Seguridad Social** en l'Alfàs del Pi, demostrando que los circuitos de música en vivo en auditorios municipales y fiestas locales siguen congregando a miles de seguidores fieles en torno al cancionero generacional del rock interpretado en castellano.",
+  "cultural_pulse": "La agenda de la temporada cultural en distintos puntos del territorio estatal arranca con propuestas que cruzan la gran pantalla, los escenarios musicales y las páginas impresas con una clara voluntad de riesgo estético. En el ámbito del celuloide, el [Festival de Cine de Zaragoza](https://news.google.com/rss/articles/CBMiYkFVX3lxTE9FRzRjSm41NjJxZ1A5WFlLZkJSMlBjVl9TNTV3Tk8xYTE5UTFOVkI4OEZobFZlQXZRQXJwakRRbm9XN1ZRLXpsdEFtRW5aTC1YSDlFVHkwTy1WQ3ItMkJ2MnR3?oc=5) vuelve a posicionar el talento aragonés en primer plano mientras consolida una alianza internacional al incorporar a **México** como país invitado de honor en esta edición. Este encuentro sirve para recordar la vitalidad de las salas y los circuitos alternativos fuera de los ejes comerciales habituales.\n\nLa música en directo sigue moviendo a audiencias masivas en celebraciones locales donde el rock nacional mantiene su vigencia generacional. Un claro ejemplo ocurrió en las fiestas de l’Alfàs del Pi, donde más de un millar de personas se congregaron para disfrutar de las canciones de la mítica banda [Seguridad Social](https://news.google.com/rss/articles/CBMiugFBVV95cUxOT3ZERmRsRUFhQ1hOUVhPTFB5ZVhkRU8xM3NlTnFNUk5ZdFNvOVdNVG9WRk9tZ3JOLXVlZXdfYk5sbXF3Q0U5VUtUa2NuNC1RSW1wN2JuSkNxSUc5WnhjOGpFelFJR3VIRnByaFZHQ3RxYWtzNHR6MTF6SzFOSzdsQTFFbEZaSml4ckowbHZvSGY2aWJnOG4wZDVBaWFTOVlaUThtOHlwd0Q0SUlpUDRhV0RKVVJXSzdMN1E?oc=5), uno de los nombres fundamentales del pop-rock ibérico de las últimas décadas. La comunión entre el público veterano y las nuevas cohortes de espectadores demuestra que estas composiciones conservan intacta su pegada en directo.\n\nEn cuanto al sector literario y del libro, los encuentros territoriales fomentan la reflexión crítica y el intercambio entre creadores. La Junta de Andalucía ha puesto en marcha una nueva edición del **Encuentro de Literatura Almeriense**, consolidado en el Centro Cultural Fundación Unicaja de Almería como un espacio de debate sobre la narrativa contemporánea y la poesía actual. Estos espacios de intercambio permiten visibilizar tanto a autores noveles como a trayectorias consolidadas dentro del panorama peninsular actual.\n\nLa intersección entre las artes visuales y la memoria cinematográfica se manifiesta en iniciativas pedagógicas y muestras especializadas por toda la geografía. Mientras el Ministerio de Cultura impulsa el programa Cine Escuela para acercar los títulos recientes a miles de estudiantes de secundaria, los municipios menores actualizan sus infraestructuras técnicas, como demuestra el cine de Corella con la renovación integral de sus equipos de audio. Todo ello configura un mapa donde la creación artística dialoga directamente con sus espectadores cotidianos.",
   "topics": [
     {
       "category": "Cine",
-      "title": "Diez nominaciones europeas para 'La bola negra'",
-      "summary": "La obra dirigida por los Javis logra diez candidaturas en los Premios del Cine Europeo, situando la ficción española en el foco continental."
+      "title": "Festival de Cine de Zaragoza",
+      "summary": "El certamen aragonés regresa con su programación habitual, destacando el talento local y contando con México como país invitado especial."
     },
     {
       "category": "Música",
-      "title": "El debate en torno a las letras de Alcalá Norte",
-      "summary": "La banda madrileña analiza en la prensa musical las complejas representaciones de la masculinidad y la violencia presentes en su reciente álbum."
+      "title": "Seguridad Social en l'Alfàs",
+      "summary": "La mítica banda de rock ofreció un concierto multitudinario ante un millar de personas en el marco de las fiestas locales de l'Alfàs del Pi."
     },
     {
       "category": "Literatura",
-      "title": "El centenario de Rafael Azcona",
-      "summary": "Amigos y compañeros de profesión recuerdan el legado literario y cinematográfico del guionista en un nuevo aniversario de su nacimiento."
-    },
-    {
-      "category": "Cine",
-      "title": "Cine Escuela lleva a estudiantes a las salas",
-      "summary": "El programa del Ministerio de Cultura acerca los títulos cinematográficos a más de 100.000 alumnos de secundaria en toda España."
+      "title": "Encuentro de Literatura Almeriense",
+      "summary": "Jornadas literarias celebradas en el Centro Cultural Fundación Unicaja para debatir sobre la creación poética y narrativa actual en Andalucía."
     }
   ],
   "recommendation": {
     "type": "Película",
     "title": "Escape",
     "creator": "Rodrigo Cortés",
-    "context": "Una audaz propuesta cinematográfica llevada a los cines y debates locales para reflexionar sobre el encierro y la libertad.",
+    "context": "Una inmersión cinematográfica en el thriller psicológico que vino acompañada de un cinefórum junto a su director.",
     "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQMmo1VlFhdzNQdUt1T3BCN3l4bFc4UmdiclZSUkZ0cEVISFlucXFWeUtsZURqX3IxUl84WVAxbzYxQzFVenJqUm5HQ0k4eVV1ZXYxZXV4aWEyVlpvWXBOdHVVdlhWT2pKM0NCUHlRVmxfN2doQzFxeGE4MmI4LWFYR3llMWlPOGdrTkF5NlZLQUJDVlJFRFUyVTloTUw5amVxZzQ1Zmt3M3VaYU5qTkNZUGN5QUUwaW9fSnFMV2pIQQ?oc=5"
   },
   "closing_media": {
     "type": "image",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Premios_Goya_2019_-_Rodrigo_Cort%C3%A9s_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "caption": "Retrato de Rodrigo Cortés, director de la película Escape y protagonista de los cinefórums literarios de la semana.",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Madrid_-_Cine_Dor%C3%A9.jpg/960px-Madrid_-_Cine_Dor%C3%A9.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "Cartel y proyecciones asociadas a las muestras cinematográficas recientes en los centros culturales de la capital.",
     "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
     {
-      "name": "jenesaispop.com",
-      "url": "https://jenesaispop.com/2026/11/15/533853/alcala-norte-entrevista/",
+      "name": "web del Ministerio de Cultura",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1JYnIyTnoyTE1oZ1BhUnNhcFQta2ZJb3B2SFZrRGVoMHJKdlFKajZYTWR1WHpMdFRzSmVOVUQ4V3N0TFprZzNGWFdZYk4zU0VpekZwWnNncldZczVRN2VBVG9FUGdieEdjNkFROFFkcUJSWjVfR3JFUXN3?oc=5",
       "paywalled": false
     },
     {
-      "name": "Babelia en EL PAÍS",
-      "url": "https://elpais.com/babelia/2026-11-14/azcona-inolvidable.html",
-      "paywalled": true
+      "name": "Ayuntamiento de Zaragoza",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9FRzRjSm41NjJxZ1A5WFlLZkJSMlBjVl9TNTV3Tk8xYTE5UTFOVkI4OEZobFZlQXZRQXJwakRRbm9XN1ZRLXpsdEFtRW5aTC1YSDlFVHkwTy1WQ3ItMkJ2MnR3?oc=5",
+      "paywalled": false
     },
     {
-      "name": "RTVE.es",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQa2ZWclJaNThNRUtSU2IxWm12MkNiOElDaFZFZUlzajByY3VCSTM3RlRCTEFXN3VFUEhkbThueE9hem5EbEpjMEVMeDFwQjFwbDkwYnZySTRUMlA4dEw1ekpUakRZVkZuaXlYYzlrZjlhSDlvcFAwbjgyZU9SemVLcG8ySTcxeEtYT0FFSlMwMnhBNUZCSE03Mm1kclZZMkhXZ2doQg?oc=5",
+      "name": "Ayuntamiento de l'Alfàs del Pi",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOT3ZERmRsRUFhQ1hOUVhPTFB5ZVhkRU8xM3NlTnFNUk5ZdFNvOVdNVG9WRk9tZ3JOLXVlZXdfYk5sbXF3Q0U5VUtUa2NuNC1RSW1wN2JuSkNxSUc5WnhjOGpFelFJR3VIRnByaFZHQ3RxYWtzNHR6MTF6SzFOSzdsQTFFbEZaSml4ckowbHZvSGY2aWJnOG4wZDVBaWFTOVlaUThtOHlwd0Q0SUlpUDRhV0RKVVJXSzdMN1E?oc=5",
       "paywalled": false
     },
     {
@@ -69,8 +64,8 @@
       "paywalled": false
     },
     {
-      "name": "Filmaffinity",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9tRzIxZzRHMDB2d09WeHlwSEpnZUtGb1FkSnBaeG83RE9vamJjOThtZEo4eWxUdWZOVnZQMUR0VTFuU3VueHNYMzk2QXJKUXl5Nl9BcXNhOE9RaDluVGxOb1lKa3l2Y0RRdFNhR0dSZ2hqRzhxMWpSdEpVODJEZGc?oc=5",
+      "name": "Junta de Andalucía",
+      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNak9NRTA1ekRrdXQwZkY2QjBQb0xFbTY5NU5rRHZoTnFfWl8zazdrWDhya28xUGlQVmpWUEpUSkJIbjBZZE5tZnFLVEhCMEdrSXdCM1pOVHlCejBuWmo2VnRTZldpQTdDVGs5S0FkY2V5NUJ2MVVQUERralBwMkdpWUZ6TERvR0Zoc2tjdnQtdFVsWldQTFNheTF5ZGhaR3doZ1ZlZm16anpoQVFEamhHXzBFdmlOU3FSN0V1dnBfbTZ5WTVka2U4dHZQbktGbWlCemZwOXdOSGRCWm9zMWtLZzc4cUMzbEpFbDNn?oc=5",
       "paywalled": false
     }
   ]
