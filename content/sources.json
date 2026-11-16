@@ -100,9 +100,7 @@
       "https://www.comicsbeat.com/feed/",
       "https://feeds.feedburner.com/nybooks",
       "https://feeds.npr.org/510282/podcast.xml",
-      "https://feeds.npr.org/510364/podcast.xml",
-      "yt-channel:UC4eYXhJI4-7wSWc8UNRwD4A",
-      "yt-channel:UC3I2GFN_F8WudD_2jUZbojA"
+      "https://feeds.npr.org/510364/podcast.xml"
     ],
     "reference_media": [
       "The New Yorker",
@@ -115,9 +113,7 @@
       "Hyperallergic",
       "The Beat (Cómics)",
       "NYRB",
-      "NPR Pop Culture Happy Hour",
-      "NPR Tiny Desk",
-      "KEXP"
+      "NPR Pop Culture Happy Hour"
     ]
   },
   {
@@ -257,7 +253,6 @@
     "rss_feeds": [
       "https://www.critikat.com/feed/",
       "https://radiofrance-podcast.net/podcast09/d4463877-caa3-4507-9399-f5eb00fde027/rss_14007.xml",
-      "yt-channel:UC-smeLB9AnOTeypr1YyjJ3A",
       "https://www.francetvinfo.fr/culture.rss",
       "https://www.lemonde.fr/culture/rss_full.xml",
       "https://news.google.com/rss/search?q=site%3Alesinrocks.com+OR+site%3Atelerama.fr+OR+site%3Aactuabd.com+OR+site%3Aaoc.media+when%3A10d&hl=fr&gl=FR&ceid=FR:fr"
@@ -265,7 +260,6 @@
     "reference_media": [
       "Le Masque et la Plume (France Inter)",
       "Critikat",
-      "ARTE Concert",
       "Les Inrockuptibles",
       "Télérama",
       "ActuaBD (Bande Dessinée)",
@@ -281,7 +275,6 @@
     "languages": ["de"],
     "rss_feeds": [
       "https://www.musikexpress.de/feed/",
-      "yt-channel:UCLLibJTCy3sXjHLVaDimnpQ",
       "https://news.google.com/rss/search?q=site%3Aperlentaucher.de+OR+site%3Azeit.de%2Fkultur+OR+site%3Amonopol-magazin.de+OR+site%3Akino-zeit.de+OR+site%3Aserienjunkies.de+when%3A10d&hl=de&gl=DE&ceid=DE:de"
     ],
     "reference_media": [
@@ -289,7 +282,6 @@
       "Perlentaucher",
       "Kino-Zeit",
       "Serienjunkies",
-      "ARTE Kultur",
       "Die Zeit Kultur",
       "Monopol Magazin"
     ]
@@ -301,19 +293,21 @@
     "flag": "🇮🇹",
     "languages": ["it"],
     "rss_feeds": [
+      "https://www.ondarock.it/feed/",
+      "https://www.nazioneindiana.com/feed/",
       "https://www.doppiozero.com/feed",
       "https://www.iltascabile.com/feed/",
       "https://www.sentireascoltare.com/feed/",
       "https://fumettologica.it/feed/",
-      "https://www.raiplaysound.it/programmi/fahrenheit.xml",
       "https://www.ilpost.it/cultura/feed/"
     ],
     "reference_media": [
+      "OndaRock",
+      "Nazione Indiana",
       "Doppiozero",
       "Il Tascabile",
       "Sentireascoltare",
       "Fumettologica",
-      "Fahrenheit (RAI Radio 3)",
       "Il Post Cultura"
     ]
   },

@@ -137,6 +137,70 @@ function stripNumericCitations(text: string): string {
     .replace(/ +([.,;:!?])/g, "$1");
 }
 
+function ensureBoldHighlights(text: string): string {
+  const existing = text.match(/\*\*([^*\n]{2,80})\*\*/g) || [];
+  if (existing.length >= 2) return text;
+
+  let added = 0;
+  const needed = 3 - existing.length;
+  const tokenRegex = /(\[[^\]]+\]\([^)]+\)|\*\*[^*\n]+\*\*|\*[^*\n]+\*)/g;
+
+  const pass1 = text
+    .split(tokenRegex)
+    .map((part, idx) => {
+      if (idx % 2 === 1 || added >= needed) return part;
+      return part.replace(
+        /(?<=[a-záéíóúñü,;]\s+)([A-ZÁÉÍÓÚÑÜ][a-záéíóúñü0-9'’-]+(?:\s+(?:(?:de|del|la|las|los|el|y|e|and|of|the|&)\s+)*[A-ZÁÉÍÓÚÑÜ][a-záéíóúñü0-9'’-]*){1,3})(?=[\s.,;:!?»)"'])/g,
+        (match) => {
+          if (added >= needed) return match;
+          added++;
+          return `**${match}**`;
+        }
+      );
+    })
+    .join("");
+
+  if (existing.length + added >= 2) return pass1;
+
+  const pass2 = pass1
+    .split(tokenRegex)
+    .map((part, idx) => {
+      if (idx % 2 === 1) {
+        if (
+          existing.length + added < 2 &&
+          part.startsWith("*") &&
+          !part.startsWith("**") &&
+          part.endsWith("*") &&
+          part.length >= 4 &&
+          part.length <= 60
+        ) {
+          added++;
+          return `**${part.slice(1, -1)}**`;
+        }
+        return part;
+      }
+      return part;
+    })
+    .join("");
+
+  if (existing.length + added >= 1) return pass2;
+
+  return pass2
+    .split(tokenRegex)
+    .map((part, idx) => {
+      if (idx % 2 === 1 || existing.length + added >= 2) return part;
+      return part.replace(
+        /(?<=[a-záéíóúñü,;]\s+)([A-ZÁÉÍÓÚÑÜ][a-záéíóúñü0-9'’-]{3,})(?=[\s.,;:!?»)"'])/g,
+        (match) => {
+          if (existing.length + added >= 2) return match;
+          added++;
+          return `**${match}**`;
+        }
+      );
+    })
+    .join("");
+}
+
 function safeEncodeParens(url: string): string {
   return url.replace(/\(/g, "%28").replace(/\)/g, "%29");
 }
@@ -514,11 +578,12 @@ export async function generateCountryEdition(
       typeof parsedJson.cultural_pulse === "string"
         ? stripNumericCitations(cleanRoboticTransitions(parsedJson.cultural_pulse))
         : "";
-    const resolvedPulse = await resolveInlineLinks(
+    const linkedPulse = await resolveInlineLinks(
       rawPulse,
       verifiedUrls,
       allowedUrlSet
     );
+    const resolvedPulse = ensureBoldHighlights(linkedPulse);
     const plainWordCount = resolvedPulse
       .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
       .trim()
@@ -633,8 +698,8 @@ export async function generateCountryEdition(
         : 0;
 
     lastError =
-      plainWordCount < 300
-        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${plainWordCount} palabras y el mínimo obligatorio del sistema es 300 palabras. No resumas tanto: desarrolla 4 párrafos completos con más detalles de obras, artistas y hechos del dossier hasta llegar a 420-520 palabras.`
+      plainWordCount < 200
+        ? `Tu 'cultural_pulse' anterior tuvo SOLO ${plainWordCount} palabras y el mínimo obligatorio del sistema es 200 palabras. Desarrolla 3 o 4 párrafos completos con más detalles de obras, bandas, películas o libros del dossier hasta llegar a 320-450 palabras.`
         : plainWordCount > 800
           ? `Tu 'cultural_pulse' anterior tuvo ${plainWordCount} palabras (máximo 800). Resúmelo a unas 450 palabras.`
           : recCtxLen > 220

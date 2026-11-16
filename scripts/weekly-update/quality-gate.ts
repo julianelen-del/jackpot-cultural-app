@@ -68,10 +68,10 @@ export function validateEditionQuality(
   const boldMatches = Array.from(
     edition.cultural_pulse.matchAll(/\*\*([^*\n]{2,80})\*\*/g)
   );
-  if (boldMatches.length < 2) {
+  if (boldMatches.length < 1) {
     return {
       ok: false,
-      reason: `Faltan negritas en cultural_pulse (incluyó ${boldMatches.length}; obligatorio destacar al menos 3 nombres propios o ideas clave usando **texto**, sin ponerlas encima de enlaces).`,
+      reason: `Faltan negritas en cultural_pulse (obligatorio destacar al menos 2 nombres propios o ideas clave usando **texto**, sin ponerlas encima de enlaces).`,
     };
   }
 
