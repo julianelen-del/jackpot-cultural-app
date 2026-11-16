@@ -3,54 +3,59 @@
   "country": "Japón",
   "continent": "Asia",
   "flag": "🇯🇵",
-  "updated_at": "2026-11-16T19:47:48.498Z",
+  "updated_at": "2026-11-16T22:22:15.303Z",
   "edition_week": "2026-W47",
-  "intro": "Cien años de cultura de escucha en Tokio, nominaciones históricas a los Grammy y el pulso del anime en el debate contemporáneo.",
+  "intro": "El videojuego de Shigeru Miyamoto y los debates sobre el anime marcan la agenda cultural nipona.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Tokyo_by_night_2011.jpg/1280px-Tokyo_by_night_2011.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Panorámica nocturna de Tokio, epicentro del pulso cultural y artístico contemporáneo en Japón.",
-    "credit": "Foto: Nalilord · CC BY-SA 3.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Tokyo_rooftop_football.jpg/1280px-Tokyo_rooftop_football.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Cruce peatonal en el distrito de Shibuya, Tokio.",
+    "credit": "Foto: Jack French from San Francisco, USA · CC BY 2.0"
   },
-  "cultural_pulse": "El debate sobre la industria del **anime** y el manga atraviesa un momento de profunda revisión crítica con la participación de directores como [Kenji Kamiyama](https://news.google.com/rss/articles/CBMitwJBVV95cUxPdEh2TWRQMkluaFRrbEctRThNLURCRk84dnltbUxQaEIwcFJQM3N4ZEhEbXdOeEFtQ3BNUF9yZ3BBenFnN05Da1V0RHZuU29FemcxeW9oaTM4dkRwTXVUMjVNX2ttbVlaOGRCWnUwUUJLUzQ1MWtQeDM1T1hxMWhUUkwtUW1FTXNfNjBsZDVnWWVaT3BWc2c2VFNacHBqMV81TTJJMnRyV1ZFdWVMbWZqekZNR3dQQzhCSjRvZWNiUlQtY09ZZ1BKNTRXSjM0RmczZ0Z6bXZZQ3VkWm9uRkVxVE5tRkdjMGZfM0wtYU1UNlhZamxfS3lVTkIzaHpyLUUxdWV1aG4xNFdobWEtR3pjbGFNOU5Ba0V5aW4zYXNLOW1RZEpVNUh0Q2NTc3NrbzJBU3YzTTNqOA?oc=5), quienes señalan las tensiones económicas entre el crecimiento global del sector y la retribución real a los estudios independientes. Lejos del ruido comercial, la memoria sonora japonesa recupera su espesor histórico a través de proyectos documentales que exploran el centenario de los legendarios *ongaku kissa*, los cafés de escucha devotos del vinilo y los equipos de sonido artesanales que moldearon la escucha colectiva en el país desde la década de 1920, tal como relata el trabajo del cineasta [Nick Dwyer](https://www.tokyoweekender.com/entertainment/movies-tv/100-years-of-listening-cafe-history-documentary/).\n\nEn el terreno estrictamente musical, la escena nipona marca un hito histórico con la inclusión de [Babymetal](https://www.animenewsnetwork.com/news/2026-11-16/lisa-babymetal-earn-nominations-for-2027-grammy-awards-new-best-asian-pop-music-performance-category/.243861) y [LiSA](https://www.animenewsnetwork.com/news/2026-11-16/lisa-babymetal-earn-nominations-for-2027-grammy-awards-new-best-asian-pop-music-performance-category/.243861) entre las candidaturas de la flamante categoría de mejor interpretación de pop asiático para los próximos [Premios Grammy](https://www.animenewsnetwork.com/news/2026-11-16/lisa-babymetal-earn-nominations-for-2027-grammy-awards-new-best-asian-pop-music-performance-category/.243861). Este reconocimiento internacional dialoga directamente con la consolidación de infraestructuras locales orientadas a la premiación y el directo, como la anunciada edición de los [Music Awards Japan](https://news.google.com/rss/articles/CBMiuAFBVV95cUxNenc3QzVlQ0ZzenUxdGVKZjNmYnZveWdWR3RFajZaaWJ3eVR1RWFLT2EzQUVmZ1VzelcwelpKa3pxZFpIN3VBaE5QaGxNem9wRXNfWC1JZW5uTmR6OWVpVjlYc3J4cjJvMHNOU0I0MmxGZTU2d2JYTXJXWmV6OWFRSXM5eWRaYXIyT1RrTGV2X1JrR0Q1VTN3azVkUGFoenMyMG9JakQyUWs1VDJwZWVFX2V3Q1JsZ1Vr?oc=5), programada para recalar en el **Toyota Arena Tokyo**.\n\nLa historieta y el noveno arte sufren la pérdida de figuras clave del intercambio cultural franco-japonés, como el historietista francés **Frédéric Boilet**, autor fundamental de obras como *Yukiko's Spinach* y *Mariko Parade*, cuyo trazo tendería puentes decisivos entre el manga alternativo y la nouvelle bande dessinée europea. Estas tensiones estéticas y memoriales demuestran que la cultura japonesa contemporánea sigue debatiéndose entre la preservación de sus archivos subterráneos y su indiscutible expansión transnacional.",
+  "cultural_pulse": "La industria del **videojuego** y el **anime** en Japón vuelve a situarse en el centro del debate cultural tras los reconocimientos internacionales a figuras clave como el diseñador **Shigeru Miyamoto**, galardonado con el Legend Award en los [D.I.C.E. Awards](https://www.animenewsnetwork.com/news/2026-11-16/d.i.c.e-awards-honors-nintendo-game-creator-shigeru-miyamoto-with-inaugural-legend-award/.243870) por dar forma a franquicias seminales como *Mario Bros.*, *Donkey Kong* y *The Legend of Zelda*. El director **Kenji Kamiyama** ha puesto sobre la mesa la persistente desconexión económica entre los beneficios globales de la propiedad intelectual y los estudios de animación encargados de la producción diaria, reavivando discusiones sobre la sostenibilidad del sector más allá del triunfo de las grandes corporaciones y la inversión privada.\n\nLa oferta audiovisual y discográfica explora nuevas formas de preservación y diálogo con su propio archivo histórico. El documental centrado en los *ongaku kissa* —los tradicionales cafés de escucha nacidos en la era Showa con sistemas de sonido personalizados— documenta un siglo de resistencia sonora y comunitaria en Tokio, tal como detalla [Tokyo Weekender](https://www.tokyoweekender.com/entertainment/movies-tv/100-years-of-listening-cafe-history-documentary/). A la par, el impacto global de los creadores japoneses continúa expandiéndose hacia los escenarios internacionales de cara a las próximas galas de premios, consolidando la presencia de propuestas locales en circuitos que tradicionalmente ignoraban las expresiones asiáticas contemporáneas.\n\nEn el terreno de la ficción gráfica y los formatos seriados, las tensiones entre la creación artística tradicional y la economía global de la propiedad intelectual siguen generando análisis críticos en publicaciones especializadas como [The Comics Journal](https://news.google.com/rss/articles/CBMirAFBVV95cUxONkpDSjdiMFR1R1l1T2dVYnR6elp6d2h5WWU5VTZlUXowLXByRmNDOF9kWGQwM0JHQzBGWjNGWkJSamI5anBFUjYxcExPZnFpeE1Gb2ZnRTdjT3lMb0JpdFg1WkdVUWd3VHZySUNzOEVkdGc4TEdZQm5zOTR3N213WFVnX2FMcUk0dHNCcTJvNFlIbHlTNmhUbXNteDN4M3kwV3VxQk5BOTFvTUdV?oc=5). La supervivencia de estéticas singulares frente a la estandarización comercial demuestra que el ecosistema cultural japonés mantiene una vitalidad inquebrantable, sostenida tanto por creadores independientes como por directores consagrados dispuestos a cuestionar las reglas del mercado actual.",
   "topics": [
     {
-      "category": "Música",
-      "title": "Babymetal y LiSA llegan a los Grammy",
-      "summary": "Las artistas japonesas obtuvieron nominaciones en la categoría inaugural de música pop asiática para los premios de la Academia de Grabación."
+      "category": "Videojuegos y Animación",
+      "title": "El legado de Miyamoto y las tensiones en la producción",
+      "summary": "El reconocimiento a **Shigeru Miyamoto** por su trabajo en Nintendo contrasta con las críticas de directores como **Kenji Kamiyama** sobre la distribución real de las ganancias en la industria del anime."
     },
     {
       "category": "Cine y Documental",
-      "title": "Los cien años de los cafés de escucha",
-      "summary": "Un nuevo documental repasa la historia de los *ongaku kissa*, los espacios tokiotas dedicados a la apreciación devota de la música grabada en vinilo."
+      "title": "Cien años de cultura de escucha en Tokio",
+      "summary": "Un nuevo trabajo cinematográfico rescata la historia de los *ongaku kissa*, los emblemáticos cafés musicales japoneses equipados con sistemas de audio artesanales."
     },
     {
-      "category": "Cómics y Manga",
-      "title": "Adiós a Frédéric Boilet",
-      "summary": "Falleció a los 66 años el autor franco-japonés que renovó el género con obras clave de la historieta íntima como *Yukiko's Spinach*."
-    },
-    {
-      "category": "Debates Artísticos",
-      "title": "El trasfondo económico del anime",
-      "summary": "Voces de la industria como el director Kenji Kamiyama ponen sobre la mesa el desbalance financiero entre los grandes fondos y los creadores."
+      "category": "Música",
+      "title": "Proyección internacional y nuevos escenarios",
+      "summary": "La música japonesa afianza su presencia global con nominaciones y la planificación de los [MUSIC AWARDS JAPAN 2027](https://news.google.com/rss/articles/CBMiuAFBVV95cUxNenc3QzVlQ0ZzenUxdGVKZjNmYnZveWdWR3RFajZaaWJ3eVR1RWFLT2EzQUVmZ1VzelcwelpKa3pxZFpIN3VBaE5QaGxNem9wRXNfWC1JZW5uTmR6OWVpVjlYc3J4cjJvMHNOU0I0MmxGZTU2d2JYTXJXWmV6OWFRSXM5eWRaYXIyT1RrTGV2X1JrR0Q1VTN3azVkUGFoenMyMG9JakQyUWs1VDJwZWVFX2V3Q1JsZ1Vr?oc=5) en la Toyota Arena Tokyo."
     }
   ],
   "recommendation": {
     "type": "Álbum",
-    "title": "Metal Galaxy",
-    "creator": "Babymetal",
-    "context": "Un disco clave para entender la colisión entre el metal extremo y la música pop japonesa que hoy llega a los Grammy.",
-    "url": "https://www.animenewsnetwork.com/news/2026-11-16/lisa-babymetal-earn-nominations-for-2027-grammy-awards-new-best-asian-pop-music-performance-category/.243861"
+    "title": "Electronic Beats: How Japan Shaped Electronic Music",
+    "creator": "JAPAN HOUSE Los Angeles",
+    "context": "Un recorrido esencial para entender cómo los sintetizadores nipones transformaron la música electrónica global.",
+    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQZTdNdlFQRnB1R3dpYk5WVC04OWtVMXlwemp6XzgyRVowblI4Q18zRmZURWtRUmV3Vk5Xemg4UEdORlBDQndtLXVqcnNWeXk2d1pVYXIyZmVMNmR5akkwVloyN0lIRG1aRk43NzBsMDEwNmNlLUl0UGNla0lRd2JSM011ZG5HRFVUekFDMjQtdU9MTXpLNm1zQ0hUZ3lZVkpVV3l0Yk5lQVgzMlMzU0ZOX19SUXlWRG0wNWsyMzlfUlMzUTRZU2c?oc=5"
   },
   "closing_media": {
     "type": "image",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Babymetal_performing_at_AFAS_Live_in_Amsterdam_13_May_2025.jpg/960px-Babymetal_performing_at_AFAS_Live_in_Amsterdam_13_May_2025.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "caption": "Fotografía de [Babymetal], la banda japonesa nominada a los premios Grammy en la nueva categoría de pop asiático.",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Miyamoto_Shigeru_2026.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "caption": "Retrato de Shigeru Miyamoto, creador de franquicias fundamentales en Nintendo.",
     "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
     {
       "name": "Anime News Network",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-16/lisa-babymetal-earn-nominations-for-2027-grammy-awards-new-best-asian-pop-music-performance-category/.243861",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-16/d.i.c.e-awards-honors-nintendo-game-creator-shigeru-miyamoto-with-inaugural-legend-award/.243870",
+      "paywalled": false
+    },
+    {
+      "name": "JAPAN HOUSE Los Angeles",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQZTdNdlFQRnB1R3dpYk5WVC04OWtVMXlwemp6XzgyRVowblI4Q18zRmZURWtRUmV3Vk5Xemg4UEdORlBDQndtLXVqcnNWeXk2d1pVYXIyZmVMNmR5akkwVloyN0lIRG1aRk43NzBsMDEwNmNlLUl0UGNla0lRd2JSM011ZG5HRFVUekFDMjQtdU9MTXpLNm1zQ0hUZ3lZVkpVV3l0Yk5lQVgzMlMzU0ZOX19SUXlWRG0wNWsyMzlfUlMzUTRZU2c?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "The Comics Journal",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONkpDSjdiMFR1R1l1T2dVYnR6elp6d2h5WWU5VTZlUXowLXByRmNDOF9kWGQwM0JHQzBGWjNGWkJSamI5anBFUjYxcExPZnFpeE1Gb2ZnRTdjT3lMb0JpdFg1WkdVUWd3VHZySUNzOEVkdGc4TEdZQm5zOTR3N213WFVnX2FMcUk0dHNCcTJvNFlIbHlTNmhUbXNteDN4M3kwV3VxQk5BOTFvTUdV?oc=5",
       "paywalled": false
     },
     {
@@ -61,11 +66,6 @@
     {
       "name": "Tokyo Weekender",
       "url": "https://www.tokyoweekender.com/entertainment/movies-tv/100-years-of-listening-cafe-history-documentary/",
-      "paywalled": false
-    },
-    {
-      "name": "Anime News Network",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-16/french-manga-comic-creator-frederic-boilet-dies-at-66/.243766",
       "paywalled": false
     },
     {
