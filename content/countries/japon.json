@@ -3,54 +3,80 @@
   "country": "Japón",
   "continent": "Asia",
   "flag": "🇯🇵",
-  "updated_at": "2026-11-14T06:39:28.460Z",
-  "edition_week": "2026-W46",
-  "intro": "Japón transita esta semana entre la nostalgia de su memoria colectiva y la disección de los afectos contemporáneos en pantallas y escenarios.",
+  "updated_at": "2026-11-16T02:01:22.007Z",
+  "edition_week": "2026-W47",
+  "intro": "Tokio despliega su pulso otoñal entre el humor viral de Monaki, el colapso digital de las oficinas y el esperado ritual televisivo del Kohaku.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/New_National_Theatre%2C_Tokyo_2010.jpg/1280px-New_National_Theatre%2C_Tokyo_2010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "El Nuevo Teatro Nacional de Tokio acoge puestas en escena que desafían la pasividad del espectador actual.",
-    "credit": "Foto: Wiiii · CC BY-SA 3.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Tokyo_rooftop_football.jpg/1280px-Tokyo_rooftop_football.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Las calles de Tokio combinan el ritmo hipertecnológico con el refugio en galerías y salas de cine.",
+    "credit": "Foto: Jack French from San Francisco, USA · CC BY 2.0"
   },
-  "cultural_pulse": "La conversación cultural en el archipiélago japonés durante este periodo transita por una tensión muy particular: la colisión entre la masificación del entretenimiento de gran formato y la búsqueda de fisuras íntimas en las estructuras sociales de la nación. Mientras el cine comercial rompe récords históricos apelando a viejos miedos nucleares y geopolíticos, las plataformas de streaming y los escenarios teatrales operan como laboratorios de disección psicológica. Lo que verdaderamente preocupa y estimula al debate intelectual nipón actual no es la mera supervivencia de sus industrias creativas —que gozan de una salud financiera envidiable—, sino el modo en que el público negocia su propia memoria colectiva frente a la aceleración digital.\n\nEn el terreno de la telerrealidad y los formatos documentales, la atención se ha desplazado hacia los márgenes de la experiencia urbana. Los espacios dedicados a retratar los vínculos afectivos de la mediana y tercera edad funcionan hoy como un espejo incómodo para una sociedad marcada por la soledad y el envejecimiento demográfico. Estos programas evitan deliberadamente el artificio comercial para exponer las cicatrices emocionales y los traumas no resueltos de sus participantes, convirtiendo el entretenimiento masivo en un ejercicio sociológico sobre la dificultad de entablar relaciones cuando el pasado pesa más que las expectativas de futuro. La gran audiencia busca así relatos que reconozcan las fracturas cotidianas de la vida contemporánea.\n\nParalelamente, las artes escénicas y el circuito de festivales cinematográficos demuestran una notable audacia formal al dialogar con textos canónicos y realidades disidentes. La llegada de vanguardias literarias extranjeras a los escenarios tokiotas, mediante puestas en escena que demuelen la cuarta pared, cuestiona directamente la pasividad del espectador hiperconectado. A esto se suma el papel de Tokio como la capital neurálgica indispensable para el cine de autor en Asia, un espacio de refugio y consagración donde las narrativas independientes escapan de los filtros continentales y dialogan con la crítica local, reafirmando el prestigio intelectual del archipiélago en el circuito global de festivales.\n\nFinalmente, la liturgia de la cultura popular de masas, simbolizada por el inminente maratón musical de fin de año de la cadena pública NHK, reabre el debate periódico sobre la salud del gusto intergeneracional. La negociación constante entre la nostalgia institucional y la fragmentación radical impulsada por los algoritmos digitales refleja un país que intenta conciliar sus tradiciones con el vertiginoso ritmo de la era de las pantallas. Japón se observa a sí mismo con una mezcla de cautela y audacia formal, consolidando una agenda donde el entretenimiento popular y la indagación crítica conviven en permanente tensión creativa.",
+  "cultural_pulse": "La semana en Tokio transcurre entre la sorpresa generacional y la desconexión involuntaria. El fenómeno de **Monaki** demuestra que el pop japonés todavía guarda rendijas para la excentricidad, llevando a cuatro hombres de carreras dispares desde las actuaciones en centros comerciales hasta la viralidad nacional, armados de humor y desparpajo [2]. Lejos de los circuitos habituales, la música popular se cruza con las rutinas de oficina cuando un fallo global en los sistemas de Microsoft paraliza las herramientas corporativas de la mañana a la noche, provocando que miles de empleados opten por abandonar las pantallas y buscar refugio en los bares bajo el lema espontáneo de dejar el trabajo atrás [4].\n\nEn las pantallas y los escenarios, la conversación cultural empieza a mirar hacia el cierre del año con el despliegue de preparativos para el [Kohaku Uta Gassen](https://www.tokyoweekender.com/entertainment/movies-tv/kohaku-uta-gassen-guide/), el histórico combate televisivo de canciones de la cadena NHK que convoca a audiencias intergeneracionales frente al televisor. Mientras tanto, el sector audiovisual y las plataformas continúan diseccionando los vínculos afectivos más ásperos, consolidando éxitos de no ficción como la tercera temporada de *Love Village* en Netflix, un ejercicio de telerrealidad que rehúye el artificio para sumergirse en los traumas y las expectativas amorosas de adultos que superan la mediana edad [7].\n\nLas galerías de la capital tampoco se quedan atrás en su habitual saturación otoñal de propuestas visuales [1]. La oferta de salas y espacios independientes compite con la programación del Festival Internacional de Cine de Tokio, donde figuras como el director de programación Shozo Ichiyama impulsan puentes creativos con el cine chino contemporáneo y apuestan por la savia nueva de la región [5]. Todo ocurre en un circuito que no da tregua, donde cada sala de proyección y cada muro expositivo compiten por capturar la atención de un público urbano permanentemente alerta.",
   "topics": [
     {
-      "category": "Televisión",
-      "title": "El reverso áspero del afecto maduro",
-      "summary": "Los formatos de telerrealidad en streaming abandonan los entornos idílicos juveniles para centrarse en el romance de mediana edad, exponiendo con crudeza las cicatrices emocionales y la soledad urbana en el Japón actual."
+      "category": "Música",
+      "title": "El ascenso improbable de Monaki",
+      "summary": "El cuarteto de J-pop compuesto por veteranos de profesiones ajenas a la música revoluciona las listas gracias a unas actuaciones que priorizan la ironía y el desparpajo frente al molde industrial."
     },
     {
       "category": "Cine",
-      "title": "El riesgo cinematográfico en festivales",
-      "summary": "El circuito independiente del Festival Internacional de Cine de Tokio afianza su rol como escaparate neurálgico para el cine de autor asiático que aborda la memoria histórica y la alienación contemporánea."
+      "title": "Puentes entre Tokio y Pekín",
+      "summary": "El director Shozo Ichiyama detalla las claves de la programación del festival cinematográfico tokiota, enfocada en rescatar el pulso de los autores independientes de China."
     },
     {
-      "category": "Teatro",
-      "title": "Vanguardia rusa bajo los focos de Tokio",
-      "summary": "La adaptación escénica de la obra cumbre de Mijaíl Bulgakov en el Nuevo Teatro Nacional rompe la cuarta pared para transformar una clásica sátira soviética en una reflexión sobre la vigilancia y la complicidad contemporánea."
+      "category": "Series y TV",
+      "title": "La crudeza del afecto maduro",
+      "summary": "La tercera entrega del formato de telerrealidad Love Village expone sin filtros las cicatrices emocionales y las complejas negociaciones afectivas de sus participantes."
+    },
+    {
+      "category": "Cultura Digital",
+      "title": "Apagón informático y barras de bar",
+      "summary": "La caída inesperada de las herramientas corporativas de Microsoft en las oficinas japonesas desata reacciones colectivas que celebran la espantada laboral hacia los izakayas."
     }
   ],
   "recommendation": {
-    "type": "Película",
-    "title": "‘Did Someone Happen to Mention Me?’",
-    "creator": "Kōji Yakusho",
-    "context": "Una comedia agridulce protagonizada por el célebre actor que utiliza la amnesia social como reflejo de la invisibilidad de los marginados en el entorno urbano.",
-    "url": "https://www.japantimes.co.jp/culture/2026/11/09/tv-streaming/koji-yakusho-did-someone-happen-to-mention-me/"
+    "type": "Álbum",
+    "title": "Honmayade",
+    "creator": "Monaki",
+    "context": "Una inyección de frescura y humor absurdo que subvierte los códigos más rígidos del pop comercial actual.",
+    "url": "https://www.japantimes.co.jp/culture/2026/11/16/music/japanese-music-monaki-honmayade/"
+  },
+  "closing_media": {
+    "type": "image",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Shibuya_Crossing%2C_Aerial.jpg/960px-Shibuya_Crossing%2C_Aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "El cruce de Shibuya, epicentro del pulso urbano donde convergen la cultura digital, el ocio nocturno y el arte contemporáneo.",
+    "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
     {
-      "name": "The Japan Times",
+      "name": "Tokyo Weekender",
+      "url": "https://www.tokyoweekender.com/things-to-do-in-tokyo/current-and-upcoming-art-exhibitions/",
+      "paywalled": false
+    },
+    {
+      "name": "The Japan Times Culture",
+      "url": "https://www.japantimes.co.jp/culture/2026/11/16/music/japanese-music-monaki-honmayade/",
+      "paywalled": false
+    },
+    {
+      "name": "Tokyo Weekender",
+      "url": "https://www.tokyoweekender.com/japan-life/news-and-opinion/microsoft-365-outage-japan-reactions/",
+      "paywalled": false
+    },
+    {
+      "name": "The Japan Times Culture",
+      "url": "https://www.japantimes.co.jp/culture/2026/11/15/film/shozo-ichiyama-chinese-film-tiff/",
+      "paywalled": false
+    },
+    {
+      "name": "Tokyo Weekender",
+      "url": "https://www.tokyoweekender.com/entertainment/movies-tv/kohaku-uta-gassen-guide/",
+      "paywalled": false
+    },
+    {
+      "name": "The Japan Times Culture",
       "url": "https://www.japantimes.co.jp/culture/2026/11/14/tv-streaming/love-village-season-3/",
-      "paywalled": true
-    },
-    {
-      "name": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/culture/2026/11/12/stage/japanese-theater-master-and-margarita/",
-      "paywalled": true
-    },
-    {
-      "name": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/culture/2026/11/09/tv-streaming/koji-yakusho-did-someone-happen-to-mention-me/",
-      "paywalled": true
+      "paywalled": false
     }
   ]
 }
