@@ -3,48 +3,48 @@
   "country": "Irlanda",
   "continent": "Europa",
   "flag": "🇮🇪",
-  "updated_at": "2026-11-16T03:31:49.573Z",
+  "updated_at": "2026-11-16T04:00:08.337Z",
   "edition_week": "2026-W47",
-  "intro": "Dublín y Cork activan su pulso con el regreso del rock británico en vivo, nuevas emisiones de U2 y un recorrido por la memoria literaria.",
+  "intro": "Los archivos censurados de Irlanda ven la luz mientras la música y la literatura agitan la escena cultural de Dublín.",
   "cover_image": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/CustomHouseDublin.JPG/1280px-CustomHouseDublin.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Panorámica urbana de Dublín, epicentro de la actividad cultural y literaria irlandesa.",
+    "caption": "Vista panorámica del centro histórico de Dublín y el río Liffey.",
     "credit": "Foto: Elemaki · CC BY 3.0"
   },
-  "cultural_pulse": "El circuito musical de la capital irlandesa recibe esta semana a los referentes del britpop de los años noventa, con **Ocean Colour Scene** programando una serie de presentaciones en el escenario del 3Olympia Theatre. La banda, reconocida por discos fundamentales como Moseley Shoals, llega para repasar un repertorio clásico que mantiene vigencia en la escena alternativa europea. La presencia global de **U2** se amplía hacia la programación televisiva con la emisión internacional de su reciente presentación en la Tate Modern, un concierto registrado por las cámaras de la BBC que documenta su actual etapa creativa junto a nuevas composiciones.\n\nLa trastienda de estas colaboraciones musicales revela cruces generacionales singulares, como el vínculo mantenido con la vocalista [Dolly Parton](https://es.wikipedia.org/wiki/Dolly_Parton) durante las sesiones de grabación recientes. Mientras los escenarios vibran con visitas internacionales, la escena local de álbumes registra movimientos significativos en las listas de popularidad con el ascenso del cantautor **Robert Grace**, quien debuta en los primeros puestos del ranking oficial irlandés con su nuevo trabajo discográfico titulado My Father's Son, consolidando una propuesta que explora lazos familiares y arreglos acústicos contemporáneos.\n\nEn el terreno de las artes visuales y la exhibición cinematográfica, las instituciones académicas y los festivales locales refuerzan sus alianzas estratégicas. La colaboración establecida entre la **Universidad de Cork** y el certamen cinematográfico de la misma ciudad busca potenciar el desarrollo de nuevos realizadores y consolidar circuitos de exhibición para el cine independiente emergente, descentralizando la oferta cultural más allá de la capital y generando espacios de formación técnica y artística para creadores noveles.\n\nEl debate en torno a los archivos históricos y el patrimonio literario también ocupa un lugar central en la agenda pública de la semana. Las bibliotecas estatales y las universidades impulsan seminarios y muestras abiertas al público centrados en la recuperación de textos prohibidos y el análisis de la narrativa histórica, permitiendo a los lectores contemporáneos examinar los cambios ideológicos y estéticos que han moldeado la literatura del país durante el último siglo a través de publicaciones especializadas y fondos documentales recuperados.",
+  "cultural_pulse": "La semana cultural en Irlanda trae debates literarios de alto voltaje con la apertura pública de miles de volúmenes que en el pasado fueron prohibidos por el Estado. Esta histórica colección, albergada en los archivos nacionales, documenta las décadas más rígidas de la censura oficial y ofrece a los investigadores una radiografía de los tabúes morales y políticos que marcaron al país durante el siglo pasado. Las instituciones académicas y los círculos de lectura analizan estos textos como un testimonio imprescindible para entender la evolución de la conciencia pública frente al dogmatismo institucional.\n\nEn el plano musical, las listas de éxitos locales celebran la consolidación de nuevas propuestas discográficas. El compositor y músico **Robert Grace** ha irrumpido con fuerza en el cuarto puesto del listado oficial de álbumes con su reciente trabajo discográfico [My Father's Son](https://www.hotpress.com/music/robert-grace-debuts-at-no-4-on-irish-albums-chart-with-my-fathers-son-23169241), una obra que combina letras de fuerte carga personal con arreglos de pop contemporáneo. El guitarrista **Steve Cradock**, conocido por su trayectoria al frente de [Ocean Colour Scene](https://es.wikipedia.org/wiki/Ocean_Colour_Scene), calienta motores para una serie de presentaciones en el escenario del 3Olympia, repasando el legado de la época dorada del rock británico de los años noventa.\n\nLas conexiones internacionales de la música irlandesa también suman hitos creativos destacados. Durante una reciente entrevista, la legendaria cantante de música country **Dolly Parton** reveló que la colaboración grabada junto a la banda [U2](https://es.wikipedia.org/wiki/U2) en el tema titulado Torn surgió después de que ella misma descartara composiciones previas por considerarlas demasiado arraigadas en la sensibilidad de la isla. Este intercambio creativo entre Nashville y Dublín demuestra la persistencia de una identidad sonora muy reconocible que continúa dialogando con las grandes figuras de la industria global.\n\nPor último, el circuito cinematográfico y las artes visuales refuerzan su infraestructura regional a través de alianzas estratégicas. La Universidad de Cork ha firmado un convenio de cooperación con el festival internacional de cine de la ciudad para becar y respaldar activamente a las nuevas promesas del séptimo arte. Este acuerdo busca consolidar un polo de producción independiente que garantice la formación técnica y artística de una generación dispuesta a renovar las pantallas locales.",
   "topics": [
     {
-      "category": "Música",
-      "title": "Ocean Colour Scene en el 3Olympia",
-      "summary": "El guitarrista **Steve Cradock** encabeza los recitales de la banda británica en Dublín, recordando su papel en el auge del britpop y su cercanía histórica con Paul Weller."
+      "category": "Libros",
+      "title": "Apertura del archivo de literatura prohibida",
+      "summary": "Miles de libros vetados históricamente por el Estado irlandés se exhiben al público en los archivos nacionales, revelando las políticas de censura del siglo pasado."
     },
     {
-      "category": "Televisión y Conciertos",
-      "title": "U2 en la programación de la BBC",
-      "summary": "La actuación reciente del grupo en la Tate Modern se transmite a través de la señal británica, combinando canciones de su etapa clásica con material reciente."
+      "category": "Música",
+      "title": "El éxito de Robert Grace en las listas",
+      "summary": "El músico irlandés debuta en el cuarto puesto del ranking oficial de álbumes con su nuevo disco de estudio."
     },
     {
       "category": "Cine",
       "title": "Alianza cinematográfica en Cork",
-      "summary": "La Universidad de Cork y el festival de cine local suman esfuerzos para impulsar la formación de nuevos talentos y apoyar la producción audiovisual independiente."
+      "summary": "La Universidad de Cork y el festival de cine local se unen para impulsar la formación de nuevos talentos audiovisuales."
     },
     {
-      "category": "Libros y Archivos",
-      "title": "Exhibición de fondos documentales históricos",
-      "summary": "Las instituciones culturales del país exponen colecciones de textos y publicaciones que en el pasado sufrieron restricciones oficiales por parte del Estado."
+      "category": "Música",
+      "title": "El acercamiento entre U2 y Dolly Parton",
+      "summary": "La estrella del country reveló detalles sobre el origen de su colaboración discográfica con la mítica banda de Dublín."
     }
   ],
   "recommendation": {
     "type": "Álbum",
     "title": "My Father's Son",
     "creator": "Robert Grace",
-    "context": "Un disco reciente que debuta con fuerza en las listas irlandesas combinando letras introspectivas y arreglos de pop alternativo.",
+    "context": "Un disco honesto que consolida al autor en la escena pop contemporánea irlandesa.",
     "url": "https://www.hotpress.com/music/robert-grace-debuts-at-no-4-on-irish-albums-chart-with-my-fathers-son-23169241"
   },
   "closing_media": {
     "type": "video",
     "url": "https://www.youtube-nocookie.com/embed/brzzM31G4x8",
-    "caption": "Actuación en directo de Ocean Colour Scene interpretando sus clásicos del rock británico de los noventa."
+    "caption": "Videoclip oficial y actuaciones en directo de Robert Grace."
   },
   "sources": [
     {
@@ -53,13 +53,18 @@
       "paywalled": false
     },
     {
-      "name": "University College Cork",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPMlliQ3RXeFlzY3VuallHNkkyb0xHZk9IOUNYdFpxX1ZqUFh5TUR2aXdZTm1iVld4N2pGSkJRS3c0dmVOUlgxdEg1SWZvNVJ1ejVfWW1TUzRiU3BGT3FWRDlFVWpCWElpSkZ5TmIxZFJyY3BfdVVSQWw2Sk80Y2NKUmNtUmZybWhfQWFndE5nR2Zhby1pbUtYQm16aVptWTh1R0ozUXU2cXh0RGYxa3lnYzNuTVlYTlIyWnI0aUlORHFxdw?oc=5",
+      "name": "RTE.ie",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBXRERycmNEUUkzdFJnOGplQzNKdWdickxvXzgwd0xld2xSSVU3NzdOVXp3Q2dZSWFBNlhBd3lLMGFPMm51b3BCR2FMTFhVemN4clJ6X0JfMTh2RGtlMlFmY1JFdVRNMEExTmc?oc=5",
       "paywalled": false
     },
     {
-      "name": "Hot Press",
-      "url": "https://www.hotpress.com/film-tv/u2-show-at-tate-modern-will-be-broadcast-on-bbc-two-23169188",
+      "name": "The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOVjdnYmtseDIzOVFxVzBGRzFVVUFKZmpNUEtwUHFQR1N4MTBLY29aX0dWd196OVo4eW1iTWQtSGp0b3U1dElMR0dPcDNVVEdyOUhTRFVXMWY4SUlhX1FyaDl3Mk1FcEtURUtTN3dnYVZXWmlaVHREbjdiSUZYSDNHeEpaRVNjLVBUQlE?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "University College Cork",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPMlliQ3RXeFlzY3VuallHNkkyb0xHZk9IOUNYdFpxX1ZqUFh5TUR2aXdZTm1iVld4N2pGSkJRS3c0dmVOUlgxdEg1SWZvNVJ1ejVfWW1TUzRiU3BGT3FWRDlFVWpCWElpSkZ5TmIxZFJyY3BfdVVSQWw2Sk80Y2NKUmNtUmZybWhfQWFndE5nR2Zhby1pbUtYQm16aVptWTh1R0ozUXU2cXh0RGYxa3lnYzNuTVlYTlIyWnI0aUlORHFxdw?oc=5",
       "paywalled": false
     },
     {
