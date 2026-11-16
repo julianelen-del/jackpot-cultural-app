@@ -90,7 +90,7 @@ const GENERIC_LINK_LABELS = [
 
 function findYouTubeInHtml(rawHtml: string): string | undefined {
   const regex = new RegExp(
-    "https?:\\/\\/(?:www\\.)?(?:youtube\\.com\\/watch\\?v=|youtu\\.be\\/|youtube\\.com\\/embed\\/)([a-zA-Z0-9_-]{11})"
+    "https?:\\/\\/(?:www\\.|m\\.)?(?:youtube\\.com\\/watch\\?v=|youtu\\.be\\/|youtube\\.com\\/embed\\/|youtube-nocookie\\.com\\/embed\\/)([a-zA-Z0-9_-]{11})"
   );
   const match = rawHtml.match(regex);
   return match ? "https://www.youtube.com/watch?v=" + match[1] : undefined;
@@ -148,6 +148,7 @@ function extractExternalLinksFromParagraphs(
 async function fetchOpenArticleContext(url: string): Promise<{
   text: string;
   externalLinks: ExternalRefLink[];
+  youtubeUrl?: string;
 }> {
   try {
     const parsed = new URL(url);
@@ -176,10 +177,13 @@ async function fetchOpenArticleContext(url: string): Promise<{
       return { text: "", externalLinks: [] };
     }
 
-    const html = (await res.text()).slice(0, 48000);
+    const html = (await res.text()).slice(0, 60000);
     const cleaned = html
       .replace(/<script[\s\S]*?<\/script>/gi, " ")
       .replace(/<style[\s\S]*?<\/style>/gi, " ");
+
+    // Detectar tráilers o videos de YouTube incrustados dentro del artículo abierto
+    const embeddedYoutube = findYouTubeInHtml(cleaned);
 
     const paragraphs: string[] = [];
     const collectedLinks: ExternalRefLink[] = [];
@@ -218,6 +222,7 @@ async function fetchOpenArticleContext(url: string): Promise<{
     return {
       text: paragraphs.join(" ").slice(0, 720),
       externalLinks: collectedLinks,
+      youtubeUrl: embeddedYoutube,
     };
   } catch {
     return { text: "", externalLinks: [] };
@@ -333,7 +338,8 @@ export async function enrichSignalsWithArticleContext(
     if (indicesToFetch.length >= 7) return;
     const needsText = sig.snippet.length < 240;
     const needsLinks = !sig.externalLinks || sig.externalLinks.length === 0;
-    if (needsText || needsLinks) {
+    const needsVideo = !sig.youtubeUrl;
+    if (needsText || needsLinks || needsVideo) {
       indicesToFetch.push(idx);
     }
   });
@@ -357,6 +363,7 @@ export async function enrichSignalsWithArticleContext(
         sig.externalLinks && sig.externalLinks.length > 0
           ? sig.externalLinks
           : extra.externalLinks,
+      youtubeUrl: sig.youtubeUrl || extra.youtubeUrl,
     };
   });
 }
