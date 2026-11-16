@@ -3,78 +3,74 @@
   "country": "Irlanda",
   "continent": "Europa",
   "flag": "🇮🇪",
-  "updated_at": "2026-11-16T02:26:26.378Z",
+  "updated_at": "2026-11-16T02:57:38.871Z",
   "edition_week": "2026-W47",
-  "intro": "Los ecos del britpop y la nueva voz de Robert Grace marcan el pulso sonoro en Dublín.",
+  "intro": "Irlanda rescata este otoño su memoria literaria oculta mientras la música y la gran pantalla debaten sus propias leyendas.",
   "cover_image": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/CustomHouseDublin.JPG/1280px-CustomHouseDublin.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Perspectiva urbana de Dublín bajo la bruma estacional.",
+    "caption": "Las orillas del río Liffey en Dublín, epicentro del pulso cultural irlandés.",
     "credit": "Foto: Elemaki · CC BY 3.0"
   },
-  "cultural_pulse": "El circuito musical de la isla vibra con la mirada puesta en las grandes figuras del canon británico y las nuevas apuestas locales. Mientras [Ocean Colour Scene](https://www.hotpress.com/music/ocean-colour-scenes-steve-cradock-the-songs-are-still-there-they-still-live-and-breathe-23169032) calienta motores para sus próximas actuaciones en la capital irlandesa rememorando los años dorados de las listas de éxitos y las históricas colaboraciones junto a [Oasis](https://es.wikipedia.org/wiki/Oasis), el panorama discográfico contemporáneo encuentra nuevos espacios de resonancia en las listas oficiales. En esa misma dirección, [Robert Grace](https://www.hotpress.com/music/robert-grace-debuts-at-no-4-on-irish-albums-chart-with-my-fathers-son-23169241) irrumpe con fuerza en el top musical gracias a un ejercicio familiar y generacional que redefine su perfil dentro de la escena pop nacional.\n\nFuera de las fronteras musicales, los debates culturales cruzan disciplinas artísticas y cruces generacionales. La presencia de Cynthia Erivo en la agenda cultural desata conversaciones sobre la representación queer y las decisiones en torno a la industria del entretenimiento. Al mismo tiempo, los escenarios internacionales reconocen trayectorias fundamentales de la cultura pop británica, como el reciente homenaje a Phil Collins en el prestigioso Salón de la Fama del Rock and Roll, recordando el peso histórico de los baterías y compositores que definieron el sonido de las últimas décadas.\n\nLa intersección entre las artes visuales y la música sigue generando formatos híbridos de gran interés. Las actuaciones de U2 registradas en espacios museísticos como la Tate Modern se trasladan a la programación televisiva de la BBC, abriendo nuevas vías para consumir música en directo fuera del formato tradicional de estadio. Esta aproximación dialoga directamente con los cruces creativos que la banda mantiene con figuras de otros géneros, como demuestra su reciente trabajo conjunto con la icónica Dolly Parton, explorando texturas lejanas a sus raíces habituales.\n\nLa poesía y la edición independiente completan un ecosistema donde la memoria íntima gana terreno en las librerías. Las nuevas entregas poéticas publicadas en el suplemento cultural de The Irish Times apuestan por fragmentos de corte autobiográfico que escapan de los grandes relatos para detenerse en lo cotidiano. De este modo, la crítica cultural local equilibra la nostalgia de los grandes nombres con una atenta lectura a las pequeñas formas literarias y a las propuestas emergentes que renuevan el pulso artístico de la ciudad.",
+  "cultural_pulse": "El debate sobre los archivos literarios del país ha tomado un giro fascinante esta semana con la apertura al público de miles de volúmenes que en el pasado fueron prohibidos por el Estado. La llamada 'habitación de la literatura malvada' en los archivos nacionales expone ahora aquellas obras de ficción y ensayo que la censura oficial mantuvo bajo llave durante décadas, permitiendo a los lectores examinar de primera mano los límites morales que impuso la censura histórica en la sociedad irlandesa. Esta iniciativa coincide con los seminarios académicos organizados por la [Maynooth University](https://news.google.com/rss/articles/CBMiWEFVX3lxTE5Dc1BzSzNOWXdKRnJZWG1vSXNmaXVvSm5RVllUcV9oX092TldIc0lxYkFBLUJ2eGtYZnhsSVlBRS1wM2JGVUFIT1IwV0JIRkFzWUhlN3BnNjE?oc=5) para revisar los cruces entre la partición política y la narrativa local a través de publicaciones históricas.\n\nEn el terreno musical, la relación entre los iconos globales y las colaboraciones inesperadas vuelve a ocupar titulares. [U2](https://es.wikipedia.org/wiki/U2) ha desvelado que su reciente conexión creativa con Dolly Parton surgió a raíz de que la célebre compositora de música de raíz estadounidense considerara que sus maquetas iniciales sonaban demasiado ancladas en los códigos de la isla, un desencuentro estético que obligó al grupo a reformular su aproximación compositiva para su próximo álbum titulado Carnaval de Luz. Mientras tanto, el circuito de salas y proyecciones en el sur del país se dinamiza gracias a la alianza estratégica establecida por la [University College Cork](https://news.google.com/rss/articles/CBMiwgFBVV95cUxPMlliQ3RXeFlzY3VuallHNkkyb0xHZk9IOUNYdFpxX1ZqUFh5TUR2aXdZTm1iVld4N2pGSkJRS3c0dmVOUlgxdEg1SWZvNVJ1ejVfWW1TUzRiU3BGT3FWRDlFVWpCWElpSkZ5TmIxZFJyY3BfdVVSQWw2Sk80Y2NKUmNtUmZybWhfQWFndE5nR2Zhby1pbUtYQm16aVptWTh1R0ozUXU2cXh0RGYxa3lnYzNuTVlYTlIyWnI0aUlORHFxdw?oc=5) junto al festival internacional de cine local para respaldar de manera directa a los nuevos realizadores y promover el talento cinematográfico emergente en formato de pantalla grande.\n\nEl pulso editorial también se sacude con la llegada de nuevas voces al panorama poético. Las librerías locales destacan los recientes poemarios que funcionan como fragmentos biográficos, en los cuales cada autor examina la memoria familiar sin recurrir a la nostalgia decorativa. Lejos de los circuitos estrictamente comerciales, estas publicaciones demuestran que la poesía contemporánea en la isla prefiere la precisión quirúrgica del verso breve antes que los grandes manifiestos generacionales.",
   "topics": [
     {
-      "category": "Música",
-      "title": "Ocean Colour Scene y la memoria del britpop en Dublín",
-      "summary": "Steve Cradock repasa la vigencia de los himnos de los noventa ante el inminente paso de la banda por los escenarios dublineses."
+      "category": "Libros",
+      "title": "La apertura de los archivos prohibidos",
+      "summary": "Miles de libros vetados históricamente por el Estado irlandés quedan finalmente expuestos al público general en una muestra que revisa la censura moral."
     },
     {
       "category": "Música",
-      "title": "El debut de Robert Grace en las listas",
-      "summary": "El autor sitúa su nuevo álbum familiar en los puestos de honor del mercado discográfico irlandés."
+      "title": "El cruce entre U2 y Dolly Parton",
+      "summary": "La banda dublinesa revela detalles de su colaboración con la estrella de la música norteamericana para su nuevo material discográfico."
     },
     {
-      "category": "Televisión",
-      "title": "U2 y su paso por la Tate Modern en pantalla",
-      "summary": "La emisora británica emite el recital del grupo grabado en el espacio de arte contemporáneo londinense."
+      "category": "Cine",
+      "title": "Alianza por el talento cinematográfico en Cork",
+      "summary": "La University College Cork y el festival de cine local unen fuerzas para impulsar y visibilizar las nuevas voces de la dirección audiovisual."
     },
     {
-      "category": "Libros y Poesía",
+      "category": "Literatura",
       "title": "Nuevas voces en la lírica irlandesa",
-      "summary": "El análisis crítico destaca la fuerza de los nuevos fragmentos de memoria y poesía publicados esta semana."
+      "summary": "Llegan a las librerías locales poemarios centrados en la memoria íntima y en destellos autobiográficos de gran calado emocional."
     }
   ],
   "recommendation": {
-    "type": "Álbum",
-    "title": "My Father's Son",
-    "creator": "Robert Grace",
-    "context": "Un ejercicio generacional que debuta con fuerza en la escena pop local.",
-    "url": "https://www.hotpress.com/music/robert-grace-debuts-at-no-4-on-irish-albums-chart-with-my-fathers-son-23169241"
+    "type": "Libro",
+    "title": "The Capuchin Annual",
+    "creator": "Varios autores",
+    "context": "Una inmersión fundamental en los archivos históricos y culturales analizados en los seminarios de literatura irlandesa contemporánea.",
+    "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5Dc1BzSzNOWXdKRnJZWG1vSXNmaXVvSm5RVllUcV9oX092TldIc0lxYkFBLUJ2eGtYZnhsSVlBRS1wM2JGVUFIT1IwV0JIRkFzWUhlN3BnNjE?oc=5"
   },
   "closing_media": {
-    "type": "video",
-    "url": "https://www.youtube-nocookie.com/embed/brzzM31G4x8",
-    "caption": "Actuación en directo que ilustra el sonido actual del circuito alternativo."
+    "type": "image",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Saint_Patrick%27s_College%2C_Maynooth.jpg/960px-Saint_Patrick%27s_College%2C_Maynooth.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "La Universidad de Maynooth, sede de los debates actuales sobre literatura y memoria política en Irlanda.",
+    "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
     {
-      "name": "Hot Press",
-      "url": "https://www.hotpress.com/music/ocean-colour-scenes-steve-cradock-the-songs-are-still-there-they-still-live-and-breathe-23169032",
+      "name": "RTE.ie",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBXRERycmNEUUkzdFJnOGplQzNKdWdickxvXzgwd0xld2xSSVU3NzdOVXp3Q2dZSWFBNlhBd3lLMGFPMm51b3BCR2FMTFhVemN4clJ6X0JfMTh2RGtlMlFmY1JFdVRNMEExTmc?oc=5",
       "paywalled": false
     },
     {
-      "name": "Entertainment Headlines",
-      "url": "https://www.rte.ie/entertainment/2026/1115/1599274-collins-in-tears-at-rock-and-roll-hall-of-fame-induction/",
+      "name": "The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOVjdnYmtseDIzOVFxVzBGRzFVVUFKZmpNUEtwUHFQR1N4MTBLY29aX0dWd196OVo4eW1iTWQtSGp0b3U1dElMR0dPcDNVVEdyOUhTRFVXMWY4SUlhX1FyaDl3Mk1FcEtURUtTN3dnYVZXWmlaVHREbjdiSUZYSDNHeEpaRVNjLVBUQlE?oc=5",
       "paywalled": false
     },
     {
-      "name": "The Irish Times",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQVzVDUXY5ZDR3QTJzU2hRdDdEWjNlalFvQUlsOTNqbFFOQVg2NmVOQnlRTEVhUUlseFR5R0NUekIxOFB0SmdpM1BTVm1qeG1FMVVnM3NxV3FleTZjcExiV0wtSV93SFFSWXhGS2hPSTU4UXh5aG0zMXBVZVVIbkpKOW5WMk03REVyMG5iLXFmdlNxUjB2Q3NkN3hTZzBERWJXZlFzakpobUhJX2JsNkhmbnluZHpYbndSV3hHQzlQWnJlOWhIMzdoT0ZhMjhxNWVTN1E?oc=5",
-      "paywalled": true
+      "name": "University College Cork",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPMlliQ3RXeFlzY3VuallHNkkyb0xHZk9IOUNYdFpxX1ZqUFh5TUR2aXdZTm1iVld4N2pGSkJRS3c0dmVOUlgxdEg1SWZvNVJ1ejVfWW1TUzRiU3BGT3FWRDlFVWpCWElpSkZ5TmIxZFJyY3BfdVVSQWw2Sk80Y2NKUmNtUmZybWhfQWFndE5nR2Zhby1pbUtYQm16aVptWTh1R0ozUXU2cXh0RGYxa3lnYzNuTVlYTlIyWnI0aUlORHFxdw?oc=5",
+      "paywalled": false
     },
     {
-      "name": "Hot Press",
-      "url": "https://www.hotpress.com/film-tv/u2-show-at-tate-modern-will-be-broadcast-on-bbc-two-23169188",
+      "name": "Maynooth University",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5Dc1BzSzNOWXdKRnJZWG1vSXNmaXVvSm5RVllUcV9oX092TldIc0lxYkFBLUJ2eGtYZnhsSVlBRS1wM2JGVUFIT1IwV0JIRkFzWUhlN3BnNjE?oc=5",
       "paywalled": false
     },
     {
       "name": "Entertainment Headlines",
       "url": "https://www.rte.ie/entertainment/2026/1115/1599276-dolly-parton-gave-u2-old-song-to-finish-for-new-album/",
-      "paywalled": false
-    },
-    {
-      "name": "Hot Press",
-      "url": "https://www.hotpress.com/music/robert-grace-debuts-at-no-4-on-irish-albums-chart-with-my-fathers-son-23169241",
       "paywalled": false
     }
   ]

@@ -3,48 +3,38 @@
   "country": "Italia",
   "continent": "Europa",
   "flag": "🇮🇹",
-  "updated_at": "2026-11-16T01:59:47.293Z",
+  "updated_at": "2026-11-16T02:59:01.586Z",
   "edition_week": "2026-W47",
-  "intro": "Milán acoge el pulso de su semana musical mientras Walter Siti reescribe el género negro y Jean-Michel Jarre disecciona medio siglo de electrónica.",
+  "intro": "El debate cultural italiano transita entre la memoria literaria de Francesco Permunian y la revisión urbana de Vincenzo Latronico.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Moog_Moog_Moog_%21%2C_Jean-Michelle_Jarre_Tour_2010%2C_Leipzig.jpg/1280px-Moog_Moog_Moog_%21%2C_Jean-Michelle_Jarre_Tour_2010%2C_Leipzig.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Jean-Michel Jarre repasando cinco décadas de experimentación sonora y herramientas analógicas.",
-    "credit": "Foto: Acid Pix · CC BY 2.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Forum_romanum_6k_%285760x2097%29.jpg/1280px-Forum_romanum_6k_%285760x2097%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Perspectiva contemporánea sobre los tejados y espacios públicos de Roma.",
+    "credit": "Foto: BeBo86 · CC BY-SA 3.0"
   },
-  "cultural_pulse": "El otoño milanés despliega sus cartas mayores con una nueva edición de la **Milano Music Week** [9], un epicentro donde confluyen los debates sobre el futuro de la industria, las residencias artísticas y los cruces imprevisibles entre formatos digitales y tradición analógica. Lejos de los circuitos puramente comerciales, las conversaciones de esta semana encuentran un contrapunto fascinante en la trastienda literaria que propone [Walter Siti](https://es.wikipedia.org/wiki/Walter_Mart%C3%ADnez) con su libro *Autoritratto da annegato*, una disección implacable de la culpa y el caos contemporáneo publicada por Feltrinelli [10]. En las páginas de esta obra, el tejido de un caso policial se transforma en un pretexto para examinar las múltiples motivaciones subterráneas que mueven la conducta humana, alejándose de cualquier resolución lineal y prefiriendo el desconcierto moral.\n\nEl panorama de la no ficción italiana se enriquece con las reflexiones de antropólogos y ensayistas que escrutan los márgenes del territorio. El trabajo de Vito Teti recogido en *Un paese vuol dire* [25] examina la denominada restanza y la capacidad de resistencia cultural de los pequeños núcleos urbanos frente a la presión de la homogeneización global. Lejos de la nostalgia bucólica, el volumen interroga las formas de organización simbólica que sobreviven en el territorio y cómo esas comunidades locales replantean los grandes dilemas políticos y sociales de nuestro tiempo sin caer en consignas vacías ni en discursos académicos distantes de la experiencia cotidiana.\n\nEl pulso internacional también sacude las coordenadas estéticas del continente a través de figuras esenciales que continúan desafiando los límites de su propio legado. [Jean-Michel Jarre](https://es.wikipedia.org/wiki/Jean-Michel_Jarre), en una extensa revisión de su trayectoria con motivo del cincuenta aniversario de su obra cumbre *Oxygène*, [11] analiza el impacto de la inteligencia artificial en la composición actual, defendiendo la imperfección y la imprevisibilidad humana frente a la asepsia algorítmica. Para el compositor francés, el futuro de la creación sonora no reside en la automatización infinita, sino en la capacidad de recuperar el azar y la materialidad física de los instrumentos en desuso, abriendo un diálogo necesario entre el archivo histórico y la experimentación más radical.",
+  "cultural_pulse": "La escena literaria italiana contemporánea profundiza en la fricción entre la memoria biográfica y el territorio, un territorio explorado a fondo en el último volumen de [Francesco Permunian](https://www.doppiozero.com/permunian-fotografia-e-scrittura), titulado *Camminando attraverso i campi bruciati dell’amore*, editado por Oligo. En estas páginas, el autor ensambla los rastros de figuras clave como el poeta Bruno Schulz o la intensidad de los diarios de Anaïs Nin, construyendo un mapa afectivo que va desde el Polesine hasta el lago de Garda. Esta veta de intervención crítica sobre el espacio urbano y social también caracteriza la trayectoria de **Vincenzo Latronico**, analizado recientemente por el crítico Giacomo Giossi en [Il Tascabile](https://www.iltascabile.com/recensioni/splendida-rovina-vincenzo-latronico/), donde se repasa cómo el autor romano ha documentado desde dentro los procesos de gentrificación y transformación arquitectónica en metrópolis como Milán.\n\nEl panorama de la formación audiovisual y las artes visuales institucionaliza nuevas vías de intercambio creativo. El **Centro Sperimentale di Cinematografia** ha inaugurado oficialmente su nuevo año académico para la Scuola Nazionale di Cinema, anunciando líneas pedagógicas renovadas y una mayor apertura hacia los lenguajes contemporáneos de la pantalla. Este impulso educativo dialoga con las iniciativas de difusión cinematográfica promovidas en diversos centros culturales del país, enfocadas en acercar el cine de autor y el análisis de la imagen en movimiento a las nuevas generaciones de espectadores.\n\nPor su parte, la música en directo y la industria editorial continúan diversificando su oferta a través de redes independientes y grandes sellos. Las propuestas editoriales para los próximos meses en el sector del cómic y la novela gráfica, gestionadas por firmas como [Panini Comics](https://fumettologica.it/2026/11/manga-panini-comics-gennaio-2027/), apuntan a consolidar el consumo de traducciones de manga y publicaciones de DC Comics en el mercado italiano, mientras que los circuitos alternativos de escucha y debate siguen apostando por la construcción de comunidades artísticas al margen de los grandes circuitos comerciales estandarizados.",
   "topics": [
     {
-      "category": "Música",
-      "title": "Milano Music Week",
-      "summary": "La décima edición de la semana musical en Milán reúne debates, directos y laboratorios creativos en torno al presente de la industria."
-    },
-    {
       "category": "Libros",
-      "title": "Walter Siti y el caos criminal",
-      "summary": "En Autoritratto da annegato, Walter Siti subvierte las reglas del relato de crímenes para mostrar un laberinto de motivaciones múltiples."
+      "title": "Camminando attraverso i campi bruciati dell’amore de Francesco Permunian",
+      "summary": "El escritor examina las huellas de autores y figuras históricas como Bruno Schulz y Maria Callas en un volumen editado por Oligo."
     },
     {
-      "category": "Libros",
-      "title": "Vito Teti y la política de la restanza",
-      "summary": "Un ensayo editado por Einaudi aborda la crisis y la vitalidad cultural de los pequeños pueblos frente a los cambios globales."
+      "category": "Cine",
+      "title": "Inauguración del curso en el Centro Sperimentale di Cinematografia",
+      "summary": "La prestigiosa escuela nacional de cine en Italia ha dado inicio a sus actividades académicas presentando novedades en su plan de estudios."
     },
     {
-      "category": "Música",
-      "title": "Jean-Michel Jarre y los cincuenta años de Oxygène",
-      "summary": "El influyente músico electrónico repasa su trayectoria y reflexiona sobre el impacto de la inteligencia artificial en el estudio."
+      "category": "Cómic",
+      "title": "Novedades de Panini Comics para el próximo año",
+      "summary": "La editorial ha detallado su catálogo de manga y publicaciones de DC Comics que llegarán a las librerías italianas próximamente."
     }
   ],
   "recommendation": {
     "type": "Libro",
-    "title": "Autoritratto da annegato",
-    "creator": "Walter Siti",
-    "context": "Una inmersión feroz y sin coartadas en la culpa contemporánea y los recovecos oscuros de la mente.",
-    "url": "https://www.doppiozero.com/il-pasticciaccio-di-walter-siti"
-  },
-  "closing_media": {
-    "type": "video",
-    "url": "https://www.youtube-nocookie.com/embed/ccfIW1zsNdM",
-    "caption": "Jean-Michel Jarre en una pieza audiovisual explorando las texturas analógicas que definieron su obra."
+    "title": "Camminando attraverso i campi bruciati dell’amore",
+    "creator": "Francesco Permunian",
+    "context": "Una inmersión literaria que cruza memoria, geografía y lectura de autor.",
+    "url": "https://www.doppiozero.com/permunian-fotografia-e-scrittura"
   },
   "sources": [
     {
@@ -53,18 +43,18 @@
       "paywalled": false
     },
     {
-      "name": "Mauxa.com",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNVGdhd2FDWGpBR3lYSXpGQUhhdnVnR195TVVMa01vZEEyMlVWMGJlMF9ZODlSbUxOMWRuRWRqbXkwaU9UYmxoZmY0R1BCekVBeFJkeFM0N0RGVU1HMlVuclZ3WWhlek9PNmZyRC12U1RsRzlhRUgzVFRBNDEwY1d2VkpmUG9EWHZXUHhuV1BORQ?oc=5",
+      "name": "Fumettologica",
+      "url": "https://fumettologica.it/2026/11/manga-panini-comics-gennaio-2027/",
+      "paywalled": false
+    },
+    {
+      "name": "Centro Sperimentale di Cinematografia",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOd2l5WjJmaEtUdExvMHRsWnNib2N0a1hKLUpmX3RmTzR1VVlZMjFXdW1nZ0d4V0pwUFFobVB3SkNObjByM3hWcVpmdFVSUnIxQVZfWktaRkp3QmxsX0F3VVgzR3Y0ejVaOWgtRGZmVUowZU1QMzU1bWlRSUx4aVdSR291Rjdvc0ZJU0F0NEJUNUI0bFBBYTNER28yanhhNC1rSXpZZXFzNkNDNDNLV1BOanJLQnBDQXM?oc=5",
       "paywalled": false
     },
     {
       "name": "Articoli Doppiozero",
-      "url": "https://www.doppiozero.com/il-pasticciaccio-di-walter-siti",
-      "paywalled": false
-    },
-    {
-      "name": "Il Tascabile",
-      "url": "https://www.iltascabile.com/linguaggi/alchimista-suono/",
+      "url": "https://www.doppiozero.com/permunian-fotografia-e-scrittura",
       "paywalled": false
     }
   ]

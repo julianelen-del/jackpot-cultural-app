@@ -3,69 +3,83 @@
   "country": "Argentina",
   "continent": "América",
   "flag": "🇦🇷",
-  "updated_at": "2026-11-16T02:23:54.477Z",
+  "updated_at": "2026-11-16T02:51:47.126Z",
   "edition_week": "2026-W47",
-  "intro": "El Festival de Cine de Mar del Plata cruza el falso documental cordobés con la mirada afilada de la cultura popular.",
+  "intro": "Miguel Mateos defiende la ópera rock frente a los clips breves, Córdoba reúne 42 editoriales en el Espacio Burnichon y la cinefilia local discute a Pawlikowski y Godard.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Teatro_Colon%2C_Plaza_Lavalle%2C_Buenos_Aires.jpg/1280px-Teatro_Colon%2C_Plaza_Lavalle%2C_Buenos_Aires.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "El Teatro Colón se prepara para recibir una nueva edición de reconocimientos culturales.",
-    "credit": "Foto: Robert Cutts · CC BY 2.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Miguel_%C3%81ngel_Mateos_y_Carlos_Delgado_Pulido.jpg/1280px-Miguel_%C3%81ngel_Mateos_y_Carlos_Delgado_Pulido.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Miguel Mateos reivindica el formato de ópera rock frente al auge de las canciones breves.",
+    "credit": "Foto: TerceraVía3v · CC BY-SA 4.0"
   },
-  "cultural_pulse": "La escena cultural argentina de la semana encuentra su pulso en los cruces inesperados entre la ficción de archivo y la crónica contemporánea. En el terreno cinematográfico, el reciente paso por festivales de **CordobeCes** marca una ruta donde el humor y el ingenio popular replantean la identidad regional a través del formato del falso documental, guiados por la mirada de [Lucila Palacio](https://es.wikipedia.org/wiki/La_Lucila) y un recorrido por paisajes serranos que escapan del costumbrismo fácil. Mientras tanto, en las salas de cine locales, la cartelera recibe títulos como *El sonido de la caída*, la meticulosa exploración generacional de [Mascha Schilinski](https://es.wikipedia.org/wiki/Mascha_Schilinski) sobre cuatro generaciones de mujeres en una aldea alemana, expandiendo el apetito por un cine europeo que dialoga con los rincones más oscuros de la memoria familiar y el paisaje rural.\n\nLos escenarios porteños alternan entre la dramaturgia de autor y el reconocimiento a las trayectorias artísticas fundamentales. La entrega del [Premio Ñ a la Trayectoria](https://www.clarin.com/revista-n/premio-n-trayectoria-jorge-mara-galerista-camino-enmarcar_0_hEQnm841V4.html) al galerista Jorge Mara en el Teatro Colón subraya décadas de persistencia estética, vinculando la obra de referentes históricos de la fotografía y la pintura con las nuevas generaciones de espectadores. Los circuitos de música en vivo y poesía urbana continúan explorando la periferia como territorio de enunciación, donde artistas como Julia Zappa debaten el rol de la canción como herramienta de bienestar colectivo y pertenencia barrial frente a la atomización digital.\n\nEl debate sobre los límites entre la justicia, el morbo y el espectáculo televisivo también encuentra eco en los análisis locales sobre producciones internacionales como *Primetime*, donde la figura de Robert Pattinson encarna los dilemas éticos de documentar la caza de depredadores online. Lejos de las grandes superproducciones, la conversación cultural de estos días prefiere detenerse en las rendijas de los géneros, en los libros de ensayo que revisitan textos homéricos de la mano de figuras como José Eduardo Abadi, y en la persistencia de una mirada crítica que prefiere la pausa del plano cinematográfico frente al vértigo incesante de las pantallas contemporáneas.",
+  "cultural_pulse": "[Miguel Mateos](https://es.wikipedia.org/wiki/Miguel_Mateos) salió a defender la ambición de largo aliento en la música argentina con su nueva **ópera rock**. En diálogo con *El Planeta Urbano*, el histórico referente del rock local cuestionó la hegemonía de la brevedad impuesta por las plataformas digitales y lanzó una provocación directa: si los músicos de su generación no asumen el riesgo de obras extensas, nadie más lo hará frente al dominio de TikTok y las canciones de dos minutos y medio. En esa misma sintonía de apuesta por los formatos clásicos y el vivo, la primera edición del **Groove and Roll Festival** propone una grilla dedicada íntegramente al rock, el funk, el blues y el soul.\n\nEn el terreno literario, Córdoba concentra la atención de la edición independiente con el **Espacio Burnichon**. Esta iniciativa reúne cuarenta y dos sellos editoriales para trazar un mapa de la narrativa, la poesía y el ensayo contemporáneo producidos en la provincia y su región. La propuesta pone en primer plano la diversidad de catálogos independientes de la escena cordobesa, abriendo un punto de encuentro directo entre autores locales y lectores.\n\nEl cierre del **41° Festival Internacional de Cine de Mar del Plata** marcó la agenda audiovisual de la semana, acompañado por circuitos alternativos como el Festival Fuera de Campo, dedicado al cine en contrapicado. Más allá de la programación festivalera, las revistas especializadas argentinas pusieron el foco en estrenos que interrogan el oficio visual. *Revista Otra Parte* dedicó su análisis a [Tierra de mi padre](https://www.youtube.com/watch?v=008e7sk7UIs), la película en la que el director polaco Paweł Pawlikowski imagina el regreso del escritor **Thomas Mann** —interpretado por Hanns Zischler— a Alemania en 1949, elogiando su rigurosa composición de planos frente a la prisa del cine actual.\n\nEl debate sobre cómo se construyen y manipulan las imágenes también ocupó a *Micropsia*, que reseñó *Primetime*, el filme de **Lance Oppenheim** con Robert Pattinson sobre un periodista que transforma la cacería online de depredadores sexuales en un éxito televisivo, difuminando la frontera entre documental y ficción. Desde otra orilla crítica, *Con los Ojos Abiertos* revisitó *Scénarios*, el cortometraje póstumo de [Jean-Luc Godard](https://es.wikipedia.org/wiki/Jean-Luc_Godard) estrenado en 2024, para recuperar la reflexión del cineasta sobre el contraste entre el flujo continuo del cine y el acto de pasar las páginas de un libro, donde el lector percibe la interrupción y el ir y venir del texto.",
   "topics": [
     {
-      "category": "Cine",
-      "title": "Falso documental en Mar del Plata",
-      "summary": "CordobeCes recorre la provincia mediterránea cruzando la mirada de un influencer y una periodista extranjera bajo la dirección de Lucila Palacio."
-    },
-    {
-      "category": "Artes visuales",
-      "title": "Premio a la trayectoria de Jorge Mara",
-      "summary": "El influyente galerista recibe un reconocimiento en el Teatro Colón por su labor histórica difundiendo a maestros de la plástica y la fotografía."
-    },
-    {
-      "category": "Cine",
-      "title": "Estreno de Mascha Schilinski",
-      "summary": "Llega a las salas locales El sonido de la caída, un fresco poético e inquietante sobre un siglo de historia femenina en una aldea alemana."
-    },
-    {
       "category": "Música",
-      "title": "Canciones y bienestar social",
-      "summary": "Julia Zappa presenta su segundo disco apostando por la música en vivo como un espacio imprescindible de encuentro e identidad."
+      "title": "La ópera rock de Miguel Mateos",
+      "summary": "El músico argentino defendió en El Planeta Urbano la creación de obras musicales extensas frente al dominio de TikTok y los temas de dos minutos y medio."
+    },
+    {
+      "category": "Literatura",
+      "title": "Espacio Burnichon en Córdoba",
+      "summary": "Cuarenta y dos sellos editoriales integran este recorrido por la literatura contemporánea de Córdoba y su región, visibilizando la producción independiente."
+    },
+    {
+      "category": "Cine",
+      "title": "Cierre del 41° Festival de Mar del Plata",
+      "summary": "El encuentro cinematográfico anunció las películas ganadoras de su cuadragésima primera edición, en una semana que también contó con el Festival Fuera de Campo."
+    },
+    {
+      "category": "Crítica y ensayo",
+      "title": "Tierra de mi padre y Scénarios en revistas locales",
+      "summary": "Revista Otra Parte analizó el filme de Paweł Pawlikowski sobre Thomas Mann, mientras Con los Ojos Abiertos reflexionó sobre el cortometraje póstumo de Jean-Luc Godard."
+    },
+    {
+      "category": "Festivales",
+      "title": "Primera edición del Groove and Roll Festival",
+      "summary": "El nuevo festival reúne propuestas de rock, funk, blues y soul en una programación enfocada en los sonidos clásicos y la música en vivo."
     }
   ],
   "recommendation": {
     "type": "Película",
-    "title": "El sonido de la caída",
-    "creator": "Mascha Schilinski",
-    "context": "Una exploración ineludible sobre lazos familiares y memoria a través de cuatro generaciones de mujeres.",
-    "url": "https://www.micropsiacine.com/2026/11/cannes-2025-critica-de-el-sonido-de-la-caida-sound-of-falling-in-die-sonne-schauen-de-mascha-schilinski-filmin/?utm_source=rss&utm_medium=rss&utm_campaign=cannes-2025-critica-de-el-sonido-de-la-caida-sound-of-falling-in-die-sonne-schauen-de-mascha-schilinski-filmin"
+    "title": "Tierra de mi padre",
+    "creator": "Paweł Pawlikowski",
+    "context": "Revista Otra Parte destaca la cuidada composición de planos de este filme protagonizado por Hanns Zischler como Thomas Mann.",
+    "url": "https://www.revistaotraparte.com/cine-y-tv/tierra-de-mi-padre/?utm_source=rss&utm_medium=rss&utm_campaign=tierra-de-mi-padre"
   },
   "closing_media": {
-    "type": "image",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/1968_Image_Collage.jpg/960px-1968_Image_Collage.jpg?utm_source=es.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "caption": "Jorge Mara, referente ineludible de la galería de arte y la difusión visual en Argentina.",
-    "credit": "Foto: Wikimedia Commons (vía Wikipedia ES)"
+    "type": "video",
+    "url": "https://www.youtube-nocookie.com/embed/008e7sk7UIs",
+    "caption": "Avance de Tierra de mi padre, el filme de Paweł Pawlikowski sobre Thomas Mann reseñado por Revista Otra Parte."
   },
   "sources": [
     {
-      "name": "Clarin.com - Home - Revista Ñ",
-      "url": "https://www.clarin.com/revista-n/patria-chispa-cordobeses-falso-documental-contagio-festival-cine-mar-plata_0_6EgGJrIRVl.html",
+      "name": "El Planeta Urbano",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQSmFTUzI1Q0l0QmN4QlZuV0t3TUNNc0VTLU9fTGJNQ2E0YzVSZTJpRG52ZFZDemZnLTE3WThTOUNUUnhDUl9rcDBCWmtwWk1KUmhVVEg2clZwYzd0MXNvbE03X1lDSG94a3NaQS1fMF9LdE1jZHJSQW1qMy0xU25OdU5qZExNaXRkLThibHYwQzk3cEdEV01Bc0NvUmQ2SUJyT2pYVHozcU5VODJFMzJLc3ctdEFKc1VDYjY3OUxTMDFSdGx3NklHVnptZkJRdWw0RG5uTFpjeHlseW9y?oc=5",
       "paywalled": false
     },
     {
-      "name": "No | Página|12",
-      "url": "https://www.pagina12.com.ar/2026/11/13/julia-zappa-escuchar-musica-en-vivo-es-parte-del-bienestar-social/",
+      "name": "Municipalidad de Córdoba",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQYlY4c2tpWTlJQVQwMGhwUWc1NFp4c1RSU21tRkk5bk9JSHNkdHR5RFhVblZuWFM5a1hDSU5nMDlHb1pjTXhRbTNwRkJ1a09CTmJUTEtrLWZwWVdBM2hTQnZwOHNXZUNPQ0ZyWS1WQnY1aVhiOE41Vk51dk5kX2Y0cWxPNU4wbkp3SEg0aFVFT0VWeEpQa1V5Y0RpUXh1V0NnbWMtcHhxMmxDdXNJdTdobzNzdWhUM1VnQnM1bEV2UExtbmZaRnRoNUpCVEJfZHhGQkRQdHpqOUQ5TWJ3ekxr?oc=5",
       "paywalled": false
     },
     {
-      "name": "Clarin.com - Home - Revista Ñ",
-      "url": "https://www.clarin.com/revista-n/premio-n-trayectoria-jorge-mara-galerista-camino-enmarcar_0_hEQnm841V4.html",
+      "name": "Ambito",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPeVF6WS10SHZUaDJVSUtrWjVXX2p5cnN5UGF5R1p1bkp4dlNwS2pydGVMenI3N2NnTm1HMzg0aXBHMHVUZkZrSnhPNDNoalM2Z1N5VXFMVjh6NnBrdEpYd0w1V295WFZXWk5jWHFXQjBUZUxYcVpYR2JpUWhUNkhKYnBqQ2hVd09LclRzd2N4OURwT0pOVlctaHgyRk1mYzV3Yk0xUmtGN0JsNmNCNUJ6UkwzbHg3OFpFT2hzQXUzdWlvQdIBxwFBVV95cUxNLWhEVjNMTVNTRFBXS2FBcVhBcHdwajBodzlubjhZS290VGZHZ05lMTFqVFd6bzJ2aVZsUXVYZjc5TFVfaWJYYzVzTG1lcy1Kb3pCeTJPRmV2cWNvVllzMzQ4NU5Qa290TXZfQ1lyUlFIZExNeXNRN2RtUHk0Q1phMXNZcGppZ1I5VXJQVXJKRC04RnZaamFCZ1N0UDdTTkF3VkVLVEVubHNrUUFFWEc0WDd2aU5yenpVRTlYWjd0VGRGdDNfZFhN?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "Revista Otra Parte",
+      "url": "https://www.revistaotraparte.com/cine-y-tv/tierra-de-mi-padre/?utm_source=rss&utm_medium=rss&utm_campaign=tierra-de-mi-padre",
       "paywalled": false
     },
     {
       "name": "Micropsia",
-      "url": "https://www.micropsiacine.com/2026/11/cannes-2025-critica-de-el-sonido-de-la-caida-sound-of-falling-in-die-sonne-schauen-de-mascha-schilinski-filmin/?utm_source=rss&utm_medium=rss&utm_campaign=cannes-2025-critica-de-el-sonido-de-la-caida-sound-of-falling-in-die-sonne-schauen-de-mascha-schilinski-filmin",
+      "url": "https://www.micropsiacine.com/2026/11/online-critica-de-primetime-de-lance-oppenheim/?utm_source=rss&utm_medium=rss&utm_campaign=online-critica-de-primetime-de-lance-oppenheim",
+      "paywalled": false
+    },
+    {
+      "name": "CON LOS OJOS ABIERTOS",
+      "url": "https://www.conlosojosabiertos.com/historias-del-cine/",
       "paywalled": false
     }
   ]

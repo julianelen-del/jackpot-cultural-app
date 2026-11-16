@@ -3,75 +3,69 @@
   "country": "Brasil",
   "continent": "América",
   "flag": "🇧🇷",
-  "updated_at": "2026-11-16T02:24:19.439Z",
+  "updated_at": "2026-11-16T02:52:52.590Z",
   "edition_week": "2026-W47",
-  "intro": "Drauzio Varella ingresa a la Academia Brasileira de Letras mientras los escenarios urbanos vibran con el legado del rock y la literatura.",
-  "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Guilherme_Gaensly_-_Panorama_de_S%C3%A3o_Paulo_I%2C_Acervo_do_Museu_Paulista_da_USP.jpg/1280px-Guilherme_Gaensly_-_Panorama_de_S%C3%A3o_Paulo_I%2C_Acervo_do_Museu_Paulista_da_USP.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "La escena cultural urbana de Brasil se articula entre nuevas sillas literarias y circuitos independientes de música.",
-    "credit": "Foto: Guilherme Gaensly · Public domain"
-  },
-  "cultural_pulse": "La semana cultural brasileña deja un movimiento inusual en las instituciones literarias con la elección del médico y escritor [Drauzio Varella](https://es.wikipedia.org/wiki/Estaci%C3%B3n_Carandiru_%28libro%29) para ocupar una silla en la [Academia Brasileira de Letras](https://es.wikipedia.org/wiki/Academia_Brasile%C3%B1a_de_Letras), sucediendo al recordado Zuenir Ventura en un nombramiento que cruza la divulgación científica, la crónica carceraria y la narrativa urbana contemporánea. Mientras tanto, en los estantes y las ondas radiofónicas, la atención se concentra en los 45 años de trayectoria artística que celebra [Zélia Duncan](https://quatrocincoum.com.br/transcricao/podcast/transcricao-zelia-duncan-no-podcast-451-mhz/) con su nuevo álbum *Agudo grave*, donde repasa su relación visceral con la poesía y la canción de autor durante su paso por los circuitos de ferias literarias recientes.\n\nEn el terreno del **rock y la memoria sonora**, las agrupaciones y los clásicos continúan movilizando audiencias masivas a lo largo del país. Dado Villa-Lobos y André Frateschi cerraron la Bienal de Guarulhos con un recorrido por el cancionero inoxidable de Legião Urbana, demostrando la vigencia intergeneracional de aquellos himnos alternativos de los noventa. Los homenajes y descubrimientos cruzados sorprenden en internet con iniciativas como la reacción de comunidades tradicionales del Paquistão al icónico videoclip de *Roots Bloody Roots* del grupo Sepultura, comprobando la incombustible expansión global del metal brasileño.\n\nFuera de los grandes centros, la agenda del fin de semana despliega festivales temáticos y circuitos vivos que combinan el rescate patrimonial con la música en vivo. En Cuiabá, Zé Ramalho conmemora media década de actuaciones en directo con un repertorio que funde la psicodelia nordestina con la trova mística, mientras los escenarios de Río Grande do Sul reciben a formaciones como Maria do Relento para repasar las raíces del rock gaúcho en salas autogestionadas.\n\nPor último, las polémicas y los debates en torno a las pantallas y los escenarios en vivo siguen alimentando las crónicas de entretenimiento y televisión. Las apariciones de figuras de la música popular en formatos de concurso y programas dominicales de la red Globo generan conversación inmediata en redes y portales culturales, marcando el pulso de una temporada donde la televisión abierta y las plataformas digitales continúan disputándose la atención del espectador urbano.",
+  "intro": "Del estreno de Precisamos Falar en Penedo al futuro Templo do Rock de Serguei en Saquarema, la semana brasileña cruza cine, festivales y debate literario.",
+  "cultural_pulse": "El circuito de festivales marca la agenda audiovisual brasileña esta semana en dos frentes bien distintos. En Alagoas, el **Circuito Penedo de Cinema** abrió su edición 2026 con la proyección de la película *Precisamos Falar* y la presencia de las actrices Hermila Guedes y Mayana Neiva, reforzando la programación de este encuentro fuera del eje tradicional de estrenos. En São Paulo, el **34º Festival MixBrasil** reúne cine, teatro, videojuegos y literatura en una nueva entrega dedicada a la diversidad de formatos y miradas escénicas.\n\nLa escena musical suma noticias tanto desde la memoria rockera como desde los festivales independientes. En Saquarema, en el estado de Río de Janeiro, la alcaldía ultima la inauguración del **Templo do Rock**, el espacio cultural instalado en la casa de Serguei, figura histórica del rock brasileño. En Bahía, el barrio de Kalilândia en Feira de Santana acoge la undécima edición del encuentro **November's Rock**, mientras que en Goiás la Universidad Federal de Goiás realiza la segunda edición del Festival Diaspóricas de Cinema e Música Negra, dedicado al cruce entre audiovisual y música negra.\n\nLa televisión abierta dejó uno de los momentos más comentados de la semana en el horario estelar dominical de Globo. La cantante [Simaria](https://www1.folha.uol.com.br/folha-topicos/simaria/) realizó su primera aparición en vivo en televisión dentro de su carrera solista en el programa **Domingão com Huck**. Luego de la presentación del actor **Breno Ferreira** en el certamen de baile *Dança dos Famosos*, la artista lanzó un piropo en directo y recibió un rechazo frente a las cámaras, una escena que desplazó el foco de su debut musical hacia la conversación televisiva.\n\nEn el ámbito del libro y la historieta, un debate sobre hábitos de lectura ocupó las páginas culturales. El diario *O Globo* abordó el alejamiento de los lectores hombres respecto de la ficción literaria, señalando que muchos consideran leer novelas una pérdida de tiempo y obligando a las editoriales a repensar cómo captar nuevo público. Frente a las fórmulas habituales del catálogo comercial, *Nexo Jornal* recomendó cinco libros de autorías periféricas para salir de los lugares comunes. En Rio Grande do Sul cerró sus puertas la **72ª Feira do Livro de Porto Alegre** mientras el **Prêmio Minuano 2026** celebraba la diversidad de la literatura gaúcha, y la Gibiteca de Santos conmemoró los 85 años de *Mulher-Maravilha* con proyecciones de cine y un encuentro abierto sobre cómic.",
   "topics": [
     {
-      "category": "Literatura",
-      "title": "Drauzio Varella en la Academia Brasileira de Letras",
-      "summary": "El reconocido médico oncologista, investigador y escritor fue elegido como nuevo miembro de la ABL, ocupando la silla 32."
+      "category": "Cine",
+      "title": "Circuito Penedo de Cinema 2026 y Festival MixBrasil",
+      "summary": "El encuentro cinematográfico de Alagoas abrió su edición con la película Precisamos Falar y la presencia de las actrices Hermila Guedes y Mayana Neiva, mientras el 34º Festival MixBrasil despliega en São Paulo su programación de cine, teatro, videojuegos y literatura."
     },
     {
       "category": "Música",
-      "title": "Zélia Duncan celebra 45 años de carrera",
-      "summary": "La cantautora repasa su trayectoria y su vínculo con la literatura a través de su nuevo trabajo discográfico y conversaciones públicas."
+      "title": "El Templo do Rock de Serguei en Saquarema",
+      "summary": "El municipio fluminense prepara la inauguración del espacio dedicado al músico Serguei en su antigua vivienda, mientras Feira de Santana celebra la 11ª edición del November's Rock y la Universidad Federal de Goiás realiza el 2º Festival Diaspóricas de Cinema e Música Negra."
     },
     {
-      "category": "Rock y Memoria",
-      "title": "Legião Urbana en Guarulhos",
-      "summary": "Dado Villa-Lobos y André Frateschi clausuraron la Bienal de Guarulhos con un show centrado en los clásicos de la banda."
+      "category": "Televisión",
+      "title": "Debut solista de Simaria en Domingão com Huck",
+      "summary": "La cantante brasileña realizó su primera presentación en vivo en televisión como solista en el programa de TV Globo, donde protagonizó un comentado intercambio tras lanzar un piropo al actor Breno Ferreira después de su baile en Dança dos Famosos."
     },
     {
-      "category": "Escena en Vivo",
-      "title": "Gira de Zé Ramalho",
-      "summary": "El cantautor celebra cinco décadas de música en los escenarios con presentaciones que recorren el país."
+      "category": "Libros y Cómic",
+      "title": "Debate sobre lectores de ficción y 85 años de Mulher-Maravilha",
+      "summary": "Un artículo de O Globo analiza por qué los hombres se alejan de las novelas y empuja a las editoriales a buscar estrategias, mientras Nexo Jornal destaca cinco libros de autorías periféricas, el Prêmio Minuano distingue a la literatura gaúcha y la Gibiteca de Santos homenajea a Mulher-Maravilha."
     }
   ],
   "recommendation": {
-    "type": "Álbum",
-    "title": "Agudo grave",
-    "creator": "Zélia Duncan",
-    "context": "Una celebración sonora de 45 años de trayectoria que entrelaza la voz de la intérprete con la mejor tradición poética brasileña.",
-    "url": "https://quatrocincoum.com.br/transcricao/podcast/transcricao-zelia-duncan-no-podcast-451-mhz/"
-  },
-  "closing_media": {
-    "type": "image",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Z%C3%89LIA_DUNCAN_%287074849073%29.jpg/960px-Z%C3%89LIA_DUNCAN_%287074849073%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "caption": "Zélia Duncan repasa más de cuatro décadas de música y literatura en su proyecto actual.",
-    "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
+    "type": "Artista",
+    "title": "Serguei",
+    "creator": "Referente del rock brasileño",
+    "context": "La próxima apertura del Templo do Rock en su casa de Saquarema recupera el legado de una figura clave y singular del rock nacional.",
+    "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPVERFMjlpU3FhdlJlNHpJQUtncVFrQUxleHJVRWlHanFyRlp2RTZmQkUyNTE5ZVhRRl9wUFJWR1dfWERlLVFVRWVwdWRCMVNINExEYU9DVm9jYXNWOUd3U1ZiaVFTQVVrVUhuNzhfbm1WU3NwUXdUODV5eWRBOXhOZDJqakNJMTdaOG5CVnRWRWpLYi1yc0pN?oc=5"
   },
   "sources": [
     {
-      "name": "Quatro cinco um",
-      "url": "https://quatrocincoum.com.br/transcricao/podcast/transcricao-zelia-duncan-no-podcast-451-mhz/",
+      "name": "Prefeitura de Penedo / AL",
+      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOUEgyLWIwVnNXSWZHclJ2YVhzdEVzVzlhZ2Y2OV9MWWNQUEdKN2tSVjNySk9LeEVwTVVidmVzaVdvTGJTbUxhRnRnalJnSXZ3d2lPeVJURTd6TlBZcDNwdHhJaDNpVFhZN2Y4djRwOVdqV2FMc2xuLXhla3g3dXRGY3k3YXBDQnpZVTZSTE96aGpadUhGMHh1bGhHTmJBQ2ZnWWVNWjZUWHJaQThtazRXX2d1aHoyeHdraUFBRC1GekZrQzF1QkxPcERMSXl1cHBpRXY0aElnUHBCRGltMzJDUnYxdXdWdl80NGgxNGhRSDZfTHRnZ044SVlrOUU?oc=5",
       "paywalled": false
     },
     {
-      "name": "Olhar Direto",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOemo2YV9MMmFyTDlfOWJxM3dDcTVWSTcwSV9xMl9LNk11OXFSVXEwTmYzZi1GMHFSd1dSdWVndnVIWUZhbl8wNUg3c2c0d1ZPeE13NlVFOE1UX09YT25Pa3k0a19MOENPbGticDMzbTJ5Q0xTTUFKTEVWMmRDYlBqbHMwOVNGSXRSdU5idmJFYmREY1pFWHFCNXdjQndrWE1pTzczSjNQby1Ta0F5cC1hVnN2WQ?oc=5",
+      "name": "Agência Brasil",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQYzduLTRWNzk3SDI3YmRqRFYtbEFJYm9vbTN4TU94bl9VTHdHdnhNQlUwZGJQV0FvUHVTQ2NXSzlCenppaUhXRXdza0lyM2JWdFg5NExpaGhadWxCRjk2ZHdXS1NuMERxak50RE9TTUVvb2N4VVI4T0RpMzlJZ0ZERkR5VUJlcm1Lc2c3MlN3TmZ5Y0RaSm5kdG5HRW5wRDNSWEVCN0ljdURXQ2FIYjgyeF96WmlmbFYxMGgtOXhXc1Z1dw?oc=5",
       "paywalled": false
     },
     {
-      "name": "GuarulhosWeb",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNdmxFXzBQeW4xSlFUMTVXcjJBNzRLMENnd05Bamp6Z1JlQjR5dW9VNnBrLWNWOWgtUDFuM2o4bVFESHk2SW9tQ3hRdFdQZ3NMQTFXUVNjc0RYZld1VkstaC1xVkVUWERzaDFlRVFuRUdEY09jZHdOV1dRdzdfOVpQWWE3Vlk4XzBoQWZzX2szRzYxNThzaTEzY1Y3bV9BU3hpVC01bXFNVzU0QWJubF9SQkF4OWhVdFFfb0E?oc=5",
+      "name": "Prefeitura de Saquarema RJ",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPVERFMjlpU3FhdlJlNHpJQUtncVFrQUxleHJVRWlHanFyRlp2RTZmQkUyNTE5ZVhRRl9wUFJWR1dfWERlLVFVRWVwdWRCMVNINExEYU9DVm9jYXNWOUd3U1ZiaVFTQVVrVUhuNzhfbm1WU3NwUXdUODV5eWRBOXhOZDJqakNJMTdaOG5CVnRWRWpLYi1yc0pN?oc=5",
       "paywalled": false
     },
     {
-      "name": "Quatro cinco um",
-      "url": "https://quatrocincoum.com.br/noticias/literatura/literatura-brasileira/drauzio-varella-e-eleito-para-a-academia-brasileira-de-letras/",
-      "paywalled": false
+      "name": "Folha de S.Paulo - Ilustrada",
+      "url": "https://f5.folha.uol.com.br/televisao/2026/11/simaria-passa-cantada-em-breno-ferreira-e-leva-fora-ao-vivo-no-domingao-do-faustao.shtml",
+      "paywalled": true
     },
     {
-      "name": "TMDQA!",
-      "url": "https://www.tenhomaisdiscosqueamigos.com/2026/11/13/grupo-tribal-reage-hit-sepultura/",
-      "paywalled": false
+      "name": "O Globo",
+      "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOdE82VkVRdndOU3M1STd3V3g3NWc1SzltZUNieXE5ZGQtTi00TllIY2hKNWRIS1VpdUV4bFhBNFRtX3I4REpBT3kzbGYtbTY1ZHQ5YzZvVnZuZ3Rya3p0MEVXazZaYmNPR0szQ1I1dmpBY1lUSGtZcmFFdW9nOWtZeUpVMDdYcU9jV0d5Q2lQX3dzQU5NX0RkWWRodm12Sl9XOEIzRWR3S1BOQkNrMTRVaGFIMlI0cDc0MGRUaWU2RS1GZ2RidnRyNENyREpkWVIwRFJkLV9keENkTF9JRnJiR21PVWNvZUE0U29CNk9KTndfZlBlNjdRN9IBhwJBVV95cUxOSTFRdDBxVE9BZEIwc2M5NHAzdC1GQ0lCQVNjQ2FpVXRCMTM1X3N1NGhQdjliZXJSVUFiZm9VYWk5X2hKRXFEenNNRmN3RXB1SXUzMUJfbUJ4bkN0dl9NM2txeXpGbk1rV3N0dkowZHVnSTdZdDZzV0dhS2FVUGJpNUc3TklLQ2VIUlQxajR6ZmxoREItb0s1UUNKU1JzWU0zZDFtM19sVE10RWw1aWxva1BCelE4UHk1cmxLanp1QVM3YktiQ3ZsTGIwUU9FRE8wQVd0NTNkYnRyTTdNOTZTWER3Y0RwX043SEZ0cGRwcmRuUjBqalVjTVc2WE9DWE5LMk5KNGNIWQ?oc=5",
+      "paywalled": true
+    },
+    {
+      "name": "Nexo Jornal",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOZHh2M2haVUxaaGo1NVcxcWNIbmxWX0xGeDVPWTZwakNUNjJQWlpLMTFHXzZ0TUhfOUlPS2lFaGg3WTlQSC1HeV9MdnRaOTBCOTcxdE1OU252STV2ZGd1clRndkZZN09faGZBSndFLVRmMk9aWlU2Q1RVa3d6bHhPX3NzZEVTT1JKTC1TY1FQREdnRjZncEJCeDk0X0M5RXR3dHJTYjRDVjE3TzdoVmlrVTVIVUkyQlQwemdMeFdRd1ZmZGhC?oc=5",
+      "paywalled": true
     }
   ]
 }
