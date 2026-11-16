@@ -6,6 +6,7 @@ import {
   Headphones,
   ListMusic,
   Lock,
+  PlayCircle,
   Radio,
   RotateCw,
 } from "lucide-react";
@@ -129,6 +130,14 @@ function renderEditorialText(text: string) {
   return parts.length > 0 ? parts : normalized.replace(/\*/g, "");
 }
 
+function pickIconForKind(kind?: string) {
+  const lower = (kind || "").toLowerCase();
+  if (lower.includes("video") || lower.includes("streaming")) return PlayCircle;
+  if (lower.includes("podcast")) return Headphones;
+  if (lower.includes("selección") || lower.includes("playlist")) return ListMusic;
+  return Radio;
+}
+
 export default async function CountryPage({ params }: PageProps) {
   const { slug } = await params;
   const config = getCountryConfigBySlug(slug);
@@ -174,26 +183,48 @@ export default async function CountryPage({ params }: PageProps) {
 
   const readingMinutes = estimateReadingMinutes(edition.cultural_pulse);
 
+  const weekMatch = edition.edition_week.match(/W(\d+)/);
+  const weekNumber = weekMatch ? Number(weekMatch[1]) : 0;
+  const rotatingList = config.listening?.rotating || [];
+  const rotatedItem =
+    rotatingList.length > 0
+      ? rotatingList[weekNumber % rotatingList.length]
+      : null;
+
   const listeningItems = [
     config.listening?.radio
       ? {
-          kind: "Radio",
+          kind: config.listening.radio.kind || "Radio",
           icon: Radio,
           ...config.listening.radio,
         }
       : null,
+    config.listening?.radio_alt
+      ? {
+          kind: config.listening.radio_alt.kind || "Radio",
+          icon: Radio,
+          ...config.listening.radio_alt,
+        }
+      : null,
     config.listening?.podcast
       ? {
-          kind: "Podcast",
+          kind: config.listening.podcast.kind || "Podcast",
           icon: Headphones,
           ...config.listening.podcast,
         }
       : null,
     config.listening?.playlist
       ? {
-          kind: "Selección musical",
+          kind: config.listening.playlist.kind || "Selección musical",
           icon: ListMusic,
           ...config.listening.playlist,
+        }
+      : null,
+    rotatedItem
+      ? {
+          kind: rotatedItem.kind || "Para escuchar",
+          icon: pickIconForKind(rotatedItem.kind),
+          ...rotatedItem,
         }
       : null,
   ].filter((item): item is NonNullable<typeof item> => item !== null);
@@ -390,7 +421,7 @@ export default async function CountryPage({ params }: PageProps) {
                 id="listening-heading"
                 className="text-[11px] font-semibold tracking-[0.2em] text-ink-muted uppercase"
               >
-                Para escuchar en {edition.country}
+                Para escuchar y ver en {edition.country}
               </h2>
               <span className="font-serif text-xs italic text-ink-muted">
                 Aire local, podcasts y selecciones

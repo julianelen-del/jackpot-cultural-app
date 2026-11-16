@@ -82,6 +82,7 @@ export type ClosingMedia = z.infer<typeof ClosingMediaSchema>;
 export type CountryEdition = z.infer<typeof CountryEditionSchema>;
 
 export interface ListeningItem {
+  kind?: string;
   name: string;
   url: string;
   description: string;
@@ -89,8 +90,10 @@ export interface ListeningItem {
 
 export interface CountryListeningConfig {
   radio?: ListeningItem;
+  radio_alt?: ListeningItem;
   podcast?: ListeningItem;
   playlist?: ListeningItem;
+  rotating?: ListeningItem[];
 }
 
 export interface CountrySourceConfig {

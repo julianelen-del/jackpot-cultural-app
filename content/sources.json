@@ -13,7 +13,8 @@
       "https://www.conlosojosabiertos.com/feed/",
       "https://revistaotraparte.com/semanal/feed/",
       "https://news.google.com/rss/search?q=site%3Aindiehoy.com+OR+site%3Abillboard.com.ar+OR+(site%3Aes.rollingstone.com+Argentina)+when%3A10d&hl=es-419&gl=AR&ceid=AR:es-419",
-      "https://news.google.com/rss/search?q=site%3Aotroscines.com+OR+site%3Aeternacadencia.com.ar+OR+site%3Arevistabache.com.ar+OR+%22Hoy+Trasnoche%22+when%3A10d&hl=es-419&gl=AR&ceid=AR:es-419"
+      "https://news.google.com/rss/search?q=site%3Aotroscines.com+OR+site%3Aeternacadencia.com.ar+OR+site%3Arevistabache.com.ar+OR+%22Hoy+Trasnoche%22+when%3A10d&hl=es-419&gl=AR&ceid=AR:es-419",
+      "https://news.google.com/rss/search?q=%22Teor%C3%ADa+de+Circuitos%22+(Ultrapop+OR+Elencwajg+OR+Lucena+OR+disco+OR+single+OR+videoclip+OR+%C3%A1lbum+OR+banda+OR+canciones)+when%3A21d&hl=es-419&gl=AR&ceid=AR:es-419"
     ],
     "reference_media": [
       "Suplemento Radar (Página/12)",
@@ -37,10 +38,30 @@
         "description": "Rock argentino, escena indie y entrevistas en vivo"
       },
       "podcast": {
-        "name": "Hoy Trasnoche",
-        "url": "https://hoytrasnoche.com/",
-        "description": "Cine, series y cultura pop con Santiago Calori y Fiorella Sargenti"
-      }
+        "name": "Encerrados Afuera",
+        "url": "https://encerradosafuera.com.ar/",
+        "description": "Podcast y radio sobre cine, indie, new wave, cómics y series"
+      },
+      "rotating": [
+        {
+          "kind": "Video / Streaming",
+          "name": "Barcelona Audiovisión",
+          "url": "https://digital.revisbarcelona.com/",
+          "description": "Streaming y videos satíricos de Revista Barcelona"
+        },
+        {
+          "kind": "Radio / Programa",
+          "name": "Toma y Daca (Futurock)",
+          "url": "https://futurock.fm/",
+          "description": "Programa dominguero de radio en Futurock FM"
+        },
+        {
+          "kind": "Podcast",
+          "name": "Hoy Trasnoche",
+          "url": "https://hoytrasnoche.com/",
+          "description": "Cine, series y cultura pop con Santiago Calori y Fiorella Sargenti"
+        }
+      ]
     }
   },
   {
@@ -132,11 +153,17 @@
       "The Beat (Cómics)",
       "NYRB",
       "NPR Pop Culture Happy Hour",
+      "The Current",
       "KEXP",
       "NPR All Songs Considered"
     ],
     "listening": {
       "radio": {
+        "name": "The Current 89.3 FM",
+        "url": "https://www.thecurrent.org/",
+        "description": "Indie, rock, raíces y sesiones en vivo desde Minnesota Public Radio"
+      },
+      "radio_alt": {
         "name": "KEXP 90.3 FM",
         "url": "https://www.kexp.org/",
         "description": "Radio independiente de Seattle: indie, rock y sesiones en estudio"
