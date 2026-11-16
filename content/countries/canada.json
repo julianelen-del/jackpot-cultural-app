@@ -3,68 +3,59 @@
   "country": "Canadá",
   "continent": "América",
   "flag": "🇨🇦",
-  "updated_at": "2026-11-16T03:30:27.091Z",
+  "updated_at": "2026-11-16T05:06:27.721Z",
   "edition_week": "2026-W47",
-  "intro": "Canadá repasa su pulso artístico entre la memoria cinematográfica francesa y las residencias musicales del circuito independiente.",
+  "intro": "El pulso cultural canadiense cruza esta semana la agitada agenda literaria, los debates sobre tecnología y los hitos del cine.",
   "cover_image": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Theo_van_Doesburg_216.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "caption": "Espacios urbanos de creación en Montreal donde convergen las artes visuales y los estrenos de cine.",
-    "credit": "Foto: Theo van Doesburg · Public domain"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Montreal_Twilight_Panorama_2006.jpg/1280px-Montreal_Twilight_Panorama_2006.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Vista panorámica de Montreal, epicentro de la actividad editorial y los debates culturales en Canadá.",
+    "credit": "Foto: Diliff · CC BY-SA 3.0"
   },
-  "cultural_pulse": "La agenda cultural canadiense de la semana transita entre el cine documental, las revisiones históricas en pantalla y el pulso de la memoria escénica. En el ámbito cinematográfico, [Inside Gaza](https://www.ledevoir.com/culture/cinema/1025144/inside-gaza-recoit-prix-meilleur-documentaire-festival-cinemania), el documental dirigido por reporteros en terreno sobre la cobertura periodística en zonas de conflicto, se alzó con el galardón principal en el festival Cinemania en Montreal. La obra ofrece una inmersión directa en las dificultades cotidianas de los profesionales de la información, destacando por su rigor y urgencia narrativa sin recurrir a artificios dramáticos. Esta distinción consolida al festival como un espacio clave para el cine documental internacional dentro de la programación cultural de la región.\n\nLa memoria teatral de Quebec rinde homenaje a figuras fundamentales de su escena contemporánea. La comunidad artística recuerda a **Pierre MacDuff**, visionario director y fundador de la plataforma digital Rappels, cuyo trabajo transformó la documentación y la visibilidad de las artes escénicas locales. Su legado perdura como un hito en la preservación de la memoria teatral, conectando a creadores y espectadores a través de archivos accesibles y rigurosos. Este reconocimiento subraya la importancia de las infraestructuras digitales independientes en la salvaguarda del patrimonio vivo.\n\nLa música pop y rock genera titulares con el regreso a los escenarios de **Alanis Morissette**, quien protagonizó un momento viral durante las últimas funciones de su residencia en Los Ángeles. La cantautora canadiense resolvió un tropiezo técnico en escena con absoluta agilidad, transformando un incidente imprevisto en una muestra de su característico dinamismo interpretativo. Esta actuación coincide con la promoción de su reciente producción discográfica enfocada en reversiones y repertorios de temporada, reafirmando su vigencia dentro del pop alternativo internacional.\n\nLos debates en torno a la industria audiovisual exploran nuevos formatos narrativos con iniciativas locales. Productoras independientes en la costa oeste de Canadá impulsan proyectos experimentales orientados al cine vertical, adaptando las estructuras estéticas tradicionales a las nuevas pantallas móviles. Esta apuesta busca descentralizar los modos de producción y atraer a públicos nativos digitales mediante piezas de ficción breve que desafían las convenciones de la puesta en escena clásica, ensanchando los límites del lenguaje cinematográfico actual.",
+  "cultural_pulse": "El debate público en Canadá encuentra nuevas formas de canalizarse a través de las reflexiones de figuras públicas sobre la hiperconectividad. El político y escritor [Wab Kinew](https://es.wikipedia.org/wiki/Asamblea_de_las_Naciones_Originarias) ha generado profundas conversaciones al cuestionar el uso masivo de los teléfonos inteligentes y proponer una desconexión radical de las pantallas en la vida cotidiana. Esta postura dialoga directamente con la creciente inquietud por la privacidad y la seguridad digital que afecta a las familias del país, tal como expone la investigación periodística sobre las estafas telefónicas dirigidas a adultos mayores publicada por [The Walrus](https://news.google.com/rss/articles/CBMieEFVX3lxTFBnR3ZkOXBqM2VSM0hDQkVKSVFmTDE3eUIteUJaRk1rX2IycmpzVlpYcWpRWHdGTnZlSmtYb1JCdHRCR2hwekk1N0xQMHc2OUhFQmFPdTZrZ1NBWHc4ZG1fUU1Bd0Y2ZUxNVmcwdmE2Qm5BUXYxQkNIXw?oc=5).\n\nEn el terreno de la memoria institucional y la educación superior, el pasado colonial e histórico sigue revisándose con lupa a través de publicaciones especializadas. La prestigiosa revista cultural [Le Devoir](https://www.ledevoir.com/culture/1025159/college-sainte-marie-origines-uqam) ha rescatado los orígenes del antiguo collège Sainte-Marie como la semilla fundacional de la **Universidad de Quebec** en Montreal (UQAM), permitiendo entender las transformaciones arquitectónicas y sociales del centro urbano francófono.\n\nLa escena cinematográfica independiente expande sus horizontes más allá de los circuitos tradicionales. Nuevas productoras locales apuestan decididamente por formatos experimentales como la realización vertical para pantallas móviles, buscando captar la atención de audiencias jóvenes sin renunciar al rigor narrativo ni a la experimentación estética visual que caracteriza a los nuevos creadores de la costa oeste.",
   "topics": [
     {
-      "category": "Cine",
-      "title": "Inside Gaza triunfa en Cinemania",
-      "summary": "El documental que retrata el trabajo diario de cuatro periodistas de la agencia AFP recibió el premio al mejor largometraje en el festival Cinemania."
+      "category": "Sociedad y Tecnología",
+      "title": "La cruzada contra los teléfonos inteligentes",
+      "summary": "Wab Kinew plantea un debate urgente sobre la dependencia tecnológica y la necesidad de reducir el tiempo frente a las pantallas."
     },
     {
-      "category": "Teatro",
-      "title": "Homenaje a Pierre MacDuff",
-      "summary": "La escena queberquense recuerda al director y creador de la plataforma digital Rappels, referente fundamental en la documentación teatral."
+      "category": "Cultura y Memoria",
+      "title": "Los orígenes de la UQAM al descubierto",
+      "summary": "Un riguroso ensayo histórico publicado por Le Devoir reconstruye el paso del collège Sainte-Marie a la universidad moderna."
     },
     {
-      "category": "Música",
-      "title": "Alanis Morissette y su cierre en directo",
-      "summary": "La artista concluyó su residencia musical en Estados Unidos combinando momentos virales en vivo con el lanzamiento de su nuevo disco navideño."
-    },
-    {
-      "category": "Cine y Nuevos Medios",
-      "title": "Auge del cine vertical en la costa oeste",
-      "summary": "Compañías de producción independientes en Canadá exploran las posibilidades narrativas del formato vertical para nuevas audiencias."
+      "category": "Cine y Nuevos Formatos",
+      "title": "Auge de la producción vertical",
+      "summary": "Las productoras independientes de la costa oeste exploran lenguajes audiovisuales adaptados al consumo en dispositivos móviles."
     }
   ],
   "recommendation": {
-    "type": "Película",
-    "title": "Inside Gaza",
-    "creator": "Colectivo de periodistas de la AFP",
-    "context": "Un testimonio cinematográfico imprescindible sobre los riesgos del periodismo en zonas de conflicto.",
-    "url": "https://www.ledevoir.com/culture/cinema/1025144/inside-gaza-recoit-prix-meilleur-documentaire-festival-cinemania"
+    "type": "Libro",
+    "title": "Wab Kinew Essays",
+    "creator": "Wab Kinew",
+    "context": "Una lectura esencial para repensar nuestra relación cotidiana con la tecnología y la saturación informativa.",
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFB6S3VGSzhneGM4ME15NXJ5c1lpVVl2Ql9obG0yUEZjaUxnUDZSQU1lMFNXX1RMNm5CenZ2TGphTGozbmlhTUYzcjRJcmVERERiTklsYklic3F1UQ?oc=5"
   },
   "closing_media": {
-    "type": "video",
-    "url": "https://www.youtube-nocookie.com/embed/e62ECXKMFsc",
-    "caption": "Avance de «Les rayons et les ombres», el proyecto cinematográfico analizado en la crítica cultural de Le Devoir."
+    "type": "image",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Wab_Kinew_in_Sept_2024_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "caption": "Retrato de Wab Kinew, impulsor del debate sobre la desconexión digital en Canadá.",
+    "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
     {
-      "name": "Culture - Le Devoir",
-      "url": "https://www.ledevoir.com/culture/cinema/1025132/rayons-ombres-jean-dujardin-peau-collabo",
+      "name": "Le Devoir",
+      "url": "https://www.ledevoir.com/culture/1025159/college-sainte-marie-origines-uqam",
+      "paywalled": true
+    },
+    {
+      "name": "The Walrus",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBnR3ZkOXBqM2VSM0hDQkVKSVFmTDE3eUIteUJaRk1rX2IycmpzVlpYcWpRWHdGTnZlSmtYb1JCdHRCR2hwekk1N0xQMHc2OUhFQmFPdTZrZ1NBWHc4ZG1fUU1Bd0Y2ZUxNVmcwdmE2Qm5BUXYxQkNIXw?oc=5",
       "paywalled": false
     },
     {
       "name": "CHEK News",
       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOMzY5OTdvNlN6Q2xGMzR5d1B4XzNlVGZNSUh1S0xXSmY1NWQ4Z2MyUWpNM3l2dXRGOWQtTllPdDBJeUtDaFJ1R1ZDNDlWNGhUeVVlVkY2LTJ1cVAydy1iczJjUUdpdHdsc1VlSExVdTIyUG9TUnduTXdmQzVGM0taSFN3d1BiaG96WW1LUmtXVWxIdHVhRGtBWE1Xbw?oc=5",
-      "paywalled": false
-    },
-    {
-      "name": "Culture - Le Devoir",
-      "url": "https://www.ledevoir.com/culture/cinema/1025144/inside-gaza-recoit-prix-meilleur-documentaire-festival-cinemania",
-      "paywalled": false
-    },
-    {
-      "name": "Culture - Le Devoir",
-      "url": "https://www.ledevoir.com/culture/theatre/1024934/adieux-homme-theatre-pierre-macduff",
       "paywalled": false
     }
   ]

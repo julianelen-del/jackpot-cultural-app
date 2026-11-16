@@ -3,72 +3,62 @@
   "country": "Irlanda",
   "continent": "Europa",
   "flag": "🇮🇪",
-  "updated_at": "2026-11-16T04:00:08.337Z",
+  "updated_at": "2026-11-16T05:07:19.628Z",
   "edition_week": "2026-W47",
-  "intro": "Los archivos censurados de Irlanda ven la luz mientras la música y la literatura agitan la escena cultural de Dublín.",
+  "intro": "El guitarrista Steve Cradock revive el espíritu del britpop de los noventa, mientras Dublín discute el impacto cultural de sus nuevas y viejas músicas.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/CustomHouseDublin.JPG/1280px-CustomHouseDublin.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Vista panorámica del centro histórico de Dublín y el río Liffey.",
-    "credit": "Foto: Elemaki · CC BY 3.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/May_1_2025_Isp%C3%ADn%C3%AD_na_h%C3%89ireann_Live_Performance_at_3_Olympia_Dublin.jpg/1280px-May_1_2025_Isp%C3%ADn%C3%AD_na_h%C3%89ireann_Live_Performance_at_3_Olympia_Dublin.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "El histórico teatro 3Olympia en Dublín, epicentro de los conciertos y giras internacionales.",
+    "credit": "Foto: Sausagemusic · CC0"
   },
-  "cultural_pulse": "La semana cultural en Irlanda trae debates literarios de alto voltaje con la apertura pública de miles de volúmenes que en el pasado fueron prohibidos por el Estado. Esta histórica colección, albergada en los archivos nacionales, documenta las décadas más rígidas de la censura oficial y ofrece a los investigadores una radiografía de los tabúes morales y políticos que marcaron al país durante el siglo pasado. Las instituciones académicas y los círculos de lectura analizan estos textos como un testimonio imprescindible para entender la evolución de la conciencia pública frente al dogmatismo institucional.\n\nEn el plano musical, las listas de éxitos locales celebran la consolidación de nuevas propuestas discográficas. El compositor y músico **Robert Grace** ha irrumpido con fuerza en el cuarto puesto del listado oficial de álbumes con su reciente trabajo discográfico [My Father's Son](https://www.hotpress.com/music/robert-grace-debuts-at-no-4-on-irish-albums-chart-with-my-fathers-son-23169241), una obra que combina letras de fuerte carga personal con arreglos de pop contemporáneo. El guitarrista **Steve Cradock**, conocido por su trayectoria al frente de [Ocean Colour Scene](https://es.wikipedia.org/wiki/Ocean_Colour_Scene), calienta motores para una serie de presentaciones en el escenario del 3Olympia, repasando el legado de la época dorada del rock británico de los años noventa.\n\nLas conexiones internacionales de la música irlandesa también suman hitos creativos destacados. Durante una reciente entrevista, la legendaria cantante de música country **Dolly Parton** reveló que la colaboración grabada junto a la banda [U2](https://es.wikipedia.org/wiki/U2) en el tema titulado Torn surgió después de que ella misma descartara composiciones previas por considerarlas demasiado arraigadas en la sensibilidad de la isla. Este intercambio creativo entre Nashville y Dublín demuestra la persistencia de una identidad sonora muy reconocible que continúa dialogando con las grandes figuras de la industria global.\n\nPor último, el circuito cinematográfico y las artes visuales refuerzan su infraestructura regional a través de alianzas estratégicas. La Universidad de Cork ha firmado un convenio de cooperación con el festival internacional de cine de la ciudad para becar y respaldar activamente a las nuevas promesas del séptimo arte. Este acuerdo busca consolidar un polo de producción independiente que garantice la formación técnica y artística de una generación dispuesta a renovar las pantallas locales.",
+  "cultural_pulse": "La temporada musical en Dublín encuentra un nuevo pulso con la llegada de [Ocean Colour Scene](https://www.hotpress.com/music/ocean-colour-scenes-steve-cradock-the-songs-are-still-there-they-still-live-and-breathe-23169032), la banda británica de la era dorada del britpop que desembarca en el escenario del 3Olympia para repasar los himnos guitarreros de discos emblemáticos como Moseley Shoals. Su guitarrista **Steve Cradock**, reconocido además por su largo recorrido junto a Paul Weller, sostiene que aquellas canciones siguen respirando intactas sobre el escenario ante audiencias que cruzan varias generaciones de melómanos atentos a las derivas del rock británico clásico.\n\nLa trastienda de la industria y el coleccionismo musical genera debates encendidos sobre la propiedad y el acceso a la cultura en vivo. Las alarmas saltaron recientemente cuando se conoció que un único intermediario especulativo acumulaba entradas para los próximos recitales de [U2](https://www.hotpress.com/film-tv/u2-show-at-tate-modern-will-be-broadcast-on-bbc-two-23169188) con la intención de revenderlas por cifras siderales, desatando la indignación de los seguidores y reabriendo la discusión urgente sobre los vacíos legales que asfixian a la música en directo y perjudican directamente a los seguidores genuinos.\n\nPor fuera de las grandes aglomeraciones de estadios, el circuito de festivales de raíces y músicas tradicionales mantiene una vitalidad envidiable al cruzar tradiciones locales con estéticas de otras latitudes. Un ejemplo claro es el desembarco del ciclo **Baltimore Fiddle Fair** en Dublín, un espacio de intercambio sonoro donde convergen instrumentistas de cuerdas de Irlanda y Europa del Este para explorar repertorios compartidos y cruces acústicos alejados de los circuitos comerciales masivos.\n\nEsta efervescencia sonora convive con la memoria literaria e institucional del país tras la apertura al público de miles de volúmenes que durante décadas permanecieron recluidos y prohibidos por la censura estatal en la llamada sala de literatura maldita. Académicos, lectores y curiosos recorren ahora estos anaqueles liberados en un ejercicio necesario de revisión histórica que reescribe el pulso cultural contemporáneo.",
   "topics": [
     {
-      "category": "Libros",
-      "title": "Apertura del archivo de literatura prohibida",
-      "summary": "Miles de libros vetados históricamente por el Estado irlandés se exhiben al público en los archivos nacionales, revelando las políticas de censura del siglo pasado."
-    },
-    {
       "category": "Música",
-      "title": "El éxito de Robert Grace en las listas",
-      "summary": "El músico irlandés debuta en el cuarto puesto del ranking oficial de álbumes con su nuevo disco de estudio."
+      "title": "Ocean Colour Scene en el 3Olympia",
+      "summary": "El guitarrista Steve Cradock analiza el legado del britpop y la vigencia de los discos fundamentales de la banda en la antesala de sus presentaciones en Dublín."
     },
     {
-      "category": "Cine",
-      "title": "Alianza cinematográfica en Cork",
-      "summary": "La Universidad de Cork y el festival de cine local se unen para impulsar la formación de nuevos talentos audiovisuales."
+      "category": "Debates culturales",
+      "title": "La apertura de los archivos prohibidos",
+      "summary": "Miles de libros que el Estado mantuvo censurados durante décadas ven la luz en bibliotecas e instituciones culturales, reavivando el debate sobre la libertad creativa."
     },
     {
-      "category": "Música",
-      "title": "El acercamiento entre U2 y Dolly Parton",
-      "summary": "La estrella del country reveló detalles sobre el origen de su colaboración discográfica con la mítica banda de Dublín."
+      "category": "Música de raíces",
+      "title": "Baltimore Fiddle Fair en Dublín",
+      "summary": "El tradicional festival de música de violín y cuerdas expande su programación a la capital con encuentros dedicados al intercambio entre músicos locales y de Europa del Este."
     }
   ],
   "recommendation": {
     "type": "Álbum",
     "title": "My Father's Son",
     "creator": "Robert Grace",
-    "context": "Un disco honesto que consolida al autor en la escena pop contemporánea irlandesa.",
+    "context": "Un sólido recorrido de pop alternativo contemporáneo que debutó con fuerza en los primeros puestos de las listas irlandesas.",
     "url": "https://www.hotpress.com/music/robert-grace-debuts-at-no-4-on-irish-albums-chart-with-my-fathers-son-23169241"
   },
   "closing_media": {
     "type": "video",
     "url": "https://www.youtube-nocookie.com/embed/brzzM31G4x8",
-    "caption": "Videoclip oficial y actuaciones en directo de Robert Grace."
+    "caption": "Extracto de las actuaciones en directo de Ocean Colour Scene, banda fundamental del sonido británico de los noventa."
   },
   "sources": [
     {
-      "name": "Hot Press",
+      "name": "Hotpress",
       "url": "https://www.hotpress.com/music/ocean-colour-scenes-steve-cradock-the-songs-are-still-there-they-still-live-and-breathe-23169032",
       "paywalled": false
     },
     {
-      "name": "RTE.ie",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBXRERycmNEUUkzdFJnOGplQzNKdWdickxvXzgwd0xld2xSSVU3NzdOVXp3Q2dZSWFBNlhBd3lLMGFPMm51b3BCR2FMTFhVemN4clJ6X0JfMTh2RGtlMlFmY1JFdVRNMEExTmc?oc=5",
+      "name": "Hotpress",
+      "url": "https://www.hotpress.com/film-tv/u2-show-at-tate-modern-will-be-broadcast-on-bbc-two-23169188",
       "paywalled": false
     },
     {
-      "name": "The Guardian",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOVjdnYmtseDIzOVFxVzBGRzFVVUFKZmpNUEtwUHFQR1N4MTBLY29aX0dWd196OVo4eW1iTWQtSGp0b3U1dElMR0dPcDNVVEdyOUhTRFVXMWY4SUlhX1FyaDl3Mk1FcEtURUtTN3dnYVZXWmlaVHREbjdiSUZYSDNHeEpaRVNjLVBUQlE?oc=5",
+      "name": "The Journal of Music in Ireland",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNaUFzVFh1Z05KVHB3YWJOeDZwX21zdFhkaC1Uc3hkbF9WWVNzZHRnQzZORk9lbkctVFVqeU81RTkwS0dkcWx5OXluWm04QWYxOWNOaVlMa0NNRXhPT1hfWklrRldXWUNwb05NcGdOVmxUbngtZFVBM21PelJaQnplN3lMdjc?oc=5",
       "paywalled": false
     },
     {
-      "name": "University College Cork",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPMlliQ3RXeFlzY3VuallHNkkyb0xHZk9IOUNYdFpxX1ZqUFh5TUR2aXdZTm1iVld4N2pGSkJRS3c0dmVOUlgxdEg1SWZvNVJ1ejVfWW1TUzRiU3BGT3FWRDlFVWpCWElpSkZ5TmIxZFJyY3BfdVVSQWw2Sk80Y2NKUmNtUmZybWhfQWFndE5nR2Zhby1pbUtYQm16aVptWTh1R0ozUXU2cXh0RGYxa3lnYzNuTVlYTlIyWnI0aUlORHFxdw?oc=5",
-      "paywalled": false
-    },
-    {
-      "name": "Hot Press",
+      "name": "Hotpress",
       "url": "https://www.hotpress.com/music/robert-grace-debuts-at-no-4-on-irish-albums-chart-with-my-fathers-son-23169241",
       "paywalled": false
     }
