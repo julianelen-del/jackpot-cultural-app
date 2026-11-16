@@ -81,6 +81,18 @@ export type CoverImage = z.infer<typeof CoverImageSchema>;
 export type ClosingMedia = z.infer<typeof ClosingMediaSchema>;
 export type CountryEdition = z.infer<typeof CountryEditionSchema>;
 
+export interface ListeningItem {
+  name: string;
+  url: string;
+  description: string;
+}
+
+export interface CountryListeningConfig {
+  radio?: ListeningItem;
+  podcast?: ListeningItem;
+  playlist?: ListeningItem;
+}
+
 export interface CountrySourceConfig {
   slug: string;
   country: string;
@@ -89,4 +101,5 @@ export interface CountrySourceConfig {
   languages: string[];
   rss_feeds: string[];
   reference_media: string[];
+  listening?: CountryListeningConfig;
 }

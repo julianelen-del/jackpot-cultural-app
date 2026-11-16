@@ -74,6 +74,12 @@ const GOOGLE_NEWS_LOCALE: Record<
     ceid: "CO:es-419",
     queryTerm: "(musica OR rock OR indie OR cine OR series OR libros OR literatura OR comic)",
   },
+  uruguay: {
+    hl: "es-419",
+    gl: "UY",
+    ceid: "UY:es-419",
+    queryTerm: "(musica OR rock OR indie OR cine OR series OR libros OR literatura OR teatro OR festival)",
+  },
   "reino-unido": {
     hl: "en-GB",
     gl: "GB",
@@ -116,17 +122,35 @@ const GOOGLE_NEWS_LOCALE: Record<
     ceid: "SE:sv",
     queryTerm: "(musik OR rock OR indie OR film OR serier OR böcker OR litteratur OR teater)",
   },
-  rusia: {
-    hl: "en",
-    gl: "US",
-    ceid: "US:en",
-    queryTerm: "(Russia OR Russian) (music OR rock OR cinema OR film OR series OR books OR literature OR theater)",
-  },
   "paises-bajos": {
     hl: "nl",
     gl: "NL",
     ceid: "NL:nl",
-    queryTerm: "(muziek OR rock OR indie OR film OR series OR boeken OR literatuur)",
+    queryTerm: "(muziek OR rock OR indie OR film OR series OR boeken OR literatuur OR festival)",
+  },
+  portugal: {
+    hl: "pt-PT",
+    gl: "PT",
+    ceid: "PT:pt-150",
+    queryTerm: "(musica OR rock OR indie OR cinema OR filmes OR series OR livros OR literatura OR festival)",
+  },
+  belgica: {
+    hl: "fr",
+    gl: "BE",
+    ceid: "BE:fr",
+    queryTerm: '(musique OR rock OR indie OR cinéma OR séries OR livres OR "bande dessinée" OR festival)',
+  },
+  polonia: {
+    hl: "en",
+    gl: "PL",
+    ceid: "PL:en",
+    queryTerm: "(Poland OR Polish) (music OR rock OR jazz OR cinema OR film OR books OR literature OR festival)",
+  },
+  islandia: {
+    hl: "en",
+    gl: "IS",
+    ceid: "IS:en",
+    queryTerm: "(Iceland OR Icelandic) (music OR rock OR indie OR film OR cinema OR books OR festival)",
   },
   japon: {
     hl: "en",
@@ -152,11 +176,11 @@ const GOOGLE_NEWS_LOCALE: Record<
     ceid: "ZA:en",
     queryTerm: "(music OR rock OR indie OR film OR cinema OR series OR books OR literature OR arts)",
   },
-  egipto: {
-    hl: "en-EG",
-    gl: "EG",
-    ceid: "EG:en",
-    queryTerm: "Egypt (music OR cinema OR film OR series OR books OR literature OR art)",
+  nigeria: {
+    hl: "en-NG",
+    gl: "NG",
+    ceid: "NG:en",
+    queryTerm: "(Nigeria OR Nigerian) (music OR afrobeats OR indie OR cinema OR nollywood OR film OR books OR literature)",
   },
   australia: {
     hl: "en-AU",

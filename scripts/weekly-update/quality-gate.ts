@@ -17,6 +17,8 @@ const AI_CLICHE_PATTERNS = [
   /diálogo entre tradición y vanguardia/i,
   /completan el mapa semanal/i,
   /recordándonos que el arte/i,
+  /próxima gran sensación/i,
+  /fenómeno imparable/i,
 ];
 
 const GENERIC_CAPTION_PATTERNS = [
@@ -44,7 +46,7 @@ export function validateEditionQuality(
     if (pattern.test(edition.cultural_pulse)) {
       return {
         ok: false,
-        reason: `Detectado cliché abstracto prohibido (${pattern.source}). Reescribe con obras y nombres propios concretos.`,
+        reason: `Detectado cliché o hype prohibido (${pattern.source}). Reescribe con obras y nombres propios concretos.`,
       };
     }
   }
@@ -81,13 +83,13 @@ export function validateEditionQuality(
   if (inlineLinks.length < 1) {
     return {
       ok: false,
-      reason: `Faltan enlaces dentro de cultural_pulse (incluyó 0; obligatorio incluir 2 o 3 usando [Nombre](WIKI:Nombre) o [Nombre](ID)).`,
+      reason: `Faltan enlaces dentro de cultural_pulse (incluyó 0; obligatorio incluir 4 a 6 usando [Nombre](WIKI:Nombre) o [Nombre](ID)).`,
     };
   }
-  if (inlineLinks.length > 3) {
+  if (inlineLinks.length > 6) {
     return {
       ok: false,
-      reason: `Demasiados enlaces inline en cultural_pulse (${inlineLinks.length}); máximo permitido: 3.`,
+      reason: `Demasiados enlaces inline en cultural_pulse (${inlineLinks.length}); máximo permitido: 6.`,
     };
   }
   for (const match of inlineLinks) {
@@ -96,6 +98,22 @@ export function validateEditionQuality(
         ok: false,
         reason: `Enlace inline fuera de lista verificada: ${match[2]}`,
       };
+    }
+  }
+
+  for (const topic of edition.topics) {
+    const topicLinks = Array.from(
+      `${topic.title} ${topic.summary}`.matchAll(
+        /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g
+      )
+    );
+    for (const match of topicLinks) {
+      if (!allowedUrls.has(match[2])) {
+        return {
+          ok: false,
+          reason: `Enlace en tema destacado fuera de lista verificada: ${match[2]}`,
+        };
+      }
     }
   }
 

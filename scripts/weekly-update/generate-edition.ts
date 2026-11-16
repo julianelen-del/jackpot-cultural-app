@@ -206,13 +206,14 @@ function safeEncodeParens(url: string): string {
 }
 
 async function resolveInlineLinks(
-  rawPulse: string,
+  rawText: string,
   verifiedUrls: CandidateUrl[],
-  allowedUrlSet: Set<string>
+  allowedUrlSet: Set<string>,
+  maxLinks = 6
 ): Promise<string> {
   const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
-  const matches = Array.from(rawPulse.matchAll(regex));
-  if (matches.length === 0) return rawPulse;
+  const matches = Array.from(rawText.matchAll(regex));
+  if (matches.length === 0) return rawText;
 
   let result = "";
   let lastIndex = 0;
@@ -224,10 +225,10 @@ async function resolveInlineLinks(
     const target = String(m[2]).trim();
     const start = m.index ?? 0;
 
-    result += rawPulse.slice(lastIndex, start);
+    result += rawText.slice(lastIndex, start);
     lastIndex = start + fullMatch.length;
 
-    if (linkCount >= 3) {
+    if (linkCount >= maxLinks) {
       result += label;
       continue;
     }
@@ -266,7 +267,7 @@ async function resolveInlineLinks(
     result += label;
   }
 
-  result += rawPulse.slice(lastIndex);
+  result += rawText.slice(lastIndex);
   return result;
 }
 
@@ -522,9 +523,13 @@ export async function generateCountryEdition(
     const recRaw = (parsedJson.recommendation || {}) as Record<string, unknown>;
     const recId = Number(recRaw.source_id);
     const recUrl = verifiedUrls[recId - 1]?.url || verifiedUrls[0]?.url;
-    const recContext =
+    const rawRecContext =
       typeof recRaw.context === "string"
         ? stripNumericCitations(recRaw.context)
+        : "";
+    const recContext =
+      typeof recRaw.context === "string"
+        ? await resolveInlineLinks(rawRecContext, verifiedUrls, allowedUrlSet, 2)
         : recRaw.context;
     const recommendation = {
       type: recRaw.type,
@@ -581,7 +586,8 @@ export async function generateCountryEdition(
     const linkedPulse = await resolveInlineLinks(
       rawPulse,
       verifiedUrls,
-      allowedUrlSet
+      allowedUrlSet,
+      6
     );
     const resolvedPulse = ensureBoldHighlights(linkedPulse);
     const plainWordCount = resolvedPulse
@@ -648,27 +654,46 @@ export async function generateCountryEdition(
 
     const cleanIntro =
       typeof parsedJson.intro === "string"
-        ? stripNumericCitations(parsedJson.intro)
+        ? await resolveInlineLinks(
+            stripNumericCitations(parsedJson.intro),
+            verifiedUrls,
+            allowedUrlSet,
+            2
+          )
         : parsedJson.intro;
 
     const cleanTopics = Array.isArray(parsedJson.topics)
-      ? parsedJson.topics.map((t) => {
-          if (t && typeof t === "object") {
-            const topic = t as Record<string, unknown>;
-            return {
-              ...topic,
-              title:
+      ? await Promise.all(
+          parsedJson.topics.map(async (t) => {
+            if (t && typeof t === "object") {
+              const topic = t as Record<string, unknown>;
+              const titleText =
                 typeof topic.title === "string"
-                  ? stripNumericCitations(topic.title)
-                  : topic.title,
-              summary:
+                  ? await resolveInlineLinks(
+                      stripNumericCitations(topic.title),
+                      verifiedUrls,
+                      allowedUrlSet,
+                      1
+                    )
+                  : topic.title;
+              const summaryText =
                 typeof topic.summary === "string"
-                  ? stripNumericCitations(topic.summary)
-                  : topic.summary,
-            };
-          }
-          return t;
-        })
+                  ? await resolveInlineLinks(
+                      stripNumericCitations(topic.summary),
+                      verifiedUrls,
+                      allowedUrlSet,
+                      2
+                    )
+                  : topic.summary;
+              return {
+                ...topic,
+                title: titleText,
+                summary: summaryText,
+              };
+            }
+            return t;
+          })
+        )
       : parsedJson.topics;
 
     const assembled = {

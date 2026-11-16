@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowUpRight, Lock, RotateCw } from "lucide-react";
+import {
+  ArrowUpRight,
+  Headphones,
+  ListMusic,
+  Lock,
+  Radio,
+  RotateCw,
+} from "lucide-react";
 import {
   getAllCountrySummaries,
   getCountriesGroupedByContinent,
@@ -166,6 +173,30 @@ export default async function CountryPage({ params }: PageProps) {
     .filter(Boolean);
 
   const readingMinutes = estimateReadingMinutes(edition.cultural_pulse);
+
+  const listeningItems = [
+    config.listening?.radio
+      ? {
+          kind: "Radio",
+          icon: Radio,
+          ...config.listening.radio,
+        }
+      : null,
+    config.listening?.podcast
+      ? {
+          kind: "Podcast",
+          icon: Headphones,
+          ...config.listening.podcast,
+        }
+      : null,
+    config.listening?.playlist
+      ? {
+          kind: "Selección musical",
+          icon: ListMusic,
+          ...config.listening.playlist,
+        }
+      : null,
+  ].filter((item): item is NonNullable<typeof item> => item !== null);
 
   return (
     <div className="min-h-dvh bg-paper pb-24">
@@ -347,6 +378,56 @@ export default async function CountryPage({ params }: PageProps) {
               )}
             </figcaption>
           </figure>
+        )}
+
+        {listeningItems.length > 0 && (
+          <section
+            aria-labelledby="listening-heading"
+            className="mx-auto mt-16 max-w-3xl border-t border-hairline pt-8"
+          >
+            <div className="mb-5 flex items-baseline justify-between gap-2">
+              <h2
+                id="listening-heading"
+                className="text-[11px] font-semibold tracking-[0.2em] text-ink-muted uppercase"
+              >
+                Para escuchar en {edition.country}
+              </h2>
+              <span className="font-serif text-xs italic text-ink-muted">
+                Aire local, podcasts y selecciones
+              </span>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {listeningItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <a
+                    key={`${item.kind}-${item.name}`}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col justify-between border border-ink/15 bg-paper-warm/50 p-4 transition-colors hover:border-ink/40 hover:bg-paper-warm"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-2 text-[10px] font-semibold tracking-[0.16em] text-accent uppercase">
+                        <span className="inline-flex items-center gap-1.5">
+                          <Icon className="h-3.5 w-3.5" />
+                          <span>{item.kind}</span>
+                        </span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-ink-muted transition-colors group-hover:text-accent" />
+                      </div>
+                      <h3 className="mt-2 font-serif text-lg font-medium text-ink group-hover:text-accent">
+                        {item.name}
+                      </h3>
+                      <p className="mt-1 text-xs leading-relaxed text-ink-muted">
+                        {item.description}
+                      </p>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </section>
         )}
 
         <footer className="mx-auto mt-16 max-w-3xl border-t border-hairline pt-8">
