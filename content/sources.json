@@ -746,4 +746,134 @@
     "continent": "Asia",
     "flag": "🇮🇳",
     "languages": ["en", "hi"],
-    "rss_feeds":
+    "rss_feeds": [
+      "https://www.rollingstoneindia.com/feed/",
+      "https://www.thehindu.com/entertainment/feeder/default.rss",
+      "https://news.google.com/rss/search?q=site%3Ascroll.in%2Freel+OR+site%3Athewire.in%2Fculture+OR+site%3Alivemint.com%2Fmint-lounge+when%3A14d&hl=en-IN&gl=IN&ceid=IN:en"
+    ],
+    "reference_media": [
+      "Rolling Stone India",
+      "Mint Lounge",
+      "Scroll.in (The Reel)",
+      "The Wire Culture",
+      "The Hindu Arts",
+      "boxout.fm"
+    ],
+    "listening": {
+      "radio": {
+        "name": "boxout.fm",
+        "url": "https://boxout.fm/",
+        "description": "Radio comunitaria enfocada en la escena alternativa y underground india"
+      }
+    }
+  },
+  {
+    "slug": "sudafrica",
+    "country": "Sudáfrica",
+    "continent": "África",
+    "flag": "🇿🇦",
+    "languages": ["en"],
+    "rss_feeds": [
+      "https://texxandthecity.com/feed",
+      "https://pan-african-music.com/en/feed/",
+      "https://news.google.com/rss/search?q=site%3Ajohannesburgreviewofbooks.com+OR+site%3Abubblegumclub.co.za+OR+site%3Amg.co.za%2Ffriday+OR+site%3Adailymaverick.co.za%2Fsection%2Fmaverick-life+when%3A14d&hl=en-ZA&gl=ZA&ceid=ZA:en"
+    ],
+    "reference_media": [
+      "Texx and the City",
+      "Pan African Music",
+      "The Johannesburg Review of Books",
+      "Bubblegum Club",
+      "Mail & Guardian Friday",
+      "Maverick Life",
+      "Kaya 959"
+    ],
+    "listening": {
+      "radio": {
+        "name": "Kaya 959",
+        "url": "https://www.kaya959.co.za/",
+        "description": "Soul, jazz, kwaito y escena urbana contemporánea desde Johannesburgo"
+      }
+    }
+  },
+  {
+    "slug": "nigeria",
+    "country": "Nigeria",
+    "continent": "África",
+    "flag": "🇳🇬",
+    "languages": ["en"],
+    "rss_feeds": [
+      "https://brittlepaper.com/feed/",
+      "https://pan-african-music.com/en/feed/",
+      "https://news.google.com/rss/search?q=site%3Athenativemag.com+OR+site%3Aculturecustodian.com+when%3A14d&hl=en-NG&gl=NG&ceid=NG:en",
+      "https://news.google.com/rss/search?q=(Nigerian+music+OR+Afrobeats+OR+Nollywood+OR+%22Nigerian+literature%22+OR+%22Nigerian+film%22)+when%3A14d&hl=en-NG&gl=NG&ceid=NG:en"
+    ],
+    "reference_media": [
+      "The Native",
+      "Culture Custodian",
+      "Pan African Music",
+      "Brittle Paper"
+    ],
+    "listening": {
+      "podcast": {
+        "name": "Culture Custodian Podcast Network",
+        "url": "https://culturecustodian.com/",
+        "description": "Conversaciones sobre música, cine Nollywood y cultura pop nigeriana"
+      }
+    }
+  },
+  {
+    "slug": "australia",
+    "country": "Australia",
+    "continent": "Oceanía",
+    "flag": "🇦🇺",
+    "languages": ["en"],
+    "rss_feeds": [
+      "https://overland.org.au/feed/",
+      "https://www.screenhub.com.au/feed/",
+      "https://www.theguardian.com/au/culture/rss",
+      "https://news.google.com/rss/search?q=site%3Athemonthly.com.au+OR+site%3Aabc.net.au%2Fdoublej+OR+site%3Athemusic.com.au+when%3A14d&hl=en-AU&gl=AU&ceid=AU:en"
+    ],
+    "reference_media": [
+      "Overland",
+      "ScreenHub",
+      "The Monthly",
+      "ABC Double J",
+      "The Music",
+      "The Guardian Australia Culture"
+    ],
+    "listening": {
+      "radio": {
+        "name": "ABC Double J",
+        "url": "https://www.abc.net.au/listen/doublej/",
+        "description": "Rock alternativo, indie australiano y sesiones para público adulto"
+      }
+    }
+  },
+  {
+    "slug": "nueva-zelanda",
+    "country": "Nueva Zelanda",
+    "continent": "Oceanía",
+    "flag": "🇳🇿",
+    "languages": ["en"],
+    "rss_feeds": [
+      "https://13thfloor.co.nz/feed/",
+      "https://www.rnz.co.nz/rss/culture.xml",
+      "https://news.google.com/rss/search?q=site%3Athespinoff.co.nz+OR+site%3Aundertheradar.co.nz+OR+site%3Apantograph-punch.com+when%3A14d&hl=en-NZ&gl=NZ&ceid=NZ:en"
+    ],
+    "reference_media": [
+      "The 13th Floor",
+      "The Spinoff",
+      "RNZ Culture & Music",
+      "UnderTheRadar NZ",
+      "Pantograph Punch",
+      "95bFM"
+    ],
+    "listening": {
+      "radio": {
+        "name": "95bFM",
+        "url": "https://www.95bfm.com/",
+        "description": "Radio independiente de Auckland dedicada al indie y rock neozelandés"
+      }
+    }
+  }
+]
