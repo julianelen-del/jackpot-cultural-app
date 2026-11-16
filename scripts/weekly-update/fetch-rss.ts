@@ -31,29 +31,144 @@ const GOOGLE_NEWS_LOCALE: Record<
   string,
   { hl: string; gl: string; ceid: string; queryTerm: string }
 > = {
-  argentina: { hl: "es-419", gl: "AR", ceid: "AR:es-419", queryTerm: "cultura musica rock cine series literatura" },
-  brasil: { hl: "pt-BR", gl: "BR", ceid: "BR:pt-419", queryTerm: "cultura musica rock cinema series literatura" },
-  mexico: { hl: "es-419", gl: "MX", ceid: "MX:es-419", queryTerm: "cultura musica rock cine series literatura" },
-  "estados-unidos": { hl: "en-US", gl: "US", ceid: "US:en", queryTerm: "culture music rock film television books art" },
-  canada: { hl: "en-CA", gl: "CA", ceid: "CA:en", queryTerm: "arts culture music film television books" },
-  chile: { hl: "es-419", gl: "CL", ceid: "CL:es-419", queryTerm: "cultura musica rock cine series literatura" },
-  colombia: { hl: "es-419", gl: "CO", ceid: "CO:es-419", queryTerm: "cultura musica rock cine series literatura" },
-  "reino-unido": { hl: "en-GB", gl: "GB", ceid: "GB:en", queryTerm: "culture music rock film television books theatre" },
-  irlanda: { hl: "en-IE", gl: "IE", ceid: "IE:en", queryTerm: "irish culture music film television books theatre" },
-  espana: { hl: "es", gl: "ES", ceid: "ES:es", queryTerm: "cultura musica rock cine series literatura" },
-  francia: { hl: "fr", gl: "FR", ceid: "FR:fr", queryTerm: "culture musique rock cinéma séries littérature" },
-  alemania: { hl: "de", gl: "DE", ceid: "DE:de", queryTerm: "kultur musik rock kino serien literatur" },
-  italia: { hl: "it", gl: "IT", ceid: "IT:it", queryTerm: "cultura musica rock cinema serie libri" },
-  suecia: { hl: "sv", gl: "SE", ceid: "SE:sv", queryTerm: "kultur musik film serier böcker teater" },
-  rusia: { hl: "en", gl: "US", ceid: "US:en", queryTerm: "Russia culture music cinema literature theater art" },
-  "paises-bajos": { hl: "nl", gl: "NL", ceid: "NL:nl", queryTerm: "cultuur muziek film series literatuur" },
-  japon: { hl: "en", gl: "JP", ceid: "JP:en", queryTerm: "Japan culture music anime cinema literature art" },
-  "corea-del-sur": { hl: "en", gl: "KR", ceid: "KR:en", queryTerm: "South Korea culture music cinema drama literature" },
-  india: { hl: "en-IN", gl: "IN", ceid: "IN:en", queryTerm: "India culture music cinema streaming books art" },
-  sudafrica: { hl: "en-ZA", gl: "ZA", ceid: "ZA:en", queryTerm: "South Africa music culture film books arts" },
-  egipto: { hl: "en-EG", gl: "EG", ceid: "EG:en", queryTerm: "Egypt culture music cinema literature arts" },
-  australia: { hl: "en-AU", gl: "AU", ceid: "AU:en", queryTerm: "Australia music rock culture film television books" },
-  "nueva-zelanda": { hl: "en-NZ", gl: "NZ", ceid: "NZ:en", queryTerm: "New Zealand music culture film television books" },
+  argentina: {
+    hl: "es-419",
+    gl: "AR",
+    ceid: "AR:es-419",
+    queryTerm: "(musica OR rock OR indie OR cine OR series OR libros OR literatura OR historieta)",
+  },
+  brasil: {
+    hl: "pt-BR",
+    gl: "BR",
+    ceid: "BR:pt-419",
+    queryTerm: "(musica OR rock OR indie OR cinema OR series OR livros OR literatura OR quadrinhos)",
+  },
+  mexico: {
+    hl: "es-419",
+    gl: "MX",
+    ceid: "MX:es-419",
+    queryTerm: "(musica OR rock OR indie OR cine OR series OR libros OR literatura OR comic)",
+  },
+  "estados-unidos": {
+    hl: "en-US",
+    gl: "US",
+    ceid: "US:en",
+    queryTerm: "(music OR rock OR indie OR film OR cinema OR series OR television OR books OR comics)",
+  },
+  canada: {
+    hl: "en-CA",
+    gl: "CA",
+    ceid: "CA:en",
+    queryTerm: "(music OR rock OR indie OR film OR television OR series OR books OR comics)",
+  },
+  chile: {
+    hl: "es-419",
+    gl: "CL",
+    ceid: "CL:es-419",
+    queryTerm: "(musica OR rock OR indie OR cine OR series OR libros OR literatura OR comic)",
+  },
+  colombia: {
+    hl: "es-419",
+    gl: "CO",
+    ceid: "CO:es-419",
+    queryTerm: "(musica OR rock OR indie OR cine OR series OR libros OR literatura OR comic)",
+  },
+  "reino-unido": {
+    hl: "en-GB",
+    gl: "GB",
+    ceid: "GB:en",
+    queryTerm: "(music OR rock OR indie OR film OR cinema OR television OR series OR books OR theatre)",
+  },
+  irlanda: {
+    hl: "en-IE",
+    gl: "IE",
+    ceid: "IE:en",
+    queryTerm: "(music OR rock OR indie OR film OR television OR series OR books OR theatre)",
+  },
+  espana: {
+    hl: "es",
+    gl: "ES",
+    ceid: "ES:es",
+    queryTerm: "(musica OR rock OR indie OR cine OR series OR libros OR literatura OR comic)",
+  },
+  francia: {
+    hl: "fr",
+    gl: "FR",
+    ceid: "FR:fr",
+    queryTerm: '(musique OR rock OR indie OR cinéma OR séries OR livres OR littérature OR "bande dessinée")',
+  },
+  alemania: {
+    hl: "de",
+    gl: "DE",
+    ceid: "DE:de",
+    queryTerm: "(musik OR rock OR indie OR kino OR film OR serien OR bücher OR literatur OR comic)",
+  },
+  italia: {
+    hl: "it",
+    gl: "IT",
+    ceid: "IT:it",
+    queryTerm: "(musica OR rock OR indie OR cinema OR serie OR libri OR letteratura OR fumetti)",
+  },
+  suecia: {
+    hl: "sv",
+    gl: "SE",
+    ceid: "SE:sv",
+    queryTerm: "(musik OR rock OR indie OR film OR serier OR böcker OR litteratur OR teater)",
+  },
+  rusia: {
+    hl: "en",
+    gl: "US",
+    ceid: "US:en",
+    queryTerm: "(Russia OR Russian) (music OR rock OR cinema OR film OR series OR books OR literature OR theater)",
+  },
+  "paises-bajos": {
+    hl: "nl",
+    gl: "NL",
+    ceid: "NL:nl",
+    queryTerm: "(muziek OR rock OR indie OR film OR series OR boeken OR literatuur)",
+  },
+  japon: {
+    hl: "en",
+    gl: "JP",
+    ceid: "JP:en",
+    queryTerm: "Japan (music OR rock OR indie OR cinema OR film OR anime OR manga OR series OR books)",
+  },
+  "corea-del-sur": {
+    hl: "en",
+    gl: "KR",
+    ceid: "KR:en",
+    queryTerm: "(Korea OR Korean) (music OR indie OR rock OR cinema OR film OR series OR drama OR books OR webtoon)",
+  },
+  india: {
+    hl: "en-IN",
+    gl: "IN",
+    ceid: "IN:en",
+    queryTerm: "(music OR rock OR indie OR cinema OR film OR series OR streaming OR books OR literature)",
+  },
+  sudafrica: {
+    hl: "en-ZA",
+    gl: "ZA",
+    ceid: "ZA:en",
+    queryTerm: "(music OR rock OR indie OR film OR cinema OR series OR books OR literature OR arts)",
+  },
+  egipto: {
+    hl: "en-EG",
+    gl: "EG",
+    ceid: "EG:en",
+    queryTerm: "Egypt (music OR cinema OR film OR series OR books OR literature OR art)",
+  },
+  australia: {
+    hl: "en-AU",
+    gl: "AU",
+    ceid: "AU:en",
+    queryTerm: "(music OR rock OR indie OR film OR cinema OR television OR series OR books)",
+  },
+  "nueva-zelanda": {
+    hl: "en-NZ",
+    gl: "NZ",
+    ceid: "NZ:en",
+    queryTerm: "(music OR rock OR indie OR film OR cinema OR television OR series OR books)",
+  },
 };
 
 const BLOCKED_EXTERNAL_DOMAINS = [
@@ -89,11 +204,10 @@ const GENERIC_LINK_LABELS = [
 ];
 
 function findYouTubeInHtml(rawHtml: string): string | undefined {
-  const regex = new RegExp(
-    "https?:\\/\\/(?:www\\.|m\\.)?(?:youtube\\.com\\/watch\\?v=|youtu\\.be\\/|youtube\\.com\\/embed\\/|youtube-nocookie\\.com\\/embed\\/)([a-zA-Z0-9_-]{11})"
-  );
+  const regex =
+    /https?:\/\/(?:www\.|m\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube-nocookie\.com\/embed\/)([a-zA-Z0-9_-]{11})/;
   const match = rawHtml.match(regex);
-  return match ? "https://www.youtube.com/watch?v=" + match[1] : undefined;
+  return match ? `https://www.youtube.com/watch?v=${match[1]}` : undefined;
 }
 
 function extractMediaDescription(item: unknown): string {
@@ -177,12 +291,11 @@ async function fetchOpenArticleContext(url: string): Promise<{
       return { text: "", externalLinks: [] };
     }
 
-    const html = (await res.text()).slice(0, 60000);
+    const html = (await res.text()).slice(0, 65000);
     const cleaned = html
       .replace(/<script[\s\S]*?<\/script>/gi, " ")
       .replace(/<style[\s\S]*?<\/style>/gi, " ");
 
-    // Detectar tráilers o videos de YouTube incrustados dentro del artículo abierto
     const embeddedYoutube = findYouTubeInHtml(cleaned);
 
     const paragraphs: string[] = [];
@@ -216,11 +329,11 @@ async function fetchOpenArticleContext(url: string): Promise<{
           }
         }
       }
-      if (paragraphs.length >= 3) break;
+      if (paragraphs.length >= 4) break;
     }
 
     return {
-      text: paragraphs.join(" ").slice(0, 720),
+      text: paragraphs.join(" ").slice(0, 950),
       externalLinks: collectedLinks,
       youtubeUrl: embeddedYoutube,
     };
@@ -242,7 +355,8 @@ async function parseSingleFeed(feedUrl: string, limit = 8): Promise<RssSignal[]>
       const link = item.link?.trim();
       if (!title || !link) continue;
 
-      const itemTime = item.pubDate ? Date.parse(item.pubDate) : NaN;
+      const rawDate = item.pubDate || item.isoDate;
+      const itemTime = rawDate ? Date.parse(rawDate) : NaN;
       if (!Number.isNaN(itemTime) && itemTime < tenDaysAgo) {
         continue;
       }
@@ -276,14 +390,14 @@ async function parseSingleFeed(feedUrl: string, limit = 8): Promise<RssSignal[]>
         .replace(/<[^>]*>/g, " ")
         .replace(/\s+/g, " ")
         .trim()
-        .slice(0, 750);
+        .slice(0, 850);
 
       signals.push({
         sourceTitle,
         title,
         snippet: cleanSnippet,
         url: link,
-        pubDate: item.pubDate,
+        pubDate: rawDate,
         youtubeUrl,
         externalLinks: rssExtLinks,
       });
@@ -335,8 +449,8 @@ export async function enrichSignalsWithArticleContext(
   const indicesToFetch: number[] = [];
 
   signals.forEach((sig, idx) => {
-    if (indicesToFetch.length >= 7) return;
-    const needsText = sig.snippet.length < 240;
+    if (indicesToFetch.length >= 12) return;
+    const needsText = sig.snippet.length < 300;
     const needsLinks = !sig.externalLinks || sig.externalLinks.length === 0;
     const needsVideo = !sig.youtubeUrl;
     if (needsText || needsLinks || needsVideo) {
@@ -375,7 +489,7 @@ export async function fetchCountryRssSignals(
   const results = await Promise.all(
     feedUrls.map((url) => parseSingleFeed(url, 6))
   );
-  return balanceSignalsBySource(results.flat(), 3, 22);
+  return balanceSignalsBySource(results.flat(), 3, 26);
 }
 
 export async function fetchGoogleNewsCulturalSignals(
@@ -386,7 +500,7 @@ export async function fetchGoogleNewsCulturalSignals(
     hl: "en",
     gl: "US",
     ceid: "US:en",
-    queryTerm: countryName + " culture music film books",
+    queryTerm: `${countryName} (culture OR music OR rock OR film OR series OR books)`,
   };
 
   const query = encodeURIComponent(cfg.queryTerm + " when:7d");
