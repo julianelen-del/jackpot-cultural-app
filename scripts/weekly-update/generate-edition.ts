@@ -131,6 +131,12 @@ function cleanRoboticTransitions(text: string): string {
   );
 }
 
+function stripNumericCitations(text: string): string {
+  return text
+    .replace(/\s*\[(?:YT-)?\d{1,3}(?:\s*,\s*\d{1,3})*\](?!\()/g, "")
+    .replace(/ +([.,;:!?])/g, "$1");
+}
+
 function safeEncodeParens(url: string): string {
   return url.replace(/\(/g, "%28").replace(/\)/g, "%29");
 }
@@ -174,7 +180,8 @@ async function resolveInlineLinks(
       }
     }
 
-    const id = Number(target);
+    const normalizedTarget = target.replace(/^id[\s:-]*/i, "").trim();
+    const id = Number(normalizedTarget);
     const matched = Number.isInteger(id) ? verifiedUrls[id - 1] : undefined;
     if (matched) {
       const cleanUrl = safeEncodeParens(matched.url);
@@ -337,7 +344,7 @@ export async function generateCountryEdition(
         [];
 
       if (text.length >= 200) {
-        researchDossier = text;
+        researchDossier = stripNumericCitations(text);
         for (const chunk of groundingChunks) {
           if (chunk.web?.uri) {
             candidateUrls.push({
@@ -451,11 +458,15 @@ export async function generateCountryEdition(
     const recRaw = (parsedJson.recommendation || {}) as Record<string, unknown>;
     const recId = Number(recRaw.source_id);
     const recUrl = verifiedUrls[recId - 1]?.url || verifiedUrls[0]?.url;
+    const recContext =
+      typeof recRaw.context === "string"
+        ? stripNumericCitations(recRaw.context)
+        : recRaw.context;
     const recommendation = {
       type: recRaw.type,
       title: recRaw.title,
       creator: recRaw.creator,
-      context: recRaw.context,
+      context: recContext,
       url: recUrl,
     };
 
@@ -496,12 +507,12 @@ export async function generateCountryEdition(
         : country.country;
     const visualCaption =
       typeof parsedJson.visual_caption === "string"
-        ? parsedJson.visual_caption
+        ? stripNumericCitations(parsedJson.visual_caption)
         : `Escena cultural en ${country.country}.`;
 
     const rawPulse =
       typeof parsedJson.cultural_pulse === "string"
-        ? cleanRoboticTransitions(parsedJson.cultural_pulse)
+        ? stripNumericCitations(cleanRoboticTransitions(parsedJson.cultural_pulse))
         : "";
     const resolvedPulse = await resolveInlineLinks(
       rawPulse,
@@ -524,7 +535,9 @@ export async function generateCountryEdition(
     let closingMedia: ClosingMedia | undefined;
     const closingRaw = (parsedJson.closing_media || {}) as Record<string, unknown>;
     const closingCaption =
-      typeof closingRaw.caption === "string" ? closingRaw.caption.trim() : "";
+      typeof closingRaw.caption === "string"
+        ? stripNumericCitations(closingRaw.caption.trim())
+        : "";
 
     if (
       closingRaw.mode === "video" &&
@@ -568,6 +581,31 @@ export async function generateCountryEdition(
       }
     }
 
+    const cleanIntro =
+      typeof parsedJson.intro === "string"
+        ? stripNumericCitations(parsedJson.intro)
+        : parsedJson.intro;
+
+    const cleanTopics = Array.isArray(parsedJson.topics)
+      ? parsedJson.topics.map((t) => {
+          if (t && typeof t === "object") {
+            const topic = t as Record<string, unknown>;
+            return {
+              ...topic,
+              title:
+                typeof topic.title === "string"
+                  ? stripNumericCitations(topic.title)
+                  : topic.title,
+              summary:
+                typeof topic.summary === "string"
+                  ? stripNumericCitations(topic.summary)
+                  : topic.summary,
+            };
+          }
+          return t;
+        })
+      : parsedJson.topics;
+
     const assembled = {
       slug: country.slug,
       country: country.country,
@@ -576,9 +614,9 @@ export async function generateCountryEdition(
       updated_at: new Date().toISOString(),
       edition_week: weekLabel,
       ...(coverImage ? { cover_image: coverImage } : {}),
-      intro: parsedJson.intro,
+      intro: cleanIntro,
       cultural_pulse: resolvedPulse,
-      topics: parsedJson.topics,
+      topics: cleanTopics,
       recommendation,
       ...(closingMedia ? { closing_media: closingMedia } : {}),
       sources,
