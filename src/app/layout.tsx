@@ -15,10 +15,48 @@ const inter = Inter({
   display: "swap",
 });
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "https://jackpot-cultural-app.vercel.app");
+
 export const metadata: Metadata = {
-  title: "JACKPOT CULTURAL — Revista cultural internacional impulsada por el azar",
+  metadataBase: new URL(SITE_URL),
+  title:
+    "JACKPOT CULTURAL — Música, cine, series y libros del mundo por azar",
   description:
-    "Accioná la palanca, descubrí un país al azar y leé de qué está hablando su cultura esta semana.",
+    "Revista cultural internacional semanal con escena indie, rock, cine de autor, series, libros, podcasts, festivales y radios de 27 países.",
+  keywords: [
+    "revista cultural",
+    "música indie",
+    "rock alternativo",
+    "cine independiente",
+    "series",
+    "libros",
+    "podcasts culturales",
+    "festivales",
+    "cultura internacional",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    siteName: "JACKPOT CULTURAL",
+    title:
+      "JACKPOT CULTURAL — Música, cine, series y libros del mundo por azar",
+    description:
+      "Accioná la palanca, descubrí un país al azar y leé qué está moviendo su escena cultural esta semana.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JACKPOT CULTURAL",
+    description:
+      "Música, rock, cine, series, libros, podcasts y festivales de 27 países en una tirada al azar.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
