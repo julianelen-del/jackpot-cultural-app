@@ -1,5 +1,3 @@
-import fs from "node:fs";
-import path from "node:path";
 import {
   CONTINENTS,
   CountryEditionSchema,
@@ -8,6 +6,9 @@ import {
   type CountryListeningConfig,
   type CountrySourceConfig,
 } from "./schema";
+
+import fs from "node:fs";
+import path from "node:path";
 
 const SOURCES_PATH = path.join(process.cwd(), "content", "sources.json");
 const COUNTRIES_DIR = path.join(process.cwd(), "content", "countries");
@@ -20,29 +21,21 @@ export interface CountrySummary {
   listening?: CountryListeningConfig;
 }
 
-let cachedConfigs: CountrySourceConfig[] | null = null;
-
-function getSourceConfigs(): CountrySourceConfig[] {
-  if (cachedConfigs) return cachedConfigs;
+export function getAllCountrySummaries(): CountrySummary[] {
   try {
     if (!fs.existsSync(SOURCES_PATH)) return [];
     const raw = fs.readFileSync(SOURCES_PATH, "utf-8");
-    cachedConfigs = JSON.parse(raw) as CountrySourceConfig[];
-    return cachedConfigs;
+    const configs = JSON.parse(raw) as CountrySourceConfig[];
+    return configs.map((c) => ({
+      slug: c.slug,
+      country: c.country,
+      continent: c.continent,
+      flag: c.flag,
+      ...(c.listening ? { listening: c.listening } : {}),
+    }));
   } catch {
     return [];
   }
-}
-
-export function getAllCountrySummaries(): CountrySummary[] {
-  const configs = getSourceConfigs();
-  return configs.map((c) => ({
-    slug: c.slug,
-    country: c.country,
-    continent: c.continent,
-    flag: c.flag,
-    ...(c.listening ? { listening: c.listening } : {}),
-  }));
 }
 
 export function getCountriesGroupedByContinent(): {
@@ -63,10 +56,10 @@ export function getCountryConfigBySlug(
 }
 
 export function getCountryEdition(slug: string): CountryEdition | null {
-  const filePath = path.join(COUNTRIES_DIR, `${slug}.json`);
-  if (!fs.existsSync(filePath)) return null;
-
   try {
+    const filePath = path.join(COUNTRIES_DIR, `${slug}.json`);
+    if (!fs.existsSync(filePath)) return null;
+
     const raw = fs.readFileSync(filePath, "utf-8");
     const parsed = JSON.parse(raw);
     const result = CountryEditionSchema.safeParse(parsed);
