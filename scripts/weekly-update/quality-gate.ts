@@ -18,6 +18,8 @@ const AI_CLICHE_PATTERNS = [
   /recordándonos que el arte/i,
   /próxima gran sensación/i,
   /fenómeno imparable/i,
+  /marcando el pulso global/i,
+  /cada etapa más/i,
 ];
 
 const VAGUE_PHRASE_PATTERNS = [
@@ -31,6 +33,15 @@ const VAGUE_PHRASE_PATTERNS = [
   /fricciones estéticas/i,
   /discusión pública/i,
   /fórmulas estandarizadas/i,
+  /mapa sonoro/i,
+  /escrutinio crítico/i,
+  /códigos genéricos/i,
+  /inventiva rítmica/i,
+  /colisiones estilísticas/i,
+  /mera celebración comercial/i,
+  /listas de reproducción locales/i,
+  /balances de los temas/i,
+  /impacto cultural y sonoro/i,
 ];
 
 const GENERIC_CAPTION_PATTERNS = [
@@ -89,10 +100,12 @@ const NON_PROPER_CAPS = new Set([
   "Cinco",
   "Tres",
   "Cuatro",
+  "Veinte",
   "Presencia",
   "Debate",
   "Debates",
   "Lecturas",
+  "Lectura",
   "Análisis",
   "Crítica",
   "Industria",
@@ -107,15 +120,122 @@ const NON_PROPER_CAPS = new Set([
   "Festival",
   "Festivales",
   "Literatura",
+  "Balances",
+  "Balance",
+  "Repaso",
+  "Resumen",
+  "Panorama",
+  "Mapa",
+  "Lista",
+  "Listas",
+  "Temporada",
+  "Sencillos",
+  "Canciones",
+  "Éxitos",
+  "Premios",
+  "Tráiler",
+  "Cartelera",
+  "Lanzamientos",
+  "Estrenos",
+  "Tendencias",
+  "Novedades",
+  "Edición",
+  "Claves",
+  "Voces",
+  "Sonidos",
+  "Rutas",
+  "Itinerarios",
+  "Miradas",
+  "Crónicas",
+  "Historia",
+  "Actualidad",
+  "Cierre",
+  "Obras",
+  "Artistas",
+  "Bandas",
+  "Discos",
+  "Películas",
+  "Recomendaciones",
+  "Muestra",
+  "Ciclo",
+  "Homenaje",
+  "Aniversario",
+  "Lejos",
+  "Además",
+  "Mientras",
+  "Aunque",
+  "Durante",
 ]);
 
-function hasConcreteProperNoun(text: string): boolean {
+function normalizeText(value: string): string {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+}
+
+function getCategoryBucket(category: string): string {
+  const norm = normalizeText(category);
+  if (
+    /(libro|literatura|novela|ensayo|poesia|cronica|editorial|ficcion|lectura)/.test(
+      norm
+    )
+  ) {
+    return "libros";
+  }
+  if (
+    /(musica|rock|indie|pop|jazz|electronica|hip hop|rap|folklore|discos|cancion)/.test(
+      norm
+    )
+  ) {
+    return "musica";
+  }
+  if (/(cine|serie|television|tv|documental|audiovisual)/.test(norm)) {
+    return "cine_series";
+  }
+  if (
+    /(teatro|arte|exhibicion|exposicion|museo|arquitectura|danza|fotografia)/.test(
+      norm
+    )
+  ) {
+    return "artes_escena";
+  }
+  if (/(festival|feria)/.test(norm)) {
+    return "festivales";
+  }
+  if (/(podcast|radio|audio)/.test(norm)) {
+    return "podcasts";
+  }
+  if (/(comic|historieta|humor grafico)/.test(norm)) {
+    return "comics";
+  }
+  return norm;
+}
+
+function hasConcreteProperNoun(
+  text: string,
+  countryName: string,
+  continentName: string
+): boolean {
   const plain = text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
   const matches = plain.match(
     /\b[A-ZÁÉÍÓÚÑÜ][a-záéíóúñüA-ZÁÉÍÓÚÑÜ0-9'’-]{2,}\b/g
   );
   if (!matches) return false;
-  return matches.some((word) => !NON_PROPER_CAPS.has(word));
+
+  const ignoredGeoTokens = new Set(
+    `${countryName} ${continentName}`
+      .split(/\s+/)
+      .map((w) => normalizeText(w))
+      .filter((w) => w.length > 2)
+  );
+
+  return matches.some((word) => {
+    if (NON_PROPER_CAPS.has(word)) return false;
+    if (ignoredGeoTokens.has(normalizeText(word))) return false;
+    return true;
+  });
 }
 
 export function validateEditionQuality(
@@ -136,7 +256,7 @@ export function validateEditionQuality(
     if (pattern.test(edition.cultural_pulse)) {
       return {
         ok: false,
-        reason: `Detectado cliché o hype prohibido (${pattern.source}). Reescribe con obras y nombres propios concretos.`,
+        reason: `Detectado cliché o expresión artificial (${pattern.source}). Reescribe en español natural con obras y nombres propios concretos.`,
       };
     }
   }
@@ -169,20 +289,20 @@ export function validateEditionQuality(
   const boldMatches = Array.from(
     edition.cultural_pulse.matchAll(/\*\*([^*\n]{2,80})\*\*/g)
   );
-  if (boldMatches.length < 1) {
+  if (boldMatches.length < 2) {
     return {
       ok: false,
-      reason: `Faltan negritas en cultural_pulse (obligatorio destacar al menos 2 nombres propios o ideas clave usando **texto**, sin ponerlas encima de enlaces).`,
+      reason: `Faltan negritas en cultural_pulse (incluyó ${boldMatches.length}; obligatorio destacar al menos 2 nombres propios o ideas clave usando **texto**, sin ponerlas encima de enlaces).`,
     };
   }
 
   const inlineLinks = Array.from(
     edition.cultural_pulse.matchAll(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g)
   );
-  if (inlineLinks.length < 1) {
+  if (inlineLinks.length < 2) {
     return {
       ok: false,
-      reason: `Faltan enlaces dentro de cultural_pulse (incluyó 0; obligatorio incluir 4 a 6 usando [Nombre](WIKI:Nombre) o [Nombre](ID)).`,
+      reason: `Faltan enlaces dentro de cultural_pulse (incluyó ${inlineLinks.length}; obligatorio incluir al menos 2 —ideal 4 a 6— usando [Nombre](WIKI:Nombre) o [Nombre](ID)).`,
     };
   }
   if (inlineLinks.length > 6) {
@@ -200,9 +320,42 @@ export function validateEditionQuality(
     }
   }
 
+  const pulseParagraphs = edition.cultural_pulse
+    .split(/\n{2,}/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+
+  for (let i = 0; i < pulseParagraphs.length; i++) {
+    const p = pulseParagraphs[i];
+    const hasHighlight =
+      /\*\*[^*\n]{2,80}\*\*/.test(p) ||
+      /\[[^\]]+\]\(https?:\/\/[^)]+\)/.test(p);
+
+    if (
+      !hasHighlight ||
+      !hasConcreteProperNoun(p, edition.country, edition.continent)
+    ) {
+      return {
+        ok: false,
+        reason: `El párrafo ${i + 1} de cultural_pulse es demasiado abstracto o no destaca obras/autores concretos. Si no hay otro tema concreto, usa 2 párrafos densos en lugar de agregar un cierre genérico.`,
+      };
+    }
+  }
+
+  const seenBuckets = new Set<string>();
+
   for (let i = 0; i < edition.topics.length; i++) {
     const topic = edition.topics[i];
     const combined = `${topic.title} ${topic.summary}`;
+
+    const bucket = getCategoryBucket(topic.category);
+    if (seenBuckets.has(bucket)) {
+      return {
+        ok: false,
+        reason: `Categorías repetidas o solapadas en Temas destacados ("${topic.category}"). Usa disciplinas distintas (ej. Música, Cine y Series, Libros). Si solo hay 2 disciplinas fuertes, incluye 2 tarjetas.`,
+      };
+    }
+    seenBuckets.add(bucket);
 
     for (const pattern of [...AI_CLICHE_PATTERNS, ...VAGUE_PHRASE_PATTERNS]) {
       if (pattern.test(combined)) {
@@ -213,7 +366,7 @@ export function validateEditionQuality(
       }
     }
 
-    if (!hasConcreteProperNoun(combined)) {
+    if (!hasConcreteProperNoun(combined, edition.country, edition.continent)) {
       return {
         ok: false,
         reason: `El tema destacado "${topic.title}" es demasiado vago: no nombra ningún artista, banda, libro, película, serie o festival concreto.`,

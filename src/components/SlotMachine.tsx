@@ -277,7 +277,7 @@ export function SlotMachine({
 
       <section
         aria-label="Selector aleatorio de país"
-        className="flex w-full max-w-3xl flex-col items-center gap-7 md:flex-row md:justify-center md:gap-6"
+        className="flex w-full max-w-3xl flex-col items-center gap-7 md:flex-row md:justify-center md:gap-0"
       >
         <div className="w-full max-w-xl border border-ink/85 bg-paper-warm p-3 shadow-[0_14px_38px_-18px_rgba(22,22,21,0.22)] sm:p-5">
           <div className="border border-ink/25 bg-paper p-3 sm:p-5">
@@ -361,35 +361,41 @@ export function SlotMachine({
         </div>
 
         <div className="hidden md:flex md:flex-col md:items-center">
-          <div className="relative flex h-44 w-16 items-center justify-center">
-            <div className="h-14 w-3 border border-ink/30 bg-paper-warm" />
-            <motion.button
-              type="button"
-              onClick={pullLever}
-              disabled={isSpinning}
-              aria-label="Accionar palanca"
-              drag="y"
-              dragConstraints={{ top: 0, bottom: 56 }}
-              dragElastic={0.15}
-              onDragEnd={(_, info) => {
-                if (info.offset.y > 24) {
-                  pullLever();
-                }
-              }}
-              animate={{
-                y: leverPulled ? 48 : 0,
-              }}
-              transition={{ type: "spring", stiffness: 280, damping: 20 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.96 }}
-              className="absolute top-3 flex cursor-pointer flex-col items-center focus:outline-none disabled:cursor-wait"
-            >
-              <span className="h-9 w-9 rounded-full border-2 border-ink bg-accent shadow-md transition-colors hover:bg-[#9E2E20]" />
-              <span className="h-16 w-1.5 bg-ink/80" />
-            </motion.button>
+          <div className="flex items-center">
+            <div className="h-5 w-4 border-y border-ink/85 bg-paper-warm" />
+
+            <div className="relative flex h-40 w-12 items-start justify-center border border-ink/85 bg-paper-warm pt-3 shadow-[0_12px_28px_-14px_rgba(22,22,21,0.28)]">
+              <div className="h-32 w-2 rounded-full border border-ink/25 bg-ink/15 shadow-inner" />
+
+              <motion.button
+                type="button"
+                onClick={pullLever}
+                disabled={isSpinning}
+                aria-label="Accionar palanca"
+                drag="y"
+                dragConstraints={{ top: 0, bottom: 92 }}
+                dragElastic={0.1}
+                onDragEnd={(_, info) => {
+                  if (info.offset.y > 28) {
+                    pullLever();
+                  }
+                }}
+                animate={{
+                  y: leverPulled ? 92 : 0,
+                }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                whileHover={{ scale: 1.06 }}
+                whileTap={{ scale: 0.96 }}
+                className="absolute top-2.5 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border-2 border-ink bg-accent shadow-[0_4px_10px_rgba(22,22,21,0.28)] transition-colors hover:bg-[#9E2E20] focus:outline-none disabled:cursor-wait"
+              >
+                <span className="pointer-events-none absolute top-1.5 left-2 h-2 w-2 rounded-full bg-white/35" />
+                <span className="pointer-events-none h-2.5 w-2.5 rounded-full border border-ink/35 bg-black/15" />
+              </motion.button>
+            </div>
           </div>
-          <span className="mt-1 text-[10px] font-medium tracking-[0.16em] text-ink-muted uppercase">
-            Tirar
+
+          <span className="mt-2.5 pl-4 text-[10px] font-medium tracking-[0.18em] text-ink-muted uppercase">
+            Tirar ↓
           </span>
         </div>
 

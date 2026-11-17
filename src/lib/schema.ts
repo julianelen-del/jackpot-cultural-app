@@ -67,7 +67,7 @@ export const CountryEditionSchema = z.object({
     },
     { message: "El pulso cultural debe tener entre 150 y 700 palabras." }
   ),
-  topics: z.array(TopicSchema).min(3).max(5),
+  topics: z.array(TopicSchema).min(2).max(5),
   recommendation: RecommendationSchema,
   closing_media: ClosingMediaSchema.optional(),
   sources: z.array(SourceSchema).min(2).max(8),

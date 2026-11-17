@@ -320,7 +320,13 @@ export default async function CountryPage({ params }: PageProps) {
             </span>
           </div>
 
-          <div className="grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
+          <div
+            className={`grid gap-x-10 gap-y-8 ${
+              edition.topics.length === 2 || edition.topics.length === 4
+                ? "md:grid-cols-2"
+                : "md:grid-cols-2 lg:grid-cols-3"
+            }`}
+          >
             {edition.topics.map((topic, idx) => (
               <div key={idx} className="border-t border-hairline pt-4">
                 <p className="text-[10px] font-semibold tracking-[0.18em] text-accent uppercase">
