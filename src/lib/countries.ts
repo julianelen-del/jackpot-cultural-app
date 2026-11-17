@@ -1,3 +1,4 @@
+import "server-only";
 import fs from "node:fs";
 import path from "node:path";
 import {
@@ -20,9 +21,22 @@ export interface CountrySummary {
   listening?: CountryListeningConfig;
 }
 
+// Caché en memoria para entorno de servidor
+let cachedConfigs: CountrySourceConfig[] | null = null;
+
+function getSourceConfigs(): CountrySourceConfig[] {
+  if (cachedConfigs) return cachedConfigs;
+  try {
+    const raw = fs.readFileSync(SOURCES_PATH, "utf-8");
+    cachedConfigs = JSON.parse(raw) as CountrySourceConfig[];
+    return cachedConfigs;
+  } catch {
+    return [];
+  }
+}
+
 export function getAllCountrySummaries(): CountrySummary[] {
-  const raw = fs.readFileSync(SOURCES_PATH, "utf-8");
-  const configs = JSON.parse(raw) as CountrySourceConfig[];
+  const configs = getSourceConfigs();
   return configs.map((c) => ({
     slug: c.slug,
     country: c.country,
