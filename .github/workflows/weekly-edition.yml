@@ -41,11 +41,14 @@ jobs:
             npm run update-editions
           fi
 
+      - name: Generar placas visuales para redes
+        run: npm run social:cards
+
       - name: Guardar cambios en el repositorio
         run: |
           git config user.name "Jackpot Cultural Bot"
           git config user.email "bot@jackpot-cultural.local"
-          git add content/countries/
+          git add content/countries/ public/social-cards/
           if git diff --staged --quiet; then
             echo "Sin cambios nuevos esta semana."
           else

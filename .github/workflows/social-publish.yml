@@ -1,0 +1,64 @@
+name: Publicar en Redes Sociales
+
+on:
+  schedule:
+    - cron: "0 13,17,21,1 * * *"
+  workflow_dispatch:
+    inputs:
+      country:
+        description: "Slug de país opcional (ej: argentina)"
+        required: false
+        default: ""
+      dry_run:
+        description: "Simular sin publicar (true/false)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Publicar siguiente país en redes
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+          X_INCLUDE_LINK: "true"
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.country }}" ]; then
+            ARGS="$ARGS --country=${{ inputs.country }}"
+          fi
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          npm run social:publish -- $ARGS
+
+      - name: Guardar progreso de la cola semanal
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          git config user.name "Jackpot Cultural Bot"
+          git config user.email "bot@jackpot-cultural.local"
+          git add content/social-state.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: registro publicación en redes"
+            git push
+          fi
