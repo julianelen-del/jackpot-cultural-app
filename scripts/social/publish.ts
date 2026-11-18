@@ -12,6 +12,7 @@ const SOURCES_PATH = path.join(process.cwd(), "content", "sources.json");
 const COUNTRIES_DIR = path.join(process.cwd(), "content", "countries");
 const STATE_PATH = path.join(process.cwd(), "content", "social-state.json");
 const GRAPH_BASE = "https://graph.facebook.com/v27.0";
+const THREADS_BASE = "https://graph.threads.net/v1.0";
 const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://jackpot-cultural-app.vercel.app"
 ).replace(/\/+$/, "");
@@ -20,6 +21,8 @@ interface SocialPostRecord {
   publishedAt: string;
   facebookPostId?: string;
   instagramMediaId?: string;
+  instagramMode?: "carousel" | "single";
+  threadsPostId?: string;
   xTweetId?: string;
 }
 
@@ -87,23 +90,37 @@ function pickLatestWeek(editions: CountryEdition[]): string {
   return sorted[0]?.[0] || "";
 }
 
+async function isPublicJpeg(url: string): Promise<boolean> {
+  try {
+    const res = await fetch(url, { method: "HEAD" });
+    const ct = res.headers.get("content-type") || "";
+    return res.ok && ct.includes("jpeg");
+  } catch {
+    return false;
+  }
+}
+
 async function resolvePublicJpegUrl(edition: CountryEdition): Promise<string | null> {
   const cardUrl = `${SITE_URL}/social-cards/${edition.slug}.jpg`;
-  try {
-    const res = await fetch(cardUrl, { method: "HEAD" });
-    const ct = res.headers.get("content-type") || "";
-    if (res.ok && ct.includes("jpeg")) {
-      return cardUrl;
-    }
-  } catch {
-    // Probar fallback
-  }
+  if (await isPublicJpeg(cardUrl)) return cardUrl;
 
   const cover = edition.cover_image?.url;
   if (cover && /\.(jpe?g)(\?|$)/i.test(cover)) {
     return cover;
   }
   return null;
+}
+
+async function resolveCarouselUrls(
+  edition: CountryEdition
+): Promise<string[] | null> {
+  const urls = [
+    `${SITE_URL}/social-cards/${edition.slug}-1.jpg`,
+    `${SITE_URL}/social-cards/${edition.slug}-2.jpg`,
+    `${SITE_URL}/social-cards/${edition.slug}-3.jpg`,
+  ];
+  const checks = await Promise.all(urls.map((u) => isPublicJpeg(u)));
+  return checks.every(Boolean) ? urls : null;
 }
 
 function buildFacebookCaption(edition: CountryEdition): string {
@@ -128,7 +145,10 @@ function buildFacebookCaption(edition: CountryEdition): string {
   ].join("\n");
 }
 
-function buildInstagramCaption(edition: CountryEdition): string {
+function buildInstagramCaption(
+  edition: CountryEdition,
+  isCarousel: boolean
+): string {
   const intro = stripMarkdown(edition.intro);
   const bullets = edition.topics
     .slice(0, 3)
@@ -143,16 +163,32 @@ function buildInstagramCaption(edition: CountryEdition): string {
     `${edition.flag} ${edition.country.toUpperCase()} · ${edition.edition_week}`,
     "",
     intro,
+    ...(isCarousel ? ["", "Deslizá las placas para ver el panorama completo →"] : []),
     "",
     "En esta edición:",
     bullets,
     "",
     `Para descubrir: ${edition.recommendation.title} — ${edition.recommendation.creator}.`,
     "",
-    `Leé la crónica completa en el enlace de nuestra bio (${SITE_URL.replace(/^https?:\/\//, "")}).`,
+    `Leé la crónica completa y escuchá las radios del país en el enlace de nuestra bio (${SITE_URL.replace(/^https?:\/\//, "")}).`,
     "",
     `#JackpotCultural #Cultura #Musica #Cine #Libros #${countryTag}`,
   ].join("\n");
+}
+
+function buildThreadsText(edition: CountryEdition): string {
+  const pageUrl = `${SITE_URL}/pais/${edition.slug}`;
+  const intro = stripMarkdown(edition.intro);
+  const rec = `Para descubrir: ${edition.recommendation.title} (${edition.recommendation.creator}).`;
+  const header = `${edition.flag} ${edition.country} (${edition.edition_week})`;
+  const full = `${header}\n\n${intro}\n\n${rec}\n\n${pageUrl}`;
+  if (full.length <= 495) return full;
+
+  const short = `${header}\n\n${intro}\n\n${pageUrl}`;
+  if (short.length <= 495) return short;
+
+  const maxIntro = 495 - header.length - pageUrl.length - 6;
+  return `${header}\n\n${intro.slice(0, maxIntro - 1)}…\n\n${pageUrl}`;
 }
 
 function buildXText(edition: CountryEdition, includeLink: boolean): string {
@@ -210,7 +246,56 @@ async function publishToFacebook(
   return data.id || "ok";
 }
 
-async function publishToInstagram(
+async function waitForIgContainer(
+  containerId: string,
+  token: string
+): Promise<void> {
+  for (let i = 0; i < 15; i++) {
+    await new Promise((r) => setTimeout(r, 2000));
+    const statusRes = await fetch(
+      `${GRAPH_BASE}/${containerId}?fields=status_code&access_token=${encodeURIComponent(token)}`
+    );
+    const statusData = (await statusRes.json()) as { status_code?: string };
+    if (statusData.status_code === "FINISHED") return;
+    if (
+      statusData.status_code === "ERROR" ||
+      statusData.status_code === "EXPIRED"
+    ) {
+      throw new Error(`Contenedor IG en estado ${statusData.status_code}`);
+    }
+  }
+}
+
+async function publishIgMediaId(
+  igUserId: string,
+  token: string,
+  creationId: string
+): Promise<string> {
+  const pubRes = await fetch(`${GRAPH_BASE}/${igUserId}/media_publish`, {
+    method: "POST",
+    body: new URLSearchParams({
+      creation_id: creationId,
+      access_token: token,
+    }),
+  });
+  const pubData = (await pubRes.json()) as {
+    id?: string;
+    error?: { message: string };
+  };
+  if (!pubRes.ok || !pubData.id) {
+    const checkRes = await fetch(
+      `${GRAPH_BASE}/${creationId}?fields=status_code&access_token=${encodeURIComponent(token)}`
+    );
+    const checkData = (await checkRes.json()) as { status_code?: string };
+    if (checkData.status_code === "PUBLISHED") {
+      return creationId;
+    }
+    throw new Error(pubData.error?.message || `HTTP ${pubRes.status}`);
+  }
+  return pubData.id;
+}
+
+async function publishToInstagramSingle(
   igUserId: string,
   token: string,
   imageUrl: string,
@@ -232,44 +317,120 @@ async function publishToInstagram(
     throw new Error(createData.error?.message || `HTTP ${createRes.status}`);
   }
 
-  const containerId = createData.id;
+  await waitForIgContainer(createData.id, token);
+  return publishIgMediaId(igUserId, token, createData.id);
+}
 
-  // Esperar a que Meta termine de procesar el JPEG
-  for (let i = 0; i < 15; i++) {
-    await new Promise((r) => setTimeout(r, 2000));
-    const statusRes = await fetch(
-      `${GRAPH_BASE}/${containerId}?fields=status_code&access_token=${encodeURIComponent(token)}`
-    );
-    const statusData = (await statusRes.json()) as { status_code?: string };
-    if (statusData.status_code === "FINISHED") break;
-    if (statusData.status_code === "ERROR" || statusData.status_code === "EXPIRED") {
-      throw new Error(`Contenedor IG en estado ${statusData.status_code}`);
+async function publishToInstagramCarousel(
+  igUserId: string,
+  token: string,
+  imageUrls: string[],
+  caption: string
+): Promise<string> {
+  const childIds: string[] = [];
+
+  for (const url of imageUrls) {
+    const res = await fetch(`${GRAPH_BASE}/${igUserId}/media`, {
+      method: "POST",
+      body: new URLSearchParams({
+        image_url: url,
+        is_carousel_item: "true",
+        access_token: token,
+      }),
+    });
+    const data = (await res.json()) as {
+      id?: string;
+      error?: { message: string };
+    };
+    if (!res.ok || !data.id) {
+      throw new Error(data.error?.message || `HTTP ${res.status}`);
     }
+    childIds.push(data.id);
   }
 
-  const pubRes = await fetch(`${GRAPH_BASE}/${igUserId}/media_publish`, {
+  for (const id of childIds) {
+    await waitForIgContainer(id, token);
+  }
+
+  const parentRes = await fetch(`${GRAPH_BASE}/${igUserId}/media`, {
     method: "POST",
     body: new URLSearchParams({
-      creation_id: containerId,
+      media_type: "CAROUSEL",
+      children: childIds.join(","),
+      caption,
       access_token: token,
     }),
   });
+  const parentData = (await parentRes.json()) as {
+    id?: string;
+    error?: { message: string };
+  };
+  if (!parentRes.ok || !parentData.id) {
+    throw new Error(parentData.error?.message || `HTTP ${parentRes.status}`);
+  }
+
+  await waitForIgContainer(parentData.id, token);
+  return publishIgMediaId(igUserId, token, parentData.id);
+}
+
+async function publishToThreads(
+  threadsUserId: string,
+  token: string,
+  imageUrl: string | null,
+  text: string
+): Promise<string> {
+  const params = new URLSearchParams({
+    media_type: imageUrl ? "IMAGE" : "TEXT",
+    text,
+    access_token: token,
+  });
+  if (imageUrl) {
+    params.set("image_url", imageUrl);
+  }
+
+  const createRes = await fetch(`${THREADS_BASE}/${threadsUserId}/threads`, {
+    method: "POST",
+    body: params,
+  });
+  const createData = (await createRes.json()) as {
+    id?: string;
+    error?: { message: string };
+  };
+  if (!createRes.ok || !createData.id) {
+    throw new Error(createData.error?.message || `HTTP ${createRes.status}`);
+  }
+
+  const creationId = createData.id;
+
+  for (let i = 0; i < 12; i++) {
+    await new Promise((r) => setTimeout(r, 2000));
+    const statusRes = await fetch(
+      `${THREADS_BASE}/${creationId}?fields=status&access_token=${encodeURIComponent(token)}`
+    );
+    const statusData = (await statusRes.json()) as { status?: string };
+    if (statusData.status === "FINISHED") break;
+    if (statusData.status === "ERROR" || statusData.status === "EXPIRED") {
+      throw new Error(`Contenedor Threads en estado ${statusData.status}`);
+    }
+  }
+
+  const pubRes = await fetch(
+    `${THREADS_BASE}/${threadsUserId}/threads_publish`,
+    {
+      method: "POST",
+      body: new URLSearchParams({
+        creation_id: creationId,
+        access_token: token,
+      }),
+    }
+  );
   const pubData = (await pubRes.json()) as {
     id?: string;
     error?: { message: string };
   };
   if (!pubRes.ok || !pubData.id) {
-    // Evitar duplicados si ya se publicó
-    const checkRes = await fetch(
-      `${GRAPH_BASE}/${containerId}?fields=status_code&access_token=${encodeURIComponent(token)}`
-    );
-    const checkData = (await checkRes.json()) as { status_code?: string };
-    if (checkData.status_code === "PUBLISHED") {
-      return containerId;
-    }
     throw new Error(pubData.error?.message || `HTTP ${pubRes.status}`);
   }
-
   return pubData.id;
 }
 
@@ -388,17 +549,26 @@ async function main() {
     `=== Publicando: ${target.flag} ${target.country} (${target.edition_week}) ===`
   );
 
-  const imageUrl = await resolvePublicJpegUrl(target);
+  const carouselUrls = await resolveCarouselUrls(target);
+  const imageUrl = carouselUrls?.[0] || (await resolvePublicJpegUrl(target));
+  const isCarousel = Boolean(carouselUrls);
+
   const fbMessage = buildFacebookCaption(target);
-  const igCaption = buildInstagramCaption(target);
+  const igCaption = buildInstagramCaption(target, isCarousel);
+  const threadsText = buildThreadsText(target);
   const xIncludeLink = process.env.X_INCLUDE_LINK !== "false";
   const xText = buildXText(target, xIncludeLink);
 
-  console.log(`Imagen JPEG detectada: ${imageUrl || "(ninguna)"}`);
+  console.log(
+    isCarousel
+      ? `Carrusel detectado (3 placas): ${carouselUrls?.join(", ")}`
+      : `Imagen JPEG simple detectada: ${imageUrl || "(ninguna)"}`
+  );
 
   if (dryRun) {
     console.log("\n--- [DRY RUN] Facebook ---\n" + fbMessage);
     console.log("\n--- [DRY RUN] Instagram ---\n" + igCaption);
+    console.log("\n--- [DRY RUN] Threads ---\n" + threadsText);
     console.log("\n--- [DRY RUN] X ---\n" + xText);
     return;
   }
@@ -406,6 +576,8 @@ async function main() {
   const metaToken = process.env.META_ACCESS_TOKEN;
   const metaPageId = process.env.META_PAGE_ID;
   const metaIgId = process.env.META_IG_USER_ID;
+  const threadsToken = process.env.THREADS_ACCESS_TOKEN;
+  const threadsUserId = process.env.THREADS_USER_ID;
 
   const record: SocialPostRecord = {
     publishedAt: new Date().toISOString(),
@@ -432,26 +604,66 @@ async function main() {
   }
 
   if (metaToken && metaIgId) {
-    if (!imageUrl) {
-      console.error("  ✗ Error Instagram: se requiere imagen JPEG pública.");
-    } else {
+    if (carouselUrls) {
       try {
-        const igId = await publishToInstagram(
+        const igId = await publishToInstagramCarousel(
+          metaIgId,
+          metaToken,
+          carouselUrls,
+          igCaption
+        );
+        record.instagramMediaId = igId;
+        record.instagramMode = "carousel";
+        console.log(`  ✓ Instagram carrusel publicado (ID: ${igId})`);
+      } catch (err) {
+        console.error(
+          `  ✗ Error Instagram carrusel: ${err instanceof Error ? err.message : String(err)}`
+        );
+      }
+    } else if (imageUrl) {
+      try {
+        const igId = await publishToInstagramSingle(
           metaIgId,
           metaToken,
           imageUrl,
           igCaption
         );
         record.instagramMediaId = igId;
+        record.instagramMode = "single";
         console.log(`  ✓ Instagram publicado (ID: ${igId})`);
       } catch (err) {
         console.error(
           `  ✗ Error Instagram: ${err instanceof Error ? err.message : String(err)}`
         );
       }
+    } else {
+      console.error("  ✗ Error Instagram: se requiere imagen JPEG pública.");
     }
   } else {
-    console.log("  - Instagram omitido (faltan META_ACCESS_TOKEN / META_IG_USER_ID).");
+    console.log(
+      "  - Instagram omitido (faltan META_ACCESS_TOKEN / META_IG_USER_ID)."
+    );
+  }
+
+  if (threadsToken && threadsUserId) {
+    try {
+      const thId = await publishToThreads(
+        threadsUserId,
+        threadsToken,
+        imageUrl,
+        threadsText
+      );
+      record.threadsPostId = thId;
+      console.log(`  ✓ Threads publicado (ID: ${thId})`);
+    } catch (err) {
+      console.error(
+        `  ✗ Error Threads: ${err instanceof Error ? err.message : String(err)}`
+      );
+    }
+  } else {
+    console.log(
+      "  - Threads omitido (faltan THREADS_ACCESS_TOKEN / THREADS_USER_ID)."
+    );
   }
 
   if (
@@ -473,7 +685,12 @@ async function main() {
     console.log("  - X omitido (sin credenciales configuradas).");
   }
 
-  if (record.facebookPostId || record.instagramMediaId || record.xTweetId) {
+  if (
+    record.facebookPostId ||
+    record.instagramMediaId ||
+    record.threadsPostId ||
+    record.xTweetId
+  ) {
     state.published[target.slug] = record;
     saveState(state);
     console.log(`  ✓ Estado guardado en content/social-state.json`);

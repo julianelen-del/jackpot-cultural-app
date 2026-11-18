@@ -32,7 +32,7 @@ function truncateText(text: string, maxLen: number): string {
   if (text.length <= maxLen) return text;
   const cut = text.slice(0, maxLen - 1);
   const lastSpace = cut.lastIndexOf(" ");
-  return `${lastSpace > 40 ? cut.slice(0, lastSpace) : cut}…`;
+  return `${lastSpace > 30 ? cut.slice(0, lastSpace) : cut}…`;
 }
 
 async function fetchBuffer(url: string, timeoutMs = 10000): Promise<Buffer> {
@@ -126,7 +126,7 @@ async function prepareCoverDataUri(url?: string): Promise<string | null> {
   try {
     const raw = await fetchBuffer(url, 8000);
     const resized = await sharp(raw)
-      .resize(940, 440, { fit: "cover", position: "attention" })
+      .resize(940, 480, { fit: "cover", position: "attention" })
       .jpeg({ quality: 86 })
       .toBuffer();
     return `data:image/jpeg;base64,${resized.toString("base64")}`;
@@ -135,18 +135,27 @@ async function prepareCoverDataUri(url?: string): Promise<string | null> {
   }
 }
 
-async function renderCard(
-  edition: CountryEdition,
+async function renderTreeToJpeg(
+  tree: unknown,
   fonts: FontAsset[]
 ): Promise<Buffer> {
-  const coverUri = await prepareCoverDataUri(edition.cover_image?.url);
-  const cleanIntro = truncateText(stripEditorialMarkdown(edition.intro), 175);
-  const topics = edition.topics.slice(0, 3).map((t) => ({
-    category: t.category.toUpperCase(),
-    title: truncateText(stripEditorialMarkdown(t.title), 78),
-  }));
+  const svg = await satori(tree as Parameters<typeof satori>[0], {
+    width: 1080,
+    height: 1350,
+    fonts,
+  });
 
-  const tree = {
+  return sharp(Buffer.from(svg))
+    .jpeg({ quality: 92, mozjpeg: true })
+    .toBuffer();
+}
+
+function wrapCardFrame(
+  edition: CountryEdition,
+  slideLabel: string,
+  bodyChildren: unknown[]
+) {
+  return {
     type: "div",
     props: {
       style: {
@@ -170,204 +179,52 @@ async function renderCard(
               justifyContent: "space-between",
               border: "2px solid #161615",
               backgroundColor: "#FAF8F3",
-              padding: "48px 52px",
+              padding: "46px 52px",
             },
             children: [
-              // Cabecera
+              // Cabecera superior común
               {
                 type: "div",
                 props: {
                   style: {
                     display: "flex",
-                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    borderBottom: "1px solid #D6D0C4",
+                    paddingBottom: "18px",
+                    fontSize: "20px",
+                    letterSpacing: "4px",
+                    color: "#5C5952",
+                    fontWeight: 600,
                   },
                   children: [
-                    {
-                      type: "div",
-                      props: {
-                        style: {
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                          borderBottom: "1px solid #D6D0C4",
-                          paddingBottom: "18px",
-                          fontSize: "20px",
-                          letterSpacing: "4px",
-                          color: "#5C5952",
-                          fontWeight: 600,
-                        },
-                        children: [
-                          { type: "span", props: { children: "JACKPOT CULTURAL" } },
-                          {
-                            type: "span",
-                            props: {
-                              style: { color: "#B83827" },
-                              children: edition.edition_week,
-                            },
-                          },
-                        ],
-                      },
-                    },
-                    {
-                      type: "div",
-                      props: {
-                        style: {
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          textAlign: "center",
-                          marginTop: "28px",
-                        },
-                        children: [
-                          {
-                            type: "span",
-                            props: {
-                              style: {
-                                fontSize: "20px",
-                                letterSpacing: "5px",
-                                color: "#B83827",
-                                fontWeight: 600,
-                              },
-                              children: edition.continent.toUpperCase(),
-                            },
-                          },
-                          {
-                            type: "span",
-                            props: {
-                              style: {
-                                marginTop: "10px",
-                                fontFamily: "Newsreader",
-                                fontSize:
-                                  edition.country.length > 12 ? "68px" : "80px",
-                                fontWeight: 500,
-                                lineHeight: 1.05,
-                                letterSpacing: "-1px",
-                              },
-                              children: edition.country.toUpperCase(),
-                            },
-                          },
-                          {
-                            type: "span",
-                            props: {
-                              style: {
-                                marginTop: "20px",
-                                fontFamily: "Newsreader",
-                                fontStyle: "italic",
-                                fontSize: "30px",
-                                lineHeight: 1.38,
-                                color: "#2D2C29",
-                                maxWidth: "840px",
-                              },
-                              children: cleanIntro,
-                            },
-                          },
-                        ],
-                      },
-                    },
-                  ],
-                },
-              },
-
-              // Foto de portada (si existe)
-              ...(coverUri
-                ? [
-                    {
-                      type: "div",
-                      props: {
-                        style: {
-                          display: "flex",
-                          marginTop: "24px",
-                          border: "1px solid #161615",
-                          backgroundColor: "#EFEAE0",
-                          overflow: "hidden",
-                          height: "360px",
-                        },
-                        children: [
-                          {
-                            type: "img",
-                            props: {
-                              src: coverUri,
-                              style: {
-                                width: "100%",
-                                height: "360px",
-                                objectFit: "cover",
-                              },
-                            },
-                          },
-                        ],
-                      },
-                    },
-                  ]
-                : []),
-
-              // Temas destacados
-              {
-                type: "div",
-                props: {
-                  style: {
-                    display: "flex",
-                    flexDirection: "column",
-                    marginTop: "24px",
-                    borderTop: "2px solid #161615",
-                    paddingTop: "20px",
-                    gap: "14px",
-                  },
-                  children: [
+                    { type: "span", props: { children: "JACKPOT CULTURAL" } },
                     {
                       type: "span",
                       props: {
-                        style: {
-                          fontSize: "18px",
-                          letterSpacing: "4px",
-                          color: "#5C5952",
-                          fontWeight: 600,
-                        },
-                        children: "EN ESTA EDICIÓN",
+                        style: { color: "#B83827" },
+                        children: `${edition.edition_week} · ${slideLabel}`,
                       },
                     },
-                    ...topics.map((topic) => ({
-                      type: "div",
-                      props: {
-                        style: {
-                          display: "flex",
-                          flexDirection: "column",
-                          borderLeft: "4px solid #B83827",
-                          paddingLeft: "16px",
-                        },
-                        children: [
-                          {
-                            type: "span",
-                            props: {
-                              style: {
-                                fontSize: "15px",
-                                letterSpacing: "3px",
-                                color: "#B83827",
-                                fontWeight: 600,
-                              },
-                              children: topic.category,
-                            },
-                          },
-                          {
-                            type: "span",
-                            props: {
-                              style: {
-                                fontFamily: "Newsreader",
-                                fontSize: "26px",
-                                lineHeight: 1.25,
-                                color: "#161615",
-                                marginTop: "2px",
-                              },
-                              children: topic.title,
-                            },
-                          },
-                        ],
-                      },
-                    })),
                   ],
                 },
               },
 
-              // Pie
+              // Cuerpo central
+              {
+                type: "div",
+                props: {
+                  style: {
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  },
+                  children: bodyChildren,
+                },
+              },
+
+              // Pie común
               {
                 type: "div",
                 props: {
@@ -377,7 +234,6 @@ async function renderCard(
                     alignItems: "center",
                     borderTop: "1px solid #D6D0C4",
                     paddingTop: "18px",
-                    marginTop: "18px",
                     fontSize: "19px",
                     color: "#5C5952",
                     fontWeight: 600,
@@ -393,7 +249,7 @@ async function renderCard(
                       type: "span",
                       props: {
                         style: { color: "#B83827" },
-                        children: "EDICIÓN SEMANAL",
+                        children: edition.country.toUpperCase(),
                       },
                     },
                   ],
@@ -405,16 +261,447 @@ async function renderCard(
       ],
     },
   };
+}
 
-  const svg = await satori(tree as unknown as Parameters<typeof satori>[0], {
-    width: 1080,
-    height: 1350,
-    fonts,
-  });
+async function renderSlide1(
+  edition: CountryEdition,
+  coverUri: string | null,
+  fonts: FontAsset[]
+): Promise<Buffer> {
+  const cleanIntro = truncateText(stripEditorialMarkdown(edition.intro), 190);
 
-  return sharp(Buffer.from(svg))
-    .jpeg({ quality: 92, mozjpeg: true })
-    .toBuffer();
+  const body = [
+    {
+      type: "div",
+      props: {
+        style: {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+        },
+        children: [
+          {
+            type: "span",
+            props: {
+              style: {
+                fontSize: "21px",
+                letterSpacing: "5px",
+                color: "#B83827",
+                fontWeight: 600,
+              },
+              children: edition.continent.toUpperCase(),
+            },
+          },
+          {
+            type: "span",
+            props: {
+              style: {
+                marginTop: "12px",
+                fontFamily: "Newsreader",
+                fontSize: edition.country.length > 12 ? "70px" : "86px",
+                fontWeight: 500,
+                lineHeight: 1.04,
+                letterSpacing: "-1px",
+              },
+              children: edition.country.toUpperCase(),
+            },
+          },
+          {
+            type: "span",
+            props: {
+              style: {
+                marginTop: "22px",
+                fontFamily: "Newsreader",
+                fontStyle: "italic",
+                fontSize: "32px",
+                lineHeight: 1.4,
+                color: "#2D2C29",
+                maxWidth: "850px",
+              },
+              children: cleanIntro,
+            },
+          },
+        ],
+      },
+    },
+    ...(coverUri
+      ? [
+          {
+            type: "div",
+            props: {
+              style: {
+                display: "flex",
+                marginTop: "36px",
+                border: "1px solid #161615",
+                backgroundColor: "#EFEAE0",
+                overflow: "hidden",
+                height: "460px",
+              },
+              children: [
+                {
+                  type: "img",
+                  props: {
+                    src: coverUri,
+                    style: {
+                      width: "100%",
+                      height: "460px",
+                      objectFit: "cover",
+                    },
+                  },
+                },
+              ],
+            },
+          },
+        ]
+      : []),
+    {
+      type: "div",
+      props: {
+        style: {
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "32px",
+        },
+        children: [
+          {
+            type: "span",
+            props: {
+              style: {
+                fontSize: "19px",
+                letterSpacing: "4px",
+                color: "#5C5952",
+                fontWeight: 600,
+              },
+              children: "DESLIZÁ PARA LEER EL PANORAMA →",
+            },
+          },
+        ],
+      },
+    },
+  ];
+
+  return renderTreeToJpeg(wrapCardFrame(edition, "01/03", body), fonts);
+}
+
+async function renderSlide2(
+  edition: CountryEdition,
+  fonts: FontAsset[]
+): Promise<Buffer> {
+  const topics = edition.topics.slice(0, 3);
+  const summaryLimit = topics.length <= 2 ? 220 : 145;
+
+  const body = [
+    {
+      type: "div",
+      props: {
+        style: {
+          display: "flex",
+          flexDirection: "column",
+        },
+        children: [
+          {
+            type: "span",
+            props: {
+              style: {
+                fontSize: "19px",
+                letterSpacing: "4px",
+                color: "#B83827",
+                fontWeight: 600,
+              },
+              children: "TEMAS DESTACADOS",
+            },
+          },
+          {
+            type: "span",
+            props: {
+              style: {
+                marginTop: "8px",
+                fontFamily: "Newsreader",
+                fontSize: "44px",
+                fontWeight: 500,
+                color: "#161615",
+                borderBottom: "2px solid #161615",
+                paddingBottom: "20px",
+              },
+              children: `Qué mueve a ${edition.country} esta semana`,
+            },
+          },
+        ],
+      },
+    },
+    {
+      type: "div",
+      props: {
+        style: {
+          display: "flex",
+          flexDirection: "column",
+          marginTop: "34px",
+          gap: topics.length <= 2 ? "38px" : "28px",
+        },
+        children: topics.map((t) => ({
+          type: "div",
+          props: {
+            style: {
+              display: "flex",
+              flexDirection: "column",
+              borderLeft: "5px solid #B83827",
+              paddingLeft: "24px",
+            },
+            children: [
+              {
+                type: "span",
+                props: {
+                  style: {
+                    fontSize: "17px",
+                    letterSpacing: "3px",
+                    color: "#B83827",
+                    fontWeight: 600,
+                  },
+                  children: t.category.toUpperCase(),
+                },
+              },
+              {
+                type: "span",
+                props: {
+                  style: {
+                    marginTop: "6px",
+                    fontFamily: "Newsreader",
+                    fontSize: "34px",
+                    fontWeight: 500,
+                    lineHeight: 1.2,
+                    color: "#161615",
+                  },
+                  children: truncateText(stripEditorialMarkdown(t.title), 82),
+                },
+              },
+              {
+                type: "span",
+                props: {
+                  style: {
+                    marginTop: "10px",
+                    fontSize: "23px",
+                    lineHeight: 1.45,
+                    color: "#4B4842",
+                  },
+                  children: truncateText(
+                    stripEditorialMarkdown(t.summary),
+                    summaryLimit
+                  ),
+                },
+              },
+            ],
+          },
+        })),
+      },
+    },
+  ];
+
+  return renderTreeToJpeg(wrapCardFrame(edition, "02/03", body), fonts);
+}
+
+async function renderSlide3(
+  edition: CountryEdition,
+  cfg: CountrySourceConfig,
+  fonts: FontAsset[]
+): Promise<Buffer> {
+  const listeningNames = [
+    cfg.listening?.radio?.name,
+    cfg.listening?.radio_alt?.name,
+    cfg.listening?.podcast?.name,
+    cfg.listening?.playlist?.name,
+  ].filter((x): x is string => Boolean(x));
+
+  const body = [
+    // Caja Para descubrir
+    {
+      type: "div",
+      props: {
+        style: {
+          display: "flex",
+          flexDirection: "column",
+          border: "2px solid #161615",
+          backgroundColor: "#EFEAE0",
+          padding: "42px 44px",
+        },
+        children: [
+          {
+            type: "div",
+            props: {
+              style: {
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                borderBottom: "1px solid #C8C2B6",
+                paddingBottom: "14px",
+              },
+              children: [
+                {
+                  type: "span",
+                  props: {
+                    style: {
+                      fontSize: "18px",
+                      letterSpacing: "4px",
+                      fontWeight: 600,
+                      color: "#161615",
+                    },
+                    children: "PARA DESCUBRIR",
+                  },
+                },
+                {
+                  type: "span",
+                  props: {
+                    style: {
+                      fontSize: "16px",
+                      letterSpacing: "3px",
+                      fontWeight: 600,
+                      color: "#B83827",
+                      border: "1px solid #B83827",
+                      padding: "4px 12px",
+                    },
+                    children: edition.recommendation.type.toUpperCase(),
+                  },
+                },
+              ],
+            },
+          },
+          {
+            type: "span",
+            props: {
+              style: {
+                marginTop: "24px",
+                fontFamily: "Newsreader",
+                fontSize: "52px",
+                fontWeight: 500,
+                lineHeight: 1.12,
+                color: "#161615",
+              },
+              children: truncateText(edition.recommendation.title, 70),
+            },
+          },
+          {
+            type: "span",
+            props: {
+              style: {
+                marginTop: "8px",
+                fontFamily: "Newsreader",
+                fontStyle: "italic",
+                fontSize: "30px",
+                color: "#5C5952",
+              },
+              children: edition.recommendation.creator,
+            },
+          },
+          {
+            type: "span",
+            props: {
+              style: {
+                marginTop: "20px",
+                fontSize: "25px",
+                lineHeight: 1.45,
+                color: "#2D2C29",
+              },
+              children: truncateText(
+                stripEditorialMarkdown(edition.recommendation.context),
+                190
+              ),
+            },
+          },
+        ],
+      },
+    },
+
+    // Radios / Podcasts si existen
+    ...(listeningNames.length > 0
+      ? [
+          {
+            type: "div",
+            props: {
+              style: {
+                display: "flex",
+                flexDirection: "column",
+                marginTop: "36px",
+                borderTop: "1px solid #D6D0C4",
+                paddingTop: "26px",
+              },
+              children: [
+                {
+                  type: "span",
+                  props: {
+                    style: {
+                      fontSize: "18px",
+                      letterSpacing: "4px",
+                      color: "#B83827",
+                      fontWeight: 600,
+                    },
+                    children: "PARA ESCUCHAR EN LA WEB",
+                  },
+                },
+                {
+                  type: "span",
+                  props: {
+                    style: {
+                      marginTop: "10px",
+                      fontFamily: "Newsreader",
+                      fontSize: "30px",
+                      lineHeight: 1.35,
+                      color: "#161615",
+                    },
+                    children: listeningNames.join("  ·  "),
+                  },
+                },
+              ],
+            },
+          },
+        ]
+      : []),
+
+    // Llamado a la acción final
+    {
+      type: "div",
+      props: {
+        style: {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+          marginTop: "42px",
+          padding: "28px 32px",
+          backgroundColor: "#161615",
+          color: "#FAF8F3",
+        },
+        children: [
+          {
+            type: "span",
+            props: {
+              style: {
+                fontSize: "18px",
+                letterSpacing: "4px",
+                fontWeight: 600,
+                color: "#E8DCD0",
+              },
+              children: "LEÉ LA CRÓNICA COMPLETA Y GIRÁ LA RULETA",
+            },
+          },
+          {
+            type: "span",
+            props: {
+              style: {
+                marginTop: "10px",
+                fontFamily: "Newsreader",
+                fontStyle: "italic",
+                fontSize: "32px",
+                color: "#FAF8F3",
+              },
+              children: "Enlace directo en nuestra bio · @jackpotcultural",
+            },
+          },
+        ],
+      },
+    },
+  ];
+
+  return renderTreeToJpeg(wrapCardFrame(edition, "03/03", body), fonts);
 }
 
 async function main() {
@@ -439,18 +726,29 @@ async function main() {
         continue;
       }
 
-      const jpg = await renderCard(parsed.data, fonts);
-      const outPath = path.join(OUT_DIR, `${cfg.slug}.jpg`);
-      fs.writeFileSync(outPath, jpg);
+      const edition = parsed.data;
+      const coverUri = await prepareCoverDataUri(edition.cover_image?.url);
+
+      const slide1 = await renderSlide1(edition, coverUri, fonts);
+      const slide2 = await renderSlide2(edition, fonts);
+      const slide3 = await renderSlide3(edition, cfg, fonts);
+
+      fs.writeFileSync(path.join(OUT_DIR, `${cfg.slug}.jpg`), slide1);
+      fs.writeFileSync(path.join(OUT_DIR, `${cfg.slug}-1.jpg`), slide1);
+      fs.writeFileSync(path.join(OUT_DIR, `${cfg.slug}-2.jpg`), slide2);
+      fs.writeFileSync(path.join(OUT_DIR, `${cfg.slug}-3.jpg`), slide3);
+
       generated++;
-      console.log(`  ✓ Placa generada: public/social-cards/${cfg.slug}.jpg`);
+      console.log(
+        `  ✓ Placas generadas: ${cfg.slug}.jpg + carrusel (-1, -2, -3)`
+      );
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
-      console.error(`  ✗ Error generando placa de ${cfg.slug}: ${msg}`);
+      console.error(`  ✗ Error generando placas de ${cfg.slug}: ${msg}`);
     }
   }
 
-  console.log(`=== Placas generadas: ${generated}/${configs.length} ===`);
+  console.log(`=== Países con placas generadas: ${generated}/${configs.length} ===`);
 }
 
 main().catch((err) => {
