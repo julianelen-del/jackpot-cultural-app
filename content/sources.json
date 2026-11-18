@@ -12,6 +12,8 @@
       "https://www.micropsiacine.com/feed/",
       "https://www.conlosojosabiertos.com/feed/",
       "https://revistaotraparte.com/semanal/feed/",
+      "https://futurock.fm/feed/",
+      "https://www.radiouniversidad.unlp.edu.ar/feed/",
       "https://news.google.com/rss/search?q=site%3Aindiehoy.com+OR+site%3Abillboard.com.ar+OR+(site%3Aes.rollingstone.com+Argentina)+when%3A10d&hl=es-419&gl=AR&ceid=AR:es-419",
       "https://news.google.com/rss/search?q=site%3Aotroscines.com+OR+site%3Aeternacadencia.com.ar+OR+site%3Arevistabache.com.ar+OR+site%3Adiariodecultura.com.ar+OR+%22Hoy+Trasnoche%22+when%3A10d&hl=es-419&gl=AR&ceid=AR:es-419",
       "https://news.google.com/rss/search?q=%22Teor%C3%ADa+de+Circuitos%22+(Ultrapop+OR+Elencwajg+OR+Lucena+OR+disco+OR+single+OR+videoclip+OR+%C3%A1lbum+OR+banda+OR+canciones)+when%3A21d&hl=es-419&gl=AR&ceid=AR:es-419"
@@ -30,17 +32,20 @@
       "Eterna Cadencia",
       "Revista Bache",
       "Diario de Cultura",
-      "Revista Ñ"
+      "Revista Ñ",
+      "Futuröck",
+      "Radio Universidad de La Plata"
     ],
     "listening": {
       "radio": {
         "name": "Nacional Rock 93.7",
-        "url": "https://www.radionacional.com.ar/",
+        "url": "https://www.radionacional.com.ar/reproductor/reproductor_rock_n20.php",
         "description": "Rock argentino, escena indie y entrevistas en vivo"
       },
       "podcast": {
         "name": "Encerrados Afuera",
-        "url": "https://encerradosafuera.com.ar/",
+        "url": "https://open.spotify.com/show/52ryEiJqB4iQgto6Pk88qg",
+        "embed_url": "https://open.spotify.com/embed/show/52ryEiJqB4iQgto6Pk88qg",
         "description": "Podcast y radio sobre cine, indie, new wave, cómics y series"
       },
       "rotating": [

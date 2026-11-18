@@ -31,6 +31,19 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
+      - name: Generar logo PNG si no existe
+        run: |
+          if [ ! -f public/logo.png ]; then
+            npm run social:logo
+            git config user.name "Jackpot Cultural Bot"
+            git config user.email "bot@jackpot-cultural.local"
+            git add public/logo.png
+            if ! git diff --staged --quiet; then
+              git commit -m "chore: generar logo 1024x1024"
+              git push
+            fi
+          fi
+
       - name: Publicar siguiente país en redes
         env:
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
