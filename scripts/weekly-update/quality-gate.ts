@@ -51,6 +51,9 @@ const GENERIC_CAPTION_PATTERNS = [
   /^escena cultural (actual )?en\b/i,
 ];
 
+const LEAKED_CITATION_PATTERN =
+  /(?:\(\d{1,2}\)|\[\d{1,2}\])(?=[.,;:\s]|$)/;
+
 const NON_PROPER_CAPS = new Set([
   "El",
   "La",
@@ -238,6 +241,11 @@ function hasConcreteProperNoun(
   });
 }
 
+function hasLeakedCitation(text: string): boolean {
+  const withoutLinks = text.replace(/\[([^\]]+)\]\(https?:\/\/[^)]+\)/g, "$1");
+  return LEAKED_CITATION_PATTERN.test(withoutLinks);
+}
+
 export function validateEditionQuality(
   rawEdition: unknown,
   allowedUrls: Set<string>
@@ -251,6 +259,18 @@ export function validateEditionQuality(
   }
 
   const edition = parsed.data;
+
+  if (
+    hasLeakedCitation(edition.intro) ||
+    hasLeakedCitation(edition.cultural_pulse) ||
+    hasLeakedCitation(edition.recommendation.context)
+  ) {
+    return {
+      ok: false,
+      reason:
+        "Se detectó un número de cita suelto como (1), (20) o [1]. Los números de fuente solo pueden ir dentro de un enlace [Nombre exacto](ID), nunca como texto entre paréntesis o corchetes.",
+    };
+  }
 
   for (const pattern of AI_CLICHE_PATTERNS) {
     if (pattern.test(edition.cultural_pulse)) {
@@ -347,6 +367,13 @@ export function validateEditionQuality(
   for (let i = 0; i < edition.topics.length; i++) {
     const topic = edition.topics[i];
     const combined = `${topic.title} ${topic.summary}`;
+
+    if (hasLeakedCitation(combined)) {
+      return {
+        ok: false,
+        reason: `El tema destacado "${topic.title}" incluye una cita numérica suelta como (1) o [1]. Elimínala o conviértela en [Nombre](ID).`,
+      };
+    }
 
     const bucket = getCategoryBucket(topic.category);
     if (seenBuckets.has(bucket)) {

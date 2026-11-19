@@ -22,6 +22,8 @@ interface FontAsset {
 function stripEditorialMarkdown(text: string): string {
   return text
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/\s*\(\d{1,2}\)(?=[.,;:\s]|$)/g, "")
+    .replace(/\s*\[\d{1,2}\](?=[.,;:\s]|$)/g, "")
     .replace(/\*\*/g, "")
     .replace(/\*/g, "")
     .replace(/\s+/g, " ")
@@ -295,7 +297,7 @@ async function renderSlide1(
   coverUri: string | null,
   fonts: FontAsset[]
 ): Promise<Buffer> {
-  const cleanIntro = fitCompleteSentences(edition.intro, 195);
+  const cleanIntro = fitCompleteSentences(edition.intro, 210);
 
   const body = [
     {
@@ -420,7 +422,7 @@ async function renderSlide2(
   fonts: FontAsset[]
 ): Promise<Buffer> {
   const topics = edition.topics.slice(0, 3);
-  const summaryLimit = topics.length <= 2 ? 235 : 165;
+  const summaryLimit = topics.length <= 2 ? 340 : 270;
 
   const body = [
     {
@@ -451,11 +453,11 @@ async function renderSlide2(
                 width: "892px",
                 marginTop: "8px",
                 fontFamily: "Newsreader",
-                fontSize: "42px",
+                fontSize: "40px",
                 fontWeight: 500,
                 color: "#161615",
                 borderBottom: "2px solid #161615",
-                paddingBottom: "18px",
+                paddingBottom: "16px",
               },
               children: `Qué mueve a ${edition.country} esta semana`,
             },
@@ -470,8 +472,8 @@ async function renderSlide2(
           width: "892px",
           display: "flex",
           flexDirection: "column",
-          marginTop: "32px",
-          gap: topics.length <= 2 ? "36px" : "26px",
+          marginTop: "28px",
+          gap: topics.length <= 2 ? "34px" : "24px",
         },
         children: topics.map((t) => ({
           type: "div",
@@ -490,7 +492,7 @@ async function renderSlide2(
                 props: {
                   style: {
                     width: "860px",
-                    fontSize: "17px",
+                    fontSize: "16px",
                     letterSpacing: "3px",
                     color: "#B83827",
                     fontWeight: 600,
@@ -503,11 +505,11 @@ async function renderSlide2(
                 props: {
                   style: {
                     width: "860px",
-                    marginTop: "6px",
+                    marginTop: "5px",
                     fontFamily: "Newsreader",
-                    fontSize: "33px",
+                    fontSize: "31px",
                     fontWeight: 500,
-                    lineHeight: 1.2,
+                    lineHeight: 1.18,
                     color: "#161615",
                   },
                   children: truncateText(stripEditorialMarkdown(t.title), 78),
@@ -518,9 +520,9 @@ async function renderSlide2(
                 props: {
                   style: {
                     width: "860px",
-                    marginTop: "8px",
-                    fontSize: "22px",
-                    lineHeight: 1.44,
+                    marginTop: "7px",
+                    fontSize: "20px",
+                    lineHeight: 1.42,
                     color: "#4B4842",
                   },
                   children: fitCompleteSentences(t.summary, summaryLimit),
@@ -643,7 +645,7 @@ async function renderSlide3(
                 lineHeight: 1.45,
                 color: "#2D2C29",
               },
-              children: fitCompleteSentences(edition.recommendation.context, 200),
+              children: fitCompleteSentences(edition.recommendation.context, 240),
             },
           },
         ],

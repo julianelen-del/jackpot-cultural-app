@@ -67,6 +67,8 @@ function formatEditorialDate(isoDate: string): string {
 function estimateReadingMinutes(text: string): number {
   const plain = text
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/\s*\(\d{1,2}\)(?=[.,;:\s]|$)/g, "")
+    .replace(/\s*\[\d{1,2}\](?=[.,;:\s]|$)/g, "")
     .replace(/\*/g, "");
   const words = plain.trim().split(/\s+/).filter(Boolean).length;
   return Math.max(2, Math.round(words / 200));
@@ -75,7 +77,9 @@ function estimateReadingMinutes(text: string): number {
 function renderEditorialText(text: string) {
   const normalized = text
     .replace(/\*\*(\[[^\]]+\]\([^)]+\))\*\*/g, "$1")
-    .replace(/\*(\[[^\]]+\]\([^)]+\))\*/g, "$1");
+    .replace(/\*(\[[^\]]+\]\([^)]+\))\*/g, "$1")
+    .replace(/\s*\(\d{1,2}\)(?=[.,;:\s]|$)/g, "")
+    .replace(/\s*\[\d{1,2}\](?=[.,;:\s]|$)/g, "");
 
   const tokenRegex =
     /(\[[^\]]+\]\(https?:\/\/[^)]+\)|\*\*[^*\n]+\*\*|\*[^*\n]+\*)/g;

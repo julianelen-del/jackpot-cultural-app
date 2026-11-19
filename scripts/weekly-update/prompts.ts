@@ -27,7 +27,7 @@ CRITERIOS EDITORIALES CLAVE (ESTRICTOS):
   * Puedes hacer alusiones al pasado pertinentes por aniversarios, reediciones, restauraciones o redescubrimientos.
   * Si surge una revelación prometedora (banda, cineasta, escritor), analízala con datos concretos de su obra, sin hype ("la próxima gran sensación", "imperdible", "fenómeno imparable", "revolucionario").
 - CERO CONECTORES ROBÓTICOS O MORALEJAS FINALES: Prohibido abrir párrafos con "Por un lado", "Por otro lado", "Paralelamente", "Mientras tanto", "Asimismo", "Finalmente", "...completan el mapa semanal", o cerrar con reflexiones grandilocuentes que resuman todo.
-- PROHIBIDO insertar citas numéricas entre corchetes como [1], [9] o [25].
+- PROHIBIDO insertar citas numéricas sueltas como (1), (20), [1] o [9] en el texto.
 
 POLÍTICA DE PAYWALLS Y VERACIDAD:
 - Nunca copies párrafos protegidos ni inventes obras, personas, canciones ni enlaces.
@@ -59,7 +59,7 @@ TU TAREA DE INVESTIGACIÓN (usa Google Search):
 3. Cada punto debe incluir nombres propios exactos (discos, bandas, películas, series, libros, autores, directores o festivales). Si una señal no trae datos concretos, descártala.
 4. Selecciona una recomendación concreta ("Para descubrir") con su creador y 1 frase breve de por qué vale la pena hoy.
 
-Devuelve un dossier compacto en español rico en obras, autores y análisis concreto (sin notas numéricas entre corchetes).
+Devuelve un dossier compacto en español rico en obras, autores y análisis concreto (sin notas numéricas sueltas entre paréntesis ni corchetes).
 `.trim();
 }
 
@@ -100,7 +100,7 @@ REGLAS ESTRICTAS DE REDACCIÓN Y FORMATO PARA ${country.country.toUpperCase()} (
    - **ENLACES ÚTILES EN EL TEXTO (3 a 6):** Incluye entre **3 y 6 enlaces** (mínimo 2) sobre nombres propios de obras, discos, bandas, películas, series, libros, festivales o medios usando una de estas dos formas:
      a) [Nombre exacto](WIKI:Nombre exacto) para Wikipedia.
      b) [Nombre exacto](ID) poniendo solo el número entero de la lista de arriba (priorizando [SITIO EXTERNO] y notas originales).
-   - **PROHIBIDO USAR CITAS NUMÉRICAS:** Nunca insertes [1], [9], [10] o [25].
+   - **PROHIBIDO USAR CITAS NUMÉRICAS SUELTAS:** Nunca escribas (1), (20), [1], [9] o [25] fuera de la sintaxis completa de enlace [Nombre](ID).
 5. "topics": **2 o 3 bloques concretos** de **disciplinas claramente distintas** (Música, Cine y Series, Libros, Podcasts, Festivales, Exhibiciones, Debates artísticos, y Cómics/Humor gráfico opcional sin stand-up).
    - **NO FORZAR:** Si solo hay material sólido en 2 disciplinas distintas, incluye **2** tarjetas y no rellenes una 3ª. **PROHIBIDO** repetir o solapar categorías en el mismo país (por ejemplo, nunca pongas "Literatura" y "Libros" como dos tarjetas separadas).
    - **OBLIGATORIO:** Cada tarjeta DEBE incluir nombres propios reales de obras, discos, películas, series, libros, bandas, autores o festivales de **${country.country}**. Prohibido escribir tarjetas genéricas sobre "balances de charts", "talento local", "estrenos recientes" o "las mejores lecturas" sin nombrar títulos/autores reales.
