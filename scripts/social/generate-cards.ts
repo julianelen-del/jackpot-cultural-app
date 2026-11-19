@@ -148,7 +148,7 @@ async function prepareCoverDataUri(url?: string): Promise<string | null> {
   try {
     const raw = await fetchBuffer(url, 8000);
     const resized = await sharp(raw)
-      .resize(924, 420, { fit: "cover", position: "attention" })
+      .resize(924, 410, { fit: "cover", position: "attention" })
       .jpeg({ quality: 86 })
       .toBuffer();
     return `data:image/jpeg;base64,${resized.toString("base64")}`;
@@ -204,7 +204,7 @@ function wrapCardFrame(
               justifyContent: "space-between",
               border: "2px solid #161615",
               backgroundColor: "#FAF8F3",
-              padding: "38px 42px",
+              padding: "36px 42px",
             },
             children: [
               // Cabecera superior común
@@ -297,7 +297,7 @@ async function renderSlide1(
   coverUri: string | null,
   fonts: FontAsset[]
 ): Promise<Buffer> {
-  const cleanIntro = fitCompleteSentences(edition.intro, 195);
+  const cleanIntro = fitCompleteSentences(edition.intro, 240);
 
   const body = [
     {
@@ -327,9 +327,9 @@ async function renderSlide1(
             type: "span",
             props: {
               style: {
-                marginTop: "12px",
+                marginTop: "10px",
                 fontFamily: "Newsreader",
-                fontSize: edition.country.length > 12 ? "76px" : "94px",
+                fontSize: edition.country.length > 12 ? "74px" : "92px",
                 fontWeight: 500,
                 lineHeight: 1.04,
                 letterSpacing: "-1px",
@@ -342,13 +342,13 @@ async function renderSlide1(
             type: "span",
             props: {
               style: {
-                marginTop: "22px",
+                marginTop: "20px",
                 fontFamily: "Newsreader",
                 fontStyle: "italic",
-                fontSize: "37px",
-                lineHeight: 1.36,
+                fontSize: "35px",
+                lineHeight: 1.35,
                 color: "#2D2C29",
-                maxWidth: "880px",
+                maxWidth: "890px",
               },
               children: cleanIntro,
             },
@@ -363,9 +363,9 @@ async function renderSlide1(
             props: {
               style: {
                 width: "924px",
-                height: "420px",
+                height: "410px",
                 display: "flex",
-                marginTop: "32px",
+                marginTop: "30px",
                 border: "1px solid #161615",
                 backgroundColor: "#EFEAE0",
                 overflow: "hidden",
@@ -377,7 +377,7 @@ async function renderSlide1(
                     src: coverUri,
                     style: {
                       width: "924px",
-                      height: "420px",
+                      height: "410px",
                       objectFit: "cover",
                     },
                   },
@@ -394,7 +394,7 @@ async function renderSlide1(
           width: "924px",
           display: "flex",
           justifyContent: "center",
-          marginTop: "28px",
+          marginTop: "26px",
         },
         children: [
           {
@@ -422,7 +422,7 @@ async function renderSlide2(
   fonts: FontAsset[]
 ): Promise<Buffer> {
   const topics = edition.topics.slice(0, 3);
-  const summaryLimit = topics.length <= 2 ? 290 : 210;
+  const summaryLimit = topics.length <= 2 ? 460 : 340;
 
   const body = [
     {
@@ -438,7 +438,7 @@ async function renderSlide2(
             type: "span",
             props: {
               style: {
-                fontSize: "22px",
+                fontSize: "21px",
                 letterSpacing: "4px",
                 color: "#B83827",
                 fontWeight: 600,
@@ -453,11 +453,11 @@ async function renderSlide2(
                 width: "924px",
                 marginTop: "6px",
                 fontFamily: "Newsreader",
-                fontSize: "46px",
+                fontSize: "44px",
                 fontWeight: 500,
                 color: "#161615",
                 borderBottom: "2px solid #161615",
-                paddingBottom: "14px",
+                paddingBottom: "12px",
               },
               children: `Qué mueve a ${edition.country} esta semana`,
             },
@@ -472,8 +472,8 @@ async function renderSlide2(
           width: "924px",
           display: "flex",
           flexDirection: "column",
-          marginTop: "26px",
-          gap: topics.length <= 2 ? "36px" : "22px",
+          marginTop: "22px",
+          gap: topics.length <= 2 ? "34px" : "20px",
         },
         children: topics.map((t) => ({
           type: "div",
@@ -484,15 +484,15 @@ async function renderSlide2(
               display: "flex",
               flexDirection: "column",
               borderLeft: "5px solid #B83827",
-              paddingLeft: "24px",
+              paddingLeft: "22px",
             },
             children: [
               {
                 type: "span",
                 props: {
                   style: {
-                    width: "892px",
-                    fontSize: "21px",
+                    width: "894px",
+                    fontSize: "20px",
                     letterSpacing: "3px",
                     color: "#B83827",
                     fontWeight: 600,
@@ -504,25 +504,25 @@ async function renderSlide2(
                 type: "span",
                 props: {
                   style: {
-                    width: "892px",
+                    width: "894px",
                     marginTop: "4px",
                     fontFamily: "Newsreader",
-                    fontSize: "37px",
+                    fontSize: "35px",
                     fontWeight: 500,
                     lineHeight: 1.15,
                     color: "#161615",
                   },
-                  children: truncateText(stripEditorialMarkdown(t.title), 74),
+                  children: truncateText(stripEditorialMarkdown(t.title), 120),
                 },
               },
               {
                 type: "span",
                 props: {
                   style: {
-                    width: "892px",
-                    marginTop: "7px",
-                    fontSize: "26px",
-                    lineHeight: 1.36,
+                    width: "894px",
+                    marginTop: "6px",
+                    fontSize: "24px",
+                    lineHeight: 1.34,
                     color: "#383530",
                   },
                   children: fitCompleteSentences(t.summary, summaryLimit),
@@ -564,239 +564,4 @@ async function renderSlide3(
           backgroundColor: "#EFEAE0",
           padding: "36px 40px",
         },
-        children: [
-          {
-            type: "div",
-            props: {
-              style: {
-                width: "840px",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                borderBottom: "1px solid #C8C2B6",
-                paddingBottom: "14px",
-              },
-              children: [
-                {
-                  type: "span",
-                  props: {
-                    style: {
-                      fontSize: "22px",
-                      letterSpacing: "4px",
-                      fontWeight: 600,
-                      color: "#161615",
-                    },
-                    children: "PARA DESCUBRIR",
-                  },
-                },
-                {
-                  type: "span",
-                  props: {
-                    style: {
-                      fontSize: "20px",
-                      letterSpacing: "3px",
-                      fontWeight: 600,
-                      color: "#B83827",
-                      border: "1px solid #B83827",
-                      padding: "5px 14px",
-                    },
-                    children: edition.recommendation.type.toUpperCase(),
-                  },
-                },
-              ],
-            },
-          },
-          {
-            type: "span",
-            props: {
-              style: {
-                width: "840px",
-                marginTop: "20px",
-                fontFamily: "Newsreader",
-                fontSize: "54px",
-                fontWeight: 500,
-                lineHeight: 1.12,
-                color: "#161615",
-              },
-              children: truncateText(edition.recommendation.title, 68),
-            },
-          },
-          {
-            type: "span",
-            props: {
-              style: {
-                width: "840px",
-                marginTop: "8px",
-                fontFamily: "Newsreader",
-                fontStyle: "italic",
-                fontSize: "34px",
-                color: "#5C5952",
-              },
-              children: edition.recommendation.creator,
-            },
-          },
-          {
-            type: "span",
-            props: {
-              style: {
-                width: "840px",
-                marginTop: "18px",
-                fontSize: "29px",
-                lineHeight: 1.4,
-                color: "#2D2C29",
-              },
-              children: fitCompleteSentences(edition.recommendation.context, 210),
-            },
-          },
-        ],
-      },
-    },
-
-    // Radios o podcasts si existen
-    ...(listeningNames.length > 0
-      ? [
-          {
-            type: "div",
-            props: {
-              style: {
-                width: "924px",
-                display: "flex",
-                flexDirection: "column",
-                marginTop: "30px",
-                borderTop: "1px solid #D6D0C4",
-                paddingTop: "22px",
-              },
-              children: [
-                {
-                  type: "span",
-                  props: {
-                    style: {
-                      fontSize: "22px",
-                      letterSpacing: "4px",
-                      color: "#B83827",
-                      fontWeight: 600,
-                    },
-                    children: "PARA ESCUCHAR EN LA WEB",
-                  },
-                },
-                {
-                  type: "span",
-                  props: {
-                    style: {
-                      width: "924px",
-                      marginTop: "10px",
-                      fontFamily: "Newsreader",
-                      fontSize: "33px",
-                      lineHeight: 1.32,
-                      color: "#161615",
-                    },
-                    children: listeningNames.join("  ·  "),
-                  },
-                },
-              ],
-            },
-          },
-        ]
-      : []),
-
-    // Llamado final
-    {
-      type: "div",
-      props: {
-        style: {
-          width: "924px",
-          boxSizing: "border-box",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-          marginTop: "32px",
-          padding: "26px 30px",
-          backgroundColor: "#161615",
-          color: "#FAF8F3",
-        },
-        children: [
-          {
-            type: "span",
-            props: {
-              style: {
-                fontSize: "21px",
-                letterSpacing: "3px",
-                fontWeight: 600,
-                color: "#E8DCD0",
-              },
-              children: "LEÉ LA CRÓNICA COMPLETA Y GIRÁ LA RULETA",
-            },
-          },
-          {
-            type: "span",
-            props: {
-              style: {
-                marginTop: "10px",
-                fontFamily: "Newsreader",
-                fontStyle: "italic",
-                fontSize: "34px",
-                color: "#FAF8F3",
-              },
-              children: "Enlace directo en nuestra bio · @jackpotcultural",
-            },
-          },
-        ],
-      },
-    },
-  ];
-
-  return renderTreeToJpeg(wrapCardFrame(edition, "03/03", body), fonts);
-}
-
-async function main() {
-  fs.mkdirSync(OUT_DIR, { recursive: true });
-  const fonts = await loadFonts();
-
-  const configs = JSON.parse(
-    fs.readFileSync(SOURCES_PATH, "utf-8")
-  ) as CountrySourceConfig[];
-
-  let generated = 0;
-
-  for (const cfg of configs) {
-    const filePath = path.join(COUNTRIES_DIR, `${cfg.slug}.json`);
-    if (!fs.existsSync(filePath)) continue;
-
-    try {
-      const raw = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-      const parsed = CountryEditionSchema.safeParse(raw);
-      if (!parsed.success) {
-        console.warn(`  [Skip] ${cfg.slug}: esquema inválido.`);
-        continue;
-      }
-
-      const edition = parsed.data;
-      const coverUri = await prepareCoverDataUri(edition.cover_image?.url);
-
-      const slide1 = await renderSlide1(edition, coverUri, fonts);
-      const slide2 = await renderSlide2(edition, fonts);
-      const slide3 = await renderSlide3(edition, cfg, fonts);
-
-      fs.writeFileSync(path.join(OUT_DIR, `${cfg.slug}.jpg`), slide1);
-      fs.writeFileSync(path.join(OUT_DIR, `${cfg.slug}-1.jpg`), slide1);
-      fs.writeFileSync(path.join(OUT_DIR, `${cfg.slug}-2.jpg`), slide2);
-      fs.writeFileSync(path.join(OUT_DIR, `${cfg.slug}-3.jpg`), slide3);
-
-      generated++;
-      console.log(
-        `  ✓ Placas generadas: ${cfg.slug}.jpg + carrusel (-1, -2, -3)`
-      );
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : String(err);
-      console.error(`  ✗ Error generando placas de ${cfg.slug}: ${msg}`);
-    }
-  }
-
-  console.log(`=== Países con placas generadas: ${generated}/${configs.length} ===`);
-}
-
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+        children:
