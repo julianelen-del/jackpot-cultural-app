@@ -1,0 +1,55 @@
+name: Pódcast Semanal Automático
+
+on:
+  schedule:
+    # Todos los lunes a las 10:30 UTC (07:30 hora Argentina)
+    - cron: "30 10 * * 1"
+  workflow_dispatch:
+    inputs:
+      countries:
+        description: "Opcional: países separados por coma (ej: argentina o argentina,chile). Vacío = 4 destacados."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  generate-podcast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Instalar FFmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Generar episodio semanal de audio
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -n "${{ inputs.countries }}" ]; then
+            npm run podcast:generate -- --countries=${{ inputs.countries }}
+          else
+            npm run podcast:generate
+          fi
+
+      - name: Guardar episodio y canal en el repositorio
+        run: |
+          git config user.name "Jackpot Cultural Bot"
+          git config user.email "bot@jackpot-cultural.local"
+          git add public/podcast/ public/podcast.xml public/podcast-cover.png
+          if git diff --staged --quiet; then
+            echo "Sin cambios nuevos en el pódcast."
+          else
+            git commit -m "chore: episodio semanal de pódcast $(date -u +'%Y-%m-%d')"
+            git push
+          fi

@@ -9,7 +9,8 @@
     "update-editions": "tsx scripts/weekly-update/index.ts",
     "social:cards": "tsx scripts/social/generate-cards.ts",
     "social:publish": "tsx scripts/social/publish.ts",
-    "social:logo": "tsx scripts/social/generate-logo.ts"
+    "social:logo": "tsx scripts/social/generate-logo.ts",
+    "podcast:generate": "tsx scripts/podcast/generate-episode.ts"
   },
   "dependencies": {
     "@google/genai": "^1.30.0",
