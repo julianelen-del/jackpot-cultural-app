@@ -148,7 +148,7 @@ async function prepareCoverDataUri(url?: string): Promise<string | null> {
   try {
     const raw = await fetchBuffer(url, 8000);
     const resized = await sharp(raw)
-      .resize(892, 460, { fit: "cover", position: "attention" })
+      .resize(924, 420, { fit: "cover", position: "attention" })
       .jpeg({ quality: 86 })
       .toBuffer();
     return `data:image/jpeg;base64,${resized.toString("base64")}`;
@@ -188,7 +188,7 @@ function wrapCardFrame(
         color: "#161615",
         display: "flex",
         flexDirection: "column",
-        padding: "46px",
+        padding: "36px",
         fontFamily: "Inter",
       },
       children: [
@@ -196,15 +196,15 @@ function wrapCardFrame(
           type: "div",
           props: {
             style: {
-              width: "988px",
-              height: "1258px",
+              width: "1008px",
+              height: "1278px",
               boxSizing: "border-box",
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
               border: "2px solid #161615",
               backgroundColor: "#FAF8F3",
-              padding: "44px 48px",
+              padding: "38px 42px",
             },
             children: [
               // Cabecera superior común
@@ -212,13 +212,13 @@ function wrapCardFrame(
                 type: "div",
                 props: {
                   style: {
-                    width: "892px",
+                    width: "924px",
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
                     borderBottom: "1px solid #D6D0C4",
-                    paddingBottom: "18px",
-                    fontSize: "20px",
+                    paddingBottom: "16px",
+                    fontSize: "23px",
                     letterSpacing: "4px",
                     color: "#5C5952",
                     fontWeight: 600,
@@ -241,7 +241,7 @@ function wrapCardFrame(
                 type: "div",
                 props: {
                   style: {
-                    width: "892px",
+                    width: "924px",
                     flex: 1,
                     display: "flex",
                     flexDirection: "column",
@@ -257,13 +257,13 @@ function wrapCardFrame(
                 type: "div",
                 props: {
                   style: {
-                    width: "892px",
+                    width: "924px",
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
                     borderTop: "1px solid #D6D0C4",
-                    paddingTop: "18px",
-                    fontSize: "19px",
+                    paddingTop: "16px",
+                    fontSize: "21px",
                     color: "#5C5952",
                     fontWeight: 600,
                   },
@@ -297,14 +297,14 @@ async function renderSlide1(
   coverUri: string | null,
   fonts: FontAsset[]
 ): Promise<Buffer> {
-  const cleanIntro = fitCompleteSentences(edition.intro, 210);
+  const cleanIntro = fitCompleteSentences(edition.intro, 195);
 
   const body = [
     {
       type: "div",
       props: {
         style: {
-          width: "892px",
+          width: "924px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -315,7 +315,7 @@ async function renderSlide1(
             type: "span",
             props: {
               style: {
-                fontSize: "21px",
+                fontSize: "24px",
                 letterSpacing: "5px",
                 color: "#B83827",
                 fontWeight: 600,
@@ -329,11 +329,11 @@ async function renderSlide1(
               style: {
                 marginTop: "12px",
                 fontFamily: "Newsreader",
-                fontSize: edition.country.length > 12 ? "68px" : "84px",
+                fontSize: edition.country.length > 12 ? "76px" : "94px",
                 fontWeight: 500,
-                lineHeight: 1.05,
+                lineHeight: 1.04,
                 letterSpacing: "-1px",
-                maxWidth: "880px",
+                maxWidth: "900px",
               },
               children: edition.country.toUpperCase(),
             },
@@ -345,10 +345,10 @@ async function renderSlide1(
                 marginTop: "22px",
                 fontFamily: "Newsreader",
                 fontStyle: "italic",
-                fontSize: "31px",
-                lineHeight: 1.4,
+                fontSize: "37px",
+                lineHeight: 1.36,
                 color: "#2D2C29",
-                maxWidth: "840px",
+                maxWidth: "880px",
               },
               children: cleanIntro,
             },
@@ -362,10 +362,10 @@ async function renderSlide1(
             type: "div",
             props: {
               style: {
-                width: "892px",
-                height: "460px",
+                width: "924px",
+                height: "420px",
                 display: "flex",
-                marginTop: "34px",
+                marginTop: "32px",
                 border: "1px solid #161615",
                 backgroundColor: "#EFEAE0",
                 overflow: "hidden",
@@ -376,8 +376,8 @@ async function renderSlide1(
                   props: {
                     src: coverUri,
                     style: {
-                      width: "892px",
-                      height: "460px",
+                      width: "924px",
+                      height: "420px",
                       objectFit: "cover",
                     },
                   },
@@ -391,17 +391,17 @@ async function renderSlide1(
       type: "div",
       props: {
         style: {
-          width: "892px",
+          width: "924px",
           display: "flex",
           justifyContent: "center",
-          marginTop: "30px",
+          marginTop: "28px",
         },
         children: [
           {
             type: "span",
             props: {
               style: {
-                fontSize: "19px",
+                fontSize: "23px",
                 letterSpacing: "4px",
                 color: "#5C5952",
                 fontWeight: 600,
@@ -422,14 +422,14 @@ async function renderSlide2(
   fonts: FontAsset[]
 ): Promise<Buffer> {
   const topics = edition.topics.slice(0, 3);
-  const summaryLimit = topics.length <= 2 ? 340 : 270;
+  const summaryLimit = topics.length <= 2 ? 290 : 210;
 
   const body = [
     {
       type: "div",
       props: {
         style: {
-          width: "892px",
+          width: "924px",
           display: "flex",
           flexDirection: "column",
         },
@@ -438,7 +438,7 @@ async function renderSlide2(
             type: "span",
             props: {
               style: {
-                fontSize: "19px",
+                fontSize: "22px",
                 letterSpacing: "4px",
                 color: "#B83827",
                 fontWeight: 600,
@@ -450,14 +450,14 @@ async function renderSlide2(
             type: "span",
             props: {
               style: {
-                width: "892px",
-                marginTop: "8px",
+                width: "924px",
+                marginTop: "6px",
                 fontFamily: "Newsreader",
-                fontSize: "40px",
+                fontSize: "46px",
                 fontWeight: 500,
                 color: "#161615",
                 borderBottom: "2px solid #161615",
-                paddingBottom: "16px",
+                paddingBottom: "14px",
               },
               children: `Qué mueve a ${edition.country} esta semana`,
             },
@@ -469,17 +469,17 @@ async function renderSlide2(
       type: "div",
       props: {
         style: {
-          width: "892px",
+          width: "924px",
           display: "flex",
           flexDirection: "column",
-          marginTop: "28px",
-          gap: topics.length <= 2 ? "34px" : "24px",
+          marginTop: "26px",
+          gap: topics.length <= 2 ? "36px" : "22px",
         },
         children: topics.map((t) => ({
           type: "div",
           props: {
             style: {
-              width: "892px",
+              width: "924px",
               boxSizing: "border-box",
               display: "flex",
               flexDirection: "column",
@@ -491,8 +491,8 @@ async function renderSlide2(
                 type: "span",
                 props: {
                   style: {
-                    width: "860px",
-                    fontSize: "16px",
+                    width: "892px",
+                    fontSize: "21px",
                     letterSpacing: "3px",
                     color: "#B83827",
                     fontWeight: 600,
@@ -504,26 +504,26 @@ async function renderSlide2(
                 type: "span",
                 props: {
                   style: {
-                    width: "860px",
-                    marginTop: "5px",
+                    width: "892px",
+                    marginTop: "4px",
                     fontFamily: "Newsreader",
-                    fontSize: "31px",
+                    fontSize: "37px",
                     fontWeight: 500,
-                    lineHeight: 1.18,
+                    lineHeight: 1.15,
                     color: "#161615",
                   },
-                  children: truncateText(stripEditorialMarkdown(t.title), 78),
+                  children: truncateText(stripEditorialMarkdown(t.title), 74),
                 },
               },
               {
                 type: "span",
                 props: {
                   style: {
-                    width: "860px",
+                    width: "892px",
                     marginTop: "7px",
-                    fontSize: "20px",
-                    lineHeight: 1.42,
-                    color: "#4B4842",
+                    fontSize: "26px",
+                    lineHeight: 1.36,
+                    color: "#383530",
                   },
                   children: fitCompleteSentences(t.summary, summaryLimit),
                 },
@@ -556,20 +556,20 @@ async function renderSlide3(
       type: "div",
       props: {
         style: {
-          width: "892px",
+          width: "924px",
           boxSizing: "border-box",
           display: "flex",
           flexDirection: "column",
           border: "2px solid #161615",
           backgroundColor: "#EFEAE0",
-          padding: "38px 42px",
+          padding: "36px 40px",
         },
         children: [
           {
             type: "div",
             props: {
               style: {
-                width: "804px",
+                width: "840px",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
@@ -581,7 +581,7 @@ async function renderSlide3(
                   type: "span",
                   props: {
                     style: {
-                      fontSize: "18px",
+                      fontSize: "22px",
                       letterSpacing: "4px",
                       fontWeight: 600,
                       color: "#161615",
@@ -593,12 +593,12 @@ async function renderSlide3(
                   type: "span",
                   props: {
                     style: {
-                      fontSize: "16px",
+                      fontSize: "20px",
                       letterSpacing: "3px",
                       fontWeight: 600,
                       color: "#B83827",
                       border: "1px solid #B83827",
-                      padding: "4px 12px",
+                      padding: "5px 14px",
                     },
                     children: edition.recommendation.type.toUpperCase(),
                   },
@@ -610,26 +610,26 @@ async function renderSlide3(
             type: "span",
             props: {
               style: {
-                width: "804px",
-                marginTop: "22px",
+                width: "840px",
+                marginTop: "20px",
                 fontFamily: "Newsreader",
-                fontSize: "48px",
+                fontSize: "54px",
                 fontWeight: 500,
                 lineHeight: 1.12,
                 color: "#161615",
               },
-              children: truncateText(edition.recommendation.title, 70),
+              children: truncateText(edition.recommendation.title, 68),
             },
           },
           {
             type: "span",
             props: {
               style: {
-                width: "804px",
+                width: "840px",
                 marginTop: "8px",
                 fontFamily: "Newsreader",
                 fontStyle: "italic",
-                fontSize: "29px",
+                fontSize: "34px",
                 color: "#5C5952",
               },
               children: edition.recommendation.creator,
@@ -639,13 +639,13 @@ async function renderSlide3(
             type: "span",
             props: {
               style: {
-                width: "804px",
+                width: "840px",
                 marginTop: "18px",
-                fontSize: "24px",
-                lineHeight: 1.45,
+                fontSize: "29px",
+                lineHeight: 1.4,
                 color: "#2D2C29",
               },
-              children: fitCompleteSentences(edition.recommendation.context, 240),
+              children: fitCompleteSentences(edition.recommendation.context, 210),
             },
           },
         ],
@@ -659,19 +659,19 @@ async function renderSlide3(
             type: "div",
             props: {
               style: {
-                width: "892px",
+                width: "924px",
                 display: "flex",
                 flexDirection: "column",
-                marginTop: "34px",
+                marginTop: "30px",
                 borderTop: "1px solid #D6D0C4",
-                paddingTop: "24px",
+                paddingTop: "22px",
               },
               children: [
                 {
                   type: "span",
                   props: {
                     style: {
-                      fontSize: "18px",
+                      fontSize: "22px",
                       letterSpacing: "4px",
                       color: "#B83827",
                       fontWeight: 600,
@@ -683,11 +683,11 @@ async function renderSlide3(
                   type: "span",
                   props: {
                     style: {
-                      width: "892px",
+                      width: "924px",
                       marginTop: "10px",
                       fontFamily: "Newsreader",
-                      fontSize: "29px",
-                      lineHeight: 1.35,
+                      fontSize: "33px",
+                      lineHeight: 1.32,
                       color: "#161615",
                     },
                     children: listeningNames.join("  ·  "),
@@ -704,14 +704,14 @@ async function renderSlide3(
       type: "div",
       props: {
         style: {
-          width: "892px",
+          width: "924px",
           boxSizing: "border-box",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
-          marginTop: "38px",
-          padding: "26px 32px",
+          marginTop: "32px",
+          padding: "26px 30px",
           backgroundColor: "#161615",
           color: "#FAF8F3",
         },
@@ -720,8 +720,8 @@ async function renderSlide3(
             type: "span",
             props: {
               style: {
-                fontSize: "18px",
-                letterSpacing: "4px",
+                fontSize: "21px",
+                letterSpacing: "3px",
                 fontWeight: 600,
                 color: "#E8DCD0",
               },
@@ -735,7 +735,7 @@ async function renderSlide3(
                 marginTop: "10px",
                 fontFamily: "Newsreader",
                 fontStyle: "italic",
-                fontSize: "30px",
+                fontSize: "34px",
                 color: "#FAF8F3",
               },
               children: "Enlace directo en nuestra bio · @jackpotcultural",

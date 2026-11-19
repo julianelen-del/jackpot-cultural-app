@@ -27,6 +27,7 @@ const SITE_URL = (
 
 const TTS_MODEL = "gemini-2.5-flash-preview-tts";
 const VOICE_NAME = process.env.PODCAST_VOICE || "Charon";
+const PODCAST_EMAIL = (process.env.PODCAST_EMAIL || "").trim();
 const MAX_EPISODES_KEPT = 12;
 
 interface EpisodeMeta {
@@ -41,6 +42,89 @@ interface EpisodeMeta {
   countries: string[];
 }
 
+const ORDINAL_TENS_M: Record<number, string> = {
+  10: "décimo",
+  20: "vigésimo",
+  30: "trigésimo",
+  40: "cuadragésimo",
+  50: "quincuagésimo",
+  60: "sexagésimo",
+  70: "septuagésimo",
+  80: "octogésimo",
+  90: "nonagésimo",
+};
+
+const ORDINAL_TENS_F: Record<number, string> = {
+  10: "décima",
+  20: "vigésima",
+  30: "trigésima",
+  40: "cuadragésima",
+  50: "quincuagésima",
+  60: "sexagésima",
+  70: "septuagésima",
+  80: "octogésima",
+  90: "nonagésima",
+};
+
+const ORDINAL_UNITS_M: Record<number, string> = {
+  1: "primer",
+  2: "segundo",
+  3: "tercer",
+  4: "cuarto",
+  5: "quinto",
+  6: "sexto",
+  7: "séptimo",
+  8: "octavo",
+  9: "noveno",
+};
+
+const ORDINAL_UNITS_F: Record<number, string> = {
+  1: "primera",
+  2: "segunda",
+  3: "tercera",
+  4: "cuarta",
+  5: "quinta",
+  6: "sexta",
+  7: "séptima",
+  8: "octava",
+  9: "novena",
+};
+
+function toSpanishOrdinal(num: number, feminine: boolean): string | null {
+  if (num < 1 || num > 99) return null;
+  const tens = Math.floor(num / 10) * 10;
+  const unit = num % 10;
+  const tMap = feminine ? ORDINAL_TENS_F : ORDINAL_TENS_M;
+  const uMap = feminine ? ORDINAL_UNITS_F : ORDINAL_UNITS_M;
+  if (tens === 0) return uMap[unit] || null;
+  if (unit === 0) return tMap[tens] || null;
+  return `${tMap[tens]} ${uMap[unit]}`;
+}
+
+function normalizeEditionOrdinals(text: string): string {
+  const femNouns =
+    "Semana|Edición|Feria|Bienal|Muestra|Temporada|Entrega|Gala|Maratón";
+  const mascNouns = "Festival|Encuentro|Congreso|Premio|Salón|Ciclo|Certamen";
+
+  let out = text.replace(
+    new RegExp(`\\b(\\d{1,2})\\s*[°.ºª]?\\s+(${femNouns})\\b`, "g"),
+    (full, nStr: string, noun: string) => {
+      const ord = toSpanishOrdinal(Number(nStr), true);
+      return ord ? `${ord} ${noun}` : full;
+    }
+  );
+
+  out = out.replace(
+    new RegExp(`\\b(\\d{1,2})\\s*[°.ºª]?\\s+(${mascNouns})\\b`, "g"),
+    (full, nStr: string, noun: string) => {
+      const ord = toSpanishOrdinal(Number(nStr), false);
+      return ord ? `${ord} ${noun}` : full;
+    }
+  );
+
+  return out;
+}
+
 function runFfmpeg(args: string[]) {
   execFileSync("ffmpeg", ["-y", "-loglevel", "error", ...args], {
     stdio: "inherit",
@@ -48,7 +132,7 @@ function runFfmpeg(args: string[]) {
 }
 
 function cleanSpeechText(text: string): string {
-  return text
+  const plain = text
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
     .replace(/\s*\(\d{1,2}\)(?=[.,;:\s]|$)/g, "")
     .replace(/\s*\[\d{1,2}\](?=[.,;:\s]|$)/g, "")
@@ -56,6 +140,7 @@ function cleanSpeechText(text: string): string {
     .replace(/\*/g, "")
     .replace(/\s+/g, " ")
     .trim();
+  return normalizeEditionOrdinals(plain);
 }
 
 function escapeXml(text: string): string {
@@ -211,40 +296,135 @@ async function synthesizeSegmentToWav(
   ]);
 }
 
-function createSyntheticChimeWav(outWavPath: string, kind: "intro" | "sep" | "click") {
-  if (kind === "click") {
-    // Clic breve tipo paso entre titulares
+function concatWavs(wavs: string[], outWavPath: string, tmpDir: string, tag: string) {
+  const listFile = path.join(tmpDir, `concat-${tag}.txt`);
+  fs.writeFileSync(
+    listFile,
+    wavs.map((f) => `file '${f.replace(/'/g, "'\\''")}'`).join("\n")
+  );
+  runFfmpeg([
+    "-f",
+    "concat",
+    "-safe",
+    "0",
+    "-i",
+    listFile,
+    "-c:a",
+    "pcm_s16le",
+    outWavPath,
+  ]);
+}
+
+function createElaborateIntroWav(outWavPath: string, tmpDir: string) {
+  // 4 clics de ruleta acelerados + motivo musical ascendente de apertura radial
+  const parts: string[] = [];
+  const clickFreqs = [480, 560, 660, 780];
+  clickFreqs.forEach((freq, i) => {
+    const p = path.join(tmpDir, `intro-clk-${i}.wav`);
     runFfmpeg([
       "-f",
       "lavfi",
       "-i",
-      "sine=frequency=660:duration=0.07",
+      `sine=frequency=${freq}:duration=0.06`,
       "-af",
-      "afade=t=out:st=0.01:d=0.06,volume=0.22",
+      "afade=t=out:st=0.01:d=0.05,volume=0.4",
       "-ar",
       "44100",
       "-ac",
       "2",
       "-c:a",
       "pcm_s16le",
-      outWavPath,
+      p,
     ]);
-    return;
-  }
+    const gap = path.join(tmpDir, `intro-gap-${i}.wav`);
+    createSilenceWav(gap, i < 2 ? 0.14 : 0.09);
+    parts.push(p, gap);
+  });
 
-  if (kind === "sep") {
-    // Acorde suave de transición entre titulares y crónicas
+  const melodyNotes = [
+    { f: 261.63, d: 0.28 },
+    { f: 329.63, d: 0.28 },
+    { f: 392.0, d: 0.28 },
+    { f: 493.88, d: 1.55 },
+  ];
+  melodyNotes.forEach((n, i) => {
+    const p = path.join(tmpDir, `intro-mel-${i}.wav`);
     runFfmpeg([
       "-f",
       "lavfi",
       "-i",
-      "sine=frequency=392:duration=1.1",
+      `sine=frequency=${n.f}:duration=${n.d}`,
       "-f",
       "lavfi",
       "-i",
-      "sine=frequency=493.88:duration=1.1",
+      `sine=frequency=${(n.f * 0.5).toFixed(2)}:duration=${n.d}`,
       "-filter_complex",
-      "[0:a][1:a]amix=inputs=2:duration=longest,afade=t=in:st=0:d=0.08,afade=t=out:st=0.35:d=0.75,volume=0.2",
+      `[0:a][1:a]amix=inputs=2:duration=longest,afade=t=in:st=0:d=0.04,afade=t=out:st=${(n.d * 0.45).toFixed(2)}:d=${(n.d * 0.55).toFixed(2)},lowpass=f=1200,aecho=0.8:0.75:80:0.3,volume=0.45`,
+      "-ar",
+      "44100",
+      "-ac",
+      "2",
+      "-c:a",
+      "pcm_s16le",
+      p,
+    ]);
+    parts.push(p);
+  });
+
+  concatWavs(parts, outWavPath, tmpDir, "intro");
+}
+
+function createElaborateOutroWav(outWavPath: string, tmpDir: string) {
+  const notes = [
+    { f: 392.0, d: 0.25 },
+    { f: 329.63, d: 0.25 },
+    { f: 261.63, d: 2.2 },
+  ];
+  const parts: string[] = [];
+  notes.forEach((n, i) => {
+    const p = path.join(tmpDir, `outro-mel-${i}.wav`);
+    runFfmpeg([
+      "-f",
+      "lavfi",
+      "-i",
+      `sine=frequency=${n.f}:duration=${n.d}`,
+      "-f",
+      "lavfi",
+      "-i",
+      `sine=frequency=${(n.f * 1.5).toFixed(2)}:duration=${n.d}`,
+      "-filter_complex",
+      `[0:a][1:a]amix=inputs=2:duration=longest,afade=t=in:st=0:d=0.05,afade=t=out:st=${(n.d * 0.35).toFixed(2)}:d=${(n.d * 0.65).toFixed(2)},lowpass=f=1100,aecho=0.8:0.78:95:0.3,volume=0.42`,
+      "-ar",
+      "44100",
+      "-ac",
+      "2",
+      "-c:a",
+      "pcm_s16le",
+      p,
+    ]);
+    parts.push(p);
+  });
+
+  const endClick = path.join(tmpDir, "outro-clk.wav");
+  createSyntheticChimeWav(endClick, "click", tmpDir);
+  parts.push(endClick);
+
+  concatWavs(parts, outWavPath, tmpDir, "outro");
+}
+
+function createSyntheticChimeWav(
+  outWavPath: string,
+  kind: "sep" | "click",
+  tmpDir: string
+) {
+  if (kind === "click") {
+    runFfmpeg([
+      "-f",
+      "lavfi",
+      "-i",
+      "sine=frequency=720:duration=0.08",
+      "-af",
+      "afade=t=out:st=0.01:d=0.07,volume=0.38",
       "-ar",
       "44100",
       "-ac",
@@ -256,30 +436,81 @@ function createSyntheticChimeWav(outWavPath: string, kind: "intro" | "sep" | "cl
     return;
   }
 
-  // Sintonía cálida de apertura de 2,2 segundos
+  // Separador doble bien audible entre títulos breves y desarrollo
+  const n1 = path.join(tmpDir, "sep-1.wav");
+  const n2 = path.join(tmpDir, "sep-2.wav");
   runFfmpeg([
     "-f",
     "lavfi",
     "-i",
-    "sine=frequency=261.63:duration=2.2",
-    "-f",
-    "lavfi",
-    "-i",
-    "sine=frequency=329.63:duration=2.2",
-    "-f",
-    "lavfi",
-    "-i",
-    "sine=frequency=392.00:duration=2.2",
-    "-filter_complex",
-    "[0:a][1:a][2:a]amix=inputs=3:duration=longest,afade=t=in:st=0:d=0.25,afade=t=out:st=1.0:d=1.2,volume=0.22",
+    "sine=frequency=440:duration=0.22",
+    "-af",
+    "afade=t=in:st=0:d=0.02,afade=t=out:st=0.08:d=0.14,aecho=0.8:0.6:60:0.25,volume=0.44",
     "-ar",
     "44100",
     "-ac",
     "2",
     "-c:a",
     "pcm_s16le",
-    outWavPath,
+    n1,
   ]);
+  runFfmpeg([
+    "-f",
+    "lavfi",
+    "-i",
+    "sine=frequency=587.33:duration=1.1",
+    "-f",
+    "lavfi",
+    "-i",
+    "sine=frequency=440:duration=1.1",
+    "-filter_complex",
+    "[0:a][1:a]amix=inputs=2:duration=longest,afade=t=in:st=0:d=0.04,afade=t=out:st=0.35:d=0.75,lowpass=f=1300,aecho=0.8:0.7:85:0.28,volume=0.44",
+    "-ar",
+    "44100",
+    "-ac",
+    "2",
+    "-c:a",
+    "pcm_s16le",
+    n2,
+  ]);
+  concatWavs([n1, n2], outWavPath, tmpDir, "sep");
+}
+
+function createSyntheticCortinaWav(outWavPath: string, tmpDir: string) {
+  // Progresión cálida de 4 acordes de 2.5s cada uno (bucle de 10s) filtrada para sonar suave debajo de la voz
+  const chords: number[][] = [
+    [110.0, 220.0, 261.63, 329.63, 392.0], // Lam7
+    [87.31, 174.61, 220.0, 261.63, 329.63], // Famaj7
+    [98.0, 196.0, 246.94, 293.66, 349.23], // Sol7
+    [82.41, 164.81, 246.94, 293.66, 392.0], // Mim7
+  ];
+
+  const chordWavs: string[] = [];
+  chords.forEach((freqs, idx) => {
+    const p = path.join(tmpDir, `chord-${idx}.wav`);
+    const inputs = freqs.flatMap((f) => [
+      "-f",
+      "lavfi",
+      "-i",
+      `sine=frequency=${f}:duration=2.5`,
+    ]);
+    const mixTags = freqs.map((_, i) => `[${i}:a]`).join("");
+    runFfmpeg([
+      ...inputs,
+      "-filter_complex",
+      `${mixTags}amix=inputs=${freqs.length}:duration=longest,tremolo=f=1.6:d=0.22,lowpass=f=820,afade=t=in:st=0:d=0.1,afade=t=out:st=2.38:d=0.12,aecho=0.8:0.7:110:0.25,volume=0.55`,
+      "-ar",
+      "44100",
+      "-ac",
+      "2",
+      "-c:a",
+      "pcm_s16le",
+      p,
+    ]);
+    chordWavs.push(p);
+  });
+
+  concatWavs(chordWavs, outWavPath, tmpDir, "cortina");
 }
 
 function createSilenceWav(outWavPath: string, sec: number) {
@@ -367,6 +598,10 @@ function writePodcastXml(episodes: EpisodeMeta[]) {
     ? `${SITE_URL}/podcast-cover.png`
     : `${SITE_URL}/logo.png`;
 
+  const ownerXml = PODCAST_EMAIL
+    ? `\n    <itunes:owner>\n      <itunes:name>Jackpot Cultural</itunes:name>\n      <itunes:email>${escapeXml(PODCAST_EMAIL)}</itunes:email>\n    </itunes:owner>`
+    : "";
+
   const itemsXml = episodes
     .map((ep) => {
       const mp3Url = `${SITE_URL}/podcast/${ep.fileName}`;
@@ -390,7 +625,7 @@ function writePodcastXml(episodes: EpisodeMeta[]) {
     <atom:link href="${escapeXml(`${SITE_URL}/podcast.xml`)}" rel="self" type="application/rss+xml" />
     <language>es-ar</language>
     <description>Emisión semanal internacional de música, rock, cine, series, libros y escena cultural de 27 países.</description>
-    <itunes:author>Jackpot Cultural</itunes:author>
+    <itunes:author>Jackpot Cultural</itunes:author>${ownerXml}
     <itunes:summary>De qué está hablando la cultura del mundo esta semana, en formato radial.</itunes:summary>
     <itunes:explicit>false</itunes:explicit>
     <itunes:category text="Arts" />
@@ -440,22 +675,20 @@ async function main() {
   try {
     const timelineWavs: string[] = [];
 
-    // 1. Presentación / apertura
     const customIntroPath = path.join(AUDIO_ASSETS_DIR, "presentacion.mp3");
     const introWav = path.join(tmpDir, "00-intro.wav");
     if (fs.existsSync(customIntroPath)) {
       normalizeCustomAssetToWav(customIntroPath, introWav);
     } else {
-      createSyntheticChimeWav(introWav, "intro");
+      createElaborateIntroWav(introWav, tmpDir);
     }
     timelineWavs.push(introWav);
 
     const silShort = path.join(tmpDir, "sil-short.wav");
-    createSilenceWav(silShort, 0.45);
+    createSilenceWav(silShort, 0.55);
     const silMed = path.join(tmpDir, "sil-med.wav");
-    createSilenceWav(silMed, 0.85);
+    createSilenceWav(silMed, 0.95);
 
-    // 2. Bloque de títulos breves
     console.log("  [Voz] Generando presentación y títulos breves...");
     const headlinesWav = path.join(tmpDir, "01-titulos.wav");
     await synthesizeSegmentToWav(
@@ -467,23 +700,21 @@ async function main() {
     );
     timelineWavs.push(silShort, headlinesWav, silShort);
 
-    // 3. Separador entre títulos breves y texto principal
     const customSepPath = path.join(AUDIO_ASSETS_DIR, "separador.mp3");
     const sepWav = path.join(tmpDir, "02-separador.wav");
     if (fs.existsSync(customSepPath)) {
       normalizeCustomAssetToWav(customSepPath, sepWav);
     } else {
-      createSyntheticChimeWav(sepWav, "sep");
+      createSyntheticChimeWav(sepWav, "sep", tmpDir);
     }
     timelineWavs.push(sepWav, silMed);
 
-    // 4. Desarrollo por país (con pausa de 22s para cuidar el límite de 3 pedidos por minuto)
     const customClickPath = path.join(AUDIO_ASSETS_DIR, "efecto.mp3");
     const clickWav = path.join(tmpDir, "click.wav");
     if (fs.existsSync(customClickPath)) {
       normalizeCustomAssetToWav(customClickPath, clickWav);
     } else {
-      createSyntheticChimeWav(clickWav, "click");
+      createSyntheticChimeWav(clickWav, "click", tmpDir);
     }
 
     for (let i = 0; i < selected.length; i++) {
@@ -507,62 +738,51 @@ async function main() {
       }
     }
 
-    // Concatenar pista de voz completa
-    const listFile = path.join(tmpDir, "concat.txt");
-    fs.writeFileSync(
-      listFile,
-      timelineWavs.map((f) => `file '${f.replace(/'/g, "'\\''")}'`).join("\n")
-    );
+    // Cierre musical elaborado al final del episodio
+    const customOutroPath = path.join(AUDIO_ASSETS_DIR, "cierre.mp3");
+    const outroWav = path.join(tmpDir, "04-outro.wav");
+    if (fs.existsSync(customOutroPath)) {
+      normalizeCustomAssetToWav(customOutroPath, outroWav);
+    } else {
+      createElaborateOutroWav(outroWav, tmpDir);
+    }
+    timelineWavs.push(silShort, outroWav);
+
     const voiceFullWav = path.join(tmpDir, "voice-full.wav");
-    runFfmpeg([
-      "-f",
-      "concat",
-      "-safe",
-      "0",
-      "-i",
-      listFile,
-      "-c:a",
-      "pcm_s16le",
-      voiceFullWav,
-    ]);
+    concatWavs(timelineWavs, voiceFullWav, tmpDir, "full");
 
     const voiceDuration = getAudioDurationSec(voiceFullWav);
     const fileName = `episodio-${latestWeek}.mp3`;
     const finalMp3Path = path.join(PODCAST_DIR, fileName);
 
-    // 5. Mezclar con cortina musical si existe public/audio/cortina.mp3
-    const cortinaPath = path.join(AUDIO_ASSETS_DIR, "cortina.mp3");
-    if (fs.existsSync(cortinaPath)) {
-      const fadeOutStart = Math.max(1, voiceDuration - 2.5).toFixed(2);
-      const totalDur = voiceDuration.toFixed(2);
-      runFfmpeg([
-        "-i",
-        voiceFullWav,
-        "-stream_loop",
-        "-1",
-        "-i",
-        cortinaPath,
-        "-filter_complex",
-        `[0:a]asplit=2[v1][v2];[1:a]atrim=0:${totalDur},asetpts=PTS-STARTPTS,afade=t=in:st=0:d=1.2,afade=t=out:st=${fadeOutStart}:d=2.2,volume=0.26[bg];[bg][v1]sidechaincompress=threshold=0.02:ratio=6:attack=120:release=700[ducked];[v2][ducked]amix=inputs=2:duration=first:normalize=0[out]`,
-        "-map",
-        "[out]",
-        "-c:a",
-        "libmp3lame",
-        "-b:a",
-        "128k",
-        finalMp3Path,
-      ]);
-    } else {
-      runFfmpeg([
-        "-i",
-        voiceFullWav,
-        "-c:a",
-        "libmp3lame",
-        "-b:a",
-        "128k",
-        finalMp3Path,
-      ]);
+    // Cortina musical: usa public/audio/cortina.mp3 si existe, sino la cortina cálida sintetizada
+    const customCortinaPath = path.join(AUDIO_ASSETS_DIR, "cortina.mp3");
+    let cortinaSource = customCortinaPath;
+    if (!fs.existsSync(customCortinaPath)) {
+      cortinaSource = path.join(tmpDir, "cortina-synth.wav");
+      createSyntheticCortinaWav(cortinaSource, tmpDir);
     }
+
+    const fadeOutStart = Math.max(1, voiceDuration - 2.6).toFixed(2);
+    const totalDur = voiceDuration.toFixed(2);
+
+    runFfmpeg([
+      "-i",
+      voiceFullWav,
+      "-stream_loop",
+      "-1",
+      "-i",
+      cortinaSource,
+      "-filter_complex",
+      `[0:a]asplit=2[v1][v2];[1:a]atrim=0:${totalDur},asetpts=PTS-STARTPTS,afade=t=in:st=0:d=1.2,afade=t=out:st=${fadeOutStart}:d=2.4,volume=0.28[bg];[bg][v1]sidechaincompress=threshold=0.018:ratio=8:attack=90:release=650[ducked];[v2][ducked]amix=inputs=2:duration=first:normalize=0[out]`,
+      "-map",
+      "[out]",
+      "-c:a",
+      "libmp3lame",
+      "-b:a",
+      "128k",
+      finalMp3Path,
+    ]);
 
     const bytes = fs.statSync(finalMp3Path).size;
     const finalDuration = getAudioDurationSec(finalMp3Path);
