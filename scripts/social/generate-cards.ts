@@ -190,21 +190,21 @@ async function renderSlide1(edition: CountryEdition, coverUri: string | null, fo
         children: [
           { type: "span", props: { style: { fontSize: "24px", letterSpacing: "5px", color: "#B83827", fontWeight: 600 }, children: edition.continent.toUpperCase() } },
           { type: "span", props: { style: { marginTop: "10px", fontFamily: "Newsreader", fontSize: edition.country.length > 12 ? "74px" : "92px", fontWeight: 500, lineHeight: 1.04, letterSpacing: "-1px", maxWidth: "900px" }, children: edition.country.toUpperCase() } },
-          { type: "span", props: { style: { marginTop: "20px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "35px", lineHeight: 1.35, color: "#2D2C29", maxWidth: "890px" }, children: cleanIntro } },
+          { type: "span", props: { style: { marginTop: "22px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "35px", lineHeight: 1.38, color: "#2D2C29", maxWidth: "890px" }, children: cleanIntro } },
         ],
       },
     },
     ...(coverUri ? [{
       type: "div",
       props: {
-        style: { width: "924px", height: "410px", display: "flex", marginTop: "30px", border: "1px solid #161615", backgroundColor: "#EFEAE0", overflow: "hidden" },
+        style: { width: "924px", height: "410px", display: "flex", marginTop: "34px", border: "1px solid #161615", backgroundColor: "#EFEAE0", overflow: "hidden" },
         children: [{ type: "img", props: { src: coverUri, style: { width: "924px", height: "410px", objectFit: "cover" } } }],
       },
     }] : []),
     {
       type: "div",
       props: {
-        style: { width: "924px", display: "flex", justifyContent: "center", marginTop: "26px" },
+        style: { width: "924px", display: "flex", justifyContent: "center", marginTop: "28px" },
         children: [{ type: "span", props: { style: { fontSize: "23px", letterSpacing: "4px", color: "#5C5952", fontWeight: 600 }, children: "DESLIZÁ PARA LEER EL PANORAMA →" } }],
       },
     },
@@ -222,22 +222,22 @@ async function renderSlide2(edition: CountryEdition, fonts: FontAsset[]): Promis
         style: { width: "924px", display: "flex", flexDirection: "column" },
         children: [
           { type: "span", props: { style: { fontSize: "21px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: "TEMAS DESTACADOS" } },
-          { type: "span", props: { style: { width: "924px", marginTop: "6px", fontFamily: "Newsreader", fontSize: "44px", fontWeight: 500, color: "#161615", borderBottom: "2px solid #161615", paddingBottom: "12px" }, children: `Qué mueve a ${edition.country} esta semana` } },
+          { type: "span", props: { style: { width: "924px", marginTop: "6px", fontFamily: "Newsreader", fontSize: "44px", fontWeight: 500, color: "#161615", borderBottom: "2px solid #161615", paddingBottom: "14px" }, children: `Qué mueve a ${edition.country} esta semana` } },
         ],
       },
     },
     {
       type: "div",
       props: {
-        style: { width: "924px", display: "flex", flexDirection: "column", marginTop: "22px", gap: topics.length <= 2 ? "34px" : "20px" },
+        style: { width: "924px", display: "flex", flexDirection: "column", marginTop: "32px", gap: topics.length <= 2 ? "48px" : "34px" },
         children: topics.map((t) => ({
           type: "div",
           props: {
-            style: { width: "924px", boxSizing: "border-box", display: "flex", flexDirection: "column", borderLeft: "5px solid #B83827", paddingLeft: "22px" },
+            style: { width: "924px", boxSizing: "border-box", display: "flex", flexDirection: "column", borderLeft: "5px solid #B83827", paddingLeft: "24px" },
             children: [
-              { type: "span", props: { style: { width: "894px", fontSize: "20px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: t.category.toUpperCase() } },
-              { type: "span", props: { style: { width: "894px", marginTop: "4px", fontFamily: "Newsreader", fontSize: "35px", fontWeight: 500, lineHeight: 1.15, color: "#161615" }, children: truncateText(stripEditorialMarkdown(t.title), 120) } },
-              { type: "span", props: { style: { width: "894px", marginTop: "6px", fontSize: "24px", lineHeight: 1.34, color: "#383530" }, children: fitCompleteSentences(t.summary, summaryLimit) } },
+              { type: "span", props: { style: { width: "892px", fontSize: "20px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: t.category.toUpperCase() } },
+              { type: "span", props: { style: { width: "892px", marginTop: "5px", fontFamily: "Newsreader", fontSize: "35px", fontWeight: 500, lineHeight: 1.15, color: "#161615" }, children: truncateText(stripEditorialMarkdown(t.title), 120) } },
+              { type: "span", props: { style: { width: "892px", marginTop: "10px", fontSize: "24px", lineHeight: 1.38, color: "#383530" }, children: fitCompleteSentences(t.summary, summaryLimit) } },
             ],
           },
         })),
@@ -267,14 +267,14 @@ async function renderSlide3(edition: CountryEdition, cfg: CountrySourceConfig, f
           },
           { type: "span", props: { style: { width: "840px", marginTop: "20px", fontFamily: "Newsreader", fontSize: "52px", fontWeight: 500, lineHeight: 1.12, color: "#161615" }, children: truncateText(edition.recommendation.title, 140) } },
           { type: "span", props: { style: { width: "840px", marginTop: "8px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "33px", color: "#5C5952" }, children: edition.recommendation.creator } },
-          { type: "span", props: { style: { width: "840px", marginTop: "18px", fontSize: "28px", lineHeight: 1.38, color: "#2D2C29" }, children: fitCompleteSentences(edition.recommendation.context, 240) } },
+          { type: "span", props: { style: { width: "840px", marginTop: "18px", fontSize: "28px", lineHeight: 1.4, color: "#2D2C29" }, children: fitCompleteSentences(edition.recommendation.context, 240) } },
         ],
       },
     },
     ...(listeningNames.length > 0 ? [{
       type: "div",
       props: {
-        style: { width: "924px", display: "flex", flexDirection: "column", marginTop: "30px", borderTop: "1px solid #D6D0C4", paddingTop: "22px" },
+        style: { width: "924px", display: "flex", flexDirection: "column", marginTop: "34px", borderTop: "1px solid #D6D0C4", paddingTop: "24px" },
         children: [
           { type: "span", props: { style: { fontSize: "22px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: "PARA ESCUCHAR EN LA WEB" } },
           { type: "span", props: { style: { width: "924px", marginTop: "10px", fontFamily: "Newsreader", fontSize: "32px", lineHeight: 1.32, color: "#161615" }, children: listeningNames.join("  ·  ") } },
@@ -284,7 +284,7 @@ async function renderSlide3(edition: CountryEdition, cfg: CountrySourceConfig, f
     {
       type: "div",
       props: {
-        style: { width: "924px", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginTop: "32px", padding: "26px 30px", backgroundColor: "#161615", color: "#FAF8F3" },
+        style: { width: "924px", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginTop: "36px", padding: "26px 30px", backgroundColor: "#161615", color: "#FAF8F3" },
         children: [
           { type: "span", props: { style: { fontSize: "21px", letterSpacing: "3px", fontWeight: 600, color: "#E8DCD0" }, children: "LEÉ LA CRÓNICA COMPLETA Y GIRÁ LA RULETA" } },
           { type: "span", props: { style: { marginTop: "10px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "34px", color: "#FAF8F3" }, children: "Enlace directo en nuestra bio · @jackpotcultural" } },
