@@ -1,81 +1,28 @@
-name: Pódcast Diario Automático
-
-on:
-  schedule:
-    # Lunes a Viernes 07:30 hora Argentina (10:30 UTC)
-    - cron: "30 10 * * 1-5"
-    # Sábado y Domingo 10:00 hora Argentina (13:00 UTC)
-    - cron: "0 13 * * 6,0"
-  workflow_dispatch:
-    inputs:
-      edicion:
-        description: "Elegí qué episodio generar"
-        required: false
-        type: choice
-        default: "automatica_hoy"
-        options:
-          - automatica_hoy
-          - argentina
-          - brasil
-          - estados-unidos
-          - francia
-          - reino-unido
-          - alemania
-          - resto-del-mundo
-      promocionar_en_redes:
-        description: "Publicar placa de promoción en redes (solo si ya existe SPOTIFY_SHOW_URL)"
-        required: false
-        type: boolean
-        default: true
-
-permissions:
-  contents: write
-
-jobs:
-  generate-podcast:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Instalar FFmpeg
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
-
-      - name: Instalar dependencias
-        run: npm install
-
-      - name: Generar episodio y placa promocional
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          PODCAST_EMAIL: ${{ secrets.PODCAST_EMAIL }}
-        run: npm run podcast:generate -- --edition=${{ inputs.edicion || 'automatica_hoy' }}
-
-      - name: Guardar episodio, placa y canal XML en el repositorio
-        run: |
-          git config user.name "Jackpot Cultural Bot"
-          git config user.email "bot@jackpot-cultural.local"
-          git add public/podcast/ public/podcast.xml public/podcast-cover.png public/social-cards/ public/audio/
-          if git diff --staged --quiet; then
-            echo "Sin cambios nuevos en el pódcast."
-          else
-            git commit -m "chore: episodio pódcast $(date -u +'%Y-%m-%d')"
-            git push
-          fi
-
-      - name: Promocionar episodio en redes sociales
-        if: ${{ inputs.promocionar_en_redes != false }}
-        env:
-          SPOTIFY_SHOW_URL: ${{ secrets.SPOTIFY_SHOW_URL }}
-          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
-          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
-          META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
-          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
-          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
-        run: |
-          sleep 35
-          npm run podcast:promote
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jackpot Cultural</title>
+    <link>https://jackpot-cultural-app.vercel.app</link>
+    <atom:link href="https://jackpot-cultural-app.vercel.app/podcast.xml" rel="self" type="application/rss+xml" />
+    <language>es-ar</language>
+    <description>Emisión internacional de música, cine, series, libros y escena cultural de 27 países.</description>
+    <itunes:author>Jackpot Cultural</itunes:author>
+    <itunes:owner>
+      <itunes:name>Jackpot Cultural</itunes:name>
+      <itunes:email>julianelen@mail.com</itunes:email>
+    </itunes:owner>
+    <itunes:summary>De qué está hablando la cultura del mundo esta semana, en formato radial.</itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:category text="Arts" />
+    <itunes:image href="https://jackpot-cultural-app.vercel.app/podcast-cover.png" />
+    <item>
+      <title>Jackpot Cultural (2026-W47): Argentina</title>
+      <description>Titulares y crónicas culturales de la semana en Argentina.</description>
+      <pubDate>Fri, 20 Nov 2026 21:08:23 GMT</pubDate>
+      <guid isPermaLink="false">jackpot-2026-W47</guid>
+      <enclosure url="https://jackpot-cultural-app.vercel.app/podcast/episodio-2026-W47.mp3" length="3457819" type="audio/mpeg" />
+      <itunes:duration>03:36</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+  </channel>
+</rss>
