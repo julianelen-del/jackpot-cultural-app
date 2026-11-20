@@ -4,13 +4,15 @@ import os from "node:os";
 import path from "node:path";
 import { GoogleGenAI } from "@google/genai";
 import "dotenv/config";
+import satori from "satori";
 import sharp from "sharp";
-import { CountryEditionSchema, type Continent, type CountryEdition, type CountrySourceConfig } from "../../src/lib/schema";
+import { CountryEditionSchema, type CountryEdition, type CountrySourceConfig } from "../../src/lib/schema";
 
 const SOURCES_PATH = path.join(process.cwd(), "content", "sources.json");
 const COUNTRIES_DIR = path.join(process.cwd(), "content", "countries");
 const AUDIO_ASSETS_DIR = path.join(process.cwd(), "public", "audio");
 const PODCAST_DIR = path.join(process.cwd(), "public", "podcast");
+const CARDS_DIR = path.join(process.cwd(), "public", "social-cards");
 const EPISODES_JSON_PATH = path.join(PODCAST_DIR, "episodes.json");
 const PODCAST_XML_PATH = path.join(process.cwd(), "public", "podcast.xml");
 const LOGO_PATH = path.join(process.cwd(), "public", "logo.png");
@@ -21,18 +23,31 @@ const TTS_MODEL = "gemini-2.5-flash-preview-tts";
 const MALE_VOICE_NAME = process.env.PODCAST_VOICE || "Charon";
 const FEMALE_VOICE_NAME = process.env.PODCAST_FEMALE_VOICE || "Aoede";
 const PODCAST_EMAIL = (process.env.PODCAST_EMAIL || "").trim();
-const MAX_EPISODES_KEPT = 12;
+const MAX_EPISODES_KEPT = 14;
 
-interface EpisodeMeta {
+const FEATURED_SINGLE_SLUGS = ["argentina", "brasil", "estados-unidos", "francia", "reino-unido", "alemania"];
+
+export interface EpisodeMeta {
   id: string;
+  key: string;
   week: string;
   title: string;
+  subtitle: string;
   description: string;
   pubDate: string;
   fileName: string;
+  cardFileName: string;
   bytes: number;
   durationSec: number;
   countries: string[];
+  headlines: string[];
+}
+
+interface FontAsset {
+  name: string;
+  data: ArrayBuffer;
+  weight: 400 | 500 | 600 | 700;
+  style: "normal" | "italic";
 }
 
 const TENS_M: Record<number, string> = { 10: "décimo", 20: "vigésimo", 30: "trigésimo", 40: "cuadragésimo", 50: "quincuagésimo", 60: "sexagésimo", 70: "septuagésimo", 80: "octogésimo", 90: "nonagésimo" };
@@ -69,17 +84,26 @@ function runFfmpeg(args: string[]) {
   execFileSync("ffmpeg", ["-y", "-loglevel", "error", ...args], { stdio: "inherit" });
 }
 
+function cleanPlainText(text: string): string {
+  return text
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/\s*\(\d{1,2}\)(?=[.,;:\s]|$)/g, "")
+    .replace(/\s*\[\d{1,2}\](?=[.,;:\s]|$)/g, "")
+    .replace(/\*\*/g, "")
+    .replace(/\*/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function cleanSpeechText(text: string): string {
-  return normalizeEditionOrdinals(
-    text
-      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-      .replace(/\s*\(\d{1,2}\)(?=[.,;:\s]|$)/g, "")
-      .replace(/\s*\[\d{1,2}\](?=[.,;:\s]|$)/g, "")
-      .replace(/\*\*/g, "")
-      .replace(/\*/g, "")
-      .replace(/\s+/g, " ")
-      .trim()
-  );
+  return normalizeEditionOrdinals(cleanPlainText(text));
+}
+
+function truncateText(text: string, maxLen: number): string {
+  if (text.length <= maxLen) return text;
+  const cut = text.slice(0, maxLen - 1);
+  const lastSpace = cut.lastIndexOf(" ");
+  return `${lastSpace > 20 ? cut.slice(0, lastSpace) : cut}…`;
 }
 
 function escapeXml(text: string): string {
@@ -120,25 +144,39 @@ function pickLatestWeek(editions: CountryEdition[]): string {
   return Array.from(counts.entries()).sort((a, b) => b[0].localeCompare(a[0]))[0]?.[0] || "2026-W01";
 }
 
-function selectFeaturedEditions(editions: CountryEdition[], latestWeek: string, requestedSlugs: string[]): CountryEdition[] {
-  if (requestedSlugs.length > 0) {
-    return requestedSlugs.map((s) => editions.find((e) => e.slug === s)).filter((e): e is CountryEdition => Boolean(e));
-  }
-  const weekEditions = editions.filter((e) => e.edition_week === latestWeek);
-  const pool = weekEditions.length >= 4 ? weekEditions : editions;
-  const weekNumMatch = latestWeek.match(/W(\d+)/);
-  const weekNum = weekNumMatch ? Number(weekNumMatch[1]) : 1;
-  const continentOrder: Continent[] = ["América", "Europa", "Asia", "África", "Oceanía"];
-  const selected: CountryEdition[] = [];
-  for (const cont of continentOrder) {
-    if (selected.length >= 4) break;
-    const inCont = pool.filter((e) => e.continent === cont);
-    if (inCont.length > 0) {
-      const picked = inCont[weekNum % inCont.length];
-      if (!selected.some((s) => s.slug === picked.slug)) selected.push(picked);
+function resolveEditionKeyFromArgentinaDay(): string {
+  const argDay = new Date(Date.now() - 3 * 3600 * 1000).getUTCDay();
+  const map: Record<number, string> = {
+    1: "argentina",
+    2: "brasil",
+    3: "estados-unidos",
+    4: "francia",
+    5: "reino-unido",
+    6: "alemania",
+    0: "resto-del-mundo",
+  };
+  return map[argDay] || "argentina";
+}
+
+function selectEditionCountries(editions: CountryEdition[], latestWeek: string, editionKey: string): { selected: CountryEdition[]; label: string; isWorldRoundup: boolean } {
+  if (editionKey === "resto-del-mundo") {
+    const restPool = editions.filter((e) => !FEATURED_SINGLE_SLUGS.includes(e.slug));
+    const weekPool = restPool.filter((e) => e.edition_week === latestWeek);
+    const source = weekPool.length >= 3 ? weekPool : restPool;
+    const weekNumMatch = latestWeek.match(/W(\d+)/);
+    const weekNum = weekNumMatch ? Number(weekNumMatch[1]) : 1;
+    const startIdx = ((weekNum - 1) * 3) % Math.max(1, source.length);
+    const picked: CountryEdition[] = [];
+    for (let i = 0; i < source.length && picked.length < 3; i++) {
+      picked.push(source[(startIdx + i) % source.length]);
     }
+    return { selected: picked, label: "Resto del mundo", isWorldRoundup: true };
   }
-  return selected.slice(0, 4);
+
+  const single = editions.find((e) => e.slug === editionKey);
+  if (single) return { selected: [single], label: single.country, isWorldRoundup: false };
+
+  return { selected: editions.slice(0, 1), label: editions[0]?.country || "Mundo", isWorldRoundup: false };
 }
 
 async function synthesizeSegmentToWav(ai: GoogleGenAI, speechText: string, voiceName: string, styleRole: "female-host" | "male-host", outWavPath: string, tmpDir: string, idx: number) {
@@ -171,14 +209,14 @@ function createElaborateIntroWav(outWavPath: string, tmpDir: string) {
   const parts: string[] = [];
   [440, 523.25, 622.25, 740, 880].forEach((freq, i) => {
     const p = path.join(tmpDir, `intro-clk-${i}.wav`);
-    runFfmpeg(["-f", "lavfi", "-i", `sine=frequency=${freq}:duration=0.055`, "-af", "afade=t=out:st=0.01:d=0.045,volume=0.45", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p]);
+    runFfmpeg(["-f", "lavfi", "-i", `sine=frequency=${freq}:duration=0.06`, "-af", "afade=t=out:st=0.01:d=0.05,volume=0.88", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p]);
     const gap = path.join(tmpDir, `intro-gap-${i}.wav`);
-    createSilenceWav(gap, i < 2 ? 0.14 : 0.08);
+    createSilenceWav(gap, i < 2 ? 0.13 : 0.08);
     parts.push(p, gap);
   });
   [{ f: 220.0, d: 0.24 }, { f: 261.63, d: 0.24 }, { f: 329.63, d: 0.24 }, { f: 440.0, d: 0.24 }, { f: 493.88, d: 1.4 }].forEach((n, i) => {
     const p = path.join(tmpDir, `intro-mel-${i}.wav`);
-    runFfmpeg(["-f", "lavfi", "-i", `sine=frequency=${n.f}:duration=${n.d}`, "-f", "lavfi", "-i", `sine=frequency=${(n.f * 0.5).toFixed(2)}:duration=${n.d}`, "-filter_complex", `[0:a][1:a]amix=inputs=2:duration=longest:normalize=0,afade=t=in:st=0:d=0.03,afade=t=out:st=${(n.d * 0.4).toFixed(2)}:d=${(n.d * 0.6).toFixed(2)},lowpass=f=1350,aecho=0.8:0.75:90:0.32,volume=0.35`, "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p]);
+    runFfmpeg(["-f", "lavfi", "-i", `sine=frequency=${n.f}:duration=${n.d}`, "-f", "lavfi", "-i", `sine=frequency=${(n.f * 0.5).toFixed(2)}:duration=${n.d}`, "-filter_complex", `[0:a][1:a]amix=inputs=2:duration=longest:normalize=0,afade=t=in:st=0:d=0.03,afade=t=out:st=${(n.d * 0.4).toFixed(2)}:d=${(n.d * 0.6).toFixed(2)},lowpass=f=1500,aecho=0.8:0.75:90:0.34,volume=0.78`, "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p]);
     parts.push(p);
   });
   concatWavs(parts, outWavPath, tmpDir, "intro");
@@ -188,7 +226,7 @@ function createElaborateOutroWav(outWavPath: string, tmpDir: string) {
   const parts: string[] = [];
   [{ f: 493.88, d: 0.24 }, { f: 392.0, d: 0.24 }, { f: 329.63, d: 0.24 }, { f: 220.0, d: 1.9 }].forEach((n, i) => {
     const p = path.join(tmpDir, `outro-mel-${i}.wav`);
-    runFfmpeg(["-f", "lavfi", "-i", `sine=frequency=${n.f}:duration=${n.d}`, "-f", "lavfi", "-i", `sine=frequency=${(n.f * 1.5).toFixed(2)}:duration=${n.d}`, "-filter_complex", `[0:a][1:a]amix=inputs=2:duration=longest:normalize=0,afade=t=in:st=0:d=0.04,afade=t=out:st=${(n.d * 0.32).toFixed(2)}:d=${(n.d * 0.68).toFixed(2)},lowpass=f=1200,aecho=0.8:0.78:100:0.32,volume=0.34`, "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p]);
+    runFfmpeg(["-f", "lavfi", "-i", `sine=frequency=${n.f}:duration=${n.d}`, "-f", "lavfi", "-i", `sine=frequency=${(n.f * 1.5).toFixed(2)}:duration=${n.d}`, "-filter_complex", `[0:a][1:a]amix=inputs=2:duration=longest:normalize=0,afade=t=in:st=0:d=0.04,afade=t=out:st=${(n.d * 0.35).toFixed(2)}:d=${(n.d * 0.65).toFixed(2)},lowpass=f=1400,aecho=0.8:0.78:100:0.34,volume=0.78`, "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p]);
     parts.push(p);
   });
   const endClick = path.join(tmpDir, "outro-clk.wav");
@@ -199,13 +237,13 @@ function createElaborateOutroWav(outWavPath: string, tmpDir: string) {
 
 function createSyntheticChimeWav(outWavPath: string, kind: "sep" | "click", tmpDir: string) {
   if (kind === "click") {
-    runFfmpeg(["-f", "lavfi", "-i", "sine=frequency=760:duration=0.09", "-af", "afade=t=out:st=0.01:d=0.08,volume=0.55", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", outWavPath]);
+    runFfmpeg(["-f", "lavfi", "-i", "sine=frequency=760:duration=0.09", "-af", "afade=t=out:st=0.01:d=0.08,volume=0.85", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", outWavPath]);
     return;
   }
   const n1 = path.join(tmpDir, "sep-1.wav");
   const n2 = path.join(tmpDir, "sep-2.wav");
-  runFfmpeg(["-f", "lavfi", "-i", "sine=frequency=440:duration=0.22", "-af", "afade=t=in:st=0:d=0.02,afade=t=out:st=0.07:d=0.15,aecho=0.8:0.65:60:0.28,volume=0.55", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", n1]);
-  runFfmpeg(["-f", "lavfi", "-i", "sine=frequency=587.33:duration=1.15", "-f", "lavfi", "-i", "sine=frequency=440:duration=1.15", "-filter_complex", "[0:a][1:a]amix=inputs=2:duration=longest:normalize=0,afade=t=in:st=0:d=0.03,afade=t=out:st=0.35:d=0.8,lowpass=f=1450,aecho=0.8:0.7:85:0.3,volume=0.36", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", n2]);
+  runFfmpeg(["-f", "lavfi", "-i", "sine=frequency=440:duration=0.22", "-af", "afade=t=in:st=0:d=0.02,afade=t=out:st=0.07:d=0.15,aecho=0.8:0.65:60:0.28,volume=0.88", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", n1]);
+  runFfmpeg(["-f", "lavfi", "-i", "sine=frequency=587.33:duration=1.15", "-f", "lavfi", "-i", "sine=frequency=440:duration=1.15", "-filter_complex", "[0:a][1:a]amix=inputs=2:duration=longest:normalize=0,afade=t=in:st=0:d=0.03,afade=t=out:st=0.35:d=0.8,lowpass=f=1550,aecho=0.8:0.7:85:0.3,volume=0.72", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", n2]);
   concatWavs([n1, n2], outWavPath, tmpDir, "sep");
 }
 
@@ -219,7 +257,7 @@ function createSyntheticCortinaWav(outWavPath: string, tmpDir: string) {
   const stepWavs: string[] = [];
   pattern.forEach((step, idx) => {
     const p = path.join(tmpDir, `cortina-step-${idx}.wav`);
-    runFfmpeg(["-f", "lavfi", "-i", `sine=frequency=${step.bass}:duration=0.5`, "-f", "lavfi", "-i", `sine=frequency=${step.note}:duration=0.5`, "-filter_complex", "[0:a]afade=t=in:st=0:d=0.03,afade=t=out:st=0.25:d=0.25,volume=0.26[b];[1:a]afade=t=in:st=0:d=0.02,afade=t=out:st=0.14:d=0.36,volume=0.24[n];[b][n]amix=inputs=2:duration=longest:normalize=0,lowpass=f=1050", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p]);
+    runFfmpeg(["-f", "lavfi", "-i", `sine=frequency=${step.bass}:duration=0.5`, "-f", "lavfi", "-i", `sine=frequency=${step.note}:duration=0.5`, "-filter_complex", "[0:a]afade=t=in:st=0:d=0.03,afade=t=out:st=0.25:d=0.25,volume=0.32[b];[1:a]afade=t=in:st=0:d=0.02,afade=t=out:st=0.14:d=0.36,volume=0.28[n];[b][n]amix=inputs=2:duration=longest:normalize=0,lowpass=f=1100", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p]);
     stepWavs.push(p);
   });
   const rawLoop = path.join(tmpDir, "cortina-raw.wav");
@@ -228,7 +266,7 @@ function createSyntheticCortinaWav(outWavPath: string, tmpDir: string) {
 }
 
 function normalizeCustomAssetToWav(srcPath: string, outWavPath: string) {
-  runFfmpeg(["-i", srcPath, "-af", "loudnorm=I=-18:TP=-1.5:LRA=11", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", outWavPath]);
+  runFfmpeg(["-i", srcPath, "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", outWavPath]);
 }
 
 async function ensurePodcastCover() {
@@ -237,9 +275,11 @@ async function ensurePodcastCover() {
   console.log("  ✓ Portada 1400x1400 creada en public/podcast-cover.png");
 }
 
-function buildOpeningFemaleScript(editions: CountryEdition[]): string {
-  const names = editions.map((e) => e.country).join(", ");
-  return `Bienvenidos a Jackpot Cultural, la edición sonora semanal de música, rock, cine, series y libros del mundo. En el programa de hoy recorremos ${names}. Comenzamos con los títulos destacados de la jornada.`;
+function buildOpeningFemaleScript(editions: CountryEdition[], isWorldRoundup: boolean): string {
+  const introScope = isWorldRoundup
+    ? `En el programa de hoy recorremos lo más destacado del resto del mundo en ${editions.map((e) => e.country).join(", ")}.`
+    : `En la edición de hoy viajamos a ${editions[0].country}.`;
+  return `Bienvenidos a Jackpot Cultural, la edición sonora semanal de música, cine, series y libros del mundo. ${introScope} Comenzamos con los títulos destacados de la jornada.`;
 }
 
 function buildHeadlinesMaleScript(editions: CountryEdition[]): string {
@@ -252,11 +292,109 @@ function buildHeadlinesMaleScript(editions: CountryEdition[]): string {
 function buildCountryBodyMaleScript(ed: CountryEdition, hasMore: boolean): string {
   const pulse = ed.cultural_pulse.split(/\n{2,}/).map((p) => cleanSpeechText(p)).filter(Boolean).join("\n\n");
   const rec = `Para descubrir en ${ed.country}: ${cleanSpeechText(ed.recommendation.title)}, de ${cleanSpeechText(ed.recommendation.creator)}. ${cleanSpeechText(ed.recommendation.context)}`;
-  return [`Panorama cultural de ${ed.country}.`, cleanSpeechText(ed.intro), pulse, rec, hasMore ? "Pasamos al siguiente destino de esta semana." : ""].filter(Boolean).join("\n\n");
+  return [`Panorama cultural de ${ed.country}.`, cleanSpeechText(ed.intro), pulse, rec, hasMore ? "Pasamos al siguiente destino de la jornada." : ""].filter(Boolean).join("\n\n");
 }
 
 function buildClosingFemaleScript(): string {
-  return "Esto fue el panorama semanal de Jackpot Cultural. Podés leer todas las ediciones completas, escuchar las radios locales de cada país y volver a girar la ruleta en jackpot guión cultural guión app punto vercel punto app. Gracias por acompañarnos y hasta la próxima emisión.";
+  return "Esto fue Jackpot Cultural. Podés leer todas las ediciones completas, escuchar las radios locales de cada país y volver a girar la ruleta en jackpot guión cultural guión app punto vercel punto app. Suscribite al pódcast para no perderte la próxima emisión.";
+}
+
+async function loadCardFonts(): Promise<FontAsset[]> {
+  const specs: { name: string; weight: 400 | 500 | 600 | 700; style: "normal" | "italic"; url: string }[] = [
+    { name: "Newsreader", weight: 500, style: "normal", url: "https://cdn.jsdelivr.net/npm/@fontsource/newsreader@5.1.0/files/newsreader-latin-500-normal.woff" },
+    { name: "Newsreader", weight: 400, style: "italic", url: "https://cdn.jsdelivr.net/npm/@fontsource/newsreader@5.1.0/files/newsreader-latin-400-italic.woff" },
+    { name: "Inter", weight: 600, style: "normal", url: "https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/files/inter-latin-600-normal.woff" },
+  ];
+  const fonts: FontAsset[] = [];
+  for (const s of specs) {
+    const res = await fetch(s.url);
+    if (res.ok) {
+      const buf = Buffer.from(await res.arrayBuffer());
+      fonts.push({ name: s.name, data: buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength) as ArrayBuffer, weight: s.weight, style: s.style });
+    }
+  }
+  return fonts;
+}
+
+async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryEdition[]) {
+  fs.mkdirSync(CARDS_DIR, { recursive: true });
+  const fonts = await loadCardFonts();
+  if (fonts.length === 0) return;
+
+  let logoUri: string | null = null;
+  if (fs.existsSync(LOGO_PATH)) {
+    const logoBuf = await sharp(LOGO_PATH).resize(150, 150).png().toBuffer();
+    logoUri = `data:image/png;base64,${logoBuf.toString("base64")}`;
+  }
+
+  const headlines = episode.headlines.slice(0, 3).map((h) => truncateText(h, 88));
+  const tree = {
+    type: "div",
+    props: {
+      style: { width: "1080px", height: "1350px", boxSizing: "border-box", backgroundColor: "#161615", color: "#FAF8F3", display: "flex", flexDirection: "column", padding: "38px", fontFamily: "Inter" },
+      children: [{
+        type: "div",
+        props: {
+          style: { width: "1004px", height: "1274px", boxSizing: "border-box", border: "2px solid #4A4741", backgroundColor: "#FAF8F3", color: "#161615", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "40px 44px" },
+          children: [
+            {
+              type: "div",
+              props: {
+                style: { width: "916px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #D6D0C4", paddingBottom: "18px" },
+                children: [
+                  { type: "span", props: { style: { fontSize: "22px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: "NUEVO EPISODIO · PÓDCAST" } },
+                  { type: "span", props: { style: { fontSize: "22px", letterSpacing: "3px", color: "#5C5952", fontWeight: 600 }, children: `${episode.week} · ${formatDuration(episode.durationSec)}` } },
+                ],
+              },
+            },
+            {
+              type: "div",
+              props: {
+                style: { width: "916px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginTop: "10px" },
+                children: [
+                  ...(logoUri ? [{ type: "img", props: { src: logoUri, style: { width: "138px", height: "138px", borderRadius: "69px", border: "2px solid #161615", marginBottom: "20px" } } }] : []),
+                  { type: "span", props: { style: { fontSize: "22px", letterSpacing: "5px", color: "#5C5952", fontWeight: 600 }, children: "JACKPOT CULTURAL EN SPOTIFY" } },
+                  { type: "span", props: { style: { marginTop: "10px", fontFamily: "Newsreader", fontSize: episode.subtitle.length > 14 ? "66px" : "82px", fontWeight: 500, lineHeight: 1.05, color: "#161615" }, children: episode.subtitle.toUpperCase() } },
+                  { type: "span", props: { style: { marginTop: "14px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "30px", lineHeight: 1.35, color: "#4B4842", maxWidth: "840px" }, children: selected.length === 1 ? truncateText(cleanPlainText(selected[0].intro), 150) : `Lo más destacado de la semana en ${selected.map((e) => e.country).join(", ")}.` } },
+                ],
+              },
+            },
+            {
+              type: "div",
+              props: {
+                style: { width: "916px", display: "flex", flexDirection: "column", gap: "18px", borderTop: "2px solid #161615", paddingTop: "24px" },
+                children: [
+                  { type: "span", props: { style: { fontSize: "20px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: "EN ESTE EPISODIO" } },
+                  ...headlines.map((h) => ({
+                    type: "div",
+                    props: {
+                      style: { width: "916px", boxSizing: "border-box", display: "flex", borderLeft: "5px solid #B83827", paddingLeft: "20px" },
+                      children: [{ type: "span", props: { style: { width: "890px", fontFamily: "Newsreader", fontSize: "30px", lineHeight: 1.25, color: "#161615" }, children: h } }],
+                    },
+                  })),
+                ],
+              },
+            },
+            {
+              type: "div",
+              props: {
+                style: { width: "916px", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "26px 28px", backgroundColor: "#161615", color: "#FAF8F3" },
+                children: [
+                  { type: "span", props: { style: { fontSize: "21px", letterSpacing: "4px", fontWeight: 600, color: "#E8DCD0" }, children: "ESCUCHALO Y SUSCRIBITE GRATIS" } },
+                  { type: "span", props: { style: { marginTop: "8px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "33px", color: "#FAF8F3" }, children: "Buscá Jackpot Cultural en Spotify" } },
+                ],
+              },
+            },
+          ],
+        },
+      }],
+    },
+  };
+
+  const svg = await satori(tree as Parameters<typeof satori>[0], { width: 1080, height: 1350, fonts });
+  const outPath = path.join(CARDS_DIR, episode.cardFileName);
+  await sharp(Buffer.from(svg)).jpeg({ quality: 92, mozjpeg: true }).toFile(outPath);
+  console.log(`  ✓ Placa promocional creada: public/social-cards/${episode.cardFileName}`);
 }
 
 function writePodcastXml(episodes: EpisodeMeta[]) {
@@ -279,7 +417,7 @@ function writePodcastXml(episodes: EpisodeMeta[]) {
     <link>${escapeXml(SITE_URL)}</link>
     <atom:link href="${escapeXml(`${SITE_URL}/podcast.xml`)}" rel="self" type="application/rss+xml" />
     <language>es-ar</language>
-    <description>Emisión semanal internacional de música, rock, cine, series, libros y escena cultural de 27 países.</description>
+    <description>Emisión internacional de música, cine, series, libros y escena cultural de 27 países.</description>
     <itunes:author>Jackpot Cultural</itunes:author>${ownerXml}
     <itunes:summary>De qué está hablando la cultura del mundo esta semana, en formato radial.</itunes:summary>
     <itunes:explicit>false</itunes:explicit>
@@ -297,15 +435,17 @@ async function main() {
   if (!apiKey) throw new Error("Falta GEMINI_API_KEY en el entorno.");
 
   const args = process.argv.slice(2);
-  const countriesArg = args.find((a) => a.startsWith("--countries=") || a.startsWith("--country="))?.split("=")[1];
-  const requestedSlugs = countriesArg ? countriesArg.split(",").map((s) => s.trim()).filter(Boolean) : [];
+  const argEd = args.find((a) => a.startsWith("--edition=") || a.startsWith("--countries=") || a.startsWith("--country="))?.split("=")[1]?.trim();
+  const editionKey = !argEd || argEd === "automatica_hoy" ? resolveEditionKeyFromArgentinaDay() : argEd;
+
   const editions = loadEditions();
   if (editions.length === 0) throw new Error("No hay ediciones disponibles para locutar.");
 
   const latestWeek = pickLatestWeek(editions);
-  const selected = selectFeaturedEditions(editions, latestWeek, requestedSlugs);
+  const { selected, label, isWorldRoundup } = selectEditionCountries(editions, latestWeek, editionKey);
   if (selected.length === 0) throw new Error("No se encontraron países válidos.");
 
+  console.log(`=== Generando episodio [${editionKey}] (${latestWeek}): ${selected.map((s) => s.country).join(", ")} ===`);
   fs.mkdirSync(PODCAST_DIR, { recursive: true });
   await ensurePodcastCover();
 
@@ -327,7 +467,7 @@ async function main() {
 
     console.log("  [Voz femenina] Generando apertura...");
     const openingVoiceWav = path.join(tmpDir, "01-apertura-voz.wav");
-    await synthesizeSegmentToWav(ai, buildOpeningFemaleScript(selected), FEMALE_VOICE_NAME, "female-host", openingVoiceWav, tmpDir, 1);
+    await synthesizeSegmentToWav(ai, buildOpeningFemaleScript(selected, isWorldRoundup), FEMALE_VOICE_NAME, "female-host", openingVoiceWav, tmpDir, 1);
     timelineWavs.push(openingVoiceWav, silShort);
 
     const customSepPath = path.join(AUDIO_ASSETS_DIR, "separador.mp3");
@@ -378,7 +518,8 @@ async function main() {
     concatWavs(timelineWavs, voiceFullWav, tmpDir, "full");
 
     const voiceDuration = getAudioDurationSec(voiceFullWav);
-    const fileName = `episodio-${latestWeek}.mp3`;
+    const fileName = `episodio-${latestWeek}-${editionKey}.mp3`;
+    const cardFileName = `podcast-${editionKey}.jpg`;
     const finalMp3Path = path.join(PODCAST_DIR, fileName);
 
     const customCortinaPath = path.join(AUDIO_ASSETS_DIR, "cortina.mp3");
@@ -396,25 +537,33 @@ async function main() {
       "-stream_loop", "-1",
       "-i", cortinaSource,
       "-filter_complex",
-      `[0:a]asplit=2[v1][v2];[1:a]atrim=0:${totalDur},asetpts=PTS-STARTPTS,afade=t=in:st=0:d=1.0,afade=t=out:st=${fadeOutStart}:d=2.4,volume=0.85[bg];[bg][v1]sidechaincompress=threshold=0.03:ratio=4.5:attack=110:release=600[ducked];[v2][ducked]amix=inputs=2:duration=first:normalize=0[out]`,
+      `[0:a]asplit=2[v1][v2];[1:a]atrim=0:${totalDur},asetpts=PTS-STARTPTS,afade=t=in:st=0:d=1.0,afade=t=out:st=${fadeOutStart}:d=2.4,volume=0.88[bg];[bg][v1]sidechaincompress=threshold=0.03:ratio=4.5:attack=110:release=600[ducked];[v2][ducked]amix=inputs=2:duration=first:normalize=0[out]`,
       "-map", "[out]", "-c:a", "libmp3lame", "-b:a", "128k", finalMp3Path,
     ]);
 
     const bytes = fs.statSync(finalMp3Path).size;
     const finalDuration = getAudioDurationSec(finalMp3Path);
-    const countryNames = selected.map((e) => e.country);
+    const headlines = selected.flatMap((ed) => ed.topics.slice(0, isWorldRoundup ? 1 : 3).map((t) => `${ed.country}: ${cleanPlainText(t.title)}`));
 
     const episode: EpisodeMeta = {
-      id: `jackpot-${latestWeek}`,
+      id: `jackpot-${latestWeek}-${editionKey}`,
+      key: editionKey,
       week: latestWeek,
-      title: `Jackpot Cultural (${latestWeek}): ${countryNames.join(", ")}`,
-      description: `Titulares y crónicas culturales de la semana en ${countryNames.join(", ")}.`,
+      title: `Jackpot Cultural · ${label} (${latestWeek})`,
+      subtitle: label,
+      description: isWorldRoundup
+        ? `Lo más destacado de la semana en ${selected.map((e) => e.country).join(", ")}.`
+        : `${cleanPlainText(selected[0].intro)}`,
       pubDate: new Date().toISOString(),
       fileName,
+      cardFileName,
       bytes,
       durationSec: finalDuration,
       countries: selected.map((e) => e.slug),
+      headlines,
     };
+
+    await generatePodcastPromoCard(episode, selected);
 
     let existing: EpisodeMeta[] = [];
     if (fs.existsSync(EPISODES_JSON_PATH)) {

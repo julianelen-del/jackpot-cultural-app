@@ -1,15 +1,32 @@
-name: Pódcast Semanal Automático
+name: Pódcast Diario Automático
 
 on:
   schedule:
-    # Todos los lunes a las 10:30 UTC (07:30 hora Argentina)
-    - cron: "30 10 * * 1"
+    # Lunes a Viernes 07:30 hora Argentina (10:30 UTC)
+    - cron: "30 10 * * 1-5"
+    # Sábado y Domingo 10:00 hora Argentina (13:00 UTC)
+    - cron: "0 13 * * 6,0"
   workflow_dispatch:
     inputs:
-      countries:
-        description: "Opcional: países separados por coma (ej: argentina o argentina,chile). Vacío = 4 destacados."
+      edicion:
+        description: "Elegí qué episodio generar"
         required: false
-        default: ""
+        type: choice
+        default: "automatica_hoy"
+        options:
+          - automatica_hoy
+          - argentina
+          - brasil
+          - estados-unidos
+          - francia
+          - reino-unido
+          - alemania
+          - resto-del-mundo
+      promocionar_en_redes:
+        description: "Publicar placa de promoción en redes (solo si ya existe SPOTIFY_SHOW_URL)"
+        required: false
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -32,24 +49,33 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
-      - name: Generar episodio semanal de audio
+      - name: Generar episodio y placa promocional
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: |
-          if [ -n "${{ inputs.countries }}" ]; then
-            npm run podcast:generate -- --countries=${{ inputs.countries }}
-          else
-            npm run podcast:generate
-          fi
+          PODCAST_EMAIL: ${{ secrets.PODCAST_EMAIL }}
+        run: npm run podcast:generate -- --edition=${{ inputs.edicion || 'automatica_hoy' }}
 
-      - name: Guardar episodio y canal en el repositorio
+      - name: Guardar episodio, placa y canal XML en el repositorio
         run: |
           git config user.name "Jackpot Cultural Bot"
           git config user.email "bot@jackpot-cultural.local"
-          git add public/podcast/ public/podcast.xml public/podcast-cover.png
+          git add public/podcast/ public/podcast.xml public/podcast-cover.png public/social-cards/
           if git diff --staged --quiet; then
             echo "Sin cambios nuevos en el pódcast."
           else
-            git commit -m "chore: episodio semanal de pódcast $(date -u +'%Y-%m-%d')"
+            git commit -m "chore: episodio pódcast $(date -u +'%Y-%m-%d')"
             git push
           fi
+
+      - name: Promocionar episodio en redes sociales
+        if: ${{ inputs.promocionar_en_redes != false }}
+        env:
+          SPOTIFY_SHOW_URL: ${{ secrets.SPOTIFY_SHOW_URL }}
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+        run: |
+          sleep 35
+          npm run podcast:promote
