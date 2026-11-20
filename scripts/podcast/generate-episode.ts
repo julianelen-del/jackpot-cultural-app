@@ -17,6 +17,7 @@ const EPISODES_JSON_PATH = path.join(PODCAST_DIR, "episodes.json");
 const PODCAST_XML_PATH = path.join(process.cwd(), "public", "podcast.xml");
 const LOGO_PATH = path.join(process.cwd(), "public", "logo.png");
 const COVER_PATH = path.join(process.cwd(), "public", "podcast-cover.png");
+const CACHED_CLOSING_PATH = path.join(AUDIO_ASSETS_DIR, "cierre-voz.mp3");
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://jackpot-cultural-app.vercel.app").replace(/\/+$/, "");
 
 const TTS_MODEL = "gemini-2.5-flash-preview-tts";
@@ -447,6 +448,7 @@ async function main() {
 
   console.log(`=== Generando episodio [${editionKey}] (${latestWeek}): ${selected.map((s) => s.country).join(", ")} ===`);
   fs.mkdirSync(PODCAST_DIR, { recursive: true });
+  fs.mkdirSync(AUDIO_ASSETS_DIR, { recursive: true });
   await ensurePodcastCover();
 
   const ai = new GoogleGenAI({ apiKey });
@@ -501,11 +503,16 @@ async function main() {
     }
 
     timelineWavs.push(silShort, sepWav, silShort);
-    console.log("  [Voz femenina] Esperando 22s antes del cierre...");
-    await new Promise((r) => setTimeout(r, 22000));
-    console.log("  [Voz femenina] Generando cierre...");
     const closingVoiceWav = path.join(tmpDir, "05-cierre-voz.wav");
-    await synthesizeSegmentToWav(ai, buildClosingFemaleScript(), FEMALE_VOICE_NAME, "female-host", closingVoiceWav, tmpDir, segIndex);
+    if (fs.existsSync(CACHED_CLOSING_PATH)) {
+      console.log("  [Voz femenina] Reutilizando cierre guardado (ahorra 1 pedido)...");
+      normalizeCustomAssetToWav(CACHED_CLOSING_PATH, closingVoiceWav);
+    } else {
+      console.log("  [Voz femenina] Esperando 22s antes de generar y guardar cierre fijo...");
+      await new Promise((r) => setTimeout(r, 22000));
+      await synthesizeSegmentToWav(ai, buildClosingFemaleScript(), FEMALE_VOICE_NAME, "female-host", closingVoiceWav, tmpDir, segIndex);
+      runFfmpeg(["-i", closingVoiceWav, "-c:a", "libmp3lame", "-b:a", "128k", CACHED_CLOSING_PATH]);
+    }
     timelineWavs.push(closingVoiceWav, silShort);
 
     const customOutroPath = path.join(AUDIO_ASSETS_DIR, "cierre.mp3");
