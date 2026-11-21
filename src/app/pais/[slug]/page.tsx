@@ -17,6 +17,7 @@ import {
   getCountryEdition,
 } from "@/lib/countries";
 import { EditorialNav } from "@/components/EditorialNav";
+import { ShareEditionButton } from "@/components/ShareEditionButton";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -563,6 +564,11 @@ export default async function CountryPage({ params }: PageProps) {
                 <RotateCw className="h-3.5 w-3.5" />
                 <span>Volver a tirar</span>
               </Link>
+              <ShareEditionButton
+                country={edition.country}
+                slug={edition.slug}
+                editionWeek={edition.edition_week}
+              />
               <Link
                 href="/"
                 className="border border-ink/30 px-6 py-3 text-xs font-medium tracking-[0.16em] text-ink uppercase transition-colors hover:border-ink"
@@ -572,7 +578,44 @@ export default async function CountryPage({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="mt-10 border-t border-hairline pt-6 text-center text-xs text-ink-muted">
+          <div className="mt-10 space-y-3 border-t border-hairline pt-6 text-center text-xs text-ink-muted">
+            <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-medium tracking-[0.12em] uppercase">
+              <a
+                href="https://open.spotify.com/show/3IZq9eN3261zhdNGyCRE79"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent transition-opacity hover:opacity-75"
+              >
+                Pódcast en Spotify
+              </a>
+              <span aria-hidden="true">·</span>
+              <a
+                href="https://www.instagram.com/jackpotcultural/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-ink"
+              >
+                Instagram
+              </a>
+              <span aria-hidden="true">·</span>
+              <a
+                href="https://www.threads.net/@jackpotcultural"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-ink"
+              >
+                Threads
+              </a>
+              <span aria-hidden="true">·</span>
+              <a
+                href="https://www.facebook.com/1398558576677562"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-ink"
+              >
+                Facebook
+              </a>
+            </p>
             <p>
               Prensa, envíos de libros, discos e invitaciones:{" "}
               <a

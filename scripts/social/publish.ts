@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import "dotenv/config";
 import {
+  CONTINENTS,
   CountryEditionSchema,
   type CountryEdition,
   type CountrySourceConfig,
@@ -88,6 +89,41 @@ function pickLatestWeek(editions: CountryEdition[]): string {
     b[0].localeCompare(a[0])
   );
   return sorted[0]?.[0] || "";
+}
+
+function interleaveByContinent(
+  editions: CountryEdition[],
+  weekLabel: string
+): CountryEdition[] {
+  const weekMatch = weekLabel.match(/W(\d+)/);
+  const weekNum = weekMatch ? Number(weekMatch[1]) : 0;
+  const offset = weekNum % CONTINENTS.length;
+  const rotatedContinents = [
+    ...CONTINENTS.slice(offset),
+    ...CONTINENTS.slice(0, offset),
+  ];
+
+  const buckets = new Map<string, CountryEdition[]>();
+  for (const cont of rotatedContinents) {
+    buckets.set(
+      cont,
+      editions.filter((e) => e.continent === cont)
+    );
+  }
+
+  const ordered: CountryEdition[] = [];
+  let added = true;
+  while (added) {
+    added = false;
+    for (const cont of rotatedContinents) {
+      const list = buckets.get(cont);
+      if (list && list.length > 0) {
+        ordered.push(list.shift()!);
+        added = true;
+      }
+    }
+  }
+  return ordered;
 }
 
 async function isPublicJpeg(url: string): Promise<boolean> {
@@ -531,12 +567,13 @@ async function main() {
 
   const latestWeek = pickLatestWeek(editions);
   const state = loadState(latestWeek);
+  const interleaved = interleaveByContinent(editions, latestWeek);
 
   const target = countryArg
     ? editions.find((e) => e.slug === countryArg)
-    : editions.find(
+    : interleaved.find(
         (e) => e.edition_week === latestWeek && !state.published[e.slug]
-      ) || editions.find((e) => !state.published[e.slug]);
+      ) || interleaved.find((e) => !state.published[e.slug]);
 
   if (!target) {
     console.log(

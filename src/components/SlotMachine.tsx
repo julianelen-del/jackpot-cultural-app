@@ -235,7 +235,6 @@ export function SlotMachine({
       if (audioCtx) playRevealChime(audioCtx);
     }, 1980);
 
-    // Pausa generosa de ~1.9 segundos para saborear el país ganador
     const tNav = window.setTimeout(() => {
       router.push(`/pais/${chosen.slug}`);
     }, 3850);
@@ -438,6 +437,44 @@ export function SlotMachine({
           </span>
         </button>
       </div>
+
+      <footer className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[10px] font-medium tracking-[0.15em] text-ink-muted uppercase sm:text-[11px]">
+        <a
+          href="https://open.spotify.com/show/3IZq9eN3261zhdNGyCRE79"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent transition-opacity hover:opacity-75"
+        >
+          Pódcast en Spotify
+        </a>
+        <span aria-hidden="true">·</span>
+        <a
+          href="https://www.instagram.com/jackpotcultural/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-colors hover:text-ink"
+        >
+          Instagram
+        </a>
+        <span aria-hidden="true">·</span>
+        <a
+          href="https://www.threads.net/@jackpotcultural"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-colors hover:text-ink"
+        >
+          Threads
+        </a>
+        <span aria-hidden="true">·</span>
+        <a
+          href="https://www.facebook.com/1398558576677562"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-colors hover:text-ink"
+        >
+          Facebook
+        </a>
+      </footer>
 
       <CountrySelectorModal
         isOpen={selectorOpen}
