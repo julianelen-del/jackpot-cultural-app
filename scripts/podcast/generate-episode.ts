@@ -6,7 +6,7 @@ import { GoogleGenAI } from "@google/genai";
 import "dotenv/config";
 import satori from "satori";
 import sharp from "sharp";
-import { CountryEditionSchema, type CountryEdition, type CountrySourceConfig } from "../../src/lib/schema";
+import { CountryEditionSchema, type Continent, type CountryEdition, type CountrySourceConfig } from "../../src/lib/schema";
 
 const SOURCES_PATH = path.join(process.cwd(), "content", "sources.json");
 const COUNTRIES_DIR = path.join(process.cwd(), "content", "countries");
@@ -105,6 +105,23 @@ function truncateText(text: string, maxLen: number): string {
   const cut = text.slice(0, maxLen - 1);
   const lastSpace = cut.lastIndexOf(" ");
   return `${lastSpace > 20 ? cut.slice(0, lastSpace) : cut}…`;
+}
+
+function fitCompleteSentences(text: string, maxLen: number): string {
+  const clean = cleanPlainText(text);
+  if (clean.length <= maxLen) return clean;
+  const sentences = clean.match(/[^.!?]+[.!?]+/g);
+  if (sentences && sentences.length > 0) {
+    let acc = "";
+    for (const rawSentence of sentences) {
+      const s = rawSentence.trim();
+      const candidate = acc ? `${acc} ${s}` : s;
+      if (candidate.length <= maxLen) acc = candidate;
+      else break;
+    }
+    if (acc) return acc;
+  }
+  return truncateText(clean, maxLen);
 }
 
 function escapeXml(text: string): string {
@@ -317,72 +334,128 @@ async function loadCardFonts(): Promise<FontAsset[]> {
   return fonts;
 }
 
+async function preparePromoCoverUri(url?: string): Promise<string | null> {
+  if (!url) return null;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 8000);
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: { "User-Agent": "JackpotCulturalBot/1.0 (+https://jackpot-cultural-app.vercel.app)" },
+    });
+    if (!res.ok) return null;
+    const raw = Buffer.from(await res.arrayBuffer());
+    const resized = await sharp(raw).resize(924, 300, { fit: "cover", position: "attention" }).jpeg({ quality: 86 }).toBuffer();
+    return `data:image/jpeg;base64,${resized.toString("base64")}`;
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryEdition[]) {
   fs.mkdirSync(CARDS_DIR, { recursive: true });
   const fonts = await loadCardFonts();
   if (fonts.length === 0) return;
 
-  let logoUri: string | null = null;
-  if (fs.existsSync(LOGO_PATH)) {
-    const logoBuf = await sharp(LOGO_PATH).resize(150, 150).png().toBuffer();
-    logoUri = `data:image/png;base64,${logoBuf.toString("base64")}`;
-  }
+  const isSingleCountry = selected.length === 1;
+  const mainEd = selected[0];
+  const coverUri = await preparePromoCoverUri(mainEd.cover_image?.url);
 
-  const headlines = episode.headlines.slice(0, 3).map((h) => truncateText(h, 88));
+  const items = isSingleCountry
+    ? mainEd.topics.slice(0, 2).map((t) => ({
+        tag: t.category.toUpperCase(),
+        title: cleanPlainText(t.title),
+        summary: fitCompleteSentences(t.summary, 175),
+      }))
+    : selected.slice(0, 3).map((ed) => ({
+        tag: `${ed.country.toUpperCase()} · ${(ed.topics[0]?.category || "CULTURA").toUpperCase()}`,
+        title: cleanPlainText(ed.topics[0]?.title || ed.intro),
+        summary: fitCompleteSentences(ed.topics[0]?.summary || ed.intro, 120),
+      }));
+
   const tree = {
     type: "div",
     props: {
-      style: { width: "1080px", height: "1350px", boxSizing: "border-box", backgroundColor: "#161615", color: "#FAF8F3", display: "flex", flexDirection: "column", padding: "38px", fontFamily: "Inter" },
+      style: { width: "1080px", height: "1350px", boxSizing: "border-box", backgroundColor: "#161615", color: "#FAF8F3", display: "flex", flexDirection: "column", padding: "36px", fontFamily: "Inter" },
       children: [{
         type: "div",
         props: {
-          style: { width: "1004px", height: "1274px", boxSizing: "border-box", border: "2px solid #4A4741", backgroundColor: "#FAF8F3", color: "#161615", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "40px 44px" },
+          style: { width: "1008px", height: "1278px", boxSizing: "border-box", border: "2px solid #4A4741", backgroundColor: "#FAF8F3", color: "#161615", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "34px 42px" },
           children: [
             {
               type: "div",
               props: {
-                style: { width: "916px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #D6D0C4", paddingBottom: "18px" },
+                style: { width: "924px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #D6D0C4", paddingBottom: "14px" },
                 children: [
-                  { type: "span", props: { style: { fontSize: "22px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: "NUEVO EPISODIO · PÓDCAST" } },
-                  { type: "span", props: { style: { fontSize: "22px", letterSpacing: "3px", color: "#5C5952", fontWeight: 600 }, children: `${episode.week} · ${formatDuration(episode.durationSec)}` } },
+                  { type: "span", props: { style: { fontSize: "21px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: "PÓDCAST · JACKPOT CULTURAL" } },
+                  { type: "span", props: { style: { fontSize: "21px", letterSpacing: "3px", color: "#5C5952", fontWeight: 600 }, children: `${episode.week} · ${formatDuration(episode.durationSec)}` } },
                 ],
               },
             },
             {
               type: "div",
               props: {
-                style: { width: "916px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginTop: "10px" },
+                style: { width: "924px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" },
                 children: [
-                  ...(logoUri ? [{ type: "img", props: { src: logoUri, style: { width: "138px", height: "138px", borderRadius: "69px", border: "2px solid #161615", marginBottom: "20px" } } }] : []),
-                  { type: "span", props: { style: { fontSize: "22px", letterSpacing: "5px", color: "#5C5952", fontWeight: 600 }, children: "JACKPOT CULTURAL EN SPOTIFY" } },
-                  { type: "span", props: { style: { marginTop: "10px", fontFamily: "Newsreader", fontSize: episode.subtitle.length > 14 ? "66px" : "82px", fontWeight: 500, lineHeight: 1.05, color: "#161615" }, children: episode.subtitle.toUpperCase() } },
-                  { type: "span", props: { style: { marginTop: "14px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "30px", lineHeight: 1.35, color: "#4B4842", maxWidth: "840px" }, children: selected.length === 1 ? truncateText(cleanPlainText(selected[0].intro), 150) : `Lo más destacado de la semana en ${selected.map((e) => e.country).join(", ")}.` } },
+                  { type: "span", props: { style: { fontFamily: "Newsreader", fontSize: episode.subtitle.length > 14 ? "64px" : "78px", fontWeight: 500, lineHeight: 1.04, color: "#161615" }, children: episode.subtitle.toUpperCase() } },
+                  { type: "span", props: { style: { marginTop: "10px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "27px", lineHeight: 1.32, color: "#383530", maxWidth: "880px" }, children: isSingleCountry ? fitCompleteSentences(mainEd.intro, 185) : `Crónicas y recomendaciones de ${selected.map((e) => e.country).join(", ")}.` } },
                 ],
               },
             },
+            ...(coverUri ? [{
+              type: "div",
+              props: {
+                style: { width: "924px", height: "280px", display: "flex", border: "1px solid #161615", backgroundColor: "#EFEAE0", overflow: "hidden" },
+                children: [{ type: "img", props: { src: coverUri, style: { width: "924px", height: "280px", objectFit: "cover" } } }],
+              },
+            }] : []),
             {
               type: "div",
               props: {
-                style: { width: "916px", display: "flex", flexDirection: "column", gap: "18px", borderTop: "2px solid #161615", paddingTop: "24px" },
+                style: { width: "924px", display: "flex", flexDirection: "column", gap: "18px", borderTop: "2px solid #161615", paddingTop: "18px" },
                 children: [
-                  { type: "span", props: { style: { fontSize: "20px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: "EN ESTE EPISODIO" } },
-                  ...headlines.map((h) => ({
+                  ...items.map((it) => ({
                     type: "div",
                     props: {
-                      style: { width: "916px", boxSizing: "border-box", display: "flex", borderLeft: "5px solid #B83827", paddingLeft: "20px" },
-                      children: [{ type: "span", props: { style: { width: "890px", fontFamily: "Newsreader", fontSize: "30px", lineHeight: 1.25, color: "#161615" }, children: h } }],
+                      style: { width: "924px", boxSizing: "border-box", display: "flex", flexDirection: "column", borderLeft: "5px solid #B83827", paddingLeft: "20px" },
+                      children: [
+                        { type: "span", props: { style: { width: "894px", fontSize: "17px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: it.tag } },
+                        { type: "span", props: { style: { width: "894px", marginTop: "3px", fontFamily: "Newsreader", fontSize: "30px", fontWeight: 500, lineHeight: 1.15, color: "#161615" }, children: it.title } },
+                        { type: "span", props: { style: { width: "894px", marginTop: "5px", fontSize: "21px", lineHeight: 1.32, color: "#4B4842" }, children: it.summary } },
+                      ],
                     },
                   })),
+                  ...(isSingleCountry ? [{
+                    type: "div",
+                    props: {
+                      style: { width: "924px", boxSizing: "border-box", display: "flex", flexDirection: "column", backgroundColor: "#EFEAE0", border: "1px solid #C8C2B6", padding: "14px 20px" },
+                      children: [
+                        { type: "span", props: { style: { fontSize: "16px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: `PARA DESCUBRIR · ${mainEd.recommendation.type.toUpperCase()}` } },
+                        { type: "span", props: { style: { width: "880px", marginTop: "4px", fontFamily: "Newsreader", fontSize: "25px", color: "#161615" }, children: `${mainEd.recommendation.title} — ${mainEd.recommendation.creator}` } },
+                      ],
+                    },
+                  }] : []),
                 ],
               },
             },
             {
               type: "div",
               props: {
-                style: { width: "916px", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "26px 28px", backgroundColor: "#161615", color: "#FAF8F3" },
+                style: { width: "924px", boxSizing: "border-box", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "22px 30px", backgroundColor: "#161615", color: "#FAF8F3" },
                 children: [
-                  { type: "span", props: { style: { fontSize: "21px", letterSpacing: "4px", fontWeight: 600, color: "#E8DCD0" }, children: "ESCUCHALO Y SUSCRIBITE GRATIS" } },
-                  { type: "span", props: { style: { marginTop: "8px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "33px", color: "#FAF8F3" }, children: "Buscá Jackpot Cultural en Spotify" } },
+                  {
+                    type: "div",
+                    props: {
+                      style: { display: "flex", flexDirection: "column" },
+                      children: [
+                        { type: "span", props: { style: { fontSize: "17px", letterSpacing: "3px", fontWeight: 600, color: "#E8DCD0" }, children: "ESCUCHÁ EL EPISODIO Y SUSCRIBITE" } },
+                        { type: "span", props: { style: { marginTop: "4px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "29px", color: "#FAF8F3" }, children: "Buscá Jackpot Cultural en Spotify" } },
+                      ],
+                    },
+                  },
+                  { type: "span", props: { style: { fontSize: "18px", letterSpacing: "2px", fontWeight: 600, color: "#FAF8F3", backgroundColor: "#B83827", padding: "10px 18px" }, children: "ENLACE EN BIO" } },
                 ],
               },
             },
@@ -432,16 +505,32 @@ ${itemsXml}
 }
 
 async function main() {
+  const args = process.argv.slice(2);
+  const onlyCard = args.includes("--only-card");
+  const argEd = args.find((a) => a.startsWith("--edition=") || a.startsWith("--countries=") || a.startsWith("--country="))?.split("=")[1]?.trim();
+
+  const editions = loadEditions();
+  if (editions.length === 0) throw new Error("No hay ediciones disponibles.");
+
+  if (onlyCard) {
+    if (!fs.existsSync(EPISODES_JSON_PATH)) throw new Error("No existe public/podcast/episodes.json.");
+    const saved = JSON.parse(fs.readFileSync(EPISODES_JSON_PATH, "utf-8")) as EpisodeMeta[];
+    const targetEp = argEd && argEd !== "automatica_hoy" ? saved.find((e) => e.key === argEd) || saved[0] : saved[0];
+    if (!targetEp) throw new Error("No hay episodios guardados.");
+    const selected = targetEp.countries.map((slug) => editions.find((e) => e.slug === slug)).filter((e): e is CountryEdition => Boolean(e));
+    const isSingle = selected.length === 1;
+    targetEp.headlines = isSingle
+      ? selected[0].topics.slice(0, 3).map((t) => `${cleanPlainText(t.category)} — ${cleanPlainText(t.title)}`)
+      : selected.map((ed) => `${ed.country}: ${cleanPlainText(ed.topics[0]?.title || ed.intro)}`);
+    await generatePodcastPromoCard(targetEp, selected);
+    fs.writeFileSync(EPISODES_JSON_PATH, `${JSON.stringify(saved, null, 2)}\n`, "utf-8");
+    return;
+  }
+
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) throw new Error("Falta GEMINI_API_KEY en el entorno.");
 
-  const args = process.argv.slice(2);
-  const argEd = args.find((a) => a.startsWith("--edition=") || a.startsWith("--countries=") || a.startsWith("--country="))?.split("=")[1]?.trim();
   const editionKey = !argEd || argEd === "automatica_hoy" ? resolveEditionKeyFromArgentinaDay() : argEd;
-
-  const editions = loadEditions();
-  if (editions.length === 0) throw new Error("No hay ediciones disponibles para locutar.");
-
   const latestWeek = pickLatestWeek(editions);
   const { selected, label, isWorldRoundup } = selectEditionCountries(editions, latestWeek, editionKey);
   if (selected.length === 0) throw new Error("No se encontraron países válidos.");
@@ -550,7 +639,9 @@ async function main() {
 
     const bytes = fs.statSync(finalMp3Path).size;
     const finalDuration = getAudioDurationSec(finalMp3Path);
-    const headlines = selected.flatMap((ed) => ed.topics.slice(0, isWorldRoundup ? 1 : 3).map((t) => `${ed.country}: ${cleanPlainText(t.title)}`));
+    const headlines = isWorldRoundup
+      ? selected.map((ed) => `${ed.country}: ${cleanPlainText(ed.topics[0]?.title || ed.intro)}`)
+      : selected[0].topics.slice(0, 3).map((t) => `${cleanPlainText(t.category)} — ${cleanPlainText(t.title)}`);
 
     const episode: EpisodeMeta = {
       id: `jackpot-${latestWeek}-${editionKey}`,

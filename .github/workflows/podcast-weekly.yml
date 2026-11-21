@@ -22,6 +22,11 @@ on:
           - reino-unido
           - alemania
           - resto-del-mundo
+      solo_placa:
+        description: "Regenerar solo la placa promocional del último episodio (sin llamar a Gemini)"
+        required: false
+        type: boolean
+        default: false
       promocionar_en_redes:
         description: "Publicar placa de promoción en redes (solo si ya existe SPOTIFY_SHOW_URL)"
         required: false
@@ -44,6 +49,7 @@ jobs:
           node-version: "22"
 
       - name: Instalar FFmpeg
+        if: ${{ inputs.solo_placa != true }}
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
       - name: Instalar dependencias
@@ -53,7 +59,12 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PODCAST_EMAIL: ${{ secrets.PODCAST_EMAIL }}
-        run: npm run podcast:generate -- --edition=${{ inputs.edicion || 'automatica_hoy' }}
+        run: |
+          EXTRA=""
+          if [ "${{ inputs.solo_placa }}" = "true" ]; then
+            EXTRA="--only-card"
+          fi
+          npm run podcast:generate -- --edition=${{ inputs.edicion || 'automatica_hoy' }} $EXTRA
 
       - name: Guardar episodio, placa y canal XML en el repositorio
         run: |
@@ -68,7 +79,7 @@ jobs:
           fi
 
       - name: Promocionar episodio en redes sociales
-        if: ${{ github.event_name != 'workflow_dispatch' || inputs.promocionar_en_redes != false }}
+        if: ${{ (github.event_name != 'workflow_dispatch' || inputs.promocionar_en_redes != false) && inputs.solo_placa != true }}
         env:
           SPOTIFY_SHOW_URL: ${{ secrets.SPOTIFY_SHOW_URL }}
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
