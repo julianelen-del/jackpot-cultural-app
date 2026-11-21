@@ -231,22 +231,22 @@ async function renderSlide2(edition: CountryEdition, fonts: FontAsset[]): Promis
         style: { width: "952px", display: "flex", flexDirection: "column" },
         children: [
           { type: "span", props: { style: { fontSize: "22px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: "TEMAS DESTACADOS" } },
-          { type: "span", props: { style: { width: "952px", marginTop: "6px", fontFamily: "Newsreader", fontSize: "46px", fontWeight: 500, color: "#161615", borderBottom: "2px solid #161615", paddingBottom: "12px" }, children: `Qué mueve a ${edition.country} esta semana` } },
+          { type: "span", props: { style: { width: "952px", marginTop: "6px", fontFamily: "Newsreader", fontSize: "46px", fontWeight: 500, color: "#161615", borderBottom: "2px solid #161615", paddingBottom: "14px" }, children: `Qué mueve a ${edition.country} esta semana` } },
         ],
       },
     },
     {
       type: "div",
       props: {
-        style: { width: "952px", display: "flex", flexDirection: "column", marginTop: "24px", gap: topics.length <= 2 ? "44px" : "26px" },
+        style: { width: "952px", display: "flex", flexDirection: "column", marginTop: "32px", gap: topics.length <= 2 ? "60px" : "42px" },
         children: topics.map((t) => ({
           type: "div",
           props: {
             style: { width: "952px", boxSizing: "border-box", display: "flex", flexDirection: "column", borderLeft: "5px solid #B83827", paddingLeft: "22px" },
             children: [
               { type: "span", props: { style: { width: "925px", fontSize: "22px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: t.category.toUpperCase() } },
-              { type: "span", props: { style: { width: "925px", marginTop: "4px", fontFamily: "Newsreader", fontSize: "39px", fontWeight: 500, lineHeight: 1.12, color: "#161615" }, children: truncateText(stripEditorialMarkdown(t.title), 120) } },
-              { type: "span", props: { style: { width: "925px", marginTop: "8px", fontSize: topics.length <= 2 ? "31px" : "28px", fontWeight: 400, lineHeight: 1.32, color: "#252320" }, children: fitCompleteSentences(t.summary, summaryLimit) } },
+              { type: "span", props: { style: { width: "925px", marginTop: "5px", fontFamily: "Newsreader", fontSize: "39px", fontWeight: 500, lineHeight: 1.12, color: "#161615" }, children: truncateText(stripEditorialMarkdown(t.title), 120) } },
+              { type: "span", props: { style: { width: "925px", marginTop: "9px", fontSize: topics.length <= 2 ? "31px" : "28px", fontWeight: 400, lineHeight: 1.32, color: "#252320" }, children: fitCompleteSentences(t.summary, summaryLimit) } },
             ],
           },
         })),

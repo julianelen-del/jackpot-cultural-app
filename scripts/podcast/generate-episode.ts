@@ -375,7 +375,7 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
     ? mainEd.topics.slice(0, 2).map((t) => ({
         tag: t.category.toUpperCase(),
         title: cleanPlainText(t.title),
-        summary: fitCompleteSentences(t.summary, 215),
+        summary: fitCompleteSentences(t.summary, 210),
       }))
     : selected.slice(0, 3).map((ed) => ({
         tag: `${ed.country.toUpperCase()} · ${(ed.topics[0]?.category || "CULTURA").toUpperCase()}`,
@@ -440,18 +440,18 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
               },
             },
 
-            // Carátula de audio lado a lado (foto cuadrada + ▶ + país + onda sonora)
+            // Carátula de audio lado a lado
             {
               type: "div",
               props: {
-                style: { width: "952px", display: "flex", alignItems: "center", gap: "30px", marginTop: "6px" },
+                style: { width: "952px", display: "flex", alignItems: "center", gap: "30px" },
                 children: [
                   ...(squareCoverUri ? [{
                     type: "div",
                     props: {
-                      style: { width: "276px", height: "276px", position: "relative", display: "flex", border: "2px solid #161615", backgroundColor: "#EFEAE0", overflow: "hidden" },
+                      style: { width: "294px", height: "294px", position: "relative", display: "flex", border: "2px solid #161615", backgroundColor: "#EFEAE0", overflow: "hidden" },
                       children: [
-                        { type: "img", props: { src: squareCoverUri, style: { width: "276px", height: "276px", objectFit: "cover" } } },
+                        { type: "img", props: { src: squareCoverUri, style: { width: "294px", height: "294px", objectFit: "cover" } } },
                         {
                           type: "div",
                           props: {
@@ -490,11 +490,11 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
               },
             },
 
-            // Contenidos del episodio bien espaciados y legibles
+            // Contenidos del episodio con aire equilibrado
             {
               type: "div",
               props: {
-                style: { width: "952px", display: "flex", flexDirection: "column", gap: "24px", borderTop: "2px solid #161615", paddingTop: "22px" },
+                style: { width: "952px", display: "flex", flexDirection: "column", gap: isSingleCountry ? "34px" : "28px", borderTop: "2px solid #161615", paddingTop: "28px" },
                 children: [
                   ...items.map((it) => ({
                     type: "div",
@@ -502,15 +502,15 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
                       style: { width: "952px", boxSizing: "border-box", display: "flex", flexDirection: "column", borderLeft: "5px solid #B83827", paddingLeft: "22px" },
                       children: [
                         { type: "span", props: { style: { width: "925px", fontSize: "20px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: it.tag } },
-                        { type: "span", props: { style: { width: "925px", marginTop: "4px", fontFamily: "Newsreader", fontSize: "35px", fontWeight: 500, lineHeight: 1.14, color: "#161615" }, children: it.title } },
-                        { type: "span", props: { style: { width: "925px", marginTop: "6px", fontSize: "26px", fontWeight: 400, lineHeight: 1.32, color: "#252320" }, children: it.summary } },
+                        { type: "span", props: { style: { width: "925px", marginTop: "5px", fontFamily: "Newsreader", fontSize: "37px", fontWeight: 500, lineHeight: 1.14, color: "#161615" }, children: it.title } },
+                        { type: "span", props: { style: { width: "925px", marginTop: "8px", fontSize: "27px", fontWeight: 400, lineHeight: 1.32, color: "#252320" }, children: it.summary } },
                       ],
                     },
                   })),
                   ...(isSingleCountry ? [{
                     type: "div",
                     props: {
-                      style: { width: "952px", boxSizing: "border-box", display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#EFEAE0", border: "1px solid #C8C2B6", padding: "16px 22px" },
+                      style: { width: "952px", boxSizing: "border-box", display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#EFEAE0", border: "1px solid #C8C2B6", padding: "18px 24px" },
                       children: [
                         {
                           type: "div",
@@ -518,7 +518,7 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
                             style: { display: "flex", flexDirection: "column", maxWidth: "740px" },
                             children: [
                               { type: "span", props: { style: { fontSize: "19px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: `PARA DESCUBRIR · ${mainEd.recommendation.type.toUpperCase()}` } },
-                              { type: "span", props: { style: { marginTop: "4px", fontFamily: "Newsreader", fontSize: "28px", color: "#161615" }, children: `${mainEd.recommendation.title} — ${mainEd.recommendation.creator}` } },
+                              { type: "span", props: { style: { marginTop: "4px", fontFamily: "Newsreader", fontSize: "29px", color: "#161615" }, children: `${mainEd.recommendation.title} — ${mainEd.recommendation.creator}` } },
                             ],
                           },
                         },
