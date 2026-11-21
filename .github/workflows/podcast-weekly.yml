@@ -68,7 +68,7 @@ jobs:
           fi
 
       - name: Promocionar episodio en redes sociales
-        if: ${{ inputs.promocionar_en_redes != false }}
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.promocionar_en_redes != false }}
         env:
           SPOTIFY_SHOW_URL: ${{ secrets.SPOTIFY_SHOW_URL }}
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}

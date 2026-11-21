@@ -53,16 +53,22 @@ export default function PrivacidadPage() {
           </p>
           <p>
             Las integraciones con plataformas externas (como Meta / Facebook /
-            Instagram) se utilizan exclusivamente para publicar de manera
+            Instagram / Threads) se utilizan exclusivamente para publicar de manera
             automatizada resúmenes editoriales y placas visuales de los
             contenidos propios de <strong>JACKPOT CULTURAL</strong> en sus
             cuentas oficiales, sin recopilar, almacenar ni procesar datos de
             otros usuarios.
           </p>
           <p>
-            Para consultas relacionadas con esta política o con los contenidos
-            publicados, podés contactarnos a través de nuestras redes oficiales o
-            el repositorio del proyecto.
+            Para consultas editoriales, prensa, envíos o temas relacionados con
+            esta política, podés escribirnos a{" "}
+            <a
+              href="mailto:jackpotcultural@gmail.com"
+              className="underline decoration-accent/50 underline-offset-4 hover:text-accent"
+            >
+              jackpotcultural@gmail.com
+            </a>
+            .
           </p>
         </div>
       </main>
