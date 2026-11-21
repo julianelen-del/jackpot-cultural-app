@@ -1,5 +1,26 @@
 [
   {
+    "id": "jackpot-2026-W47-alemania",
+    "key": "alemania",
+    "week": "2026-W47",
+    "title": "Jackpot Cultural · Alemania (2026-W47)",
+    "subtitle": "Alemania",
+    "description": "El cine alemán cruza la adaptación literaria con la crudeza contemporánea mientras la escena musical celebra nuevos debuts y debates de programación.",
+    "pubDate": "2026-11-21T13:58:06.086Z",
+    "fileName": "episodio-2026-W47-alemania.mp3",
+    "cardFileName": "podcast-alemania.jpg",
+    "bytes": 3323654,
+    "durationSec": 207.658866,
+    "countries": [
+      "alemania"
+    ],
+    "headlines": [
+      "Alemania: De la página a la pantalla alemana",
+      "Alemania: Nuevas coordenadas del indie local",
+      "Alemania: El retorno del rock de estadios a Stuttgart"
+    ]
+  },
+  {
     "id": "jackpot-2026-W47",
     "week": "2026-W47",
     "title": "Jackpot Cultural (2026-W47): Argentina",

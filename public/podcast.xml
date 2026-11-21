@@ -16,6 +16,15 @@
     <itunes:category text="Arts" />
     <itunes:image href="https://jackpot-cultural-app.vercel.app/podcast-cover.png" />
     <item>
+      <title>Jackpot Cultural · Alemania (2026-W47)</title>
+      <description>El cine alemán cruza la adaptación literaria con la crudeza contemporánea mientras la escena musical celebra nuevos debuts y debates de programación.</description>
+      <pubDate>Sat, 21 Nov 2026 13:58:06 GMT</pubDate>
+      <guid isPermaLink="false">jackpot-2026-W47-alemania</guid>
+      <enclosure url="https://jackpot-cultural-app.vercel.app/podcast/episodio-2026-W47-alemania.mp3" length="3323654" type="audio/mpeg" />
+      <itunes:duration>03:28</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
       <title>Jackpot Cultural (2026-W47): Argentina</title>
       <description>Titulares y crónicas culturales de la semana en Argentina.</description>
       <pubDate>Fri, 20 Nov 2026 21:08:23 GMT</pubDate>
