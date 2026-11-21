@@ -318,23 +318,31 @@ function buildClosingFemaleScript(): string {
 }
 
 async function loadCardFonts(): Promise<FontAsset[]> {
-  const specs: { name: string; weight: 400 | 500 | 600 | 700; style: "normal" | "italic"; url: string }[] = [
-    { name: "Newsreader", weight: 500, style: "normal", url: "https://cdn.jsdelivr.net/npm/@fontsource/newsreader@5.1.0/files/newsreader-latin-500-normal.woff" },
-    { name: "Newsreader", weight: 400, style: "italic", url: "https://cdn.jsdelivr.net/npm/@fontsource/newsreader@5.1.0/files/newsreader-latin-400-italic.woff" },
-    { name: "Inter", weight: 600, style: "normal", url: "https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/files/inter-latin-600-normal.woff" },
+  const specs: { name: string; weight: 400 | 500 | 600 | 700; style: "normal" | "italic"; urls: string[] }[] = [
+    { name: "Newsreader", weight: 500, style: "normal", urls: ["https://cdn.jsdelivr.net/npm/@fontsource/newsreader@5.1.0/files/newsreader-latin-500-normal.woff", "https://cdn.jsdelivr.net/npm/@fontsource/newsreader/files/newsreader-latin-500-normal.woff"] },
+    { name: "Newsreader", weight: 400, style: "italic", urls: ["https://cdn.jsdelivr.net/npm/@fontsource/newsreader@5.1.0/files/newsreader-latin-400-italic.woff", "https://cdn.jsdelivr.net/npm/@fontsource/newsreader/files/newsreader-latin-400-italic.woff"] },
+    { name: "Inter", weight: 400, style: "normal", urls: ["https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/files/inter-latin-400-normal.woff", "https://cdn.jsdelivr.net/npm/@fontsource/inter/files/inter-latin-400-normal.woff"] },
+    { name: "Inter", weight: 600, style: "normal", urls: ["https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/files/inter-latin-600-normal.woff", "https://cdn.jsdelivr.net/npm/@fontsource/inter/files/inter-latin-600-normal.woff"] },
   ];
   const fonts: FontAsset[] = [];
   for (const s of specs) {
-    const res = await fetch(s.url);
-    if (res.ok) {
-      const buf = Buffer.from(await res.arrayBuffer());
-      fonts.push({ name: s.name, data: buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength) as ArrayBuffer, weight: s.weight, style: s.style });
+    for (const url of s.urls) {
+      try {
+        const res = await fetch(url);
+        if (res.ok) {
+          const buf = Buffer.from(await res.arrayBuffer());
+          fonts.push({ name: s.name, data: buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength) as ArrayBuffer, weight: s.weight, style: s.style });
+          break;
+        }
+      } catch {
+        // Probar siguiente dirección
+      }
     }
   }
   return fonts;
 }
 
-async function preparePromoCoverUri(url?: string): Promise<string | null> {
+async function preparePromoSquareUri(url?: string): Promise<string | null> {
   if (!url) return null;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 8000);
@@ -345,7 +353,7 @@ async function preparePromoCoverUri(url?: string): Promise<string | null> {
     });
     if (!res.ok) return null;
     const raw = Buffer.from(await res.arrayBuffer());
-    const resized = await sharp(raw).resize(924, 300, { fit: "cover", position: "attention" }).jpeg({ quality: 86 }).toBuffer();
+    const resized = await sharp(raw).resize(600, 600, { fit: "cover", position: "attention" }).jpeg({ quality: 88 }).toBuffer();
     return `data:image/jpeg;base64,${resized.toString("base64")}`;
   } catch {
     return null;
@@ -361,101 +369,184 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
 
   const isSingleCountry = selected.length === 1;
   const mainEd = selected[0];
-  const coverUri = await preparePromoCoverUri(mainEd.cover_image?.url);
+  const squareCoverUri = await preparePromoSquareUri(mainEd.cover_image?.url);
 
   const items = isSingleCountry
     ? mainEd.topics.slice(0, 2).map((t) => ({
         tag: t.category.toUpperCase(),
         title: cleanPlainText(t.title),
-        summary: fitCompleteSentences(t.summary, 175),
+        summary: fitCompleteSentences(t.summary, 215),
       }))
     : selected.slice(0, 3).map((ed) => ({
         tag: `${ed.country.toUpperCase()} · ${(ed.topics[0]?.category || "CULTURA").toUpperCase()}`,
         title: cleanPlainText(ed.topics[0]?.title || ed.intro),
-        summary: fitCompleteSentences(ed.topics[0]?.summary || ed.intro, 120),
+        summary: fitCompleteSentences(ed.topics[0]?.summary || ed.intro, 145),
       }));
+
+  const waveHeights = [16, 28, 42, 22, 48, 34, 18, 44, 30, 50, 24, 38, 20, 46, 28, 16, 36, 42, 24, 32, 18, 26];
+
+  const headphonesIcon = {
+    type: "svg",
+    props: {
+      width: "30",
+      height: "30",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      children: [
+        { type: "path", props: { d: "M3 18v-6a9 9 0 0 1 18 0v6", stroke: "#FAF8F3", strokeWidth: "2.2", strokeLinecap: "round", strokeLinejoin: "round" } },
+        { type: "path", props: { d: "M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z", stroke: "#FAF8F3", strokeWidth: "2.2", strokeLinecap: "round", strokeLinejoin: "round" } },
+      ],
+    },
+  };
+
+  const playTriangleIcon = {
+    type: "svg",
+    props: {
+      width: "34",
+      height: "34",
+      viewBox: "0 0 24 24",
+      fill: "#FAF8F3",
+      children: [{ type: "polygon", props: { points: "7,4 20,12 7,20" } }],
+    },
+  };
 
   const tree = {
     type: "div",
     props: {
-      style: { width: "1080px", height: "1350px", boxSizing: "border-box", backgroundColor: "#161615", color: "#FAF8F3", display: "flex", flexDirection: "column", padding: "36px", fontFamily: "Inter" },
+      style: { width: "1080px", height: "1350px", boxSizing: "border-box", backgroundColor: "#161615", color: "#FAF8F3", display: "flex", flexDirection: "column", padding: "28px", fontFamily: "Inter" },
       children: [{
         type: "div",
         props: {
-          style: { width: "1008px", height: "1278px", boxSizing: "border-box", border: "2px solid #4A4741", backgroundColor: "#FAF8F3", color: "#161615", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "34px 42px" },
+          style: { width: "1024px", height: "1294px", boxSizing: "border-box", border: "2px solid #4A4741", backgroundColor: "#FAF8F3", color: "#161615", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "30px 36px" },
           children: [
+            // Cabecera con insignia roja + auriculares
             {
               type: "div",
               props: {
-                style: { width: "924px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #D6D0C4", paddingBottom: "14px" },
+                style: { width: "952px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #D6D0C4", paddingBottom: "16px" },
                 children: [
-                  { type: "span", props: { style: { fontSize: "21px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: "PÓDCAST · JACKPOT CULTURAL" } },
+                  {
+                    type: "div",
+                    props: {
+                      style: { display: "flex", alignItems: "center", gap: "12px", backgroundColor: "#B83827", color: "#FAF8F3", padding: "10px 18px" },
+                      children: [
+                        headphonesIcon,
+                        { type: "span", props: { style: { fontSize: "20px", letterSpacing: "3px", fontWeight: 600 }, children: "PÓDCAST DE JACKPOT CULTURAL" } },
+                      ],
+                    },
+                  },
                   { type: "span", props: { style: { fontSize: "21px", letterSpacing: "3px", color: "#5C5952", fontWeight: 600 }, children: `${episode.week} · ${formatDuration(episode.durationSec)}` } },
                 ],
               },
             },
+
+            // Carátula de audio lado a lado (foto cuadrada + ▶ + país + onda sonora)
             {
               type: "div",
               props: {
-                style: { width: "924px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" },
+                style: { width: "952px", display: "flex", alignItems: "center", gap: "30px", marginTop: "6px" },
                 children: [
-                  { type: "span", props: { style: { fontFamily: "Newsreader", fontSize: episode.subtitle.length > 14 ? "64px" : "78px", fontWeight: 500, lineHeight: 1.04, color: "#161615" }, children: episode.subtitle.toUpperCase() } },
-                  { type: "span", props: { style: { marginTop: "10px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "27px", lineHeight: 1.32, color: "#383530", maxWidth: "880px" }, children: isSingleCountry ? fitCompleteSentences(mainEd.intro, 185) : `Crónicas y recomendaciones de ${selected.map((e) => e.country).join(", ")}.` } },
+                  ...(squareCoverUri ? [{
+                    type: "div",
+                    props: {
+                      style: { width: "276px", height: "276px", position: "relative", display: "flex", border: "2px solid #161615", backgroundColor: "#EFEAE0", overflow: "hidden" },
+                      children: [
+                        { type: "img", props: { src: squareCoverUri, style: { width: "276px", height: "276px", objectFit: "cover" } } },
+                        {
+                          type: "div",
+                          props: {
+                            style: { position: "absolute", right: "14px", bottom: "14px", width: "68px", height: "68px", borderRadius: "34px", backgroundColor: "#B83827", border: "3px solid #FAF8F3", display: "flex", alignItems: "center", justifyContent: "center" },
+                            children: [playTriangleIcon],
+                          },
+                        },
+                      ],
+                    },
+                  }] : []),
+                  {
+                    type: "div",
+                    props: {
+                      style: { flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" },
+                      children: [
+                        { type: "span", props: { style: { fontSize: "20px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: isSingleCountry ? `EDICIÓN SONORA · ${mainEd.continent.toUpperCase()}` : "EDICIÓN SONORA INTERNACIONAL" } },
+                        { type: "span", props: { style: { marginTop: "8px", fontFamily: "Newsreader", fontSize: episode.subtitle.length > 13 ? "58px" : "70px", fontWeight: 500, lineHeight: 1.02, color: "#161615" }, children: episode.subtitle.toUpperCase() } },
+                        { type: "span", props: { style: { marginTop: "10px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "27px", lineHeight: 1.3, color: "#383530" }, children: isSingleCountry ? "Crónica radial de música, cine, series y libros." : `Panorama semanal en ${selected.map((e) => e.country).join(", ")}.` } },
+                        {
+                          type: "div",
+                          props: {
+                            style: { display: "flex", alignItems: "center", gap: "7px", marginTop: "18px", paddingTop: "14px", borderTop: "1px solid #D6D0C4" },
+                            children: [
+                              ...waveHeights.map((h, idx) => ({
+                                type: "div",
+                                props: { style: { width: "8px", height: `${h}px`, borderRadius: "4px", backgroundColor: idx < 11 ? "#B83827" : "#C8C2B6" } },
+                              })),
+                              { type: "span", props: { style: { marginLeft: "10px", fontSize: "20px", color: "#161615", fontWeight: 600 }, children: formatDuration(episode.durationSec) } },
+                            ],
+                          },
+                        },
+                      ],
+                    },
+                  },
                 ],
               },
             },
-            ...(coverUri ? [{
-              type: "div",
-              props: {
-                style: { width: "924px", height: "280px", display: "flex", border: "1px solid #161615", backgroundColor: "#EFEAE0", overflow: "hidden" },
-                children: [{ type: "img", props: { src: coverUri, style: { width: "924px", height: "280px", objectFit: "cover" } } }],
-              },
-            }] : []),
+
+            // Contenidos del episodio bien espaciados y legibles
             {
               type: "div",
               props: {
-                style: { width: "924px", display: "flex", flexDirection: "column", gap: "18px", borderTop: "2px solid #161615", paddingTop: "18px" },
+                style: { width: "952px", display: "flex", flexDirection: "column", gap: "24px", borderTop: "2px solid #161615", paddingTop: "22px" },
                 children: [
                   ...items.map((it) => ({
                     type: "div",
                     props: {
-                      style: { width: "924px", boxSizing: "border-box", display: "flex", flexDirection: "column", borderLeft: "5px solid #B83827", paddingLeft: "20px" },
+                      style: { width: "952px", boxSizing: "border-box", display: "flex", flexDirection: "column", borderLeft: "5px solid #B83827", paddingLeft: "22px" },
                       children: [
-                        { type: "span", props: { style: { width: "894px", fontSize: "17px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: it.tag } },
-                        { type: "span", props: { style: { width: "894px", marginTop: "3px", fontFamily: "Newsreader", fontSize: "30px", fontWeight: 500, lineHeight: 1.15, color: "#161615" }, children: it.title } },
-                        { type: "span", props: { style: { width: "894px", marginTop: "5px", fontSize: "21px", lineHeight: 1.32, color: "#4B4842" }, children: it.summary } },
+                        { type: "span", props: { style: { width: "925px", fontSize: "20px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: it.tag } },
+                        { type: "span", props: { style: { width: "925px", marginTop: "4px", fontFamily: "Newsreader", fontSize: "35px", fontWeight: 500, lineHeight: 1.14, color: "#161615" }, children: it.title } },
+                        { type: "span", props: { style: { width: "925px", marginTop: "6px", fontSize: "26px", fontWeight: 400, lineHeight: 1.32, color: "#252320" }, children: it.summary } },
                       ],
                     },
                   })),
                   ...(isSingleCountry ? [{
                     type: "div",
                     props: {
-                      style: { width: "924px", boxSizing: "border-box", display: "flex", flexDirection: "column", backgroundColor: "#EFEAE0", border: "1px solid #C8C2B6", padding: "14px 20px" },
+                      style: { width: "952px", boxSizing: "border-box", display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#EFEAE0", border: "1px solid #C8C2B6", padding: "16px 22px" },
                       children: [
-                        { type: "span", props: { style: { fontSize: "16px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: `PARA DESCUBRIR · ${mainEd.recommendation.type.toUpperCase()}` } },
-                        { type: "span", props: { style: { width: "880px", marginTop: "4px", fontFamily: "Newsreader", fontSize: "25px", color: "#161615" }, children: `${mainEd.recommendation.title} — ${mainEd.recommendation.creator}` } },
+                        {
+                          type: "div",
+                          props: {
+                            style: { display: "flex", flexDirection: "column", maxWidth: "740px" },
+                            children: [
+                              { type: "span", props: { style: { fontSize: "19px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: `PARA DESCUBRIR · ${mainEd.recommendation.type.toUpperCase()}` } },
+                              { type: "span", props: { style: { marginTop: "4px", fontFamily: "Newsreader", fontSize: "28px", color: "#161615" }, children: `${mainEd.recommendation.title} — ${mainEd.recommendation.creator}` } },
+                            ],
+                          },
+                        },
+                        { type: "span", props: { style: { fontSize: "18px", letterSpacing: "2px", color: "#5C5952", fontWeight: 600 }, children: "EN EL EPISODIO" } },
                       ],
                     },
                   }] : []),
                 ],
               },
             },
+
+            // Pie Spotify
             {
               type: "div",
               props: {
-                style: { width: "924px", boxSizing: "border-box", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "22px 30px", backgroundColor: "#161615", color: "#FAF8F3" },
+                style: { width: "952px", boxSizing: "border-box", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "22px 28px", backgroundColor: "#161615", color: "#FAF8F3" },
                 children: [
                   {
                     type: "div",
                     props: {
                       style: { display: "flex", flexDirection: "column" },
                       children: [
-                        { type: "span", props: { style: { fontSize: "17px", letterSpacing: "3px", fontWeight: 600, color: "#E8DCD0" }, children: "ESCUCHÁ EL EPISODIO Y SUSCRIBITE" } },
-                        { type: "span", props: { style: { marginTop: "4px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "29px", color: "#FAF8F3" }, children: "Buscá Jackpot Cultural en Spotify" } },
+                        { type: "span", props: { style: { fontSize: "19px", letterSpacing: "3px", fontWeight: 600, color: "#E8DCD0" }, children: "ESCUCHÁ EL EPISODIO Y SUSCRIBITE GRATIS" } },
+                        { type: "span", props: { style: { marginTop: "4px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "31px", color: "#FAF8F3" }, children: "Buscá Jackpot Cultural en Spotify" } },
                       ],
                     },
                   },
-                  { type: "span", props: { style: { fontSize: "18px", letterSpacing: "2px", fontWeight: 600, color: "#FAF8F3", backgroundColor: "#B83827", padding: "10px 18px" }, children: "ENLACE EN BIO" } },
+                  { type: "span", props: { style: { fontSize: "19px", letterSpacing: "2px", fontWeight: 600, color: "#FAF8F3", backgroundColor: "#B83827", padding: "12px 20px" }, children: "ENLACE EN BIO" } },
                 ],
               },
             },

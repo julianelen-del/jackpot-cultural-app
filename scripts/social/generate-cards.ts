@@ -91,6 +91,15 @@ async function loadFonts(): Promise<FontAsset[]> {
     },
     {
       name: "Inter",
+      weight: 400,
+      style: "normal",
+      urls: [
+        "https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/files/inter-latin-400-normal.woff",
+        "https://cdn.jsdelivr.net/npm/@fontsource/inter/files/inter-latin-400-normal.woff",
+      ],
+    },
+    {
+      name: "Inter",
       weight: 600,
       style: "normal",
       urls: [
@@ -124,7 +133,7 @@ async function prepareCoverDataUri(url?: string): Promise<string | null> {
   if (!url) return null;
   try {
     const raw = await fetchBuffer(url, 8000);
-    const resized = await sharp(raw).resize(924, 410, { fit: "cover", position: "attention" }).jpeg({ quality: 86 }).toBuffer();
+    const resized = await sharp(raw).resize(952, 390, { fit: "cover", position: "attention" }).jpeg({ quality: 86 }).toBuffer();
     return `data:image/jpeg;base64,${resized.toString("base64")}`;
   } catch {
     return null;
@@ -140,16 +149,16 @@ function wrapCardFrame(edition: CountryEdition, slideLabel: string, bodyChildren
   return {
     type: "div",
     props: {
-      style: { width: "1080px", height: "1350px", boxSizing: "border-box", backgroundColor: "#F5F2EB", color: "#161615", display: "flex", flexDirection: "column", padding: "36px", fontFamily: "Inter" },
+      style: { width: "1080px", height: "1350px", boxSizing: "border-box", backgroundColor: "#F5F2EB", color: "#161615", display: "flex", flexDirection: "column", padding: "28px", fontFamily: "Inter" },
       children: [{
         type: "div",
         props: {
-          style: { width: "1008px", height: "1278px", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "space-between", border: "2px solid #161615", backgroundColor: "#FAF8F3", padding: "36px 42px" },
+          style: { width: "1024px", height: "1294px", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "space-between", border: "2px solid #161615", backgroundColor: "#FAF8F3", padding: "30px 36px" },
           children: [
             {
               type: "div",
               props: {
-                style: { width: "924px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #D6D0C4", paddingBottom: "16px", fontSize: "23px", letterSpacing: "4px", color: "#5C5952", fontWeight: 600 },
+                style: { width: "952px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #D6D0C4", paddingBottom: "14px", fontSize: "23px", letterSpacing: "4px", color: "#5C5952", fontWeight: 600 },
                 children: [
                   { type: "span", props: { children: "JACKPOT CULTURAL" } },
                   { type: "span", props: { style: { color: "#B83827" }, children: `${edition.edition_week} · ${slideLabel}` } },
@@ -159,14 +168,14 @@ function wrapCardFrame(edition: CountryEdition, slideLabel: string, bodyChildren
             {
               type: "div",
               props: {
-                style: { width: "924px", flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden" },
+                style: { width: "952px", flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden" },
                 children: bodyChildren,
               },
             },
             {
               type: "div",
               props: {
-                style: { width: "924px", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid #D6D0C4", paddingTop: "16px", fontSize: "21px", color: "#5C5952", fontWeight: 600 },
+                style: { width: "952px", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid #D6D0C4", paddingTop: "14px", fontSize: "21px", color: "#5C5952", fontWeight: 600 },
                 children: [
                   { type: "span", props: { children: `jackpot-cultural-app.vercel.app/pais/${edition.slug}` } },
                   { type: "span", props: { style: { color: "#B83827" }, children: edition.country.toUpperCase() } },
@@ -186,26 +195,26 @@ async function renderSlide1(edition: CountryEdition, coverUri: string | null, fo
     {
       type: "div",
       props: {
-        style: { width: "924px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" },
+        style: { width: "952px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" },
         children: [
-          { type: "span", props: { style: { fontSize: "24px", letterSpacing: "5px", color: "#B83827", fontWeight: 600 }, children: edition.continent.toUpperCase() } },
-          { type: "span", props: { style: { marginTop: "10px", fontFamily: "Newsreader", fontSize: edition.country.length > 12 ? "74px" : "92px", fontWeight: 500, lineHeight: 1.04, letterSpacing: "-1px", maxWidth: "900px" }, children: edition.country.toUpperCase() } },
-          { type: "span", props: { style: { marginTop: "22px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "35px", lineHeight: 1.38, color: "#2D2C29", maxWidth: "890px" }, children: cleanIntro } },
+          { type: "span", props: { style: { fontSize: "25px", letterSpacing: "5px", color: "#B83827", fontWeight: 600 }, children: edition.continent.toUpperCase() } },
+          { type: "span", props: { style: { marginTop: "10px", fontFamily: "Newsreader", fontSize: edition.country.length > 12 ? "76px" : "94px", fontWeight: 500, lineHeight: 1.04, letterSpacing: "-1px", maxWidth: "930px" }, children: edition.country.toUpperCase() } },
+          { type: "span", props: { style: { marginTop: "22px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "39px", lineHeight: 1.34, color: "#252320", maxWidth: "920px" }, children: cleanIntro } },
         ],
       },
     },
     ...(coverUri ? [{
       type: "div",
       props: {
-        style: { width: "924px", height: "410px", display: "flex", marginTop: "34px", border: "1px solid #161615", backgroundColor: "#EFEAE0", overflow: "hidden" },
-        children: [{ type: "img", props: { src: coverUri, style: { width: "924px", height: "410px", objectFit: "cover" } } }],
+        style: { width: "952px", height: "390px", display: "flex", marginTop: "30px", border: "1px solid #161615", backgroundColor: "#EFEAE0", overflow: "hidden" },
+        children: [{ type: "img", props: { src: coverUri, style: { width: "952px", height: "390px", objectFit: "cover" } } }],
       },
     }] : []),
     {
       type: "div",
       props: {
-        style: { width: "924px", display: "flex", justifyContent: "center", marginTop: "28px" },
-        children: [{ type: "span", props: { style: { fontSize: "23px", letterSpacing: "4px", color: "#5C5952", fontWeight: 600 }, children: "DESLIZÁ PARA LEER EL PANORAMA →" } }],
+        style: { width: "952px", display: "flex", justifyContent: "center", marginTop: "26px" },
+        children: [{ type: "span", props: { style: { fontSize: "24px", letterSpacing: "4px", color: "#5C5952", fontWeight: 600 }, children: "DESLIZÁ PARA LEER EL PANORAMA →" } }],
       },
     },
   ];
@@ -214,30 +223,30 @@ async function renderSlide1(edition: CountryEdition, coverUri: string | null, fo
 
 async function renderSlide2(edition: CountryEdition, fonts: FontAsset[]): Promise<Buffer> {
   const topics = edition.topics.slice(0, 3);
-  const summaryLimit = topics.length <= 2 ? 460 : 340;
+  const summaryLimit = topics.length <= 2 ? 460 : 300;
   const body = [
     {
       type: "div",
       props: {
-        style: { width: "924px", display: "flex", flexDirection: "column" },
+        style: { width: "952px", display: "flex", flexDirection: "column" },
         children: [
-          { type: "span", props: { style: { fontSize: "21px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: "TEMAS DESTACADOS" } },
-          { type: "span", props: { style: { width: "924px", marginTop: "6px", fontFamily: "Newsreader", fontSize: "44px", fontWeight: 500, color: "#161615", borderBottom: "2px solid #161615", paddingBottom: "14px" }, children: `Qué mueve a ${edition.country} esta semana` } },
+          { type: "span", props: { style: { fontSize: "22px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: "TEMAS DESTACADOS" } },
+          { type: "span", props: { style: { width: "952px", marginTop: "6px", fontFamily: "Newsreader", fontSize: "46px", fontWeight: 500, color: "#161615", borderBottom: "2px solid #161615", paddingBottom: "12px" }, children: `Qué mueve a ${edition.country} esta semana` } },
         ],
       },
     },
     {
       type: "div",
       props: {
-        style: { width: "924px", display: "flex", flexDirection: "column", marginTop: "32px", gap: topics.length <= 2 ? "48px" : "34px" },
+        style: { width: "952px", display: "flex", flexDirection: "column", marginTop: "24px", gap: topics.length <= 2 ? "44px" : "26px" },
         children: topics.map((t) => ({
           type: "div",
           props: {
-            style: { width: "924px", boxSizing: "border-box", display: "flex", flexDirection: "column", borderLeft: "5px solid #B83827", paddingLeft: "24px" },
+            style: { width: "952px", boxSizing: "border-box", display: "flex", flexDirection: "column", borderLeft: "5px solid #B83827", paddingLeft: "22px" },
             children: [
-              { type: "span", props: { style: { width: "892px", fontSize: "20px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: t.category.toUpperCase() } },
-              { type: "span", props: { style: { width: "892px", marginTop: "5px", fontFamily: "Newsreader", fontSize: "35px", fontWeight: 500, lineHeight: 1.15, color: "#161615" }, children: truncateText(stripEditorialMarkdown(t.title), 120) } },
-              { type: "span", props: { style: { width: "892px", marginTop: "10px", fontSize: "24px", lineHeight: 1.38, color: "#383530" }, children: fitCompleteSentences(t.summary, summaryLimit) } },
+              { type: "span", props: { style: { width: "925px", fontSize: "22px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: t.category.toUpperCase() } },
+              { type: "span", props: { style: { width: "925px", marginTop: "4px", fontFamily: "Newsreader", fontSize: "39px", fontWeight: 500, lineHeight: 1.12, color: "#161615" }, children: truncateText(stripEditorialMarkdown(t.title), 120) } },
+              { type: "span", props: { style: { width: "925px", marginTop: "8px", fontSize: topics.length <= 2 ? "31px" : "28px", fontWeight: 400, lineHeight: 1.32, color: "#252320" }, children: fitCompleteSentences(t.summary, summaryLimit) } },
             ],
           },
         })),
@@ -253,41 +262,41 @@ async function renderSlide3(edition: CountryEdition, cfg: CountrySourceConfig, f
     {
       type: "div",
       props: {
-        style: { width: "924px", boxSizing: "border-box", display: "flex", flexDirection: "column", border: "2px solid #161615", backgroundColor: "#EFEAE0", padding: "36px 40px" },
+        style: { width: "952px", boxSizing: "border-box", display: "flex", flexDirection: "column", border: "2px solid #161615", backgroundColor: "#EFEAE0", padding: "36px 40px" },
         children: [
           {
             type: "div",
             props: {
-              style: { width: "840px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #C8C2B6", paddingBottom: "14px" },
+              style: { width: "868px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid #C8C2B6", paddingBottom: "14px" },
               children: [
-                { type: "span", props: { style: { fontSize: "22px", letterSpacing: "4px", fontWeight: 600, color: "#161615" }, children: "PARA DESCUBRIR" } },
-                { type: "span", props: { style: { fontSize: "20px", letterSpacing: "3px", fontWeight: 600, color: "#B83827", border: "1px solid #B83827", padding: "5px 14px" }, children: edition.recommendation.type.toUpperCase() } },
+                { type: "span", props: { style: { fontSize: "24px", letterSpacing: "4px", fontWeight: 600, color: "#161615" }, children: "PARA DESCUBRIR" } },
+                { type: "span", props: { style: { fontSize: "21px", letterSpacing: "3px", fontWeight: 600, color: "#B83827", border: "1px solid #B83827", padding: "5px 14px" }, children: edition.recommendation.type.toUpperCase() } },
               ],
             },
           },
-          { type: "span", props: { style: { width: "840px", marginTop: "20px", fontFamily: "Newsreader", fontSize: "52px", fontWeight: 500, lineHeight: 1.12, color: "#161615" }, children: truncateText(edition.recommendation.title, 140) } },
-          { type: "span", props: { style: { width: "840px", marginTop: "8px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "33px", color: "#5C5952" }, children: edition.recommendation.creator } },
-          { type: "span", props: { style: { width: "840px", marginTop: "18px", fontSize: "28px", lineHeight: 1.4, color: "#2D2C29" }, children: fitCompleteSentences(edition.recommendation.context, 240) } },
+          { type: "span", props: { style: { width: "868px", marginTop: "20px", fontFamily: "Newsreader", fontSize: "54px", fontWeight: 500, lineHeight: 1.1, color: "#161615" }, children: truncateText(edition.recommendation.title, 140) } },
+          { type: "span", props: { style: { width: "868px", marginTop: "8px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "35px", color: "#5C5952" }, children: edition.recommendation.creator } },
+          { type: "span", props: { style: { width: "868px", marginTop: "18px", fontSize: "32px", fontWeight: 400, lineHeight: 1.36, color: "#252320" }, children: fitCompleteSentences(edition.recommendation.context, 240) } },
         ],
       },
     },
     ...(listeningNames.length > 0 ? [{
       type: "div",
       props: {
-        style: { width: "924px", display: "flex", flexDirection: "column", marginTop: "34px", borderTop: "1px solid #D6D0C4", paddingTop: "24px" },
+        style: { width: "952px", display: "flex", flexDirection: "column", marginTop: "32px", borderTop: "1px solid #D6D0C4", paddingTop: "22px" },
         children: [
-          { type: "span", props: { style: { fontSize: "22px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: "PARA ESCUCHAR EN LA WEB" } },
-          { type: "span", props: { style: { width: "924px", marginTop: "10px", fontFamily: "Newsreader", fontSize: "32px", lineHeight: 1.32, color: "#161615" }, children: listeningNames.join("  ·  ") } },
+          { type: "span", props: { style: { fontSize: "23px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: "PARA ESCUCHAR EN LA WEB" } },
+          { type: "span", props: { style: { width: "952px", marginTop: "10px", fontFamily: "Newsreader", fontSize: "34px", lineHeight: 1.3, color: "#161615" }, children: listeningNames.join("  ·  ") } },
         ],
       },
     }] : []),
     {
       type: "div",
       props: {
-        style: { width: "924px", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginTop: "36px", padding: "26px 30px", backgroundColor: "#161615", color: "#FAF8F3" },
+        style: { width: "952px", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginTop: "34px", padding: "26px 30px", backgroundColor: "#161615", color: "#FAF8F3" },
         children: [
-          { type: "span", props: { style: { fontSize: "21px", letterSpacing: "3px", fontWeight: 600, color: "#E8DCD0" }, children: "LEÉ LA CRÓNICA COMPLETA Y GIRÁ LA RULETA" } },
-          { type: "span", props: { style: { marginTop: "10px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "34px", color: "#FAF8F3" }, children: "Enlace directo en nuestra bio · @jackpotcultural" } },
+          { type: "span", props: { style: { fontSize: "23px", letterSpacing: "3px", fontWeight: 600, color: "#E8DCD0" }, children: "LEÉ LA CRÓNICA COMPLETA Y GIRÁ LA RULETA" } },
+          { type: "span", props: { style: { marginTop: "10px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "36px", color: "#FAF8F3" }, children: "Enlace directo en nuestra bio · @jackpotcultural" } },
         ],
       },
     },
