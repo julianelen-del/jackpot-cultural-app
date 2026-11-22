@@ -223,46 +223,93 @@ function createSilenceWav(outWavPath: string, sec: number) {
   runFfmpeg(["-f", "lavfi", "-i", `anullsrc=r=44100:cl=stereo:d=${sec}`, "-c:a", "pcm_s16le", outWavPath]);
 }
 
+function boostEffectWav(rawWavPath: string, outWavPath: string) {
+  runFfmpeg([
+    "-i", rawWavPath,
+    "-af", "acompressor=threshold=-18dB:ratio=3:attack=5:release=90:makeup=7dB,alimiter=limit=0.9",
+    "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", outWavPath,
+  ]);
+}
+
 function createElaborateIntroWav(outWavPath: string, tmpDir: string) {
   const parts: string[] = [];
   [440, 523.25, 622.25, 740, 880].forEach((freq, i) => {
     const p = path.join(tmpDir, `intro-clk-${i}.wav`);
-    runFfmpeg(["-f", "lavfi", "-i", `sine=frequency=${freq}:duration=0.06`, "-af", "afade=t=out:st=0.01:d=0.05,volume=0.88", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p]);
+    runFfmpeg([
+      "-f", "lavfi", "-i", `sine=frequency=${freq}:duration=0.065`,
+      "-f", "lavfi", "-i", `sine=frequency=${freq * 2}:duration=0.065`,
+      "-filter_complex", "[0:a][1:a]amix=inputs=2:duration=longest:normalize=0,afade=t=out:st=0.01:d=0.055,volume=0.85",
+      "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p,
+    ]);
     const gap = path.join(tmpDir, `intro-gap-${i}.wav`);
     createSilenceWav(gap, i < 2 ? 0.13 : 0.08);
     parts.push(p, gap);
   });
-  [{ f: 220.0, d: 0.24 }, { f: 261.63, d: 0.24 }, { f: 329.63, d: 0.24 }, { f: 440.0, d: 0.24 }, { f: 493.88, d: 1.4 }].forEach((n, i) => {
+  [{ f: 220.0, d: 0.24 }, { f: 261.63, d: 0.24 }, { f: 329.63, d: 0.24 }, { f: 440.0, d: 0.24 }, { f: 493.88, d: 1.45 }].forEach((n, i) => {
     const p = path.join(tmpDir, `intro-mel-${i}.wav`);
-    runFfmpeg(["-f", "lavfi", "-i", `sine=frequency=${n.f}:duration=${n.d}`, "-f", "lavfi", "-i", `sine=frequency=${(n.f * 0.5).toFixed(2)}:duration=${n.d}`, "-filter_complex", `[0:a][1:a]amix=inputs=2:duration=longest:normalize=0,afade=t=in:st=0:d=0.03,afade=t=out:st=${(n.d * 0.4).toFixed(2)}:d=${(n.d * 0.6).toFixed(2)},lowpass=f=1500,aecho=0.8:0.75:90:0.34,volume=0.78`, "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p]);
+    runFfmpeg([
+      "-f", "lavfi", "-i", `sine=frequency=${n.f}:duration=${n.d}`,
+      "-f", "lavfi", "-i", `sine=frequency=${(n.f * 2).toFixed(2)}:duration=${n.d}`,
+      "-f", "lavfi", "-i", `sine=frequency=${(n.f * 3).toFixed(2)}:duration=${n.d}`,
+      "-filter_complex", `[0:a][1:a][2:a]amix=inputs=3:weights=1 0.65 0.3:duration=longest:normalize=0,afade=t=in:st=0:d=0.025,afade=t=out:st=${(n.d * 0.4).toFixed(2)}:d=${(n.d * 0.6).toFixed(2)},lowpass=f=3200,aecho=0.8:0.75:90:0.32,volume=0.6`,
+      "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p,
+    ]);
     parts.push(p);
   });
-  concatWavs(parts, outWavPath, tmpDir, "intro");
+  const rawIntro = path.join(tmpDir, "intro-raw.wav");
+  concatWavs(parts, rawIntro, tmpDir, "intro");
+  boostEffectWav(rawIntro, outWavPath);
 }
 
 function createElaborateOutroWav(outWavPath: string, tmpDir: string) {
   const parts: string[] = [];
   [{ f: 493.88, d: 0.24 }, { f: 392.0, d: 0.24 }, { f: 329.63, d: 0.24 }, { f: 220.0, d: 1.9 }].forEach((n, i) => {
     const p = path.join(tmpDir, `outro-mel-${i}.wav`);
-    runFfmpeg(["-f", "lavfi", "-i", `sine=frequency=${n.f}:duration=${n.d}`, "-f", "lavfi", "-i", `sine=frequency=${(n.f * 1.5).toFixed(2)}:duration=${n.d}`, "-filter_complex", `[0:a][1:a]amix=inputs=2:duration=longest:normalize=0,afade=t=in:st=0:d=0.04,afade=t=out:st=${(n.d * 0.35).toFixed(2)}:d=${(n.d * 0.65).toFixed(2)},lowpass=f=1400,aecho=0.8:0.78:100:0.34,volume=0.78`, "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p]);
+    runFfmpeg([
+      "-f", "lavfi", "-i", `sine=frequency=${n.f}:duration=${n.d}`,
+      "-f", "lavfi", "-i", `sine=frequency=${(n.f * 2).toFixed(2)}:duration=${n.d}`,
+      "-f", "lavfi", "-i", `sine=frequency=${(n.f * 1.5).toFixed(2)}:duration=${n.d}`,
+      "-filter_complex", `[0:a][1:a][2:a]amix=inputs=3:weights=1 0.6 0.4:duration=longest:normalize=0,afade=t=in:st=0:d=0.03,afade=t=out:st=${(n.d * 0.35).toFixed(2)}:d=${(n.d * 0.65).toFixed(2)},lowpass=f=3000,aecho=0.8:0.78:100:0.32,volume=0.6`,
+      "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p,
+    ]);
     parts.push(p);
   });
   const endClick = path.join(tmpDir, "outro-clk.wav");
   createSyntheticChimeWav(endClick, "click", tmpDir);
   parts.push(endClick);
-  concatWavs(parts, outWavPath, tmpDir, "outro");
+  const rawOutro = path.join(tmpDir, "outro-raw.wav");
+  concatWavs(parts, rawOutro, tmpDir, "outro");
+  boostEffectWav(rawOutro, outWavPath);
 }
 
 function createSyntheticChimeWav(outWavPath: string, kind: "sep" | "click", tmpDir: string) {
   if (kind === "click") {
-    runFfmpeg(["-f", "lavfi", "-i", "sine=frequency=760:duration=0.09", "-af", "afade=t=out:st=0.01:d=0.08,volume=0.85", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", outWavPath]);
+    runFfmpeg([
+      "-f", "lavfi", "-i", "sine=frequency=760:duration=0.09",
+      "-f", "lavfi", "-i", "sine=frequency=1520:duration=0.09",
+      "-filter_complex", "[0:a][1:a]amix=inputs=2:weights=1 0.7:duration=longest:normalize=0,afade=t=out:st=0.01:d=0.08,volume=0.95",
+      "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", outWavPath,
+    ]);
     return;
   }
   const n1 = path.join(tmpDir, "sep-1.wav");
   const n2 = path.join(tmpDir, "sep-2.wav");
-  runFfmpeg(["-f", "lavfi", "-i", "sine=frequency=440:duration=0.22", "-af", "afade=t=in:st=0:d=0.02,afade=t=out:st=0.07:d=0.15,aecho=0.8:0.65:60:0.28,volume=0.88", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", n1]);
-  runFfmpeg(["-f", "lavfi", "-i", "sine=frequency=587.33:duration=1.15", "-f", "lavfi", "-i", "sine=frequency=440:duration=1.15", "-filter_complex", "[0:a][1:a]amix=inputs=2:duration=longest:normalize=0,afade=t=in:st=0:d=0.03,afade=t=out:st=0.35:d=0.8,lowpass=f=1550,aecho=0.8:0.7:85:0.3,volume=0.72", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", n2]);
-  concatWavs([n1, n2], outWavPath, tmpDir, "sep");
+  runFfmpeg([
+    "-f", "lavfi", "-i", "sine=frequency=440:duration=0.22",
+    "-f", "lavfi", "-i", "sine=frequency=880:duration=0.22",
+    "-filter_complex", "[0:a][1:a]amix=inputs=2:weights=1 0.65:duration=longest:normalize=0,afade=t=in:st=0:d=0.015,afade=t=out:st=0.07:d=0.15,aecho=0.8:0.65:60:0.28,volume=0.72",
+    "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", n1,
+  ]);
+  runFfmpeg([
+    "-f", "lavfi", "-i", "sine=frequency=587.33:duration=1.15",
+    "-f", "lavfi", "-i", "sine=frequency=1174.66:duration=1.15",
+    "-f", "lavfi", "-i", "sine=frequency=440:duration=1.15",
+    "-filter_complex", "[0:a][1:a][2:a]amix=inputs=3:weights=1 0.55 0.65:duration=longest:normalize=0,afade=t=in:st=0:d=0.025,afade=t=out:st=0.35:d=0.8,lowpass=f=3200,aecho=0.8:0.7:85:0.3,volume=0.65",
+    "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", n2,
+  ]);
+  const rawSep = path.join(tmpDir, "sep-raw.wav");
+  concatWavs([n1, n2], rawSep, tmpDir, "sep");
+  boostEffectWav(rawSep, outWavPath);
 }
 
 function createSyntheticCortinaWav(outWavPath: string, tmpDir: string) {
@@ -275,7 +322,7 @@ function createSyntheticCortinaWav(outWavPath: string, tmpDir: string) {
   const stepWavs: string[] = [];
   pattern.forEach((step, idx) => {
     const p = path.join(tmpDir, `cortina-step-${idx}.wav`);
-    runFfmpeg(["-f", "lavfi", "-i", `sine=frequency=${step.bass}:duration=0.5`, "-f", "lavfi", "-i", `sine=frequency=${step.note}:duration=0.5`, "-filter_complex", "[0:a]afade=t=in:st=0:d=0.03,afade=t=out:st=0.25:d=0.25,volume=0.32[b];[1:a]afade=t=in:st=0:d=0.02,afade=t=out:st=0.14:d=0.36,volume=0.28[n];[b][n]amix=inputs=2:duration=longest:normalize=0,lowpass=f=1100", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p]);
+    runFfmpeg(["-f", "lavfi", "-i", `sine=frequency=${step.bass}:duration=0.5`, "-f", "lavfi", "-i", `sine=frequency=${step.note}:duration=0.5`, "-filter_complex", "[0:a]afade=t=in:st=0:d=0.03,afade=t=out:st=0.25:d=0.25,volume=0.35[b];[1:a]afade=t=in:st=0:d=0.02,afade=t=out:st=0.14:d=0.36,volume=0.32[n];[b][n]amix=inputs=2:duration=longest:normalize=0,lowpass=f=1250", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", p]);
     stepWavs.push(p);
   });
   const rawLoop = path.join(tmpDir, "cortina-raw.wav");
@@ -370,17 +417,18 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
   const isSingleCountry = selected.length === 1;
   const mainEd = selected[0];
   const squareCoverUri = await preparePromoSquareUri(mainEd.cover_image?.url);
+  const coverSize = isSingleCountry ? "294px" : "244px";
 
   const items = isSingleCountry
     ? mainEd.topics.slice(0, 2).map((t) => ({
         tag: t.category.toUpperCase(),
-        title: cleanPlainText(t.title),
-        summary: fitCompleteSentences(t.summary, 210),
+        title: truncateText(cleanPlainText(t.title), 110),
+        summary: fitCompleteSentences(t.summary, 240),
       }))
     : selected.slice(0, 3).map((ed) => ({
         tag: `${ed.country.toUpperCase()} · ${(ed.topics[0]?.category || "CULTURA").toUpperCase()}`,
-        title: cleanPlainText(ed.topics[0]?.title || ed.intro),
-        summary: fitCompleteSentences(ed.topics[0]?.summary || ed.intro, 145),
+        title: truncateText(cleanPlainText(ed.topics[0]?.title || ed.intro), 95),
+        summary: fitCompleteSentences(ed.topics[0]?.summary || ed.intro, 225),
       }));
 
   const waveHeights = [16, 28, 42, 22, 48, 34, 18, 44, 30, 50, 24, 38, 20, 46, 28, 16, 36, 42, 24, 32, 18, 26];
@@ -419,7 +467,6 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
         props: {
           style: { width: "1024px", height: "1294px", boxSizing: "border-box", border: "2px solid #4A4741", backgroundColor: "#FAF8F3", color: "#161615", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "30px 36px" },
           children: [
-            // Cabecera con insignia roja + auriculares
             {
               type: "div",
               props: {
@@ -440,22 +487,21 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
               },
             },
 
-            // Carátula de audio lado a lado
             {
               type: "div",
               props: {
-                style: { width: "952px", display: "flex", alignItems: "center", gap: "30px" },
+                style: { width: "952px", display: "flex", alignItems: "center", gap: "28px" },
                 children: [
                   ...(squareCoverUri ? [{
                     type: "div",
                     props: {
-                      style: { width: "294px", height: "294px", position: "relative", display: "flex", border: "2px solid #161615", backgroundColor: "#EFEAE0", overflow: "hidden" },
+                      style: { width: coverSize, height: coverSize, position: "relative", display: "flex", border: "2px solid #161615", backgroundColor: "#EFEAE0", overflow: "hidden" },
                       children: [
-                        { type: "img", props: { src: squareCoverUri, style: { width: "294px", height: "294px", objectFit: "cover" } } },
+                        { type: "img", props: { src: squareCoverUri, style: { width: coverSize, height: coverSize, objectFit: "cover" } } },
                         {
                           type: "div",
                           props: {
-                            style: { position: "absolute", right: "14px", bottom: "14px", width: "68px", height: "68px", borderRadius: "34px", backgroundColor: "#B83827", border: "3px solid #FAF8F3", display: "flex", alignItems: "center", justifyContent: "center" },
+                            style: { position: "absolute", right: "12px", bottom: "12px", width: "62px", height: "62px", borderRadius: "31px", backgroundColor: "#B83827", border: "3px solid #FAF8F3", display: "flex", alignItems: "center", justifyContent: "center" },
                             children: [playTriangleIcon],
                           },
                         },
@@ -468,12 +514,12 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
                       style: { flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" },
                       children: [
                         { type: "span", props: { style: { fontSize: "20px", letterSpacing: "4px", color: "#B83827", fontWeight: 600 }, children: isSingleCountry ? `EDICIÓN SONORA · ${mainEd.continent.toUpperCase()}` : "EDICIÓN SONORA INTERNACIONAL" } },
-                        { type: "span", props: { style: { marginTop: "8px", fontFamily: "Newsreader", fontSize: episode.subtitle.length > 13 ? "58px" : "70px", fontWeight: 500, lineHeight: 1.02, color: "#161615" }, children: episode.subtitle.toUpperCase() } },
-                        { type: "span", props: { style: { marginTop: "10px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "27px", lineHeight: 1.3, color: "#383530" }, children: isSingleCountry ? "Crónica radial de música, cine, series y libros." : `Panorama semanal en ${selected.map((e) => e.country).join(", ")}.` } },
+                        { type: "span", props: { style: { marginTop: "6px", fontFamily: "Newsreader", fontSize: episode.subtitle.length > 13 ? "54px" : "68px", fontWeight: 500, lineHeight: 1.02, color: "#161615" }, children: episode.subtitle.toUpperCase() } },
+                        { type: "span", props: { style: { marginTop: "8px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "26px", lineHeight: 1.3, color: "#383530" }, children: isSingleCountry ? "Crónica radial de música, cine, series y libros." : `Panorama semanal en ${selected.map((e) => e.country).join(", ")}.` } },
                         {
                           type: "div",
                           props: {
-                            style: { display: "flex", alignItems: "center", gap: "7px", marginTop: "18px", paddingTop: "14px", borderTop: "1px solid #D6D0C4" },
+                            style: { display: "flex", alignItems: "center", gap: "7px", marginTop: "16px", paddingTop: "12px", borderTop: "1px solid #D6D0C4" },
                             children: [
                               ...waveHeights.map((h, idx) => ({
                                 type: "div",
@@ -490,20 +536,19 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
               },
             },
 
-            // Contenidos del episodio con aire equilibrado
             {
               type: "div",
               props: {
-                style: { width: "952px", display: "flex", flexDirection: "column", gap: isSingleCountry ? "34px" : "28px", borderTop: "2px solid #161615", paddingTop: "28px" },
+                style: { width: "952px", display: "flex", flexDirection: "column", gap: isSingleCountry ? "34px" : "22px", borderTop: "2px solid #161615", paddingTop: isSingleCountry ? "26px" : "20px" },
                 children: [
                   ...items.map((it) => ({
                     type: "div",
                     props: {
                       style: { width: "952px", boxSizing: "border-box", display: "flex", flexDirection: "column", borderLeft: "5px solid #B83827", paddingLeft: "22px" },
                       children: [
-                        { type: "span", props: { style: { width: "925px", fontSize: "20px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: it.tag } },
-                        { type: "span", props: { style: { width: "925px", marginTop: "5px", fontFamily: "Newsreader", fontSize: "37px", fontWeight: 500, lineHeight: 1.14, color: "#161615" }, children: it.title } },
-                        { type: "span", props: { style: { width: "925px", marginTop: "8px", fontSize: "27px", fontWeight: 400, lineHeight: 1.32, color: "#252320" }, children: it.summary } },
+                        { type: "span", props: { style: { width: "925px", fontSize: isSingleCountry ? "20px" : "18px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: it.tag } },
+                        { type: "span", props: { style: { width: "925px", marginTop: "4px", fontFamily: "Newsreader", fontSize: isSingleCountry ? "37px" : "32px", fontWeight: 500, lineHeight: 1.13, color: "#161615" }, children: it.title } },
+                        { type: "span", props: { style: { width: "925px", marginTop: "6px", fontSize: isSingleCountry ? "27px" : "23px", fontWeight: 400, lineHeight: 1.3, color: "#252320" }, children: it.summary } },
                       ],
                     },
                   })),
@@ -530,7 +575,6 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
               },
             },
 
-            // Pie Spotify
             {
               type: "div",
               props: {
