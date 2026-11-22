@@ -1,5 +1,28 @@
 [
   {
+    "id": "jackpot-2026-W47-resto-del-mundo",
+    "key": "resto-del-mundo",
+    "week": "2026-W47",
+    "title": "Jackpot Cultural · Resto del mundo (2026-W47)",
+    "subtitle": "Resto del mundo",
+    "description": "Lo más destacado de la semana en Polonia, Islandia, Japón.",
+    "pubDate": "2026-11-22T13:58:52.069Z",
+    "fileName": "episodio-2026-W47-resto-del-mundo.mp3",
+    "cardFileName": "podcast-resto-del-mundo.jpg",
+    "bytes": 8302384,
+    "durationSec": 518.820816,
+    "countries": [
+      "polonia",
+      "islandia",
+      "japon"
+    ],
+    "headlines": [
+      "Polonia: Camerimage premia a Fatherland",
+      "Islandia: La mutación de los directos",
+      "Japón: El regreso de Tetsuya Tsutsui con Ortrans"
+    ]
+  },
+  {
     "id": "jackpot-2026-W47-alemania",
     "key": "alemania",
     "week": "2026-W47",

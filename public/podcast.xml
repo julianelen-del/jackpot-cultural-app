@@ -16,6 +16,15 @@
     <itunes:category text="Arts" />
     <itunes:image href="https://jackpot-cultural-app.vercel.app/podcast-cover.png" />
     <item>
+      <title>Jackpot Cultural · Resto del mundo (2026-W47)</title>
+      <description>Lo más destacado de la semana en Polonia, Islandia, Japón.</description>
+      <pubDate>Sun, 22 Nov 2026 13:58:52 GMT</pubDate>
+      <guid isPermaLink="false">jackpot-2026-W47-resto-del-mundo</guid>
+      <enclosure url="https://jackpot-cultural-app.vercel.app/podcast/episodio-2026-W47-resto-del-mundo.mp3" length="8302384" type="audio/mpeg" />
+      <itunes:duration>08:39</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
       <title>Jackpot Cultural · Alemania (2026-W47)</title>
       <description>El cine alemán cruza la adaptación literaria con la crudeza contemporánea mientras la escena musical celebra nuevos debuts y debates de programación.</description>
       <pubDate>Sat, 21 Nov 2026 13:58:06 GMT</pubDate>
