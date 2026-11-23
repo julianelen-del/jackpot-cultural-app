@@ -16,6 +16,15 @@
     <itunes:category text="Arts" />
     <itunes:image href="https://jackpot-cultural-app.vercel.app/podcast-cover.png" />
     <item>
+      <title>Jackpot Cultural · Argentina (2026-W48)</title>
+      <description>Ilan Amores presenta &apos;El Internacional&apos;, Mariano Llinás aborda a Borges en el cine y la danza revive a Spinoza.</description>
+      <pubDate>Mon, 23 Nov 2026 11:28:23 GMT</pubDate>
+      <guid isPermaLink="false">jackpot-2026-W48-argentina</guid>
+      <enclosure url="https://jackpot-cultural-app.vercel.app/podcast/episodio-2026-W48-argentina.mp3" length="2584284" type="audio/mpeg" />
+      <itunes:duration>02:41</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
       <title>Jackpot Cultural · Resto del mundo (2026-W47)</title>
       <description>Lo más destacado de la semana en Polonia, Islandia, Japón.</description>
       <pubDate>Sun, 22 Nov 2026 13:58:52 GMT</pubDate>

@@ -1,5 +1,26 @@
 [
   {
+    "id": "jackpot-2026-W48-argentina",
+    "key": "argentina",
+    "week": "2026-W48",
+    "title": "Jackpot Cultural · Argentina (2026-W48)",
+    "subtitle": "Argentina",
+    "description": "Ilan Amores presenta 'El Internacional', Mariano Llinás aborda a Borges en el cine y la danza revive a Spinoza.",
+    "pubDate": "2026-11-23T11:28:23.883Z",
+    "fileName": "episodio-2026-W48-argentina.mp3",
+    "cardFileName": "podcast-argentina.jpg",
+    "bytes": 2584284,
+    "durationSec": 161.453923,
+    "countries": [
+      "argentina"
+    ],
+    "headlines": [
+      "Música — Cumbia y travesía underground en lo nuevo de Ilan Amores",
+      "Cine y Series — Borges y la adolescencia en la pantalla",
+      "Libros — Ivana Costa y las raíces del concepto de ficción"
+    ]
+  },
+  {
     "id": "jackpot-2026-W47-resto-del-mundo",
     "key": "resto-del-mundo",
     "week": "2026-W47",
