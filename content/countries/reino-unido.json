@@ -3,69 +3,65 @@
   "country": "Reino Unido",
   "continent": "Europa",
   "flag": "🇬🇧",
-  "updated_at": "2026-11-16T23:17:23.149Z",
-  "edition_week": "2026-W47",
-  "intro": "El nuevo 007 cinematográfico y los discos que sacuden la temporada británica.",
+  "updated_at": "2026-11-23T10:13:47.856Z",
+  "edition_week": "2026-W48",
+  "intro": "Londres mira los reversos de Van Eyck en la National Gallery y la galería rebelde de Peggy Guggenheim en la Royal Academy, mientras RIP Magic agita el dance-punk en NME.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/%28Barcelona%29_The_Golden_Bough_-_Joseph_Mallord_William_Turner_-_Tate_Britain.jpg/1280px-%28Barcelona%29_The_Golden_Bough_-_Joseph_Mallord_William_Turner_-_Tate_Britain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Fachada de la Tate Britain en Londres, hogar de los grandes debates artísticos y retrospectivas de época.",
-    "credit": "Foto: Didier Descouens · Public domain"
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/National_Gallery_London_2013_March_crop.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "caption": "La National Gallery de Londres exhibe por primera vez juntos los diez retratos de Jan van Eyck y sus reversos.",
+    "credit": "Foto: Morio · CC BY-SA 3.0"
   },
-  "cultural_pulse": "El tablero cinematográfico británico e internacional se reconfigura tras el anuncio oficial de que [Robert Pattinson](https://www.nme.com/news/film/robert-pattinson-new-james-bond-actor-revealed-3976113) asumirá el rol icónico de **James Bond**, sucediendo a **Daniel Craig** tras un proceso de casting que mantuvo en vilo a la industria. Con una trayectoria que transita desde el cine de autor hasta grandes superproducciones, la llegada de este actor promete dotar al agente secreto de una sensibilidad atípica y distante de los clichés recientes del blockbuster de estudio.\n\nEn el terreno literario y de las artes visuales, la discusión cultural se desplaza hacia las nuevas publicaciones y exposiciones que dominan las carteleras de Londres y las regiones. El novelista [Jonathan Coe](https://www.bbc.co.uk/programmes/m003418n) regresa al centro de la escena con su flamante obra Lessons in Harmony, una inmersión en los vínculos y tensiones entre compositores fundamentales como **Maurice Ravel y Ralph Vaughan** Williams, explorando la trastienda de la creación musical clásica con su habitual agudeza narrativa.\n\nLos espacios institucionales como la Tate Britain aglutinan la atención crítica con muestras dedicadas a la profunda sociedad creativa entre Vanessa Bell y Duncan Grant dentro del círculo de Bloomsbury. Estas coordenadas confirman una agenda donde la reinterpretación de los legados artísticos británicos convive con giros inesperados en la ficción contemporánea, manteniendo el pulso de una temporada cultural densa en cruces entre literatura, música y cine.",
+  "cultural_pulse": "En la escena londinense, el cuarteto **RIP Magic** ocupa [The Cover de NME](https://www.nme.com/the-cover/rip-magic-23-11-2026-3976667) reivindicando un indie dance-punk desaliñado, siniestro y surrealista que rehúye la ironía y cualquier receta fija. Para acompañar el perfil, el grupo armó una selección con temas de Spiritualized, [Underworld](https://en.wikipedia.org/wiki/Underworld), Gorillaz y Death From Above 1979, combinando el pulso electrónico británico con guitarras nerviosas. En la órbita del rock clásico, **Gary Numan** encabezará el *Blackpool Boneyard Weekender 2027* y la editorial Jawbone Press publica *Lou Reed: Metal Machine Mystic*, de David Holzer.\\n\\nLas salas londinenses miran esta semana hacia el detalle técnico y la provocación histórica en dos muestras reseñadas por [BBC Radio 4 Front Row](https://www.bbc.co.uk/programmes/m00349t9). La **National Gallery** reúne por primera vez los diez retratos conservados de Jan van Eyck junto a varios dibujos en *Van Eyck: The Portraits*, dejando al descubierto incluso el reverso de los lienzos. A pocas calles, la **Royal Academy** reconstruye cómo la galería que [Peggy Guggenheim](https://www.bbc.co.uk/programmes/m0034bx0) abrió en Mayfair a fines de los años treinta escandalizó al Londres conservador con piezas de Eileen Agar, Salvador Dalí, Barbara Hepworth y Vasily Kandinsky. En Escocia, Alan Cumming asume el papel de Henry Higgins en *My Fair Lady* en el Pitlochry Festival Theatre.\\n\\nEl cine político y los videojuegos también cruzan la conversación británica. En *MUBI Notebook*, Arta Barzanji revisita [The Journey](https://mubi.com/en/notebook/posts/a-world-in-parts), el filme del cineasta británico **Peter Watkins**, a partir de cinco proyecciones y debates sobre cómo la televisión coreografía las cumbres diplomáticas al segundo. Mientras el periodista **Simon Parkin** evalúa en la radio pública el esperado desembarco de *Grand Theft Auto 6* —cuya banda sonora incluye el tema *Crazy For You* de Lana Del Rey—, el historiador [Christopher Clark](https://news.google.com/rss/articles/CBMihAFBVV95cUxOaElsQXRLN3pFaU5MX3BTUFRXcmNGUUtzTHo2WjRlRlRTT0dTbHhUdXVrM1luLU1rUmducUhQQ1FpS05UVVlBQWx5QlpVTlc3M28xdUpJY0FvVldUZ3c3dUhyRzd0dk5NeHIta0Q2bkpVRVpaNXdJZG1rVklWX081dUkyT3U?oc=5) publica *Shouldered Umbrellas: Nazis in Weimar* en la *London Review of Books*.",
   "topics": [
     {
-      "category": "Cine y Series",
-      "title": "El nuevo rostro de 007",
-      "summary": "La confirmación de [Robert Pattinson](https://www.theguardian.com/film/2026/nov/16/new-james-bond-announced-and-the-names-pattinson-robert-pattinson) como el séptimo actor en encarnar a James Bond redefine el futuro de la franquicia británica más longeva tras la era de Daniel Craig."
-    },
-    {
-      "category": "Libros de Ficción y No Ficción",
-      "title": "Música y amistad entre compositores",
-      "summary": "Jonathan Coe publica [Lessons in Harmony](https://www.bbc.co.uk/programmes/m003418n), una novela centrada en la compleja relación entre Maurice Ravel y Ralph Vaughan Williams."
+      "category": "Música",
+      "title": "RIP Magic en la portada de NME y Gary Numan rumbo a Blackpool",
+      "summary": "El grupo londinense RIP Magic protagoniza [The Cover de NME](https://www.nme.com/the-cover/rip-magic-23-11-2026-3976667) con su dance-punk desaliñado y surrealista, acompañado por una selección que enlaza a Spiritualized, Underworld y Gorillaz. Además, Gary Numan fue confirmado como cabeza de cartel para el festival Blackpool Boneyard Weekender de 2027."
     },
     {
       "category": "Exhibiciones",
-      "title": "El círculo de Bloomsbury en la Tate",
-      "summary": "Una nueva exhibición en la Tate Britain examina la colaboración artística entre Vanessa Bell y Duncan Grant, relocalizando secciones de su histórico estudio."
+      "title": "Van Eyck al desnudo en la National Gallery y Peggy Guggenheim en la Royal Academy",
+      "summary": "Londres concentra dos hitos museísticos reseñados en [Front Row](https://www.bbc.co.uk/programmes/m00349t9): la National Gallery reúne por primera vez los diez retratos de Jan van Eyck mostrando incluso sus reversos, mientras la Royal Academy revisita la galería de Mayfair con la que Peggy Guggenheim exhibió a Eileen Agar, Dalí y Hepworth."
     },
     {
-      "category": "Música y Rock",
-      "title": "Raíces folk y álbumes de culto",
-      "summary": "Las selecciones de [Radie Peat](https://news.google.com/rss/articles/CBMinAFBVV95cUxPcjRadlBab1Nmc1kzdTNyZFlRQ0c0V2gtRWIzWDNIM2F0ZS1rY0tjZU4wM3dvMWpjQnZBU25jSE1yWnNLQ2VQTjBOYjF3VS1mQ1hIU21tbkJybnQwSERING9ZdXZvUnJLbDNWNHBJWXYxb3lFTXZfYXpKYkpUUWl3U0VWTWJkemlsak1zNDAzOXRNT0cxdjl0ak1QOTk?oc=5) y los análisis sonoros recientes reafirman el vigor de la trastienda folk y experimental en el circuito británico."
+      "category": "Cine",
+      "title": "Cinco proyecciones para diseccionar The Journey, de Peter Watkins",
+      "summary": "En [MUBI Notebook](https://mubi.com/en/notebook/posts/a-world-in-parts), Arta Barzanji analiza el ciclo de cinco funciones y debates dedicados a The Journey, donde el director británico Peter Watkins registra al segundo cómo los equipos de Radio Canada guionaron en 1985 la cobertura televisiva de la cumbre entre Ronald Reagan y Brian Mulroney."
     }
   ],
   "recommendation": {
-    "type": "Libro",
-    "title": "Lessons in Harmony",
-    "creator": "Jonathan Coe",
-    "context": "Una inmersión aguda en las tensiones creativas y humanas entre Maurice Ravel y Ralph Vaughan Williams.",
-    "url": "https://www.bbc.co.uk/programmes/m003418n"
+    "type": "Exposición",
+    "title": "Van Eyck: The Portraits",
+    "creator": "National Gallery de Londres",
+    "context": "Reúne por primera vez los diez retratos conocidos de Van Eyck y muestra los reversos de varios lienzos.",
+    "url": "https://www.bbc.co.uk/programmes/m00349t9"
   },
   "closing_media": {
-    "type": "video",
-    "url": "https://www.youtube-nocookie.com/embed/Ldq1ySMoABk",
-    "caption": "Fragmento audiovisual vinculado a los estrenos y coberturas culturales de la temporada británica."
+    "type": "image",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Glasto2025-211_Gary_Numan_%28cropped%29.jpg/960px-Glasto2025-211_Gary_Numan_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "caption": "El músico británico Gary Numan, confirmado como cabeza de cartel del Blackpool Boneyard Weekender 2027.",
+    "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
     {
-      "name": "Front Row",
-      "url": "https://www.bbc.co.uk/programmes/m00349xc",
-      "paywalled": false
-    },
-    {
       "name": "NME",
-      "url": "https://www.nme.com/news/film/robert-pattinson-new-james-bond-actor-revealed-3976113",
+      "url": "https://www.nme.com/the-cover/rip-magic-23-11-2026-3976667",
       "paywalled": false
     },
     {
-      "name": "Front Row",
-      "url": "https://www.bbc.co.uk/programmes/m003418n",
+      "name": "BBC Radio 4 Front Row",
+      "url": "https://www.bbc.co.uk/programmes/m00349t9",
       "paywalled": false
     },
     {
-      "name": "Culture | The Guardian",
-      "url": "https://www.theguardian.com/film/2026/nov/16/new-james-bond-announced-and-the-names-pattinson-robert-pattinson",
+      "name": "MUBI Notebook",
+      "url": "https://mubi.com/en/notebook/posts/a-world-in-parts",
       "paywalled": false
+    },
+    {
+      "name": "London Review of Books",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOaElsQXRLN3pFaU5MX3BTUFRXcmNGUUtzTHo2WjRlRlRTT0dTbHhUdXVrM1luLU1rUmducUhQQ1FpS05UVVlBQWx5QlpVTlc3M28xdUpJY0FvVldUZ3c3dUhyRzd0dk5NeHIta0Q2bkpVRVpaNXdJZG1rVklWX081dUkyT3U?oc=5",
+      "paywalled": true
     }
   ]
 }

@@ -3,64 +3,64 @@
   "country": "Irlanda",
   "continent": "Europa",
   "flag": "🇮🇪",
-  "updated_at": "2026-11-16T23:17:40.800Z",
-  "edition_week": "2026-W47",
-  "intro": "Dublín abre el archivo de su censura literaria y la música independiente despide el año con nuevos discos locales.",
+  "updated_at": "2026-11-23T10:14:38.727Z",
+  "edition_week": "2026-W48",
+  "intro": "El triunfo de Skintown en el Festival Internacional de Cine de Cork, la memoria periodística de Declan Lynch y el directo de Jeff Tweedy en San Canicio marcan el pulso irlandés.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/CustomHouseDublin.JPG/1280px-CustomHouseDublin.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Vista parcial del Custom House en Dublín, epicentro de la actividad institucional y cultural irlandesa.",
-    "credit": "Foto: Elemaki · CC BY 3.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Kilkenny_St_Canice_Cathedral_SW_2007_08_28.jpg/1280px-Kilkenny_St_Canice_Cathedral_SW_2007_08_28.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "La Catedral de San Canicio en Kilkenny, espacio patrimonial que albergó el concierto solista de Jeff Tweedy.",
+    "credit": "Foto: Andreas F. Borchert · CC BY-SA 4.0"
   },
-  "cultural_pulse": "La semana cultural en [Irlanda](https://en.wikipedia.org/wiki/Ireland) viene marcada por el rescate de la memoria literaria más incómoda del Estado. El gobierno y las instituciones culturales han abierto el archivo oficial que recopila los miles de volúmenes prohibidos durante décadas en el país, permitiendo al público contemporáneo examinar de primera mano las obras vetadas por la censura oficial del siglo pasado. Este ejercicio de transparencia documental dialogue directamente con la recuperación de catálogos históricos y el debate sobre los límites de la circulación de ideas en las bibliotecas públicas.\n\nEn el terreno musical, la escena independiente local mantiene su pulso con lanzamientos clave que rompen silencios discográficos prolongados. Es el caso del grupo [Carmina](https://www.hotpress.com/music/carmina-release-new-album-late-light-23169423), que acaba de editar su nuevo álbum titulado **Late Light**, marcando su primer material de estudio en una década tras la aparición de su anterior trabajo discográfico *Landmarks*. Las salas de conciertos alternativas de la capital ya configuran su programación para la próxima temporada, destacando anuncios internacionales como el paso de la artista de rock alternativo [Paris Jackson](https://www.hotpress.com/music/paris-jackson-announces-workmans-club-show-23169453) por el **Workman's Club de Dublín** para presentar en directo su segundo disco.\n\nLa agenda de música clásica y contemporánea también despliega propuestas de alto rigor interpretativo con el desarrollo de ciclos consolidados en la capital. El circuito de conciertos de piano en [Dublín](https://es.wikipedia.org/wiki/Dubl%C3%ADn) continúa atrayendo audiencias especializadas gracias a programaciones temáticas que exploran variaciones y texturas sonoras complejas, consolidando espacios para el repertorio camarístico en salas de escala humana. Este panorama de conciertos convive con las alianzas estratégicas entre festivales de cine regionales y universidades para blindar la exhibición de talento emergente en pantalla grande.",
+  "cultural_pulse": "El cine irlandés reafirma su potencia narrativa con el triunfo del largometraje *Skintown* en el [Festival Internacional de Cine de Cork](https://news.google.com/rss/articles/CBMifkFVX3lxTE1qMWNnb2pGZ3BoWGdZekstQlg2UERuMXQ5cmprakRmNS1USGIyR01jSXNzZUFSV0I0Tk9fZy12SkVJMElGWE9VcGE4V3dka2RvUVRwNUt0bzctY0NwaHpHZnQ0ZEh1Z1Bab19ELUJzVWl0eTg1a2RlQUxBYXMzZw?oc=5), galardonado con el **máximo reconocimiento del certamen**. A este hito en la pantalla grande se suma la clasificación oficial a la carrera de los premios Oscar de un nuevo cortometraje nacional según reporta [RTÉ](https://news.google.com/rss/articles/CBMiqgFBVV95cUxQeTk1UGliZnpuYVpKODFMRFNjY2hDbXNBZHNSOGRUQjg1M01YUmlyLXoyWHo2XzJkQ1lsbm43ZGFxVC1fVnFiclBqQm9OLTNwSGJsRkZJa09DcjA1ei1HMHZrVkdaUGlnQmtUVlN5YUtBc3NfRDg2MVV0SWRmMVloNlhlMXllcFAxRGdOQzd4bmVzd3VoVG91cW9iQU9xdF9xUXk5WWRmbmNYZw?oc=5). La cartelera teatral en Dublín cobra intensidad con el estreno de *Good Girls* en el [Pavilion Theatre](https://news.google.com/rss/articles/CBMif0FVX3lxTFBjNEZlenlMQkpscEpCMVAyajNmUGdnZXR1d1dLTGs0eWhWdDQ5bVlGZEhwSS1pbUJCbWM0WUdQUlNZdEZzRDlPRlVBM1dDQXV5d0o2WnNILTRkZWJsVFlEUGk3UmkxeXZ1Wnkyd1FjdkthMzVZUzNPamhKVGc1c1E?oc=5), montaje que expone con agudeza la **presión social y la identidad femenina** contemporánea.\n\nEn el ámbito editorial y la memoria cultural, el periodista **Declan Lynch** repasa los años salvajes de la crítica musical en su volumen *Roll Away The Stone*, lanzado a través de [Hot Press](https://www.hotpress.com/culture/declan-lynch-so-many-interviews-took-place-in-pubs-23169391) para rescatar la impronta de firmas como Bill Graham y Con Houlihan. La agenda sonora se completa con el recital acústico de **Jeff Tweedy** en la Catedral de San Canicio [ID 1] y el aniversario del seminal *Isn't Anything*, debut del grupo de shoegaze [My Bloody Valentine](https://es.wikipedia.org/wiki/My_Bloody_Valentine).",
   "topics": [
     {
-      "category": "Música",
-      "title": "El retorno discográfico de Carmina",
-      "summary": "La banda [Carmina](https://www.hotpress.com/music/carmina-release-new-album-late-light-23169423) rompe un silencio de diez años con el lanzamiento de su nuevo álbum titulado *Late Light*, sucesor de *Landmarks*."
+      "category": "Cine y Series",
+      "title": "Premio mayor en Cork para 'Skintown'",
+      "summary": "El largometraje *Skintown* obtuvo el máximo galardón en el [Festival Internacional de Cine de Cork](https://news.google.com/rss/articles/CBMifkFVX3lxTE1qMWNnb2pGZ3BoWGdZekstQlg2UERuMXQ5cmprakRmNS1USGIyR01jSXNzZUFSV0I0Tk9fZy12SkVJMElGWE9VcGE4V3dka2RvUVRwNUt0bzctY0NwaHpHZnQ0ZEh1Z1Bab19ELUJzVWl0eTg1a2RlQUxBYXMzZw?oc=5), consolidando el vigor de la cinematografía irlandesa junto a la clasificación a los Oscar de un nuevo corto nacional."
     },
     {
-      "category": "Libros",
-      "title": "La memoria de la censura estatal",
-      "summary": "Las instituciones estatales exponen al público miles de libros que fueron prohibidos por la censura oficial a lo largo de la historia reciente de [Irlanda](https://en.wikipedia.org/wiki/Ireland)."
+      "category": "Música y Rock",
+      "title": "Jeff Tweedy en San Canicio y el hito de MBV",
+      "summary": "El líder de Wilco, [Jeff Tweedy](https://www.hotpress.com/pics-vids/jeff-tweedy-at-st-canices-cathedral-photos-23170301), ofreció un concierto acústico en la Catedral de San Canicio en Kilkenny, mientras se conmemora el aniversario de *Isn't Anything*, el álbum debut de My Bloody Valentine."
     },
     {
-      "category": "Música",
-      "title": "Giras internacionales en Dublín",
-      "summary": "La música de rock alternativo [Paris Jackson](https://www.hotpress.com/music/paris-jackson-announces-workmans-club-show-23169453) confirmó su actuación en el escenario del Workman's Club dentro de su próxima gira europea."
+      "category": "Libros de Ficción y No Ficción",
+      "title": "Declan Lynch y los años dorados de la crítica",
+      "summary": "En su nuevo libro *Roll Away The Stone*, el autor [Declan Lynch](https://www.hotpress.com/culture/declan-lynch-so-many-interviews-took-place-in-pubs-23169391) repasa la época dorada de la prensa musical en Irlanda a través de las anécdotas y archivos de la revista Hot Press."
     }
   ],
   "recommendation": {
-    "type": "Álbum",
-    "title": "Late Light",
-    "creator": "Carmina",
-    "context": "El esperado regreso discográfico de la banda tras una década sin publicar nuevo material de estudio.",
-    "url": "https://www.hotpress.com/music/carmina-release-new-album-late-light-23169423"
+    "type": "Libro",
+    "title": "Roll Away The Stone",
+    "creator": "Declan Lynch",
+    "context": "Un recorrido mordaz y nostálgico por la historia del periodismo cultural irlandés a través de las anécdotas de la revista Hot Press.",
+    "url": "https://www.hotpress.com/culture/declan-lynch-so-many-interviews-took-place-in-pubs-23169391"
   },
   "closing_media": {
     "type": "image",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Paris-Michael_Katherine_Jackson_at_82nd_Venice_International_Film_Festival_%28cropped%29.jpg/960px-Paris-Michael_Katherine_Jackson_at_82nd_Venice_International_Film_Festival_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "caption": "Retrato de la artista de rock alternativo Paris Jackson, quien actuará en el Workman's Club de Dublín.",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Jeff_Tweedy_20120122-00075_%2833423676505%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "caption": "El cantante y compositor Jeff Tweedy durante su gira solista por recintos históricos.",
     "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
     {
-      "name": "Hotpress",
-      "url": "https://www.hotpress.com/music/paris-jackson-announces-workmans-club-show-23169453",
+      "name": "Irish Examiner",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1qMWNnb2pGZ3BoWGdZekstQlg2UERuMXQ5cmprakRmNS1USGIyR01jSXNzZUFSV0I0Tk9fZy12SkVJMElGWE9VcGE4V3dka2RvUVRwNUt0bzctY0NwaHpHZnQ0ZEh1Z1Bab19ELUJzVWl0eTg1a2RlQUxBYXMzZw?oc=5",
       "paywalled": false
     },
     {
-      "name": "Gov.ie",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQNWZMNm1lbWNWWVZoVUFuNzJiRXoyNUlSN0xwdC11UWZTZVNqNWpOZjU4a3pyV3dkZlBYME0xUTJWWXBzZkwweVRRQ3Z2Yk82MkE5azBnb1dCVzEzQUNlRzBTajZ0MTR4S3ZPVkd2cXBITU9ROElmSEdDYWQ3RmREUFU0MllJNHBHUnF5RkRvSmoxbW9ES084RXV0RjJ6Wmc?oc=5",
+      "name": "Hot Press",
+      "url": "https://www.hotpress.com/culture/declan-lynch-so-many-interviews-took-place-in-pubs-23169391",
       "paywalled": false
     },
     {
-      "name": "RTE.ie",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBXRERycmNEUUkzdFJnOGplQzNKdWdickxvXzgwd0xld2xSSVU3NzdOVXp3Q2dZSWFBNlhBd3lLMGFPMm51b3BCR2FMTFhVemN4clJ6X0JfMTh2RGtlMlFmY1JFdVRNMEExTmc?oc=5",
+      "name": "RTÉ",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQeTk1UGliZnpuYVpKODFMRFNjY2hDbXNBZHNSOGRUQjg1M01YUmlyLXoyWHo2XzJkQ1lsbm43ZGFxVC1fVnFiclBqQm9OLTNwSGJsRkZJa09DcjA1ei1HMHZrVkdaUGlnQmtUVlN5YUtBc3NfRDg2MVV0SWRmMVloNlhlMXllcFAxRGdOQzd4bmVzd3VoVG91cW9iQU9xdF9xUXk5WWRmbmNYZw?oc=5",
       "paywalled": false
     },
     {
-      "name": "Hotpress",
-      "url": "https://www.hotpress.com/music/carmina-release-new-album-late-light-23169423",
+      "name": "No More Workhorse",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBjNEZlenlMQkpscEpCMVAyajNmUGdnZXR1d1dLTGs0eWhWdDQ5bVlGZEhwSS1pbUJCbWM0WUdQUlNZdEZzRDlPRlVBM1dDQXV5d0o2WnNILTRkZWJsVFlEUGk3UmkxeXZ1Wnkyd1FjdkthMzVZUzNPamhKVGc1c1E?oc=5",
       "paywalled": false
     }
   ]

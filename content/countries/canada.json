@@ -3,70 +3,65 @@
   "country": "Canadá",
   "continent": "América",
   "flag": "🇨🇦",
-  "updated_at": "2026-11-16T23:14:10.458Z",
-  "edition_week": "2026-W47",
-  "intro": "El otoño canadiense arde con las nominaciones a los Grammy de Angine de Poitrine y la gira internacional de Tori Kelly.",
+  "updated_at": "2026-11-23T10:10:19.101Z",
+  "edition_week": "2026-W48",
+  "intro": "De la memoria punk en Calgary al hip-hop indígena en CUFF.Docs y la sátira teatral del Théâtre du Rideau Vert, la escena canadiense cruza archivo y vanguardia.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Queen_Elizabeth_Theatre.JPG/1280px-Queen_Elizabeth_Theatre.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "El histórico Queen Elizabeth Theatre en Vancouver, una de las paradas clave de la gira canadiense de Tori Kelly.",
-    "credit": "Foto: Guilice · CC BY-SA 3.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Theatre_du_Rideau_Vert.JPG/1280px-Theatre_du_Rideau_Vert.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "Fachada del Théâtre du Rideau Vert en Montreal, espacio clave de la escena dramática de Quebec.",
+    "credit": "Foto: Jeangagnon · CC BY-SA 3.0"
   },
-  "cultural_pulse": "El panorama sonoro de **Canadá** se sacude esta semana con las nominaciones a los premios Grammy 2027 anunciadas en **Los Ángeles**, donde el dúo saguenéen [Angine de Poitrine](https://www.ledevoir.com/culture/musique/1025282/angine-poitrine-est-lice-moins-quatre-prix-grammy) acaparó la atención internacional al cosechar cuatro candidaturas de peso, incluyendo su mención como revelación del año. A su lado, la veterana cantautora [Sarah McLachlan](https://news.google.com/rss/articles/CBMimAFBVV95cUxNamxYZnJqaFpWejYtLXZuNmxGSm84Ti1yWkczdVdZd2ZIck9oV2xRazJCanZHX3JsMlZGN3FKZXJ2d2hTWmFlb2d6RWw2aU5xZUxqREhGVVNVTk5kMjBrcWtkOUlMeUowRU5Ra0pRQVZMYlpkXzJkNmxDdnAxSU1vUS1qMEVGVHFmUFR4Mi1VX1BzR3o5WE9wYg?oc=5) vuelve a figurar en las categorías globales, confirmando que la escena norteamericana mantiene una inercia creativa que trasciende las fronteras locales sin perder su identidad compositiva.\n\nA la conversación musical, las agendas de directo se reorganizan con anuncios de peso para la temporada siguiente. La estadounidense [Tori Kelly](https://exclaim.ca/music/article/torri-kelly-details-2027-world-tour) confirmó su paso por los escenarios canadienses con fechas programadas en el **History de Toronto** y en el icónico Queen Elizabeth Theatre de Vancouver, apostando por recintos de aforo medio que favorecen la cercanía con el público. Estas paradas forman parte de una expansión internacional que mide el pulso del pop alternativo en directo.\n\nLa salud y el legado de los grandes artífices de la canción de autor también dominan la conversación cultural tras la reciente desaparición del productor halifaxiano Brian Ahern, recordado por dar forma al sonido clásico de [Anne Murray](https://exclaim.ca/music/article/r-i-p-brian-ahern-canadian-producer-for-emmylou-harris-and-anne-murray) y Emmylou Harris. Su archivo técnico y su rigor en el estudio continúan operando como un manual implícito para las nuevas generaciones de creadores que buscan escapar de los moldes comerciales estandarizados en los estudios de grabación de Montreal y Toronto.",
+  "cultural_pulse": "El documental **Turtle Island Rap**, dirigido por Alexandra Lazarowich y presentado en la muestra [CUFF.Docs](https://www.calgaryundergroundfilm.org/cuffdocs/), expone la trastienda del hip-hop indígena a través de las trayectorias de **A$h Da Hunter**, Travis Thompson y la complicidad en escena con [Snotty Nose Rez Kids](https://es.wikipedia.org/wiki/Electric_Fields). La película esquiva las fórmulas triunfalistas para retratar los dilemas financieros y la autogestión en las giras independientes. Una nueva cartografía sonora impulsada por la [CBC](https://news.google.com/rss/articles/CBMiggFBVV95cUxQaV91Wi11RXVGTl9KTDMtUlFUUWlBMm5TbHQ0ZVhNc0pwbE01UEtaa0xjTjlOQzlna2EyUjlFT3ZURjlxNUVRYjZaY2dGRTRKdFRIUGIxRVozaEk1N2hPV1Z3anp6YXU0VzYxZjBWVElQXzRyWkQ0VWs4alpia2JaRmhn?oc=5) rescata la memoria de la escena punk de **Calgary** durante los años 80, conectando salas históricas y producciones subterráneas que moldearon la identidad alternativa de Alberta.\n\nEn el circuito en vivo de Quebec, el dúo neobrunswickense **Green Eyes, Witch Hands** refrendó en el festival [M for Montreal](https://exclaim.ca/music/article/green-eyes-witch-hands-m-for-montreal-concert-review) la crudeza de su álbum *Evil Twin*, liderado por los hermanos William y Nicholas. La escena dramática montrealesa renueva sus códigos de fin de año: el [Théâtre du Rideau Vert](https://www.ledevoir.com/culture/1026932/2026-yeux-elise-guilbault-leane-labreche-dor) convoca a las actrices **Élise Guilbault** y Léane Labrèche-Dor para refundar su tradicional revista satírica, apostando por una lectura mordaz de la coyuntura artística local.",
   "topics": [
     {
+      "category": "Cine y Series",
+      "title": "El mapa real del hip-hop indígena",
+      "summary": "El documental *Turtle Island Rap*, dirigido por Alexandra Lazarowich, aborda en el marco de [CUFF.Docs](https://exclaim.ca/film/article/cuff-docs-2026-turtle-island-rap-review) la trastienda de artistas como A$h Da Hunter y Snotty Nose Rez Kids."
+    },
+    {
       "category": "Música",
-      "title": "El salto internacional de Angine de Poitrine",
-      "summary": "El dúo procedente de Saguenay ha logrado meterse en cuatro categorías de los próximos premios Grammy, consolidando un año redondo para la experimentación en lengua francesa dentro del circuito norteamericano."
+      "title": "Del punk de Calgary a M for Montreal",
+      "summary": "Mientras la [CBC](https://news.google.com/rss/articles/CBMiggFBVV95cUxQaV91Wi11RXVGTl9KTDMtUlFUUWlBMm5TbHQ0ZVhNc0pwbE01UEtaa0xjTjlOQzlna2EyUjlFT3ZURjlxNUVRYjZaY2dGRTRKdFRIUGIxRVozaEk1N2hPV1Z3anp6YXU0VzYxZjBWVElQXzRyWkQ0VWs4alpia2JaRmhn?oc=5) cataloga la historia del punk de los años 80 en Alberta, la banda Green Eyes, Witch Hands sacude la programación de M for Montreal con su disco *Evil Twin*."
     },
     {
-      "category": "Cine y Festivales",
-      "title": "Pantallas europeas en territorio canadiense",
-      "summary": "El Festival de Cine de la Unión Europea despliega su programación anual en diversas ciudades del país, ofreciendo una cartelera alternativa centrada en narrativas cinematográficas del viejo continente."
-    },
-    {
-      "category": "Libros y Memoria",
-      "title": "Nuevas lecturas para la memoria trans",
-      "summary": "La Universidad de Alberta ha publicado una selección bibliográfica esencial con cinco volúmenes de ficción y ensayo político ideales para sumar a la pila de lectura ante el Día de la Memoria Trans."
+      "category": "Teatro",
+      "title": "Sátira de fin de año en el Rideau Vert",
+      "summary": "El [Théâtre du Rideau Vert](https://www.ledevoir.com/culture/1026932/2026-yeux-elise-guilbault-leane-labreche-dor) de Montreal encomienda a Élise Guilbault y Léane Labrèche-Dor la renovación de su revista escénica anual."
     }
   ],
   "recommendation": {
-    "type": "Álbum",
-    "title": "Trouble Mountain",
-    "creator": "Aesop Rock / Blockhead",
-    "context": "Una colisión milimétrica de barras densas y producción instrumental hipnótica que reafirma el pulso del hip-hop independiente.",
-    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQajRMZ2RYREh6U2dMM2ZMV3JETENNUEJZRVhJQldWU0pWeVhHbjFMX3dlZnBGRl9ocGhieGhzSEVQV3ZOMnJwSGdqNktVV08yVGZCR1p3V002S0tQMVJOQ2RDalJrZWt3alN5S2g0eVFOWGdSX200UHdHLUhFR0NOdg?oc=5"
+    "type": "Película",
+    "title": "Turtle Island Rap",
+    "creator": "Alexandra Lazarowich",
+    "context": "Un retrato documental íntimo y directo sobre la independencia creativa y las tensiones cotidianas del hip-hop indígena actual.",
+    "url": "https://exclaim.ca/film/article/cuff-docs-2026-turtle-island-rap-review"
   },
   "closing_media": {
     "type": "image",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Sarah_McLachlan_at_the_2025_Toronto_International_Film_Festival_%28cropped%29.jpg/960px-Sarah_McLachlan_at_the_2025_Toronto_International_Film_Festival_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "caption": "Retrato de archivo de Sarah McLachlan, una de las voces fundamentales de la canción canadiense contemporánea.",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Downtown_Calgary_2020-4.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "caption": "La ciudad de Calgary, escenario del archivo histórico que reconstruye la génesis de su movimiento punk durante los años 80.",
     "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
   },
   "sources": [
     {
-      "name": "Exclaim! Firehose",
-      "url": "https://exclaim.ca/music/article/torri-kelly-details-2027-world-tour",
+      "name": "Exclaim!",
+      "url": "https://exclaim.ca/film/article/cuff-docs-2026-turtle-island-rap-review",
       "paywalled": false
     },
     {
-      "name": "EEAS",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNclltRldVVVdmUnVlRUJBMDBENmpEUzBFU0pMYlhOMURnX1dkSjJ3bnZWQWZXMV9WQU9uSXpCQjJDamJXQkJBRTE4RFFKNU5lU251RDE2cFpwZ3NMYk80cTdCS21OeXhwaVVCWFZCdzdhUXlnMTltNmJyNU1KRlJfMWpVMGV3WTNaWVE3Q1NZRWJaU1RPcEpsSTdtWmhONUQ1NnF4dWx1RGdMQkJRRmc?oc=5",
+      "name": "Le Devoir",
+      "url": "https://www.ledevoir.com/culture/1026932/2026-yeux-elise-guilbault-leane-labreche-dor",
       "paywalled": false
     },
     {
       "name": "CBC",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNamxYZnJqaFpWejYtLXZuNmxGSm84Ti1yWkczdVdZd2ZIck9oV2xRazJCanZHX3JsMlZGN3FKZXJ2d2hTWmFlb2d6RWw2aU5xZUxqREhGVVNVTk5kMjBrcWtkOUlMeUowRU5Ra0pRQVZMYlpkXzJkNmxDdnAxSU1vUS1qMEVGVHFmUFR4Mi1VX1BzR3o5WE9wYg?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQaV91Wi11RXVGTl9KTDMtUlFUUWlBMm5TbHQ0ZVhNc0pwbE01UEtaa0xjTjlOQzlna2EyUjlFT3ZURjlxNUVRYjZaY2dGRTRKdFRIUGIxRVozaEk1N2hPV1Z3anp6YXU0VzYxZjBWVElQXzRyWkQ0VWs4alpia2JaRmhn?oc=5",
       "paywalled": false
     },
     {
-      "name": "Exclaim! Firehose",
-      "url": "https://exclaim.ca/music/article/r-i-p-brian-ahern-canadian-producer-for-emmylou-harris-and-anne-murray",
+      "name": "Exclaim!",
+      "url": "https://exclaim.ca/music/article/green-eyes-witch-hands-m-for-montreal-concert-review",
       "paywalled": false
-    },
-    {
-      "name": "Culture - Le Devoir",
-      "url": "https://www.ledevoir.com/culture/musique/1025282/angine-poitrine-est-lice-moins-quatre-prix-grammy",
-      "paywalled": true
     }
   ]
 }

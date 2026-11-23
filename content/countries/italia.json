@@ -3,63 +3,69 @@
   "country": "Italia",
   "continent": "Europa",
   "flag": "🇮🇹",
-  "updated_at": "2026-11-16T23:19:13.346Z",
-  "edition_week": "2026-W47",
-  "intro": "Exploramos las salas de cine, los festivales literarios y los debates estéticos en Italia durante una semana intensa.",
+  "updated_at": "2026-11-23T10:19:21.816Z",
+  "edition_week": "2026-W48",
+  "intro": "El filo post-hardcore de El Coche, el redescubrimiento poético de Gian Pietro Lucini y los ensayos críticos de Walter Siti agitan el panorama cultural italiano.",
   "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Piazza_maggiore_bologna.jpg/1280px-Piazza_maggiore_bologna.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "Plaza Mayor de Bolonia, epicentro de la actividad cultural y los festivales literarios de la temporada.",
-    "credit": "Foto: Fiorry · CC BY-SA 4.0"
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Ara_Pacis_-_Morpurgo%2C_2000.jpg/1280px-Ara_Pacis_-_Morpurgo%2C_2000.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "El Museo dell'Ara Pacis en Roma, sede del evento nocturno Musei in Musica.",
+    "credit": "Foto: indeciso42 · CC BY-SA 4.0"
   },
-  "cultural_pulse": "El panorama cultural italiano de esta semana traza un mapa donde la reflexión sobre las imágenes, las pantallas y los territorios urbanos ocupa el centro de la escena. En las salas y circuitos especializados, los debates sobre la juventud, la memoria y las nuevas formas de narrar continúan agitando las discusiones críticas sin concesiones comerciales.\n\nEl encuentro internacional de cómic e ilustración **A occhi aperti** transforma a Bolonia en el epicentro europeo del noveno arte, reuniendo muestras y mesas redondas sobre la edición gráfica contemporánea. El festival de invierno [A Natale libri per te](https://www.ilpost.it/2026/11/16/natale-libri-peccioli-2026/) en Peccioli consolida su propuesta de tres jornadas con cerca de veinte librerías independientes y decenas de encuentros con autores, apostando por la lectura en vivo frente a la uniformidad algorítmica.\n\nEn el terreno audiovisual y de la no ficción, las proyecciones especiales impulsadas por el director [Giovanni Veronesi](https://news.google.com/rss/articles/CBMiwAFBVV95cUxQTElGWmtVOU8tLUxaeVFsN1FlZUpyQWdHa2FOcGh3RF94c09WcHN5STZEamE1akVRTUNwei1tQWZzYWppaVQxTFZ1c3luN1BhRGVQeTRwbDQydmpySGdlQVlZMl9HcUZHWDQtWlRYaUlJZWV6TVlDNmpoR0dFeG1XVkxkV0I0QTduemFpS3UwdjRVbEkzU3p6TG03N2xyYWJ0VDh1N28tclBkalRDaWdQN3NEWjRCbXhiMzdMazVuNUk?oc=5) con su trabajo **Dio ride** abren espacios de debate directo con el público joven sobre la representación y el humor en el cine actual. Las reflexiones sobre la inteligencia artificial y la geografía en plataformas como *Il Tascabile* analizan cómo el videojuego *GeoGuessr* redefine nuestra memoria visual del territorio.",
+  "cultural_pulse": "En el terreno musical, la banda **El Coche** irrumpe con dinamismo tras la reseña de su álbum homónimo en [OndaRock](https://news.google.com/rss/articles/CBMiakFVX3lxTE96ZXdMUEw2bF9RLUtsZ1lCVTRRckwtVGdFRTV0TlFLQW1MSmdGVmlPMW9HOW9wQnNVa0NCX1BidmhnNklOU3loNjBIckNjMGRMdjYzZU40RkpjYUpmSlFEUDZ0M3ZuSnBZbHc?oc=5), entregando una descarga de [post-hardcore](https://es.wikipedia.org/wiki/Post-hardcore) y excentricidades sonoras. Al mismo tiempo, el cantautor **Luca Barbarossa** reflexiona sobre su trayectoria y el proyecto *Pepita e la rivoluzione* en la prensa especializada, mientras el conjunto **Westside Cowboy** debate sobre la creación de comunidad en el circuito independiente.\n\nLa conversación literaria analiza la faceta ensayística de **Walter Siti**, cuyo libro [*Il romanzo sotto accusa*](https://www.rizzolilibri.it/libri/il-romanzo-sotto-accusa/) es desglosado en un exhaustivo ensayo sobre su lectura de [Pier Paolo Pasolini](https://es.wikipedia.org/wiki/Pier_Paolo_Pasolini). La revista *Nazione Indiana* publica un hallazgo histórico: el investigador Nicola Fanizza ha rescatado un poema olvidado del escritor simbolista **Gian Pietro Lucini**, devolviendo rigor al patrimonio poético nacional.\n\nEl sector audiovisual y del patrimonio retoma fuerza en Reggio Emilia con el homenaje al montador cinematográfico **Roberto Perpignani**, clave en la historia del cine italiano. La jornada **Musei in Musica** abre de noche espacios de Roma como el [Museo dell'Ara Pacis](https://news.google.com/rss/articles/CBMiiAFBVV95cUxNYjlGOExOWVZyU2RzR2drd3hyMHF3M3kzcTJGU2dLcVFqaVI4MUhyZVFxbjVQcWloOGEyZ0NDa2l0YnVSUnVuOXljbHFPZjRnem1CT2Q1am83RTF6OHBpV1lFclZnN0hTZldMOWthU1pHb0RPR1BwQ2pWbU1jZ29relVxQkMwbGtW?oc=5), conectando la escultura clásica con recitales en vivo.",
   "topics": [
     {
-      "category": "Festivales y Literatura",
-      "title": "Invierno literario en la Toscana",
-      "summary": "El festival Pensavo Peccioli regresa con su edición invernal [A Natale libri per te](https://www.ilpost.it/2026/11/16/natale-libri-peccioli-2026/), congregando a diecinueve librerías y editores independientes en un formato de debate público."
+      "category": "Música",
+      "title": "Distorsión post-hardcore y comunidad indie",
+      "summary": "El grupo italiano **El Coche** destaca con el lanzamiento de su [disco homónimo](https://news.google.com/rss/articles/CBMiakFVX3lxTE96ZXdMUEw2bF9RLUtsZ1lCVTRRckwtVGdFRTV0TlFLQW1MSmdGVmlPMW9HOW9wQnNVa0NCX1BidmhnNklOU3loNjBIckNjMGRMdjYzZU40RkpjYUpmSlFEUDZ0M3ZuSnBZbHc?oc=5), proponiendo un sonido post-hardcore disonante y arriesgado."
     },
     {
-      "category": "Cine y Debate",
-      "title": "Giovanni Veronesi y el cine para jóvenes",
-      "summary": "El director presentó funciones especiales de su obra *Dio ride* destinadas a debatir con los espectadores más jóvenes sobre la ironía en las pantallas contemporáneas."
+      "category": "Libros",
+      "title": "El rescate poético de Gian Pietro Lucini",
+      "summary": "El investigador Nicola Fanizza presenta en [Nazione Indiana](https://www.nazioneindiana.com/2026/11/22/lucini-ritrovato/) un poema inédito del autor vanguardista **Gian Pietro Lucini**, rescatado de publicaciones periódicas olvidadas."
     },
     {
-      "category": "Cómics e Ilustración",
-      "title": "A occhi aperti en Bolonia",
-      "summary": "El festival internacional organizado por Hamelin despliega exposiciones y encuentros con autores clave de la novela gráfica y la ilustración europea actual."
+      "category": "Cine y Series",
+      "title": "El arte del montaje con Roberto Perpignani",
+      "summary": "Reggio Emilia dedica una jornada magistral a **Roberto Perpignani**, maestro del montaje que moldeó clásicos del [cine italiano](https://es.wikipedia.org/wiki/Cine_de_Italia)."
     }
   ],
   "recommendation": {
-    "type": "Película",
-    "title": "Dio ride",
-    "creator": "Giovanni Veronesi",
-    "context": "Una mirada lúcida y provocadora sobre la risa adolescente que dialoga de forma directa con los espectadores en las salas.",
-    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQTElGWmtVOU8tLUxaeVFsN1FlZUpyQWdHa2FOcGh3RF94c09WcHN5STZEamE1akVRTUNwei1tQWZzYWppaVQxTFZ1c3luN1BhRGVQeTRwbDQydmpySGdlQVlZMl9HcUZHWDQtWlRYaUlJZWV6TVlDNmpoR0dFeG1XVkxkV0I0QTduemFpS3UwdjRVbEkzU3p6TG03N2xyYWJ0VDh1N28tclBkalRDaWdQN3NEWjRCbXhiMzdMazVuNUk?oc=5"
+    "type": "Libro",
+    "title": "Il romanzo sotto accusa",
+    "creator": "Walter Siti",
+    "context": "Un brillante ajuste de cuentas con la narrativa contemporánea y la tradición ensayística pasoliniana.",
+    "url": "https://www.rizzolilibri.it/libri/il-romanzo-sotto-accusa/"
   },
   "closing_media": {
-    "type": "video",
-    "url": "https://www.youtube-nocookie.com/embed/Xo5F4UyaMvM",
-    "caption": "Demostración oficial del campeonato mundial de GeoGuessr, analizado por el físico Sandro Iannaccone como banco de prueba entre intuición humana y aprendizaje automático."
+    "type": "image",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Gabriele_De_Pasquale_e_Roberto_Perpignani.jpg/1280px-Gabriele_De_Pasquale_e_Roberto_Perpignani.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "caption": "El montador de cine italiano Roberto Perpignani durante una retrospectiva sobre su trayectoria cinematográfica.",
+    "credit": "Foto: Marco Mastelli · CC BY-SA 4.0"
   },
   "sources": [
     {
-      "name": "Il Tascabile",
-      "url": "https://www.iltascabile.com/scienze/conoscere-mondo-memoria/",
+      "name": "OndaRock",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE96ZXdMUEw2bF9RLUtsZ1lCVTRRckwtVGdFRTV0TlFLQW1MSmdGVmlPMW9HOW9wQnNVa0NCX1BidmhnNklOU3loNjBIckNjMGRMdjYzZU40RkpjYUpmSlFEUDZ0M3ZuSnBZbHc?oc=5",
       "paywalled": false
     },
     {
-      "name": "Fumettologica",
-      "url": "https://fumettologica.it/2026/11/a-occhi-aperti-2026-programma/",
+      "name": "Articoli Doppiozero",
+      "url": "https://www.doppiozero.com/walter-siti-saggista-soggettivo",
       "paywalled": false
     },
     {
-      "name": "Cultura - Il Post",
-      "url": "https://www.ilpost.it/2026/11/16/natale-libri-peccioli-2026/",
+      "name": "Nazione Indiana",
+      "url": "https://www.nazioneindiana.com/2026/11/22/lucini-ritrovato/",
       "paywalled": false
     },
     {
-      "name": "Chiesa di Milano",
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQTElGWmtVOU8tLUxaeVFsN1FlZUpyQWdHa2FOcGh3RF94c09WcHN5STZEamE1akVRTUNwei1tQWZzYWppaVQxTFZ1c3luN1BhRGVQeTRwbDQydmpySGdlQVlZMl9HcUZHWDQtWlRYaUlJZWV6TVlDNmpoR0dFeG1XVkxkV0I0QTduemFpS3UwdjRVbEkzU3p6TG03N2xyYWJ0VDh1N28tclBkalRDaWdQN3NEWjRCbXhiMzdMazVuNUk?oc=5",
+      "name": "Comune di Reggio Emilia",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQUTZnWWZMcmRmMUdOMXZIS1VBd0JpQ3cwTEktVjEwN2lrQlFpUWF3ZlA4THNlWERuSndTQWFkeDA0VzlWVGNGWXExUzBCYlFPWnN5YkNwZ3dRNzBFcEZYYzQwdjRPRGtxWUtTbkludDZocVJkYkU2NEE2YmpydXVJd1lyOVhNaFl6bTR0RWFFWlhRdjRMMzJYNFF2Mzg4VzRfN1VHU1NzRkJhd3JyOGFQTQ?oc=5",
+      "paywalled": false
+    },
+    {
+      "name": "Museo dell'Ara Pacis",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNYjlGOExOWVZyU2RzR2drd3hyMHF3M3kzcTJGU2dLcVFqaVI4MUhyZVFxbjVQcWloOGEyZ0NDa2l0YnVSUnVuOXljbHFPZjRnem1CT2Q1am83RTF6OHBpV1lFclZnN0hTZldMOWthU1pHb0RPR1BwQ2pWbU1jZ29relVxQkMwbGtW?oc=5",
       "paywalled": false
     }
   ]

@@ -3,69 +3,58 @@
   "country": "Australia",
   "continent": "Oceanía",
   "flag": "🇦🇺",
-  "updated_at": "2026-11-16T23:23:48.004Z",
-  "edition_week": "2026-W47",
-  "intro": "El pulso cultural australiano late entre la memoria fotográfica de la huelga de Pilbara, el debut literario en Overland y la escena en vivo.",
-  "cover_image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Sydney_Opera_House_-_Dec_2008.jpg/1280px-Sydney_Opera_House_-_Dec_2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "caption": "La icónica estructura de la Ópera de Sídney frente al puerto.",
-    "credit": "Foto: Diliff · CC BY-SA 3.0"
-  },
-  "cultural_pulse": "La semana cultural en **Australia** sacude los cimientos de la memoria histórica y la creación contemporánea con un rigor que esquiva cualquier fórmula complaciente. La aparición de los archivos fotográficos del levantamiento laboral en la región de **Pilbara**, documentados en [The Guardian](https://www.theguardian.com/australia-news/ng-interactive/2026/nov/17/aboriginal-workers-1946-pilbara-strike-camps-john-wilson-photographs-australia-history-ntwnfb), devuelve al presente una de las luchas obreras e indígenas más determinantes del siglo XX sin filtros de postal turística. Las imágenes de aquellos huelguistas desafiando el poder colonial y minero dialogan directamente con las nuevas voces que publica [Overland literary journal](https://overland.org.au/2026/11/contingencies-nicholas-southall-and-mark-gawnes-crimes-of-class/), donde la poesía y la crítica literaria diseccionan las tensiones de clase y las economías del arte originario.\n\nEl pulso de la música en vivo y las salas de cine experimenta sobresaltos imprevisibles. Las salas de Sídney abren debates técnicos urgentes sobre la presión sonora extrema en proyecciones como las de Godzilla, mientras la cartelera local y los festivales de invierno británico en [The Footy Almanac](https://news.google.com/rss/articles/CBMigwFBVV95cUxNUk8zcVY2dDZzZnp6U29nVHVyVzRPTHl2V19iNlBieUlLcEVVOHNXc3drM2lhdWVwc3VMazN5NGlKdndIY2F6ZTJVSnpwcjlGS1BkUWt6VERxYk9RbmRhTUI1NHR5ZlppdlRrVlJOY19DVW9WVmg4NWZ4Y2ZJN1pjeVMyaw?oc=5) miden el pulso de narrativas que priorizan la textura cinematográfica por encima del consumo rápido. Lejos del ruido comercial de las grandes franquicias, los creadores independientes continúan tensando las formas del medio audiovisual y literario en todo el territorio.\n\nLa televisión y las plataformas no escapan a este movimiento hacia relatos más oscuros y arraigados en el territorio. Series recientes protagonizadas por intérpretes como [Rose Byrne](https://news.google.com/rss/articles/CBMiZEFVX3lxTFA5TTAzZFp4V1ZIdkZVUk84ZENHYzhCZ05IZnQwSUFKcEpGUG5YRUVYU0pLX2RHX3pCcFBGVEYxMktueEZFczlaS0tzel8zU1JmOGFReHd0dmMxdFRlelc2X19KeUw?oc=5) consolidan un formato de thriller rural donde la geografía australiana deja de ser un mero decorado exótico para convertirse en un personaje asfixiante y moralmente ambiguo. Este mapa cultural demuestra que la vitalidad artística del país se alimenta de su capacidad para revisar los archivos del pasado y confrontar las derivas del presente con una mirada tan lúcida como directa.",
+  "updated_at": "2026-11-23T10:33:30.972Z",
+  "edition_week": "2026-W48",
+  "intro": "El adiós al icono musical **Molly Meldrum**, la emisión del drama televisivo *Shakedown* y los debates críticos de la revista *Overland* marcan la agenda cultural australiana.",
+  "cultural_pulse": "La escena musical de Australia despide a [Molly Meldrum](https://www.theguardian.com/music/2026/nov/23/molly-meldrum-music-industry-tributes), histórico presentador del mítico programa *[Countdown](https://es.wikipedia.org/wiki/Kate_Fischer))* de la cadena ABC, fallecido a los 83 años. Figura indiscutible en la promoción del rock y el pop australiano, su partida motivó tributos de artistas como Kate Ceberano e Ian Thorpe. A la vez, el sector discográfico nacional mantiene un firme **frente gremial** al rechazar las propuestas de exención parcial para el raspado de datos por parte de plataformas de inteligencia artificial.\n\nEn la pantalla chica, el estreno del drama **Shakedown** lleva a la ficción el impacto social del escándalo político Robodebt. La televisión australiana sufre también la muerte de la pionera [Henrietta Clark](https://www.screenhub.com.au/news/industry-news/vale-henrietta-clark-pioneering-play-school-producer-2711032/), productora histórica del programa infantil *Play School*. En contraste con el drama institucional, estudios locales como Ludo Studio, bajo la dirección creativa de [Daley Pearson](https://www.theguardian.com/tv-and-radio/2026/nov/20/how-australian-tv-took-over-the-world), celebran la proyección global del fenómeno animado *Bluey*.\n\nEl pensamiento y las letras independientes se articulan en el número 260 de la revista [Overland](https://overland.org.au/2026/11/a-natives-title/). Destaca el ensayo de la pensadora Hana Pera Aoake sobre las fricciones económicas del arte de las **Primeras Naciones**, además de la reflexión del poeta John Kinsella sobre la reapropiación estética como método de resistencia política.",
   "topics": [
     {
-      "category": "Música y Rock",
-      "title": "El adiós a Dan Hall de Taxiride",
-      "summary": "La escena musical independiente y el rock melódico australiano lloran la pérdida de [Dan Hall](https://news.google.com/rss/articles/CBMilgFBVV95cUxNXzYzVUlEY2JBMUs4dzVodFRncUZjYzNVbjdDd1J4LVRyTUxoSk5KOGJKUkgwM3lJQzRMSlY2cUVaUnNRbk1UNFVBTk43YkROb2xOOGhBOUtrc1R5UTNMcGh2RWxraVFlaUFpcHloSXUzOWgwc2hYMkp1blVub1NGSWVpSUtFYUtZdk0xT1hqMG04dDZyOFE?oc=5), cofundador de la influyente banda Taxiride, cuyo legado marcó una época dorada en las radios y los escenarios del país."
+      "category": "Música",
+      "title": "Legado y despedida de Ian 'Molly' Meldrum",
+      "summary": "El fallecimiento del carismático presentador de *Countdown* conmueve a la escena musical australiana, recordando su papel central en la difusión de la cultura rock del país a través de [Molly Meldrum](https://www.theguardian.com/music/2026/nov/23/molly-meldrum-music-industry-tributes)."
     },
     {
       "category": "Cine y Series",
-      "title": "Nuevos thrillers en pantalla chica",
-      "summary": "La ficción televisiva nacional apuesta por atmósferas opresivas en producciones recientes encabezadas por [Rose Byrne](https://news.google.com/rss/articles/CBMiZEFVX3lxTFA5TTAzZFp4V1ZIdkZVUk84ZENHYzhCZ05IZnQwSUFKcEpGUG5YRUVYU0pLX2RHX3pCcFBGVEYxMktueEZFczlaS0tzel8zU1JmOGFReHd0dmMxdFRlelc2X19KeUw?oc=5) y Meghann Fahy, explorando los secretos inconfesables de comunidades cerradas."
+      "title": "El drama político de Robodebt llega a la pantalla con 'Shakedown'",
+      "summary": "La miniserie [Shakedown](https://www.screenhub.com.au/news/reviews/robodebt-drama-shakedown-captures-the-grief-and-anger-but-not-much-else-2711009/) aborda las consecuencias del escándalo administrativo australiano, mientras la industria reflexiona sobre la memoria televisiva del país."
     },
     {
-      "category": "Literatura y Ensayo",
-      "title": "Voces críticas en Overland",
-      "summary": "El número 260 de la revista [Overland literary journal](https://overland.org.au/2026/11/contingencies-nicholas-southall-and-mark-gawnes-crimes-of-class/) reúne los textos galardonados en los premios Judith Wright y Neilma Sidney, consolidando una plataforma insustituible para la nueva poesía y narrativa australiana."
-    },
-    {
-      "category": "Exhibiciones y Memoria",
-      "title": "Los archivos visuales de Pilbara",
-      "summary": "Una serie de fotografías rescatadas del olvido revelan la trastienda de la histórica huelga de trabajadores aborígenes en Pilbara, documentando una resistencia fundamental en la historia social de [Australia](https://www.theguardian.com/australia-news/ng-interactive/2026/nov/17/aboriginal-workers-1946-pilbara-strike-camps-john-wilson-photographs-australia-history-ntwnfb)."
+      "category": "Libros",
+      "title": "Crítica cultural y poética en la edición 260 de Overland",
+      "summary": "La histórica revista [Overland](https://overland.org.au/2026/11/a-natives-title/) reúne reflexiones de Hana Pera Aoake y John Kinsella sobre la economía del arte indígena y las metodologías poéticas contemporáneas."
     }
   ],
   "recommendation": {
     "type": "Libro",
-    "title": "Crimes of Class",
-    "creator": "Nicholas Southall y Mark Gawne",
-    "context": "Un ensayo incisivo publicado en Overland que desarma las estructuras de clase en la Australia contemporánea.",
-    "url": "https://overland.org.au/2026/11/contingencies-nicholas-southall-and-mark-gawnes-crimes-of-class/"
-  },
-  "closing_media": {
-    "type": "image",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Prime_Minister_Gough_Whitlam_pours_soil_into_the_hand_of_traditional_land_owner_Vincent_Lingiari_1975_Mervyn_Bishop.jpg/960px-Prime_Minister_Gough_Whitlam_pours_soil_into_the_hand_of_traditional_land_owner_Vincent_Lingiari_1975_Mervyn_Bishop.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "caption": "Retrato que documenta el archivo histórico de la huelga de trabajadores aborígenes en la región de Pilbara.",
-    "credit": "Foto: Wikimedia Commons (vía Wikipedia EN)"
+    "title": "Overland #260",
+    "creator": "Varios autores",
+    "context": "Una entrega sustancial que explora la poesía contemporánea y el análisis crítico de la economía del arte indígena.",
+    "url": "https://overland.org.au/2026/11/a-natives-title/"
   },
   "sources": [
     {
+      "name": "Culture | The Guardian",
+      "url": "https://www.theguardian.com/music/2026/nov/23/molly-meldrum-music-industry-tributes",
+      "paywalled": false
+    },
+    {
+      "name": "ScreenHub Australia",
+      "url": "https://www.screenhub.com.au/news/reviews/robodebt-drama-shakedown-captures-the-grief-and-anger-but-not-much-else-2711009/",
+      "paywalled": false
+    },
+    {
       "name": "Overland literary journal",
-      "url": "https://overland.org.au/2026/11/contingencies-nicholas-southall-and-mark-gawnes-crimes-of-class/",
-      "paywalled": false
-    },
-    {
-      "name": "Mamamia",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFA5TTAzZFp4V1ZIdkZVUk84ZENHYzhCZ05IZnQwSUFKcEpGUG5YRUVYU0pLX2RHX3pCcFBGVEYxMktueEZFczlaS0tzel8zU1JmOGFReHd0dmMxdFRlelc2X19KeUw?oc=5",
-      "paywalled": false
-    },
-    {
-      "name": "The Footy Almanac",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNUk8zcVY2dDZzZnp6U29nVHVyVzRPTHl2V19iNlBieUlLcEVVOHNXc3drM2lhdWVwc3VMazN5NGlKdndIY2F6ZTJVSnpwcjlGS1BkUWt6VERxYk9RbmRhTUI1NHR5ZlppdlRrVlJOY19DVW9WVmg4NWZ4Y2ZJN1pjeVMyaw?oc=5",
+      "url": "https://overland.org.au/2026/11/a-natives-title/",
       "paywalled": false
     },
     {
       "name": "Culture | The Guardian",
-      "url": "https://www.theguardian.com/australia-news/ng-interactive/2026/nov/17/aboriginal-workers-1946-pilbara-strike-camps-john-wilson-photographs-australia-history-ntwnfb",
+      "url": "https://www.theguardian.com/tv-and-radio/2026/nov/20/how-australian-tv-took-over-the-world",
+      "paywalled": false
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQRDNMLUN5M3NYNnRvR0k0cVY2WGpVQWtuZm43NmlSU0tVYkxTLTU5QlVRSzJGYk1WWm1ZbHlvelh0UjZyZkZ2RUZTYkFaTFYyY0NrMmtYMnRiYjh4TlNKSV80Q3hhR2Q5LW5udkMyUDFfNHoxYzdTWlFnZFdiQTZ1eFhaYWVLU1ZFTkRfUWxDdTdGM3hySXhHUWZDNVVDdWZQRW1NMGJIa0Q3YURDU2JYWUVPaTk0NzNjdHhtZUx1ZTIxQlkzZXgyYWpUUFJ4OGEydUZr?oc=5",
       "paywalled": false
     }
   ]
