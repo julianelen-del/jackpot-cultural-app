@@ -109,7 +109,6 @@ function truncateText(text: string, maxLen: number): string {
 
 function fitCompleteSentences(text: string, maxLen: number): string {
   const clean = cleanPlainText(text);
-  if (clean.length <= maxLen) return clean;
   const sentences = clean.match(/[^.!?]+[.!?]+/g);
   if (sentences && sentences.length > 0) {
     let acc = "";
@@ -354,10 +353,14 @@ function buildHeadlinesMaleScript(editions: CountryEdition[]): string {
   }).join("\n\n");
 }
 
-function buildCountryBodyMaleScript(ed: CountryEdition, hasMore: boolean): string {
+function buildCountryPulseMaleScript(ed: CountryEdition): string {
   const pulse = ed.cultural_pulse.split(/\n{2,}/).map((p) => cleanSpeechText(p)).filter(Boolean).join("\n\n");
+  return [`Panorama cultural de ${ed.country}.`, cleanSpeechText(ed.intro), pulse].filter(Boolean).join("\n\n");
+}
+
+function buildCountryRecommendationMaleScript(ed: CountryEdition, hasMore: boolean): string {
   const rec = `Para descubrir en ${ed.country}: ${cleanSpeechText(ed.recommendation.title)}, de ${cleanSpeechText(ed.recommendation.creator)}. ${cleanSpeechText(ed.recommendation.context)}`;
-  return [`Panorama cultural de ${ed.country}.`, cleanSpeechText(ed.intro), pulse, rec, hasMore ? "Pasamos al siguiente destino de la jornada." : ""].filter(Boolean).join("\n\n");
+  return hasMore ? `${rec} Pasamos al siguiente destino de la jornada.` : rec;
 }
 
 function buildClosingFemaleScript(): string {
@@ -416,8 +419,9 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
 
   const isSingleCountry = selected.length === 1;
   const mainEd = selected[0];
-  const squareCoverUri = await preparePromoSquareUri(mainEd.cover_image?.url);
-  const coverSize = isSingleCountry ? "294px" : "244px";
+  const fallbackImg = mainEd.cover_image?.url || (mainEd.closing_media?.type === "image" ? mainEd.closing_media.url : undefined);
+  const squareCoverUri = await preparePromoSquareUri(fallbackImg);
+  const coverSize = isSingleCountry ? "294px" : "240px";
 
   const items = isSingleCountry
     ? mainEd.topics.slice(0, 2).map((t) => ({
@@ -539,7 +543,7 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
             {
               type: "div",
               props: {
-                style: { width: "952px", display: "flex", flexDirection: "column", gap: isSingleCountry ? "34px" : "22px", borderTop: "2px solid #161615", paddingTop: isSingleCountry ? "26px" : "20px" },
+                style: { width: "952px", display: "flex", flexDirection: "column", gap: isSingleCountry ? "34px" : "20px", borderTop: "2px solid #161615", paddingTop: isSingleCountry ? "26px" : "18px" },
                 children: [
                   ...items.map((it) => ({
                     type: "div",
@@ -547,8 +551,8 @@ async function generatePodcastPromoCard(episode: EpisodeMeta, selected: CountryE
                       style: { width: "952px", boxSizing: "border-box", display: "flex", flexDirection: "column", borderLeft: "5px solid #B83827", paddingLeft: "22px" },
                       children: [
                         { type: "span", props: { style: { width: "925px", fontSize: isSingleCountry ? "20px" : "18px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: it.tag } },
-                        { type: "span", props: { style: { width: "925px", marginTop: "4px", fontFamily: "Newsreader", fontSize: isSingleCountry ? "37px" : "32px", fontWeight: 500, lineHeight: 1.13, color: "#161615" }, children: it.title } },
-                        { type: "span", props: { style: { width: "925px", marginTop: "6px", fontSize: isSingleCountry ? "27px" : "23px", fontWeight: 400, lineHeight: 1.3, color: "#252320" }, children: it.summary } },
+                        { type: "span", props: { style: { width: "925px", marginTop: "4px", fontFamily: "Newsreader", fontSize: isSingleCountry ? "37px" : "31px", fontWeight: 500, lineHeight: 1.13, color: "#161615" }, children: it.title } },
+                        { type: "span", props: { style: { width: "925px", marginTop: "6px", fontSize: isSingleCountry ? "28px" : "23px", fontWeight: 400, lineHeight: 1.3, color: "#161615" }, children: it.summary } },
                       ],
                     },
                   })),
@@ -720,10 +724,18 @@ async function main() {
       console.log(`  [Voz masculina] Esperando 22s antes de locutar ${ed.country}...`);
       await new Promise((r) => setTimeout(r, 22000));
       console.log(`  [Voz masculina] Generando crónica de ${ed.country}...`);
-      const bodyWav = path.join(tmpDir, `04-pais-${i}.wav`);
-      await synthesizeSegmentToWav(ai, buildCountryBodyMaleScript(ed, i < selected.length - 1), MALE_VOICE_NAME, "male-host", bodyWav, tmpDir, segIndex++);
-      timelineWavs.push(bodyWav);
-      if (i < selected.length - 1) timelineWavs.push(silShort, clickWav, silShort);
+      const pulseWav = path.join(tmpDir, `04-pais-pulso-${i}.wav`);
+      await synthesizeSegmentToWav(ai, buildCountryPulseMaleScript(ed), MALE_VOICE_NAME, "male-host", pulseWav, tmpDir, segIndex++);
+      timelineWavs.push(pulseWav, silShort, clickWav, silShort);
+
+      console.log(`  [Voz masculina] Esperando 22s antes de Para descubrir de ${ed.country}...`);
+      await new Promise((r) => setTimeout(r, 22000));
+      console.log(`  [Voz masculina] Generando Para descubrir de ${ed.country}...`);
+      const recWav = path.join(tmpDir, `04-pais-rec-${i}.wav`);
+      await synthesizeSegmentToWav(ai, buildCountryRecommendationMaleScript(ed, i < selected.length - 1), MALE_VOICE_NAME, "male-host", recWav, tmpDir, segIndex++);
+      timelineWavs.push(recWav);
+
+      if (i < selected.length - 1) timelineWavs.push(silShort, sepWav, silShort);
     }
 
     timelineWavs.push(silShort, sepWav, silShort);

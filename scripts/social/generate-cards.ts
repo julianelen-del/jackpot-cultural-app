@@ -39,7 +39,6 @@ function truncateText(text: string, maxLen: number): string {
 
 function fitCompleteSentences(text: string, maxLen: number): string {
   const clean = stripEditorialMarkdown(text);
-  if (clean.length <= maxLen) return clean;
   const sentences = clean.match(/[^.!?]+[.!?]+/g);
   if (sentences && sentences.length > 0) {
     let acc = "";
@@ -129,15 +128,24 @@ async function loadFonts(): Promise<FontAsset[]> {
   return loaded;
 }
 
-async function prepareCoverDataUri(url?: string): Promise<string | null> {
-  if (!url) return null;
-  try {
-    const raw = await fetchBuffer(url, 8000);
-    const resized = await sharp(raw).resize(952, 390, { fit: "cover", position: "attention" }).jpeg({ quality: 86 }).toBuffer();
-    return `data:image/jpeg;base64,${resized.toString("base64")}`;
-  } catch {
-    return null;
+async function prepareCoverDataUri(edition: CountryEdition): Promise<string | null> {
+  const candidates = [
+    edition.cover_image?.url,
+    edition.closing_media?.type === "image" ? edition.closing_media.url : undefined,
+  ].filter((u): u is string => Boolean(u));
+
+  for (const url of candidates) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const raw = await fetchBuffer(url, 9000);
+        const resized = await sharp(raw).resize(952, 400, { fit: "cover", position: "attention" }).jpeg({ quality: 86 }).toBuffer();
+        return `data:image/jpeg;base64,${resized.toString("base64")}`;
+      } catch {
+        if (attempt === 0) await new Promise((r) => setTimeout(r, 900));
+      }
+    }
   }
+  return null;
 }
 
 async function renderTreeToJpeg(tree: unknown, fonts: FontAsset[]): Promise<Buffer> {
@@ -198,22 +206,22 @@ async function renderSlide1(edition: CountryEdition, coverUri: string | null, fo
         style: { width: "952px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" },
         children: [
           { type: "span", props: { style: { fontSize: "25px", letterSpacing: "5px", color: "#B83827", fontWeight: 600 }, children: edition.continent.toUpperCase() } },
-          { type: "span", props: { style: { marginTop: "10px", fontFamily: "Newsreader", fontSize: edition.country.length > 12 ? "76px" : "94px", fontWeight: 500, lineHeight: 1.04, letterSpacing: "-1px", maxWidth: "930px" }, children: edition.country.toUpperCase() } },
-          { type: "span", props: { style: { marginTop: "22px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "39px", lineHeight: 1.34, color: "#252320", maxWidth: "920px" }, children: cleanIntro } },
+          { type: "span", props: { style: { marginTop: "10px", fontFamily: "Newsreader", fontSize: edition.country.length > 12 ? "76px" : "96px", fontWeight: 500, lineHeight: 1.04, letterSpacing: "-1px", maxWidth: "930px" }, children: edition.country.toUpperCase() } },
+          { type: "span", props: { style: { marginTop: "22px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: coverUri ? "39px" : "45px", lineHeight: 1.34, color: "#161615", maxWidth: "920px" }, children: cleanIntro } },
         ],
       },
     },
     ...(coverUri ? [{
       type: "div",
       props: {
-        style: { width: "952px", height: "390px", display: "flex", marginTop: "30px", border: "1px solid #161615", backgroundColor: "#EFEAE0", overflow: "hidden" },
-        children: [{ type: "img", props: { src: coverUri, style: { width: "952px", height: "390px", objectFit: "cover" } } }],
+        style: { width: "952px", height: "400px", display: "flex", marginTop: "30px", border: "1px solid #161615", backgroundColor: "#EFEAE0", overflow: "hidden" },
+        children: [{ type: "img", props: { src: coverUri, style: { width: "952px", height: "400px", objectFit: "cover" } } }],
       },
     }] : []),
     {
       type: "div",
       props: {
-        style: { width: "952px", display: "flex", justifyContent: "center", marginTop: "26px" },
+        style: { width: "952px", display: "flex", justifyContent: "center", marginTop: coverUri ? "26px" : "42px" },
         children: [{ type: "span", props: { style: { fontSize: "24px", letterSpacing: "4px", color: "#5C5952", fontWeight: 600 }, children: "DESLIZÁ PARA LEER EL PANORAMA →" } }],
       },
     },
@@ -223,7 +231,7 @@ async function renderSlide1(edition: CountryEdition, coverUri: string | null, fo
 
 async function renderSlide2(edition: CountryEdition, fonts: FontAsset[]): Promise<Buffer> {
   const topics = edition.topics.slice(0, 3);
-  const summaryLimit = topics.length <= 2 ? 460 : 300;
+  const summaryLimit = topics.length <= 2 ? 460 : 285;
   const body = [
     {
       type: "div",
@@ -238,15 +246,15 @@ async function renderSlide2(edition: CountryEdition, fonts: FontAsset[]): Promis
     {
       type: "div",
       props: {
-        style: { width: "952px", display: "flex", flexDirection: "column", marginTop: "32px", gap: topics.length <= 2 ? "60px" : "42px" },
+        style: { width: "952px", display: "flex", flexDirection: "column", marginTop: "28px", gap: topics.length <= 2 ? "56px" : "30px" },
         children: topics.map((t) => ({
           type: "div",
           props: {
             style: { width: "952px", boxSizing: "border-box", display: "flex", flexDirection: "column", borderLeft: "5px solid #B83827", paddingLeft: "22px" },
             children: [
               { type: "span", props: { style: { width: "925px", fontSize: "22px", letterSpacing: "3px", color: "#B83827", fontWeight: 600 }, children: t.category.toUpperCase() } },
-              { type: "span", props: { style: { width: "925px", marginTop: "5px", fontFamily: "Newsreader", fontSize: "39px", fontWeight: 500, lineHeight: 1.12, color: "#161615" }, children: truncateText(stripEditorialMarkdown(t.title), 120) } },
-              { type: "span", props: { style: { width: "925px", marginTop: "9px", fontSize: topics.length <= 2 ? "31px" : "28px", fontWeight: 400, lineHeight: 1.32, color: "#252320" }, children: fitCompleteSentences(t.summary, summaryLimit) } },
+              { type: "span", props: { style: { width: "925px", marginTop: "4px", fontFamily: "Newsreader", fontSize: "39px", fontWeight: 500, lineHeight: 1.12, color: "#161615" }, children: truncateText(stripEditorialMarkdown(t.title), 120) } },
+              { type: "span", props: { style: { width: "925px", marginTop: "8px", fontSize: topics.length <= 2 ? "33px" : "30px", fontWeight: 400, lineHeight: 1.28, color: "#161615" }, children: fitCompleteSentences(t.summary, summaryLimit) } },
             ],
           },
         })),
@@ -276,7 +284,7 @@ async function renderSlide3(edition: CountryEdition, cfg: CountrySourceConfig, f
           },
           { type: "span", props: { style: { width: "868px", marginTop: "20px", fontFamily: "Newsreader", fontSize: "54px", fontWeight: 500, lineHeight: 1.1, color: "#161615" }, children: truncateText(edition.recommendation.title, 140) } },
           { type: "span", props: { style: { width: "868px", marginTop: "8px", fontFamily: "Newsreader", fontStyle: "italic", fontSize: "35px", color: "#5C5952" }, children: edition.recommendation.creator } },
-          { type: "span", props: { style: { width: "868px", marginTop: "18px", fontSize: "32px", fontWeight: 400, lineHeight: 1.36, color: "#252320" }, children: fitCompleteSentences(edition.recommendation.context, 240) } },
+          { type: "span", props: { style: { width: "868px", marginTop: "18px", fontSize: "32px", fontWeight: 400, lineHeight: 1.36, color: "#161615" }, children: fitCompleteSentences(edition.recommendation.context, 240) } },
         ],
       },
     },
@@ -318,7 +326,7 @@ async function main() {
       const parsed = CountryEditionSchema.safeParse(raw);
       if (!parsed.success) continue;
       const edition = parsed.data;
-      const coverUri = await prepareCoverDataUri(edition.cover_image?.url);
+      const coverUri = await prepareCoverDataUri(edition);
       const slide1 = await renderSlide1(edition, coverUri, fonts);
       const slide2 = await renderSlide2(edition, fonts);
       const slide3 = await renderSlide3(edition, cfg, fonts);
@@ -329,6 +337,7 @@ async function main() {
       fs.writeFileSync(path.join(OUT_DIR, `${cfg.slug}-3.jpg`), slide3);
       generated++;
       console.log(`  ✓ Placas generadas: ${cfg.slug}.jpg + carrusel (-1, -2, -3)`);
+      await new Promise((r) => setTimeout(r, 250));
     } catch (err) {
       console.error(`  ✗ Error en ${cfg.slug}: ${err instanceof Error ? err.message : String(err)}`);
     }
