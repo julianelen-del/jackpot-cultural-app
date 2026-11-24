@@ -28,6 +28,9 @@ const EXCLUDED_IMAGE_TERMS = [
   "locator",
 ];
 
+const USER_AGENT =
+  "JackpotCulturalBot/1.0 (+https://jackpot-cultural-app.vercel.app)";
+
 const wikiPageCache = new Map<string, string | null>();
 
 function cleanHtml(raw?: string): string {
@@ -36,6 +39,53 @@ function cleanHtml(raw?: string): string {
     .replace(/<[^>]*>/g, " ")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function pickWikimediaCandidate(
+  pages: WikimediaPage[],
+  caption: string,
+  excludeUrl: string | undefined,
+  allowAnyOrientation: boolean
+): CoverImage | undefined {
+  for (const page of pages) {
+    const titleLower = (page.title || "").toLowerCase();
+    if (EXCLUDED_IMAGE_TERMS.some((term) => titleLower.includes(term))) {
+      continue;
+    }
+
+    const info = page.imageinfo?.[0];
+    if (!info) continue;
+
+    const mime = info.mime || "";
+    if (!["image/jpeg", "image/png", "image/webp"].includes(mime)) continue;
+
+    const width = info.width || 0;
+    const height = info.height || 0;
+    if (allowAnyOrientation) {
+      if (width < 480 || height < 380) continue;
+    } else {
+      if (width < 800 || height < 450 || width <= height) continue;
+    }
+
+    const imageUrl = info.thumburl || info.url;
+    if (!imageUrl || imageUrl === excludeUrl) continue;
+
+    const artist = cleanHtml(info.extmetadata?.Artist?.value).slice(0, 55);
+    const license = cleanHtml(
+      info.extmetadata?.LicenseShortName?.value
+    ).slice(0, 35);
+
+    const creditParts = [artist, license || "Wikimedia Commons"].filter(
+      Boolean
+    );
+
+    return {
+      url: imageUrl,
+      caption: caption.trim().slice(0, 195),
+      credit: `Foto: ${creditParts.join(" · ")}`.slice(0, 138),
+    };
+  }
+  return undefined;
 }
 
 export async function fetchWikimediaCoverImage(
@@ -54,7 +104,7 @@ export async function fetchWikimediaCoverImage(
         generator: "search",
         gsrnamespace: "6",
         gsrsearch: query.trim(),
-        gsrlimit: "10",
+        gsrlimit: "12",
         prop: "imageinfo",
         iiprop: "url|size|mime|extmetadata",
         iiurlwidth: "1280",
@@ -63,65 +113,46 @@ export async function fetchWikimediaCoverImage(
       }).toString();
 
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 6000);
+    const timer = setTimeout(() => controller.abort(), 8000);
 
     const res = await fetch(endpoint, {
       signal: controller.signal,
-      headers: {
-        "User-Agent": "JackpotCulturalBot/1.0 (https://github.com)",
-      },
+      headers: { "User-Agent": USER_AGENT },
     });
     clearTimeout(timer);
 
-    if (!res.ok) return undefined;
-    const data = (await res.json()) as {
-      query?: { pages?: Record<string, WikimediaPage> };
-    };
-
-    const pages = Object.values(data.query?.pages || {});
-    for (const page of pages) {
-      const titleLower = (page.title || "").toLowerCase();
-      if (EXCLUDED_IMAGE_TERMS.some((term) => titleLower.includes(term))) {
-        continue;
-      }
-
-      const info = page.imageinfo?.[0];
-      if (!info) continue;
-
-      const mime = info.mime || "";
-      if (!["image/jpeg", "image/png", "image/webp"].includes(mime)) continue;
-
-      const width = info.width || 0;
-      const height = info.height || 0;
-      if (allowPortrait) {
-        if (width < 480 || height < 380) continue;
-      } else {
-        if (width < 800 || height < 450 || width <= height) continue;
-      }
-
-      const imageUrl = info.thumburl || info.url;
-      if (!imageUrl || imageUrl === excludeUrl) continue;
-
-      const artist = cleanHtml(info.extmetadata?.Artist?.value).slice(0, 55);
-      const license = cleanHtml(
-        info.extmetadata?.LicenseShortName?.value
-      ).slice(0, 35);
-
-      const creditParts = [artist, license || "Wikimedia Commons"].filter(
-        Boolean
-      );
-
-      return {
-        url: imageUrl,
-        caption: caption.trim().slice(0, 195),
-        credit: `Foto: ${creditParts.join(" · ")}`.slice(0, 138),
+    if (res.ok) {
+      const data = (await res.json()) as {
+        query?: { pages?: Record<string, WikimediaPage> };
       };
-    }
+      const pages = Object.values(data.query?.pages || {});
 
-    return undefined;
+      // 1ra pasada: orientación ideal (apaisada para portada, o libre si allowPortrait)
+      const firstPass = pickWikimediaCandidate(
+        pages,
+        caption,
+        excludeUrl,
+        allowPortrait
+      );
+      if (firstPass) return firstPass;
+
+      // 2da pasada: si no hubo foto apaisada grande, acepta cuadrada o vertical nítida
+      if (!allowPortrait) {
+        const secondPass = pickWikimediaCandidate(
+          pages,
+          caption,
+          excludeUrl,
+          true
+        );
+        if (secondPass) return secondPass;
+      }
+    }
   } catch {
-    return undefined;
+    // Seguir con respaldo de Wikipedia
   }
+
+  // Respaldo automático con la imagen principal de Wikipedia si Wikimedia no encontró nada
+  return fetchWikipediaLeadImage(query, caption, excludeUrl);
 }
 
 export async function fetchWikipediaLeadImage(
@@ -145,12 +176,10 @@ export async function fetchWikipediaLeadImage(
         }).toString();
 
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 4500);
+      const timer = setTimeout(() => controller.abort(), 5000);
       const searchRes = await fetch(searchUrl, {
         signal: controller.signal,
-        headers: {
-          "User-Agent": "JackpotCulturalBot/1.0 (https://github.com)",
-        },
+        headers: { "User-Agent": USER_AGENT },
       });
       clearTimeout(timer);
 
@@ -166,12 +195,10 @@ export async function fetchWikipediaLeadImage(
       )}`;
 
       const sumController = new AbortController();
-      const sumTimer = setTimeout(() => sumController.abort(), 4500);
+      const sumTimer = setTimeout(() => sumController.abort(), 5000);
       const sumRes = await fetch(summaryUrl, {
         signal: sumController.signal,
-        headers: {
-          "User-Agent": "JackpotCulturalBot/1.0 (https://github.com)",
-        },
+        headers: { "User-Agent": USER_AGENT },
       });
       clearTimeout(sumTimer);
 
@@ -252,12 +279,10 @@ export async function findWikipediaPageUrl(
         }).toString();
 
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 3500);
+      const timer = setTimeout(() => controller.abort(), 4000);
       const searchRes = await fetch(searchUrl, {
         signal: controller.signal,
-        headers: {
-          "User-Agent": "JackpotCulturalBot/1.0 (https://github.com)",
-        },
+        headers: { "User-Agent": USER_AGENT },
       });
       clearTimeout(timer);
 
@@ -272,12 +297,10 @@ export async function findWikipediaPageUrl(
         pageTitle.replace(/ /g, "_")
       )}`;
       const sumController = new AbortController();
-      const sumTimer = setTimeout(() => sumController.abort(), 3500);
+      const sumTimer = setTimeout(() => sumController.abort(), 4000);
       const sumRes = await fetch(summaryUrl, {
         signal: sumController.signal,
-        headers: {
-          "User-Agent": "JackpotCulturalBot/1.0 (https://github.com)",
-        },
+        headers: { "User-Agent": USER_AGENT },
       });
       clearTimeout(sumTimer);
 
@@ -334,7 +357,8 @@ export async function verifyYouTubeOEmbed(
   try {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 4500);
-    const oembedBase = "https://" + "www.youtube.com/oembed?format=json&url=";
+    const oembedBase =
+      "https://www.youtube.com/oembed?format=json&url=";
     const res = await fetch(oembedBase + encodeURIComponent(rawUrl), {
       signal: controller.signal,
     });
