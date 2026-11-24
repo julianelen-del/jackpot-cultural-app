@@ -16,6 +16,15 @@
     <itunes:category text="Arts" />
     <itunes:image href="https://jackpot-cultural-app.vercel.app/podcast-cover.png" />
     <item>
+      <title>Jackpot Cultural · Brasil (2026-W48)</title>
+      <description>La biografía de Tuca por Renato Gonçalves, el sencillo &quot;Mulher de Areia&quot; con Vânia Bastos y el paso de &quot;Jim Queen&quot; por Mix Brasil marcan la agenda.</description>
+      <pubDate>Tue, 24 Nov 2026 11:20:51 GMT</pubDate>
+      <guid isPermaLink="false">jackpot-2026-W48-brasil</guid>
+      <enclosure url="https://jackpot-cultural-app.vercel.app/podcast/episodio-2026-W48-brasil.mp3" length="3855298" type="audio/mpeg" />
+      <itunes:duration>04:01</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
       <title>Jackpot Cultural · Argentina (2026-W48)</title>
       <description>Ilan Amores presenta &apos;El Internacional&apos;, Mariano Llinás aborda a Borges en el cine y la danza revive a Spinoza.</description>
       <pubDate>Mon, 23 Nov 2026 11:28:23 GMT</pubDate>

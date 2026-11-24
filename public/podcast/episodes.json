@@ -1,5 +1,26 @@
 [
   {
+    "id": "jackpot-2026-W48-brasil",
+    "key": "brasil",
+    "week": "2026-W48",
+    "title": "Jackpot Cultural · Brasil (2026-W48)",
+    "subtitle": "Brasil",
+    "description": "La biografía de Tuca por Renato Gonçalves, el sencillo \"Mulher de Areia\" con Vânia Bastos y el paso de \"Jim Queen\" por Mix Brasil marcan la agenda.",
+    "pubDate": "2026-11-24T11:20:51.078Z",
+    "fileName": "episodio-2026-W48-brasil.mp3",
+    "cardFileName": "podcast-brasil.jpg",
+    "bytes": 3855298,
+    "durationSec": 240.894898,
+    "countries": [
+      "brasil"
+    ],
+    "headlines": [
+      "Música — Chris Isaak en São Paulo y Vânia Bastos en \"Mulher de Areia\"",
+      "Libros — La biografía de Tuca y la prehistoria según Jeovanna Vieira",
+      "Cine — \"Jim Queen\" en Mix Brasil, 20.º FOR RAINBOW y García-Pelayo en Porto Alegre"
+    ]
+  },
+  {
     "id": "jackpot-2026-W48-argentina",
     "key": "argentina",
     "week": "2026-W48",
