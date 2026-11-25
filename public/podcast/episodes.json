@@ -1,5 +1,26 @@
 [
   {
+    "id": "jackpot-2026-W48-estados-unidos",
+    "key": "estados-unidos",
+    "week": "2026-W48",
+    "title": "Jackpot Cultural · Estados Unidos (2026-W48)",
+    "subtitle": "Estados Unidos",
+    "description": "Armand Hammer edita Snakes & Ladders, Bob Dylan abre su archivo de 1976 y Annie Proulx reúne sus cuentos mientras el Whitney desata debate por un De Kooning.",
+    "pubDate": "2026-11-25T11:26:28.893Z",
+    "fileName": "episodio-2026-W48-estados-unidos.mp3",
+    "cardFileName": "podcast-estados-unidos.jpg",
+    "bytes": 3439847,
+    "durationSec": 214.934898,
+    "countries": [
+      "estados-unidos"
+    ],
+    "headlines": [
+      "Música — Armand Hammer y el archivo de Bob Dylan",
+      "Festivales y giras — Interpol en Los Ángeles y la curaduría de Hayley Williams",
+      "Libros — Annie Proulx vuelve al relato corto"
+    ]
+  },
+  {
     "id": "jackpot-2026-W48-brasil",
     "key": "brasil",
     "week": "2026-W48",

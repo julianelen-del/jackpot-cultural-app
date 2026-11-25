@@ -16,6 +16,15 @@
     <itunes:category text="Arts" />
     <itunes:image href="https://jackpot-cultural-app.vercel.app/podcast-cover.png" />
     <item>
+      <title>Jackpot Cultural · Estados Unidos (2026-W48)</title>
+      <description>Armand Hammer edita Snakes &amp; Ladders, Bob Dylan abre su archivo de 1976 y Annie Proulx reúne sus cuentos mientras el Whitney desata debate por un De Kooning.</description>
+      <pubDate>Wed, 25 Nov 2026 11:26:28 GMT</pubDate>
+      <guid isPermaLink="false">jackpot-2026-W48-estados-unidos</guid>
+      <enclosure url="https://jackpot-cultural-app.vercel.app/podcast/episodio-2026-W48-estados-unidos.mp3" length="3439847" type="audio/mpeg" />
+      <itunes:duration>03:35</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
       <title>Jackpot Cultural · Brasil (2026-W48)</title>
       <description>La biografía de Tuca por Renato Gonçalves, el sencillo &quot;Mulher de Areia&quot; con Vânia Bastos y el paso de &quot;Jim Queen&quot; por Mix Brasil marcan la agenda.</description>
       <pubDate>Tue, 24 Nov 2026 11:20:51 GMT</pubDate>
