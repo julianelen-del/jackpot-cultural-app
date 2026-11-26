@@ -16,6 +16,15 @@
     <itunes:category text="Arts" />
     <itunes:image href="https://jackpot-cultural-app.vercel.app/podcast-cover.png" />
     <item>
+      <title>Jackpot Cultural · Francia (2026-W48)</title>
+      <description>El sello Moli Del Tro edita a Pairi Daeza, París rescata Hero y a Christelle Lheureux, y la Ópera de París enfrenta críticas por Mozart.</description>
+      <pubDate>Thu, 26 Nov 2026 11:23:51 GMT</pubDate>
+      <guid isPermaLink="false">jackpot-2026-W48-francia</guid>
+      <enclosure url="https://jackpot-cultural-app.vercel.app/podcast/episodio-2026-W48-francia.mp3" length="3257198" type="audio/mpeg" />
+      <itunes:duration>03:23</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
       <title>Jackpot Cultural · Estados Unidos (2026-W48)</title>
       <description>Armand Hammer edita Snakes &amp; Ladders, Bob Dylan abre su archivo de 1976 y Annie Proulx reúne sus cuentos mientras el Whitney desata debate por un De Kooning.</description>
       <pubDate>Wed, 25 Nov 2026 11:26:28 GMT</pubDate>

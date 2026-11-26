@@ -1,5 +1,26 @@
 [
   {
+    "id": "jackpot-2026-W48-francia",
+    "key": "francia",
+    "week": "2026-W48",
+    "title": "Jackpot Cultural · Francia (2026-W48)",
+    "subtitle": "Francia",
+    "description": "El sello Moli Del Tro edita a Pairi Daeza, París rescata Hero y a Christelle Lheureux, y la Ópera de París enfrenta críticas por Mozart.",
+    "pubDate": "2026-11-26T11:23:51.276Z",
+    "fileName": "episodio-2026-W48-francia.mp3",
+    "cardFileName": "podcast-francia.jpg",
+    "bytes": 3257198,
+    "durationSec": 203.494943,
+    "countries": [
+      "francia"
+    ],
+    "headlines": [
+      "Música — Pairi Daeza y el catálogo de Moli Del Tro",
+      "Cine — Day for Night rescata Hero en París",
+      "Debates artísticos — Polémica en la Ópera y debate en la Comédie-Française"
+    ]
+  },
+  {
     "id": "jackpot-2026-W48-estados-unidos",
     "key": "estados-unidos",
     "week": "2026-W48",
