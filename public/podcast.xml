@@ -16,6 +16,15 @@
     <itunes:category text="Arts" />
     <itunes:image href="https://jackpot-cultural-app.vercel.app/podcast-cover.png" />
     <item>
+      <title>Jackpot Cultural · Reino Unido (2026-W48)</title>
+      <description>Londres mira los reversos de Van Eyck en la National Gallery y la galería rebelde de Peggy Guggenheim en la Royal Academy, mientras RIP Magic agita el dance-punk en NME.</description>
+      <pubDate>Fri, 27 Nov 2026 11:20:06 GMT</pubDate>
+      <guid isPermaLink="false">jackpot-2026-W48-reino-unido</guid>
+      <enclosure url="https://jackpot-cultural-app.vercel.app/podcast/episodio-2026-W48-reino-unido.mp3" length="6589587" type="audio/mpeg" />
+      <itunes:duration>06:52</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
       <title>Jackpot Cultural · Francia (2026-W48)</title>
       <description>El sello Moli Del Tro edita a Pairi Daeza, París rescata Hero y a Christelle Lheureux, y la Ópera de París enfrenta críticas por Mozart.</description>
       <pubDate>Thu, 26 Nov 2026 11:23:51 GMT</pubDate>
