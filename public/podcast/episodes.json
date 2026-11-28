@@ -1,5 +1,26 @@
 [
   {
+    "id": "jackpot-2026-W48-reino-unido",
+    "key": "reino-unido",
+    "week": "2026-W48",
+    "title": "Jackpot Cultural · Reino Unido (2026-W48)",
+    "subtitle": "Reino Unido",
+    "description": "Londres mira los reversos de Van Eyck en la National Gallery y la galería rebelde de Peggy Guggenheim en la Royal Academy, mientras RIP Magic agita el dance-punk en NME.",
+    "pubDate": "2026-11-28T16:26:46.047Z",
+    "fileName": "episodio-2026-W48-reino-unido.mp3",
+    "cardFileName": "podcast-reino-unido.jpg",
+    "bytes": 3698563,
+    "durationSec": 231.086281,
+    "countries": [
+      "reino-unido"
+    ],
+    "headlines": [
+      "Música — RIP Magic en la portada de NME y Gary Numan rumbo a Blackpool",
+      "Exhibiciones — Van Eyck al desnudo en la National Gallery y Peggy Guggenheim en la Royal Academy",
+      "Cine — Cinco proyecciones para diseccionar The Journey, de Peter Watkins"
+    ]
+  },
+  {
     "id": "jackpot-2026-W48-alemania",
     "key": "alemania",
     "week": "2026-W48",
@@ -17,27 +38,6 @@
     "headlines": [
       "Música — Electrónica de club y lírica urbana",
       "Cine y Series — Adiós a un maestro de la DEFA"
-    ]
-  },
-  {
-    "id": "jackpot-2026-W48-reino-unido",
-    "key": "reino-unido",
-    "week": "2026-W48",
-    "title": "Jackpot Cultural · Reino Unido (2026-W48)",
-    "subtitle": "Reino Unido",
-    "description": "Londres mira los reversos de Van Eyck en la National Gallery y la galería rebelde de Peggy Guggenheim en la Royal Academy, mientras RIP Magic agita el dance-punk en NME.",
-    "pubDate": "2026-11-27T11:20:06.145Z",
-    "fileName": "episodio-2026-W48-reino-unido.mp3",
-    "cardFileName": "podcast-reino-unido.jpg",
-    "bytes": 6589587,
-    "durationSec": 411.774898,
-    "countries": [
-      "reino-unido"
-    ],
-    "headlines": [
-      "Música — RIP Magic en la portada de NME y Gary Numan rumbo a Blackpool",
-      "Exhibiciones — Van Eyck al desnudo en la National Gallery y Peggy Guggenheim en la Royal Academy",
-      "Cine — Cinco proyecciones para diseccionar The Journey, de Peter Watkins"
     ]
   },
   {
