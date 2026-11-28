@@ -67,6 +67,8 @@ function formatEditorialDate(isoDate: string): string {
 
 function estimateReadingMinutes(text: string): number {
   const plain = text
+    .replace(/\\r\\n/g, " ")
+    .replace(/\\n/g, " ")
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
     .replace(/\s*\(\d{1,2}\)(?=[.,;:\s]|$)/g, "")
     .replace(/\s*\[\d{1,2}\](?=[.,;:\s]|$)/g, "")
@@ -77,6 +79,8 @@ function estimateReadingMinutes(text: string): number {
 
 function renderEditorialText(text: string) {
   const normalized = text
+    .replace(/\\r\\n/g, " ")
+    .replace(/\\n/g, " ")
     .replace(/\*\*(\[[^\]]+\]\([^)]+\))\*\*/g, "$1")
     .replace(/\*(\[[^\]]+\]\([^)]+\))\*/g, "$1")
     .replace(/\s*\(\d{1,2}\)(?=[.,;:\s]|$)/g, "")
@@ -182,6 +186,8 @@ export default async function CountryPage({ params }: PageProps) {
   }
 
   const pulseParagraphs = edition.cultural_pulse
+    .replace(/\\r\\n/g, "\n")
+    .replace(/\\n/g, "\n")
     .split(/\n{2,}/)
     .map((p) => p.trim())
     .filter(Boolean);

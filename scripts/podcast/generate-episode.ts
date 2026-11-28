@@ -87,6 +87,8 @@ function runFfmpeg(args: string[]) {
 
 function cleanPlainText(text: string): string {
   return text
+    .replace(/\\r\\n/g, " ")
+    .replace(/\\n/g, " ")
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
     .replace(/\s*\(\d{1,2}\)(?=[.,;:\s]|$)/g, "")
     .replace(/\s*\[\d{1,2}\](?=[.,;:\s]|$)/g, "")
@@ -209,7 +211,19 @@ async function synthesizeSegmentToWav(ai: GoogleGenAI, speechText: string, voice
   if (!b64) throw new Error(`El modelo de voz no devolvió audio en el tramo ${idx}.`);
   const pcmPath = path.join(tmpDir, `seg-${idx}.pcm`);
   fs.writeFileSync(pcmPath, Buffer.from(b64, "base64"));
-  runFfmpeg(["-f", "s16le", "-ar", "24000", "-ac", "1", "-i", pcmPath, "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", outWavPath]);
+
+  const filterChain = [
+    "silenceremove=start_periods=1:start_duration=0.05:start_threshold=-48dB:stop_periods=-1:stop_duration=0.85:stop_threshold=-48dB",
+    "areverse",
+    "silenceremove=start_periods=1:start_duration=0.05:start_threshold=-48dB",
+    "areverse",
+    "loudnorm=I=-16:TP=-1.5:LRA=11",
+  ].join(",");
+
+  runFfmpeg(["-f", "s16le", "-ar", "24000", "-ac", "1", "-i", pcmPath, "-af", filterChain, "-ar", "44100", "-ac", "2", "-c:a", "pcm_s16le", outWavPath]);
+
+  const dur = getAudioDurationSec(outWavPath);
+  console.log(`    ↳ Tramo ${idx} procesado (${formatDuration(dur)})`);
 }
 
 function concatWavs(wavs: string[], outWavPath: string, tmpDir: string, tag: string) {
@@ -354,7 +368,13 @@ function buildHeadlinesMaleScript(editions: CountryEdition[]): string {
 }
 
 function buildCountryPulseMaleScript(ed: CountryEdition): string {
-  const pulse = ed.cultural_pulse.split(/\n{2,}/).map((p) => cleanSpeechText(p)).filter(Boolean).join("\n\n");
+  const pulse = ed.cultural_pulse
+    .replace(/\\r\\n/g, "\n")
+    .replace(/\\n/g, "\n")
+    .split(/\n{2,}/)
+    .map((p) => cleanSpeechText(p))
+    .filter(Boolean)
+    .join("\n\n");
   return [`Panorama cultural de ${ed.country}.`, cleanSpeechText(ed.intro), pulse].filter(Boolean).join("\n\n");
 }
 

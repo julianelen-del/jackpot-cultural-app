@@ -54,6 +54,8 @@ const GENERIC_CAPTION_PATTERNS = [
 const LEAKED_CITATION_PATTERN =
   /(?:\(\d{1,2}\)|\[\d{1,2}\])(?=[.,;:\s]|$)/;
 
+const ESCAPED_NEWLINE_PATTERN = /\\(?:n|r)/;
+
 const NON_PROPER_CAPS = new Set([
   "El",
   "La",
@@ -261,6 +263,18 @@ export function validateEditionQuality(
   const edition = parsed.data;
 
   if (
+    ESCAPED_NEWLINE_PATTERN.test(edition.intro) ||
+    ESCAPED_NEWLINE_PATTERN.test(edition.cultural_pulse) ||
+    ESCAPED_NEWLINE_PATTERN.test(edition.recommendation.context)
+  ) {
+    return {
+      ok: false,
+      reason:
+        "Se detectaron caracteres '\\n' o '\\r' escritos de forma literal. Usa saltos de párrafo reales.",
+    };
+  }
+
+  if (
     hasLeakedCitation(edition.intro) ||
     hasLeakedCitation(edition.cultural_pulse) ||
     hasLeakedCitation(edition.recommendation.context)
@@ -367,6 +381,13 @@ export function validateEditionQuality(
   for (let i = 0; i < edition.topics.length; i++) {
     const topic = edition.topics[i];
     const combined = `${topic.title} ${topic.summary}`;
+
+    if (ESCAPED_NEWLINE_PATTERN.test(combined)) {
+      return {
+        ok: false,
+        reason: `El tema destacado "${topic.title}" incluye caracteres '\\n' o '\\r' literales.`,
+      };
+    }
 
     if (hasLeakedCitation(combined)) {
       return {

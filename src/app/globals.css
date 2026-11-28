@@ -29,11 +29,11 @@ body {
 .editorial-dropcap::first-letter {
   float: left;
   font-family: var(--font-serif);
-  font-size: 4.15rem;
-  line-height: 0.82;
-  padding-top: 0.25rem;
-  padding-right: 0.55rem;
-  padding-bottom: 0.1rem;
+  font-size: 3.8rem;
+  line-height: 0.78;
+  padding-top: 0.2rem;
+  padding-right: 0.18rem;
+  padding-bottom: 0.05rem;
   font-weight: 500;
   color: var(--color-accent);
 }

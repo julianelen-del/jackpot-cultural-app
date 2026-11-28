@@ -144,6 +144,19 @@ async function generateWithModelFallback(
   throw lastErr;
 }
 
+function normalizeEscapedLineBreaks(text: string): string {
+  return text
+    .replace(/\\r\\n/g, "\n")
+    .replace(/\\n/g, "\n")
+    .replace(/\r\n/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+function collapseLineBreaks(text: string): string {
+  return normalizeEscapedLineBreaks(text).replace(/\s*\n+\s*/g, " ").trim();
+}
+
 function cleanRoboticTransitions(text: string): string {
   return text.replace(
     /(^|\n\n|[.!?]\s+)(?:Por un lado|Por otro lado|Paralelamente|En paralelo|Mientras tanto|Asimismo|Por su parte|Finalmente|En suma|En conclusión|En definitiva),?\s+(\*\*|\*|\[)?([a-záéíóúñüA-ZÁÉÍÓÚÑÜ])/g,
@@ -582,7 +595,7 @@ export async function generateCountryEdition(
     const recUrl = verifiedUrls[recId - 1]?.url || verifiedUrls[0]?.url;
     const rawRecContext =
       typeof recRaw.context === "string"
-        ? stripNumericCitations(recRaw.context)
+        ? stripNumericCitations(collapseLineBreaks(recRaw.context))
         : "";
     const resolvedRecContext =
       typeof recRaw.context === "string"
@@ -596,11 +609,11 @@ export async function generateCountryEdition(
       type: recRaw.type,
       title:
         typeof recRaw.title === "string"
-          ? trimAtBoundary(recRaw.title, 138)
+          ? trimAtBoundary(collapseLineBreaks(recRaw.title), 138)
           : recRaw.title,
       creator:
         typeof recRaw.creator === "string"
-          ? trimAtBoundary(recRaw.creator, 118)
+          ? trimAtBoundary(collapseLineBreaks(recRaw.creator), 118)
           : recRaw.creator,
       context: recContext,
       url: recUrl,
@@ -639,16 +652,20 @@ export async function generateCountryEdition(
 
     const visualQuery =
       typeof parsedJson.visual_query === "string"
-        ? parsedJson.visual_query
+        ? collapseLineBreaks(parsedJson.visual_query)
         : country.country;
     const visualCaption =
       typeof parsedJson.visual_caption === "string"
-        ? stripNumericCitations(parsedJson.visual_caption)
+        ? stripNumericCitations(collapseLineBreaks(parsedJson.visual_caption))
         : `${country.country}: panorama cultural semanal.`;
 
     const rawPulse =
       typeof parsedJson.cultural_pulse === "string"
-        ? stripNumericCitations(cleanRoboticTransitions(parsedJson.cultural_pulse))
+        ? stripNumericCitations(
+            cleanRoboticTransitions(
+              normalizeEscapedLineBreaks(parsedJson.cultural_pulse)
+            )
+          )
         : "";
     const linkedPulse = await resolveInlineLinks(
       rawPulse,
@@ -674,7 +691,7 @@ export async function generateCountryEdition(
     const closingRaw = (parsedJson.closing_media || {}) as Record<string, unknown>;
     const closingCaption =
       typeof closingRaw.caption === "string"
-        ? stripNumericCitations(closingRaw.caption.trim())
+        ? stripNumericCitations(collapseLineBreaks(closingRaw.caption))
         : "";
 
     if (
@@ -722,7 +739,7 @@ export async function generateCountryEdition(
     const resolvedIntro =
       typeof parsedJson.intro === "string"
         ? await resolveInlineLinks(
-            stripNumericCitations(parsedJson.intro),
+            stripNumericCitations(collapseLineBreaks(parsedJson.intro)),
             verifiedUrls,
             allowedUrlSet,
             2
@@ -742,7 +759,7 @@ export async function generateCountryEdition(
                 typeof topic.title === "string"
                   ? trimAtBoundary(
                       await resolveInlineLinks(
-                        stripNumericCitations(topic.title),
+                        stripNumericCitations(collapseLineBreaks(topic.title)),
                         verifiedUrls,
                         allowedUrlSet,
                         1
@@ -754,7 +771,7 @@ export async function generateCountryEdition(
                 typeof topic.summary === "string"
                   ? trimAtBoundary(
                       await resolveInlineLinks(
-                        stripNumericCitations(topic.summary),
+                        stripNumericCitations(collapseLineBreaks(topic.summary)),
                         verifiedUrls,
                         allowedUrlSet,
                         2
