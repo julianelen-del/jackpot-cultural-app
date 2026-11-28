@@ -1,5 +1,25 @@
 [
   {
+    "id": "jackpot-2026-W48-alemania",
+    "key": "alemania",
+    "week": "2026-W48",
+    "title": "Jackpot Cultural · Alemania (2026-W48)",
+    "subtitle": "Alemania",
+    "description": "El legado del cineasta Herrmann Zschoche y las nuevas entregas sonoras de SQF2000 y Trettmann marcan la agenda cultural en Alemania.",
+    "pubDate": "2026-11-28T14:01:50.840Z",
+    "fileName": "episodio-2026-W48-alemania.mp3",
+    "cardFileName": "podcast-alemania.jpg",
+    "bytes": 2693790,
+    "durationSec": 168.294898,
+    "countries": [
+      "alemania"
+    ],
+    "headlines": [
+      "Música — Electrónica de club y lírica urbana",
+      "Cine y Series — Adiós a un maestro de la DEFA"
+    ]
+  },
+  {
     "id": "jackpot-2026-W48-reino-unido",
     "key": "reino-unido",
     "week": "2026-W48",

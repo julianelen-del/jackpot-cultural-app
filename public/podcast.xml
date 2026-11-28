@@ -16,6 +16,15 @@
     <itunes:category text="Arts" />
     <itunes:image href="https://jackpot-cultural-app.vercel.app/podcast-cover.png" />
     <item>
+      <title>Jackpot Cultural · Alemania (2026-W48)</title>
+      <description>El legado del cineasta Herrmann Zschoche y las nuevas entregas sonoras de SQF2000 y Trettmann marcan la agenda cultural en Alemania.</description>
+      <pubDate>Sat, 28 Nov 2026 14:01:50 GMT</pubDate>
+      <guid isPermaLink="false">jackpot-2026-W48-alemania</guid>
+      <enclosure url="https://jackpot-cultural-app.vercel.app/podcast/episodio-2026-W48-alemania.mp3" length="2693790" type="audio/mpeg" />
+      <itunes:duration>02:48</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
       <title>Jackpot Cultural · Reino Unido (2026-W48)</title>
       <description>Londres mira los reversos de Van Eyck en la National Gallery y la galería rebelde de Peggy Guggenheim en la Royal Academy, mientras RIP Magic agita el dance-punk en NME.</description>
       <pubDate>Fri, 27 Nov 2026 11:20:06 GMT</pubDate>
